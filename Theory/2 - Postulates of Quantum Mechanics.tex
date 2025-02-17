@@ -1,0 +1,38 @@
+\section{Funciones Medibles}
+
+\subsection{Medibilidad de Funciones}
+
+\definicion{
+    Un espacio medible es un par $(X, \Sigma)$ donde $X$ es un conjunto y $\Sigma$ es una $\sigma$-álgebra de subconjuntos de $X$.
+}
+Vamos a considerar los siguientes espacios medibles:
+
+\begin{itemize}
+    \item $(X, \Sigma) = (E, M|_E)$, donde $E \subset \mathbb{R}^n$ es un conjunto medible y $M|_E$ es la familia de subconjuntos medibles de $E$.
+    \item $(X, \Sigma) = (A, B|_A)$, donde $A \subset \rn$ es un conjunto boreliano y $B|_A$ es la familia de subconjuntos borelianos de $A$.
+\end{itemize}
+
+
+\definicion{
+    Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$ es medible si para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) < \alpha\}$ es un conjunto medible.
+}
+
+\proposicion{
+    Sea $(X, \Sigma)$ un espacio medible y $f: X \to [-\infty, +\infty]$, entonces son equivalentes
+    \begin{enumerate}
+        \item $f$ es medible.
+        \item Para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) \geq \alpha\}$ es un conjunto medible.
+        \item Para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) > \alpha\}$ es un conjunto medible.
+        \item Para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) \leq \alpha\}$ es un conjunto medible.
+        \item Para todo $\alpha, \beta \in \mathbb{R}$, los conjuntos $\{x \in X : \beta \leq f(x) < \alpha\}$, $\{x \in X : f(x) = +\infty\}$ y $\{x \in X : f(x) = -\infty\}$ son conjuntos medibles.
+        \item Para todo $G \subset \mathbb{R}$ abierto, los conjuntos $f^{-1}(G)$, $\{x \in X : f(x) = +\infty\}$ y $\{x \in X : f(x) = -\infty\}$ son conjuntos medibles.
+    \end{enumerate}
+}
+
+
+\begin{corolario}
+    Sea $E \subset \mathbb{R}^n$ un conjunto medible y $f: E \to \R$ una función continua, entonces $f$ es medible.
+\end{corolario}
+
+\begin{proposicion}
+    Sea $A \subset \mathbb{R}^n$ un conjunto boreliano y $f: A \to \R$ una función continua, entonces $f$ es medible.   
