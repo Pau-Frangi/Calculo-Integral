@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1739906716.38547 "c:/Users/paufr/OneDrive/Escritorio/Advanced-Quantum-Mechanics-main/main.tex" "main.pdf" "main" 1739906719.72405 0
+["pdflatex"] 1739907573.92152 "c:/Users/paufr/OneDrive/Escritorio/Advanced-Quantum-Mechanics-main/main.tex" "main.pdf" "main" 1739907577.29044 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1739904156 81068 299f700eb05b1217173e62b88b513bd0 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi657/esint10.pk" 1739867973 13616 eb2ce24607ec8c3cff6f3f728e8586a8 ""
@@ -236,7 +236,7 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1739862704 9114 617b27497e3f4f8e1dcfa432d31f1313 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1739906715 77867 eb6ed5780ffa1bf8c545a4814e2f8d5c ""
+  "Theory/1 - Medida de Lebesgue.tex" 1739907572 77882 148348e811174093e00eea11b9c60676 ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1739791929 63 bd2d127c33e8b32d732f96edbac5f3dd ""
   "Theory/2 - Funciones integrables en varias variables.tex" 1739791694 53 95ca69457c0c91630bc2b9abfb19de04 ""
   "Theory/3 - Teorema de Fubini.tex" 1739791718 27 55d784463ce4941319b04269469c54f1 ""
@@ -249,10 +249,10 @@
   "Theory/Appendix.tex" 1737879348 0 d41d8cd98f00b204e9800998ecf8427e ""
   "Theory/Theory.tex" 1739791489 607 f3157f4f9d70b179fd8805d7e17ee730 ""
   "c:/Users/paufr/OneDrive/Escritorio/Advanced-Quantum-Mechanics-main/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.aux" 1739906719 20611 9d09fc667fc9746e0e35d06421e381e4 "pdflatex"
-  "main.out" 1739906719 3037 3e4bffdeb7828206319634c2d50c1f41 "pdflatex"
+  "main.aux" 1739907576 20611 9d09fc667fc9746e0e35d06421e381e4 "pdflatex"
+  "main.out" 1739907576 3037 3e4bffdeb7828206319634c2d50c1f41 "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1739906719 1337 f0a4139ba348e3aaa0915b7817049f3f "pdflatex"
+  "main.toc" 1739907576 1337 f0a4139ba348e3aaa0915b7817049f3f "pdflatex"
   (generated)
   "main.aux"
   "main.log"
