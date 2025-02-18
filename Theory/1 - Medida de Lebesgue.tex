@@ -953,6 +953,10 @@ Vamos a considerar los siguientes espacios medibles:
 \begin{proof}
     FALTA LA DEMOSTRACION
 \end{proof}
+
+
+\subsection{Relación entre la integral de Lebesgue y la integral de Riemann}
+
 \begin{teorema}
     Sea $[a, b] \subset \mathbb{R}^n$ y $ f:[a,b] \to \mathbb{R}$ integrable Riemann en $[a, b]$. Entonces $f$ es integrable Lebesgue en $[a, b]$ y se cumple que:
     $$ (L) \int_{a}^{b}f = (R) \int_{a}^{b}f $$
@@ -961,30 +965,31 @@ Vamos a considerar los siguientes espacios medibles:
     Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
 \end{observación}
 \begin{proof}
-    $\forall k \in \mathbb{N} \quad \exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$. 
-    Sabemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $diamm(P_k) = \sup_{i \in \{1, \dots, n\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$.
+    $\forall k \in \mathbb{N}$ sabemos que $\exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n(k)}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$. 
+    Suponemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $$\text{diam}(P_k) = \sup_{i \in \{1, \dots, n(k)\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$$
     \\$\forall k \in \mathbb{N}$ denotamos $m_k = \inf\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$ y $M_k = \sup\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$.
-    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n_k}m_k(x_i^k - x_{i-1}^k) \geq \sum_{i=1}^{n_k}m_k = \int_{a}^{b}\Phi_k \quad \text{con} \quad \Phi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{x_{i-1}^k, x_i^k}$$ 
-    $$\text{y} \bar{S}(f, P_k) = \sum_{i=1}^{n_k}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \Psi_k \quad \text{con}  \quad \Psi  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{x_{i-1}^k, x_i^k}$$ 
-    Es claro que $\Phi_k  \leq f \leq \Psi_k$. 
-    Además, como $P_{k+1}$ es más fino que $P_k \implies (\Phi_{k})\uparrow$ y $(\Psi_k)\downarrow$
-    Denotamos $\Phi = \lim_{k \to \infty}\Phi_k = \sup\Phi_k$
-    y $\Psi  = \lim_{k \to \infty}\Psi_k = \inf\Psi_k$
-    \\$f$ es integrable-Riemann $\implies f$ es actoda $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \forall x \in [a, b]$.
-    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\Psi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\Phi_k} \to \int_{a}^{b}\Phi \\ \bar{S}(f, P_{k}) = \int_a^b\Psi_k \to \int_a^b\Psi$$
-    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \text{ y } \\ \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \Phi = (R)\int_{a}^{b} f = \int_{a}^{b} \Psi$$
-    Y como $\int_{a}^{b} \Psi - \Phi = 0 \implies \Psi - \Phi = 0$ en casi todo punto de $[a, b]$. Es decir $\Phi = f = \Psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que: 
-    $$(L)\int_{a}^{b}f = \int_{a}^{b}\Phi = \int_a^b\Psi = (R)\int_{a}^{b}f$$
+    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$ 
+    $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$ 
+    Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b]. 
+    Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
+    Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
+    y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
+    Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
+    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
+    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
+    Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que: 
+    $$(L)\int_{a}^{b}f = \int_{a}^{b}\varphi = \int_a^b\psi = (R)\int_{a}^{b}f$$
 \end{proof}
+
 \begin{teorema}
     Sean $[a, b]\subset \mathbb{R}^n$ y $f: [a, b] \to \mathbb{R}$ una función acotada. Entonces $f$ es integrable-Riemann en $[a, b] \iff D_f = \{ x \in [a, b] \mid f \text{ no es continua en } x \}$ tiene medida nula.
 \end{teorema}
-\begin{observación}
-    Ejemplo: La función de Dirichlet $f = \chi_{\mathbb{R}^n \cup [0,1]}: [0,1] \to \mathbb{R}, f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}$ no es integrable-Riemann en $[0, 1]$.
+\ejemplo{
+    La función de Dirichlet $f = \chi_{\mathbb{Q} \cap [0,1]}: [0,1] \to \mathbb{R}, \quad f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}$ no es integrable-Riemann en $[0, 1]$.
     Pero $f = 0$ en casi todo punto $\implies f$ es integrable-Lebesgue y ésta vale: $\int_{[0, 1]}f = \int_{[0, 1]}0 = 0$
-\end{observación}
+}
 \begin{teorema}
-    Sean $-\infty \leq \alpha < \beta \leq +\infty$ y $f: (\alpha, \beta) \to \mathbb{R}$ una función abossolutamente integrable-Riemmann en el intervalo $(\alpha, \beta)$. Entonces $f$ es integrable-Lebesgue en $(\alpha, \beta)$ y se cumple que:
+    Sean $-\infty \leq \alpha < \beta \leq +\infty$ y $f: (\alpha, \beta) \to \mathbb{R}$ una función absolutamente integrable-Riemann impropia en el intervalo $(\alpha, \beta)$. Entonces $f$ es integrable-Lebesgue en $(\alpha, \beta)$ y se cumple que:
     $$ (L) \int_{\alpha}^{\beta}f = (R)\int_{\alpha}^{\beta}f $$
 \end{teorema}
 \begin{proof}
@@ -994,8 +999,7 @@ Vamos a considerar los siguientes espacios medibles:
         \item $\forall k \in \mathbb{N}, f$ es integrable-Riemann en $[a, b]$
         \item $\lim_{b \to \infty} \int_{a}^{b}|f| < +\infty$
     \end{enumerate}
-    Tenemos una sucesión $(b_n)_{n \in \mathbb{N}}$ y definimos las sucesiones de funciones: $f_n = f\cdot\chi_{[a, b_n]}$ y $g_n = |f|\cdot\chi_{[a, b_n]}$.
-    De manera que tenemos que $f_n \uparrow f$ y $g_n \uparrow |f|$. Entonces aplicamos el Teorema de la Convergencia Monóntona: 
+    Tomamos una sucesión $(b_n)_{n \in \mathbb{N}} \uparrow +\infty$ y definimos las sucesiones de funciones: $f_n = f\cdot\chi_{[a, b_n]}$ y $g_n = |f|\cdot\chi_{[a, b_n]}$ medibles. De manera que tenemos que $f_n \uparrow f$ y $g_n \uparrow |f|$. Entonces aplicamos el Teorema de la Convergencia Monóntona: 
     \begin{enumerate}
         \item $(L)\int_{a}^{+\infty}|f| = \lim_{n \to \infty}(L)\int_{a}^{b_n}|f| = \lim_{n \to \infty}(R)\int_{a}^{b_n}|f| = (R)\int_{a}^{+\infty}|f| < \infty$
         \item Esto muestra que $f$ es integrable-Lebesgue en $[a, +\infty)$. 
@@ -1007,3 +1011,4 @@ Vamos a considerar los siguientes espacios medibles:
     Finalmente obtenemos el resultado de que $f$ es integrable de Riemann-impropia en $[a, +\infty)$.
     \\$\forall (b_n)_{n \in \mathbb{N}} : b_n \to \infty$ tenemos que $|\int_{b_n}^{b_m}f| \leq \int_{b_n}^{b_m}|f| \leq \epsilon$
 \end{proof}
+
