@@ -118,65 +118,92 @@
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
 \usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amsthm}
 
-\declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, %
-  innertopmargin =12pt, innerbottommargin =10pt,
-  skipbelow= 0pt, skipabove=10pt, %
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{poststyle}
-\declaretheorem[style=poststyle]{proposición}
+\newtheorem{theorem}{Theorem}[subsection] % Numbered as "Teorema 1.1.1" in Section 1, Subsection 1
+\numberwithin{theorem}{subsection} % Ensure numbering within subsections
 
+% Apply styles to the theorem
 \declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, %
-  innertopmargin =12pt, innerbottommargin =10pt,
-  skipbelow= 0pt, skipabove=10pt, %
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{poststyle}
-\declaretheorem[style=poststyle]{corolario}
-
-\declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, %
-  innertopmargin =12pt, innerbottommargin =10pt,
-  skipbelow= 0pt, skipabove=10pt, %
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{poststyle}
-\declaretheorem[style=poststyle]{lema}
-
-\declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightRed, %
-  innertopmargin =12pt, innerbottommargin =10pt,
-  skipbelow= 0pt, skipabove=10pt, %
+preheadhook={\begin{mdframed}[backgroundcolor=LightRed, 
+  innertopmargin=12pt, innerbottommargin=10pt,
+  skipbelow=0pt, skipabove=10pt, 
   roundcorner=5pt]},
 postfoothook=\end{mdframed}
 ]{thrmstyle}
-\declaretheorem[style=thrmstyle]{teorema}
+\declaretheorem[style=thrmstyle, sibling=theorem]{teorema} % Use 'sibling' to share numbering with 'theorem'
+
+\newtheorem{proposition}{Proposition}[subsection]
+\numberwithin{proposition}{subsection} 
 
 \declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightBlue, %
-  innertopmargin =12pt, innerbottommargin =10pt,
-  skipbelow= 0pt, skipabove=10pt, %
+preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, 
+  innertopmargin=12pt, innerbottommargin=10pt,
+  skipbelow=0pt, skipabove=10pt, 
   roundcorner=5pt]},
 postfoothook=\end{mdframed}
-]{defstyle}
-\declaretheorem[style=defstyle]{definición}
+]{thrmstyle}
+\declaretheorem[style=thrmstyle, sibling=proposition]{proposición} % Use 'sibling' to share numbering with 'theorem'
+
+\newtheorem{corolary}{Corolary}[subsection]
+\numberwithin{corolary}{subsection} 
 
 \declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightGreen, %
-  innertopmargin =12pt, innerbottommargin =10pt,
-  skipbelow= 0pt, skipabove=10pt, %
+preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, 
+  innertopmargin=12pt, innerbottommargin=10pt,
+  skipbelow=0pt, skipabove=10pt, 
   roundcorner=5pt]},
 postfoothook=\end{mdframed}
-]{defstyle}
-\declaretheorem[style=defstyle]{observación}
+]{thrmstyle}
+\declaretheorem[style=thrmstyle, sibling=corolary]{corolario} % Use 'sibling' to share numbering with 'theorem'
+
+\newtheorem{lemma}{Lemma}[subsection]
+\numberwithin{lemma}{subsection} 
+
+\declaretheoremstyle[
+preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, 
+  innertopmargin=12pt, innerbottommargin=10pt,
+  skipbelow=0pt, skipabove=10pt, 
+  roundcorner=5pt]},
+postfoothook=\end{mdframed}
+]{thrmstyle}
+\declaretheorem[style=thrmstyle, sibling=lemma]{lema} % Use 'sibling' to share numbering with 'theorem'
+
+\newtheorem{definition}{Defintion}[subsection]
+\numberwithin{definition}{subsection} 
+
+\declaretheoremstyle[
+preheadhook={\begin{mdframed}[backgroundcolor=LightBlue, 
+  innertopmargin=12pt, innerbottommargin=10pt,
+  skipbelow=0pt, skipabove=10pt, 
+  roundcorner=5pt]},
+postfoothook=\end{mdframed}
+]{thrmstyle}
+\declaretheorem[style=thrmstyle, sibling=definition]{definición} % Use 'sibling' to share numbering with 'theorem'
+
+\newtheorem{observation}{Observation}[subsection]
+\numberwithin{observation}{subsection} 
+
+\declaretheoremstyle[
+preheadhook={\begin{mdframed}[backgroundcolor=LightGreen, 
+  innertopmargin=12pt, innerbottommargin=10pt,
+  skipbelow=0pt, skipabove=10pt, 
+  roundcorner=5pt]},
+postfoothook=\end{mdframed}
+]{thrmstyle}
+\declaretheorem[style=thrmstyle, sibling=observation]{observación} % Use 'sibling' to share numbering with 'theorem'
+
 
 % theoremstyle shortcut commands
 \newcommand{\observacion}[1]{\begin{observación}#1\end{observación}}
 \newcommand{\definicion}[1]{\begin{definición}#1\end{definición}}
 \newcommand{\proposicion}[1]{\begin{proposición}#1\end{proposición}}
+\newcommand{\teo}[1]{\begin{teorema}#1\end{teorema}}
+\newcommand{\lem}[1]{\begin{lema}#1\end{lema}}
+\newcommand{\cor}[1]{\begin{corolario}#1\end{corolario}}
+\newcommand{\obs}[1]{\begin{observación}#1\end{observación}}
+\newcommand{\defi}[1]{\begin{definición}#1\end{definición}}
+\newcommand{\prop}[1]{\begin{proposición}#1\end{proposición}}
 
 
 
@@ -217,6 +244,12 @@ postfoothook=\end{mdframed}
 
 
 \newcommand{\ejemplo}[1]{\createbox{Ejemplo}{#1}}
+
+\addto\captionsenglish{\renewcommand{\proofname}{Demostración}}
+
+% Define \dem to take an argument and wrap it in proof environment
+\newcommand{\dem}[1]{\begin{proof}#1\end{proof}}
+
 
 
 %Hyperlinks
