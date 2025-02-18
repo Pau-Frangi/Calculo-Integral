@@ -583,17 +583,20 @@ Vamos a considerar los siguientes espacios medibles:
     \end{cases}
     \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$. Dado que $1 \leq i \leq n2^n \implies 1 \leq i \leq 2^{n+1} \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$.
 \end{proof} 
+
+\subsection{Integración de funciones positivas}
+
 \begin{definición}
     Consideremos en $\mathbb{R}^n$ la $\sigma-$álgbra $M$ de los conjuntos medibles y la medida-Lebesgue $m$. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible, no negativa y con representación canónica $s = \sum_{i = 1}^{n}\alpha_iX_{A_i}$ donde $\mathbb{R}^n = \bigcup_{i = 1}^{m}A_i$-unión disjunta de conjuntos medibles. Entonces definimos la integral de $s$ como: $\int_{\mathbb{R}^n}s \, dx = \sum_{i = 1}^{n}\alpha_im(A_i)$.
 \end{definición}
 \begin{observación}
-    $int_{\mathbb{R}^n}0 = 0$
+    $\int_{\mathbb{R}^n}0 = 0$
 \end{observación}
 \begin{proof}
     Dado $E \subset \mathbb{R}^n$ mdible definimos $\int_{E}s = \int_{\mathbb{R}^n}s\circ X_E = \sum_{i = 1}^{n}\alpha_im(A_i \cap E)$.
 \end{proof}
 \begin{lema}
-    Sea $\mathbb{R}^n = \bigcup_{k = 1}^{\infty}X_k$ unión disjunta de conjuntos medibles. Sea $s: \mathbb{R^n} \to [0, +\infty]$ una función simple, medible y no negativa. Entonces $\int_{\mathbb{R}^n}s = \sum_{k = 1}^{\infty}\int_{X_k}s$.
+    Sea $\mathbb{R}^n = \bigcup_{k = 1}^{\infty}X_k$ unión disjunta de conjuntos medibles. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible y no negativa. Entonces $\int_{\mathbb{R}^n}s = \sum_{k = 1}^{\infty}\int_{X_k}s$.
 \end{lema}
 \begin{proof}
     Supongamos que 
@@ -818,6 +821,9 @@ Vamos a considerar los siguientes espacios medibles:
 \begin{observación}
     El resultado análogo con $\limsup$ no es válido en gneral. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
 \end{observación}
+
+\subsection{Funciones Integrables Lebesgue}
+
 \begin{definición}
     Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f\circ\chi_E < +\infty$$
 \end{definición}
@@ -919,6 +925,9 @@ Vamos a considerar los siguientes espacios medibles:
 \begin{proof}
     FALTA LA DEMOSTRACION
 \end{proof}
+
+\subsection{Funciones Definidas por Integrales (Integrales Paramétricas)}
+
 \begin{definición}
     Sea $f$ función integrable, se define una función por su integral paramétrica como: 
     $$ F(u) = \int_{E}f(x, u)dx$$
