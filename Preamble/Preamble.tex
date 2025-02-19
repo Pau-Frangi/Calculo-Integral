@@ -21,6 +21,8 @@
 \usepackage{enumitem}
 \usepackage{xhfill}
 \usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
 \newcommand{\s}{\text{ }}%Space in math mode
@@ -34,7 +36,6 @@
 \newcommand{\C}{\mathbb{C}}%Complex Numbers
 \newcommand{\N}{\mathbb{N}}%Natural Numbers
 \newcommand{\Imat}{\mathds{1}}%Identity Matrix
-
 
 \newcommand{\uni}{\bigcup_{i=1}^{\infty}}%Union i=1 to infinity
 \newcommand{\unj}{\bigcup_{j=1}^{\infty}}%Union j=1 to infinity
@@ -51,9 +52,6 @@
 \newcommand{\inrn} {\in \mathbb{R}^n} %in R^n
 \newcommand{\vol} {\text{vol}} %Volume
 
-
-
-
 % \newcommand{\ket}[1]{\left|#1\right\rangle}%Prints |#1⟩
 % \newcommand{\bra}[1]{\left\langle#1\right|}%Prints ⟨#1|
 % \newcommand{\braket}[2]{\langle#1|#2\rangle}%Prints ⟨#1|#2⟩
@@ -63,17 +61,17 @@
 \newcommand{\naturalset}[2]{#1=1,\;2,\;...,\;#2}%Prints #1= #1= 1, 2, ..., #2 in math mode
 \newcommand{\vectorset}[3]{#1=\{#2_1,\;#2_2,\;...,\;#2_{#3}\}}%Prints #1= {#2_1,#2_2, ..., #2_{#3}} in math mode
 \newcommand{\diagmatrix}[9]{%
-\begin{pmatrix}
-\lambda_1&1&0&0&0\\0&\lambda_1&0&0&0\\0&0&\lambda_3&1&0\\0&0&0&\lambda_4&1\\0&0&0&0&\lambda_4
-\end{pmatrix}
+  \begin{pmatrix}
+    \lambda_1 & 1 & 0 & 0 & 0 \\0&\lambda_1&0&0&0\\0&0&\lambda_3&1&0\\0&0&0&\lambda_4&1\\0&0&0&0&\lambda_4
+  \end{pmatrix}
 }%Matrix with diagonal entries specified
 
 % Setup matha font (mathabx.sty) for extracting specific symbols:
 \DeclareFontFamily{U}{matha}{\hyphenchar\font45}
 \DeclareFontShape{U}{matha}{m}{n}{
-      <5> <6> <7> <8> <9> <10> gen * matha
-      <10.95> matha10 <12> <14.4> <17.28> <20.74> <24.88> matha12
-      }{}
+  <5> <6> <7> <8> <9> <10> gen * matha
+  <10.95> matha10 <12> <14.4> <17.28> <20.74> <24.88> matha12
+}{}
 \DeclareSymbolFont{matha}{U}{matha}{m}{n}
 % Define a plus/minus character from that font (from mathabx.dcl):
 \DeclareMathSymbol{\PM}{2}{matha}{"08}% to completely replace the \pm character, replace \PM with \pm
@@ -97,7 +95,7 @@
 \counterwithout{table}{section}%           CONTINUOUS
 
 %Enumerate
-\usepackage{enumitem} 
+\usepackage{enumitem}
 
 %Language
 \usepackage[english]{babel}
@@ -120,79 +118,151 @@
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{amsthm}
 
-\newtheorem{theorem}{Theorem}[subsection] % Numbered as "Teorema 1.1.1" in Section 1, Subsection 1
-\numberwithin{theorem}{subsection} % Ensure numbering within subsections
-
-% Apply styles to the theorem
 \declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightRed, 
-  innertopmargin=12pt, innerbottommargin=10pt,
-  skipbelow=0pt, skipabove=10pt, 
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{thrmstyle}
-\declaretheorem[style=thrmstyle, sibling=theorem]{teorema} % Use 'sibling' to share numbering with 'theorem'
+    headfont=\bfseries, 
+    notebraces={[}{]},
+    bodyfont=\normalfont\itshape,
+    headpunct={},
+    postheadspace=\newline,
+    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+    spacebelow= 5pt,
+    spaceabove= 10pt,
+    mdframed={
+        backgroundcolor=LightRed, 
+            innertopmargin=6pt,
+            roundcorner=5pt, 
+            innerbottommargin=6pt, 
+            skipabove=\parsep, 
+            skipbelow=\parsep } 
+]{myTheoremStyle}
 
-\newtheorem{proposition}{Proposition}[subsection]
-\numberwithin{proposition}{subsection} 
+% example environment - thmtools
+\declaretheorem[
+    style=myTheoremStyle,
+    numberwithin=subsection
+]{teorema}
 
-\declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, 
-  innertopmargin=12pt, innerbottommargin=10pt,
-  skipbelow=0pt, skipabove=10pt, 
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{thrmstyle}
-\declaretheorem[style=thrmstyle, sibling=proposition]{proposición} % Use 'sibling' to share numbering with 'theorem'
-
-\newtheorem{corolary}{Corolary}[subsection]
-\numberwithin{corolary}{subsection} 
 
 \declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, 
-  innertopmargin=12pt, innerbottommargin=10pt,
-  skipbelow=0pt, skipabove=10pt, 
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{thrmstyle}
-\declaretheorem[style=thrmstyle, sibling=corolary]{corolario} % Use 'sibling' to share numbering with 'theorem'
+    headfont=\bfseries, 
+    notebraces={[}{]},
+    bodyfont=\normalfont\itshape,
+    headpunct={},
+    postheadspace=\newline,
+    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+    spacebelow= 5pt,
+    spaceabove= 10pt,
+    mdframed={
+        backgroundcolor=LightOrange, 
+            innertopmargin=6pt,
+            roundcorner=5pt, 
+            innerbottommargin=6pt, 
+            skipabove=\parsep, 
+            skipbelow=\parsep } 
+]{myPropositionStyle}
 
-\newtheorem{lemma}{Lemma}[subsection]
-\numberwithin{lemma}{subsection} 
+% example environment - thmtools
+\declaretheorem[
+    style=myPropositionStyle,
+    numberwithin=subsection
+]{proposición}
 
-\declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, 
-  innertopmargin=12pt, innerbottommargin=10pt,
-  skipbelow=0pt, skipabove=10pt, 
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{thrmstyle}
-\declaretheorem[style=thrmstyle, sibling=lemma]{lema} % Use 'sibling' to share numbering with 'theorem'
-
-\newtheorem{definition}{Defintion}[subsection]
-\numberwithin{definition}{subsection} 
-
-\declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightBlue, 
-  innertopmargin=12pt, innerbottommargin=10pt,
-  skipbelow=0pt, skipabove=10pt, 
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{thrmstyle}
-\declaretheorem[style=thrmstyle, sibling=definition]{definición} % Use 'sibling' to share numbering with 'theorem'
-
-\newtheorem{observation}{Observation}[subsection]
-\numberwithin{observation}{subsection} 
 
 \declaretheoremstyle[
-preheadhook={\begin{mdframed}[backgroundcolor=LightGreen, 
-  innertopmargin=12pt, innerbottommargin=10pt,
-  skipbelow=0pt, skipabove=10pt, 
-  roundcorner=5pt]},
-postfoothook=\end{mdframed}
-]{thrmstyle}
-\declaretheorem[style=thrmstyle, sibling=observation]{observación} % Use 'sibling' to share numbering with 'theorem'
+    headfont=\bfseries, 
+    notebraces={[}{]},
+    bodyfont=\normalfont\itshape,
+    headpunct={},
+    postheadspace=\newline,
+    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+    spacebelow= 5pt,
+    spaceabove= 10pt,
+    mdframed={
+        backgroundcolor=LightOrange, 
+            innertopmargin=6pt,
+            roundcorner=5pt, 
+            innerbottommargin=6pt, 
+            skipabove=\parsep, 
+            skipbelow=\parsep } 
+]{myCorollaryStyle}
 
+% example environment - thmtools
+\declaretheorem[
+    style=myCorollaryStyle,
+    numberwithin=subsection
+]{corolario}
+
+\declaretheoremstyle[
+    headfont=\bfseries, 
+    notebraces={[}{]},
+    bodyfont=\normalfont\itshape,
+    headpunct={},
+    postheadspace=\newline,
+    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+    spacebelow= 5pt,
+    spaceabove= 10pt,
+    mdframed={
+        backgroundcolor=LightOrange, 
+            innertopmargin=6pt,
+            roundcorner=5pt, 
+            innerbottommargin=6pt, 
+            skipabove=\parsep, 
+            skipbelow=\parsep } 
+]{myLemmaStyle}
+
+% example environment - thmtools
+\declaretheorem[
+    style=myLemmaStyle,
+    numberwithin=subsection
+]{lema}
+
+\declaretheoremstyle[
+    headfont=\bfseries, 
+    notebraces={[}{]},
+    bodyfont=\normalfont\itshape,
+    headpunct={},
+    postheadspace=\newline,
+    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+    spacebelow= 5pt,
+    spaceabove= 10pt,
+    mdframed={
+        backgroundcolor=LightBlue, 
+            innertopmargin=6pt,
+            roundcorner=5pt, 
+            innerbottommargin=6pt, 
+            skipabove=\parsep, 
+            skipbelow=\parsep } 
+]{myDefinitionStyle}
+
+% example environment - thmtools
+\declaretheorem[
+    style=myDefinitionStyle,
+    numberwithin=subsection
+]{definición}
+
+\declaretheoremstyle[
+    headfont=\bfseries, 
+    notebraces={[}{]},
+    bodyfont=\normalfont\itshape,
+    headpunct={},
+    postheadspace=\newline,
+    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+    spacebelow= 5pt,
+    spaceabove= 10pt,
+    mdframed={
+        backgroundcolor=LightGreen, 
+            innertopmargin=6pt,
+            roundcorner=5pt, 
+            innerbottommargin=6pt, 
+            skipabove=\parsep, 
+            skipbelow=\parsep } 
+]{myObservationStyle} 
+
+% example environment - thmtools
+\declaretheorem[
+    style=myObservationStyle,
+    numberwithin=subsection
+]{observación}
 
 % theoremstyle shortcut commands
 \newcommand{\observacion}[1]{\begin{observación}#1\end{observación}}
@@ -205,8 +275,6 @@ postfoothook=\end{mdframed}
 \newcommand{\defi}[1]{\begin{definición}#1\end{definición}}
 \newcommand{\prop}[1]{\begin{proposición}#1\end{proposición}}
 
-
-
 %TOC: Fill Table of Contents with Dots
 \usepackage{tocloft} %Fill ToC with dotted line
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
@@ -216,41 +284,49 @@ postfoothook=\end{mdframed}
 \newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 
-
 % Create a new command to write text in between two lines
 \newcommand{\nc}[2][]{%
-\tikz \draw [draw=black, ultra thick, #1]
-    ($(current page.center)-(0.5\linewidth,0)$) -- 
-    ($(current page.center)+(0.5\linewidth,0)$)
-    node [midway, fill=white] {#2};
+  \tikz \draw [draw=black, ultra thick, #1]
+  ($(current page.center)-(0.5\linewidth,0)$) --
+  ($(current page.center)+(0.5\linewidth,0)$)
+  node [midway, fill=white] {#2};
 }% tomado de https://tex.stackexchange.com/questions/179425/a-new-command-of-the-form-tex
 
 
-\newcommand{\createbox}[2]{
-    \begin{tikzpicture}
-    \node [mybox, align=left, text width=\textwidth-20pt] (box){% Adjust text width to stay within bounds
-        #2
-    };
-    \node[fancytitle, right=10pt] at (box.north west) {#1};
-    \end{tikzpicture}
-    % Remove some space between the boxes
-    \vspace{-0.35cm}
+\newtcolorbox{mybox}[2][]{%
+  colback=white, % Box background color
+  colframe=black, % Border color
+  colbacktitle=black, % Title background color
+  coltitle=white, % Title text color
+  fonttitle=\bfseries, % Bold title text
+  enhanced, % Enables better rendering
+  boxrule=0.5pt, % Border width
+  left=10pt, right=10pt, top=10pt, bottom=10pt, % Padding inside box
+  breakable, % Allows the box to continue across pages
+  overlay first ={ % Title always appears but only at the top of the first part
+    \node[draw=blue!50!black, thick,
+      fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
+      text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
+  },
+  overlay unbroken ={ % Title appears if the box is unbroken
+    \node[draw=blue!50!black, thick,
+      fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
+      text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
+  },
+  #1 
 }
 
-% TikZ styles
-\tikzstyle{mybox} = [draw=black, fill=white,
-    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
-\tikzstyle{fancytitle} = [fill=black, text=white, font=\bfseries, rounded corners]
 
-
-\newcommand{\ejemplo}[1]{\createbox{Ejemplo}{#1}}
+\newcommand{\ejemplo}[1]{%
+  \begin{mybox}{Ejemplo}
+    #1
+  \end{mybox}
+}
 
 \addto\captionsenglish{\renewcommand{\proofname}{Demostración}}
 
 % Define \dem to take an argument and wrap it in proof environment
 \newcommand{\dem}[1]{\begin{proof}#1\end{proof}}
-
-
 
 %Hyperlinks
 \usepackage{hyperref}

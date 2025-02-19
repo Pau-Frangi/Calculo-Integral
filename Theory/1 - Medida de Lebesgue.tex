@@ -2,7 +2,7 @@
 
 \subsection{Medida Exterior de Lebesgue en $\R^n$}
 
-\begin{definición} \label{n-rectángulo}
+\begin{definición}[n-Réctangulo] \label{n-rectángulo}
 Un n-rectángulo en $\R^n$ es un conjunto de la forma:
 \begin{equation}
     R = \prod_{i=1}^n [a_i, \ b_i] = [a_1, \ b_1] \times [a_2, \ b_2] \times ... \times [a_n, \ b_n] \text{ donde } a_i \leq b_i \ \forall i
@@ -21,7 +21,7 @@ Dado $R$ n-rectángulo cerrado tal que $R = \prod_{i=1}^n [a_i, \ b_i]$, podemos
 \end{equation}
 \end{observación}
 
-\begin{definición} \label{Medida de Lebesgue exterior}
+\begin{definición}[Medida Exterior de Lebesgue] \label{Medida de exterior de Lebesgue}
 Sea $A \subset \R^n$. Definimos la medida exterior de $A$ como:
 \begin{equation}
     m^*(A) = \inf \left\{ \sum_{i=1}^\infty \text{vol}(R_i) \ | \ A \subset \bigcup_{i=1}^\infty R_i \text{ con } R_i \text{ n-rectángulos cerrados} \right\}
@@ -38,7 +38,7 @@ Sea $A \subset \R^n$
 \end{enumerate}
 \end{observación}
 
-\begin{definición} \label{Conjunto nulo}
+\begin{definición}[Conjunto Nulo] \label{Conjunto nulo}
 Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
 \end{definición}
 
@@ -103,7 +103,7 @@ $\R^n$.
     Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $\{Q_j\}_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \sum_{j \in \N} \text{vol}(\overline{Q}_j) \leq \beta$. Por tanto, $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
 \end{proof}
 
-\begin{definición} \label{Partición de un Conjunto}
+\begin{definición}[Partición de un Conjunto] \label{Partición de un Conjunto}
 Una partición del intervalo $[a,b]$ es una colección numerable de puntos $P = \{a = t_0 < t_1 < ... < t_n = b\}$. Dado un n-rectángulo $R \subset \R^n$, una partición $P =  \{P_1, P_2, ..., P_n\}$ de $R$ es una colección particiones $P_i$ de $[a_i, b_i]$ para cada $i = 1, 2, ..., n$ siendo $R = \prod_{i=1}^n [a_i, b_i]$.
 \end{definición}
 
@@ -142,7 +142,7 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
 
 \textbf{Notación:} Para $A \subset \R^n$ denotamos por $A^c$ al complementario de $A$ en $\R^n$.
 
-\begin{definición} \label{Conjunto Medible}
+\begin{definición}[Conjunto Medible] \label{Conjunto Medible}
 Un conjunto $A \subset \R^n$ es medible en el sentido de Lebesgue si para todo $R \subset \R^n$ n-rectángulo se tiene que:
 \begin{equation}
     m^*(R) = m^*(R \cap A) + m^*(R \cap A^c)
@@ -170,7 +170,7 @@ Sea $A \subset \R^n$ entonces son equivalentes:
     Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
 \end{proof}
 
-\begin{definición}
+\begin{definición}[$\sigma$-Álgebra] \label{sigma-Algebra}
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de subconjuntos de $X$. Se dice que $\mathcal{A}$ es una $\sigma$-álgebra si:
 \begin{enumerate}
     \item $X \in \mathcal{A}$
@@ -179,7 +179,7 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de sub
 \end{enumerate}
 \end{definición}
 
-\begin{definición}
+\begin{definición}[Medida] \label{Medida}
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra, entonces una medida en $X$ es una función $\mu: \mathcal{A} \to [0, +\infty]$ tal que:
 \begin{enumerate}
     \item $\mu(\emptyset) = 0$
@@ -187,7 +187,7 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra
           conjuntos disjuntos dos a dos entonces: $$\mu(\bigcup_{j \in \N} A_j) = \sum_{j
                   \in \N} \mu(A_j)$$
 \end{enumerate}
-\end{definición}
+\end{definición} 
 
 \begin{teorema}
     La familia $M$ de todos los conjuntos medibles de $\R^n$ es una $\sigma$-álgebra y $m = m^* \restriction_M$ es una medida numerablemente aditiva que llamaremos medida de Lebesgue en $\R^n$.
@@ -272,7 +272,7 @@ Todo conjunto nulo es medible en el sentido de Lebesgue.
 
 \begin{definición}
 Se dice que una \textit{propiedad} se verifica en casi todo punto cuando el conjunto de puntos en los que no se verifica la propiedad es un conjunto nulo.
-\end{definición}
+\end{definición} \label{Propiedad en casi todo punto}
 
 \begin{proposición}
 Todo n-rectángulo cerrado $R \in \R^n$ es medible en el sentido de Lebesgue.
@@ -283,16 +283,17 @@ Todo n-rectángulo cerrado $R \in \R^n$ es medible en el sentido de Lebesgue.
 \end{proof}
 
 \begin{observación}
-En $\R^n$ los rectángulos abiertos o seºmiabiertos son medibles en el sentido de Lebesgue.
+En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 \end{observación}
 
-\definicion{
+\label{n-Cubo}
+\begin{definición}[n-Cubo]
     Un n-cubo cerrado (respectivamente abierto) en $\R^n$ es un conjunto de la forma:
     \begin{equation}
         R = [a_1, b_1] \times \ldots \times [a_n, b_n] \text{ tal que } \forall i,j \in \{1,2,...,n\} \text{ se tiene que } b_i - a_i = b_j - a_j
     \end{equation}
     Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
-}
+\end{definición} 
 
 \observacion{
     Denotaremos la norma del supremo en $\rn$ como:
@@ -334,7 +335,8 @@ En $\R^n$ los rectángulos abiertos o seºmiabiertos son medibles en el sentido 
     Todos los conjuntos abiertos y cerrados de $\R^n$ son medibles en el sentido de Lebesgue.
 \end{corolario}
 
-\begin{teorema} \label{Regularidad de la medida}
+\label{Regularidad de la medida}
+\begin{teorema}[Regularidad de la Medida]
     Sea $E \inrn$, entonces son equivalentes:
     \begin{enumerate}
         \item $E$ es medible en el sentido de Lebesgue.
@@ -378,10 +380,12 @@ En $\R^n$ los rectángulos abiertos o seºmiabiertos son medibles en el sentido 
 
 \end{proof}
 
-\definicion{
+\label{sigma-Algebra de Borel}
+\begin{definición}[$\sigma$-Álgebra de Borel] 
     La $\sigma$-álgebra de Borel en $\rn$ es la menor $\sigma$-álgebra que contiene a todos los abiertos de $\rn$ (o equivalentemente, la menor $\sigma$-álgebra que contiene a todos los cerrados de $\rn$). Los conjuntos de $\mathcal{B}(\rn)$ se llaman conjuntos de Borel o conjuntos Borelianos.\\
     Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de abiertos. Análogamente, decimos que un conjunto $B \subset \rn$ es $F_\sigma$ si $A$ es unión numerable de cerrados.
-}
+\end{definición}
+
 
 \begin{corolario}
     Sea $E \subset \rn$, entonces son equivalentes:
@@ -389,15 +393,6 @@ En $\R^n$ los rectángulos abiertos o seºmiabiertos son medibles en el sentido 
         \item $E$ es medible en el sentido de Lebesgue.
         \item $E = A \setminus N$ con $A$ siendo $G_\delta$ y $N$ un conjunto nulo.
         \item $E = B \cup N$ con $B$ siendo $F_\sigma$ y $N$ un conjunto nulo.
-    \end{enumerate}
-\end{corolario}
-
-\begin{corolario}
-    Sea $E \subset \rn$, entonces son equivalentes:
-    \begin{enumerate}
-        \item $E$ es medible en el sentido de Lebesgue.
-        \item $m(E) = \text{inf}\{m(G) : G \text{ abierto y } E \subset G\}$.
-        \item $m(E) = \text{sup}\{m(K) : K \text{ compacto y } K \subset E\}$.
     \end{enumerate}
 \end{corolario}
 
@@ -421,8 +416,15 @@ En $\R^n$ los rectángulos abiertos o seºmiabiertos son medibles en el sentido 
     $m^*(A_j) = m(B_1) + m(B_2) + \ldots + m(B_j)$ $ \forall j >= 1$
 \end{proof}
 
+\begin{corolario}
+    Sea $E \subset \rn$ medible entonces:
+    \begin{enumerate}
+        \item $m(E) = \text{inf}\{m(G) : G \text{ abierto y } E \subset G\}$.
+        \item $m(E) = \text{sup}\{m(K) : K \text{ compacto y } K \subset E\}$.
+    \end{enumerate}
+\end{corolario}
+
 \begin{proof}
-    Demostración del Corolario 4.\\
     $E = \bigcup_{k = 1}^{\infty} E_k : E_k = E \cap [-k, k]^n$ $\forall k \in \mathbb{N}$
     Entonces $(E_k)_k \in \mathbb{N}$ es una sucesión creciente de conjuntos medibles y por el lema anterior tenemos que $m(E) = \lim_{k \to \infty} m(E_k)$
     Además, $\forall k \in \mathbb{N}$ $\exists F_k$ $ \subset E_k$ cerrado tal que $m(E_k \setminus F_k) < \frac{1}{k}$
@@ -431,19 +433,14 @@ En $\R^n$ los rectángulos abiertos o seºmiabiertos son medibles en el sentido 
     $m(E) = \sup\{m(F_k) : k \in \mathbb{N} \} = \sup\{m(K) : K \text{ compacto y } K \subset E\}$
 \end{proof}
 
-\definicion{
-    Un n-cubo cerrado (respectivamente abierto) en $\R^n$ es un conjunto de la forma:
-    \begin{equation}
-        R = [a_1, b_1] \times \ldots \times [a_n, b_n] \text{ tal que } \forall i,j \in \{1,2,...,n\} \text{ se tiene que } b_i - a_i = b_j - a_j
-    \end{equation}
-}
-
-\definicion{
+\label{Cubo Diádico}
+\begin{definición}[Cubo Diádico]
     Se dice que un cubo en $\R^n$ es diádico si sus lados miden $2^{-m}$ para algún $m \in \N$.
     Es decir, si el rectángulo Q es de la forma:
     \[Q = \left[\frac{k_1}{2^m}, \frac{k_1 + 1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n + 1}{2^m}\right],\]
     con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
-        \in \mathbb{Z}$ }
+        \in \mathbb{Z}$ 
+\end{definición}
 
 \begin{teorema}
     Todo conjunto abierto $U$ de $\mathbb{R}^n$ es unión numerable y disjunta n-cubos semiabiertos, que son cubos diádicos.
@@ -554,7 +551,7 @@ Sea $(X, \Sigma)$ un espacio medible y $f_1, f_2, \dots, f_n: X \to \mathbb{R}$ 
 \begin{observación}
 $f = f^+ - f^-$ y $|f| = f^+ + f^-.$
 \end{observación}
-\begin{teorema}
+\begin{teorema}[El teorema de la convergencia monótona]
     Sea $(X, \Sigma)$ espacio medible y $(f_j)_{j \in \mathbb{N}}: X \to [+\infty, -\infty]$ una sucesión de funciones medibles, entonces:
     \begin{enumerate}
         \item $\sup_{j \in \mathbb{N}}\{f_j\}$ es una función medible.
@@ -796,10 +793,10 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     \end{enumerate}
 \end{proof}
 
-\begin{teorema}
+\begin{teorema}[Convergencia Monótona]
     Sea $(f_k)_{k \in \mathbb{N}} : \mathbb{R}^n \to [0, +\infty]$ una sucesión de funciones medibles tales que:
     \begin{enumerate}
-        \item $f_1 \leq f_2 \leq \dots$. (puntualmente en $\mathbb{R}^n$)
+        \item $f_1 \leq f_2 \leq \dots$. (en $\mathbb{R}^n$)
         \item $\lim_{k \to \infty} f_k = f$ (puntualmente en $\mathbb{R}^n$)
     \end{enumerate}
     Entonces se cumple que:
@@ -1042,7 +1039,7 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
               \]
     \end{enumerate}
 \end{proof}
-\begin{definición}
+\begin{definición}[Integral Paramétrica]
 Sea $f$ función integrable, se define una función por su integral paramétrica como:
 $$ F(u) = \int_{E}f(x, u)dx$$
 \end{definición}
@@ -1205,9 +1202,14 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     Sean $[a, b]\subset \mathbb{R}^n$ y $f: [a, b] \to \mathbb{R}$ una función acotada. Entonces $f$ es integrable-Riemann en $[a, b] \iff D_f = \{ x \in [a, b] \mid f \text{ no es continua en } x \}$ tiene medida nula.
 \end{teorema}
 \ejemplo{
-La función de Dirichlet $f = \chi_{\mathbb{Q} \cap [0,1]}: [0,1] \to \mathbb{R}, \quad f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}$ no es integrable-Riemann en $[0, 1]$.
+La función de Dirichlet 
+\[
+f = \chi_{\mathbb{Q} \cap [0,1]}: [0,1] \to \mathbb{R}, \quad f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}
+\] 
+no es integrable-Riemann en $[0, 1]$.
 Pero $f = 0$ en casi todo punto $\implies f$ es integrable-Lebesgue y ésta vale: $\int_{[0, 1]}f = \int_{[0, 1]}0 = 0$
 }
+
 \begin{teorema}
     Sean $-\infty \leq \alpha < \beta \leq +\infty$ y $f: (\alpha, \beta) \to \mathbb{R}$ una función absolutamente integrable-Riemann impropia en el intervalo $(\alpha, \beta)$. Entonces $f$ es integrable-Lebesgue en $(\alpha, \beta)$ y se cumple que:
     $$ (L) \int_{\alpha}^{\beta}f = (R)\int_{\alpha}^{\beta}f $$
