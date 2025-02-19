@@ -1231,4 +1231,108 @@ Pero $f = 0$ en casi todo punto $\implies f$ es integrable-Lebesgue y ésta vale
     Finalmente obtenemos el resultado de que $f$ es integrable de Riemann-impropia en $[a, +\infty)$.
     \\$\forall (b_n)_{n \in \mathbb{N}} : b_n \to \infty$ tenemos que $|\int_{b_n}^{b_m}f| \leq \int_{b_n}^{b_m}|f| \leq \epsilon$
 \end{proof}
+\ejemplo{
+    (Hoja 3. Ej: 6.a)
+    Calculemos 
+    \[ F(t) = \int_{0}^{+\infty} \frac{\sin(tx)}{x} e^{-x} \,dx, \quad \forall t \in \mathbb{R} \]
+    derivando con respecto al parámetro \( t \). Para ello, aplicamos el **Teorema de Leibniz**:
+    
+    Sea \( E \subset \mathbb{R}^n \) medible y \( (a,b) \subset \mathbb{R} \), con \( f: E \times (a,b) \to \mathbb{R} \) tal que:
+    
+    \begin{enumerate}
+        \item \( \forall u \in (a,b), f(\cdot, u): E \to \mathbb{R} \) es integrable en \( E \).
+        \item Para casi todo \( x \in E \), la función \( f(x, \cdot): (a,b) \to \mathbb{R} \) es de clase \( C^1 \) en \( (a,b) \).
+        \item Existe \( g: E \to [0, +\infty] \) integrable en \( E \) tal que 
+        \[ \left| \frac{\partial f}{\partial t}(x, t) \right| \leq g(x) \quad \text{para casi todo } x \in E, \forall u \in (a,b). \]
+    \end{enumerate}
+    
+    Entonces, \( F(t) \) es de clase \( C^1 \) en \( \mathbb{R} \) y se cumple:
+    \[ F'(t) = \int_{0}^{+\infty} \frac{\partial f}{\partial t}(x, t) \,dx. \]
+    
+    Dado que
+    \[ f(x,t) = \frac{\sin(tx)}{x} e^{-x}, \]
+    calculamos la derivada parcial con respecto a \( t \):
+    \[ \frac{\partial f}{\partial t}(x,t) = \cos(tx) e^{-x}. \]
+    
+    Verifiquemos cada una de las hipótesis del Teorema de Leibniz:
+    \begin{enumerate}
+        \item \( \forall t \in \mathbb{R}, f(x,t) \) es integrable en \( [0, +\infty) \): 
+        \[ |f(x,t)| \leq e^{-x} = g(x). \]
+        Como \( \int_{0}^{+\infty} e^{-x} \,dx = 1 < +\infty \), se cumple la integrabilidad.
+        
+        \item \( \forall x \in E, \frac{\partial f}{\partial t}(x,t) = \cos(tx) e^{-x} \) es continua en \( \mathbb{R} \), por lo que \( f(x, \cdot) \) es de clase \( C^1 \) en \( \mathbb{R} \).
+        
+        \item Se cumple que
+        \[ \left| \frac{\partial f}{\partial t}(x, t) \right| = |\cos(tx) e^{-x}| \leq e^{-x} = g(x), \]
+        que es integrable en \( [0, +\infty) \).
+    \end{enumerate}
+    
+    Por lo tanto, \( F \) es de clase \( C^1 \) en \( \mathbb{R} \) y
+    \[ F'(t) = \int_{0}^{+\infty} \cos(tx) e^{-x} \,dx. \]
+    
+    Ahora calculemos esta integral:
+    \[ I(t) = \int_{0}^{+\infty} \cos(tx) e^{-x} \,dx. \]
+    
+    Usando integración por partes con
+    \[
+        \begin{cases}
+            u = \cos(tx), & dv = e^{-x}dx, \\
+            du = -t\sin(tx)dx, & v = -e^{-x},
+        \end{cases}
+    \]
+    obtenemos:
+    \[ I(t) = [\cos(tx) e^{-x}]_{0}^{+\infty} - t \int_{0}^{+\infty} \sin(tx) e^{-x}dx. \]
+    Evaluando los límites y repitiendo el proceso para \( \sin(tx) e^{-x} \), obtenemos:
+    \[ I(t) (1+t^2) = 1. \]
+    Despejando:
+    \[ I(t) = \frac{1}{1+t^2} = F'(t). \]
+    
+    Finalmente, integramos:
+    \[ F(t) = \int \frac{dt}{1+t^2} = \arctan(t) + C. \]
+    
+    Si \( t = 0 \), entonces
+    \[ F(0) = \int_{0}^{+\infty} 0 = 0 \Rightarrow C = 0. \]
+    Por lo tanto:
+    \[ F(t) = \arctan(t). \]
+}
+
+\begin{observación} 
+    Notación: $\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^{k}$
+    $(x, y) = (x_1, \dots, x_n, y_1, \dots, y_k) \in \mathbb{R}^{n+k}$ \\
+    Si $f: \mathbb{R}^{n+k} \to \mathbb{R} \implies \begin{cases}
+        f_{x}: \mathbb{R}^k \to \mathbb{R} \quad \text{con} \quad f_{x}(y) = f(x, y) \forall x \in \mathbb{R}^k \\
+        f_{y}: \mathbb{R}^n \to \mathbb{R} \quad \text{con} \quad f_{y}(x) = f(x, y)\forall x \in \mathbb{R}^n
+    \end{cases}$
+\end{observación}
+
+\begin{teorema} %Teorema de Tonelli
+    Sea $f : \mathbb{R}^{n+k} \to [0, +\infty]$ medible. Entonces:
+    \begin{enumerate}
+        \item Para casi todo $x \in \mathbb{R}^n$, la función $f_{x} : \mathbb{R}^k \to [0, +\infty]$ es medible en $\mathbb{R}^k$.
+        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = \int_{\mathbb{R}^k}f_x$ es medible en $\mathbb{R}^n$.
+        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dy)dx = \int_{\mathbb{R}^{n+k}}f(x,y)dxdy$
+    \end{enumerate}
+    Además, se tiene que: 
+    \begin{enumerate}
+        \item Para casi todo $y \in \mathbb{R}^k f_y$ es medible en $\mathbb{R}^k (y \geq 0)$
+        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = \int_{\mathbb{R}^n}f_y$ es medible en $\mathbb{R}^k$
+        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^k}G = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f_y) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dx)dy = \int_{\mathbb{R}^{n+k}}f(x,y)dydx$
+    \end{enumerate}
+\end{teorema}
+\begin{corolario} %Prinicpio de Cavalieri 
+    Sea $E \subset \mathbb{R}^{n+k}$ medible entonces: 
+    \begin{enumerate}
+        \item Para casi todo $x \in \mathbb{R}^n$ el conjunto $E_x = \{ y \in \mathbb{R}^k : (x, y) \in E \}$ es medible en $\mathbb{R}^k$
+        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = m(E_x)$ es medible en $\mathbb{R}^n$
+        \item $m_{n+k}(E) = \int_{\mathbb{R}^n}m(E_x)dx$
+    \end{enumerate}
+    De forma análoga se puede tener que: 
+    \begin{enumerate}
+        \item Para casi todo $y \in \mathbb{R}^k$, el conjunto $E_y = \{ x \in \mathbb{R}^n : (x, y) \in E \}$ es medible en $\mathbb{R}^n$
+        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = m(E_y)$ es medible en $\mathbb{R}^k$
+        \item $m_{n+k}(E) = \int_{\mathbb{R}^k}m(E_y)dy$
+    \end{enumerate}
+\end{corolario}
+
+
 
