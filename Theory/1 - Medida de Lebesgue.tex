@@ -2,7 +2,7 @@
 
 \subsection{Medida Exterior de Lebesgue en $\R^n$}
 
- \label{n-rectángulo}
+\label{n-rectángulo}
 \begin{definición}[n-Réctangulo]
 Un n-rectángulo en $\R^n$ es un conjunto de la forma:
 \begin{equation}
@@ -22,7 +22,7 @@ Dado $R$ n-rectángulo cerrado tal que $R = \prod_{i=1}^n [a_i, \ b_i]$, podemos
 \end{equation}
 \end{observación}
 
- \label{Medida de exterior de Lebesgue}
+\label{Medida de exterior de Lebesgue}
 \begin{definición}[Medida Exterior de Lebesgue]
 Sea $A \subset \R^n$. Definimos la medida exterior de $A$ como:
 \begin{equation}
@@ -34,28 +34,28 @@ Donde la ínfimo se toma sobre todas las colecciones numerables de n-rectángulo
 \begin{observación}
 Sea $A \subset \R^n$
 \begin{enumerate}
-    \item $m^*(A) = +\infty \iff \forall \{R_j\}_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ se tiene que } \sum_{j \in J} \text{vol}(R_j) = +\infty$
-    \item $m^*(A) = 0 \iff \forall \epsilon > 0 \ \exists \{R_j\}_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \epsilon$
-    \item $m^*(A) = \alpha \in \R^+ \iff \forall \epsilon > 0 \ \exists \{R_j\}_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \alpha + \epsilon$
+    \item $m^*(A) = +\infty \iff \forall (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ se tiene que } \sum_{j \in J} \text{vol}(R_j) = +\infty$
+    \item $m^*(A) = 0 \iff \forall \epsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \epsilon$
+    \item $m^*(A) = \alpha \in \R^+ \iff \forall \epsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \ in J} \text{vol}(R_j) < \alpha + \epsilon$
 \end{enumerate}
 \end{observación}
 
 \label{Conjunto nulo}
-\begin{definición}[Conjunto Nulo] 
+\begin{definición}[Conjunto Nulo]
 Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
 \end{definición}
 
 \ejemplo{
-\begin{enumerate}
-    \item Si $R$ es un n-rectángulo degenerado, es decir, $R$ tiene alguno de los lados
-          de longitud 0, entonces $R$ es un conjunto nulo ($m^*(R) = 0$).
-    \item En $\mathbb{R}^2$, sea el conjunto $A = \{(x,x) : 0 \leq x \leq 1\}$. Dado
-          $\epsilon > 0$ tomamos $m \in \mathbb{N}$ tal que $m > \frac{1}{\epsilon}$.
-          Consideramos $A \subset \bigcup_{i=1}^m [\frac{i-1}{m}, \frac{i}{m}] \times
-              [\frac{i-1}{m}, \frac{i}{m}]$. Se tiene que $m^*(A) \leq \sum_{i=1}^m
-              \text{vol}([\frac{i-1}{m}, \frac{i}{m}] \times [\frac{i-1}{m}, \frac{i}{m}]) =
-              \frac{1}{m^2} \cdot m = \frac{1}{m} < \epsilon$. Por tanto, $m^*(A) = 0$.
-\end{enumerate}
+    \begin{enumerate}
+        \item Si $R$ es un n-rectángulo degenerado, es decir, $R$ tiene alguno de los lados
+              de longitud 0, entonces $R$ es un conjunto nulo ($m^*(R) = 0$).
+        \item En $\mathbb{R}^2$, sea el conjunto $A = \{(x,x) : 0 \leq x \leq 1\}$. Dado
+              $\epsilon > 0$ tomamos $m \in \mathbb{N}$ tal que $m > \frac{1}{\epsilon}$.
+              Consideramos $A \subset \bigcup_{i=1}^m [\frac{i-1}{m}, \frac{i}{m}] \times
+                  [\frac{i-1}{m}, \frac{i}{m}]$. Se tiene que $m^*(A) \leq \sum_{i=1}^m
+                  \text{vol}([\frac{i-1}{m}, \frac{i}{m}] \times [\frac{i-1}{m}, \frac{i}{m}]) =
+                  \frac{1}{m^2} \cdot m = \frac{1}{m} < \epsilon$. Por tanto, $m^*(A) = 0$.
+    \end{enumerate}
 }
 
 Denotamos por $\mathcal{P}(\R^n)$ al conjunto de todos los subconjuntos de
@@ -75,12 +75,12 @@ $\R^n$.
     \leavevmode
     \begin{enumerate}
         \item $\emptyset \subset \bigcup_{i=1}^\infty R_j$ con $R_j$ n-rectángulos degenerados $\implies m^*(\emptyset) \leq \sum_{j=1}^\infty \text{vol}(R_j) = 0 \implies m^*(\emptyset) = 0$.
-        \item Sea $A \subset B$ y sea $\{R_j\}_{j \in J}$ tal que $B \subset \bigcup_{j \in
-                      J} R_j$. Entonces $\{R_j\}_{j \in J}$ es un recubrimiento de $A$ y por tanto
+        \item Sea $A \subset B$ y sea $(R_j)_{j \in J}$ tal que $B \subset \bigcup_{j \in
+                      J} R_j$. Entonces $(R_j)_{j \in J}$ es un recubrimiento de $A$ y por tanto
               $m^*(A) \leq \sum_{j \in J} \text{vol}(R_j) \implies m^*(A) \leq m^*(B)$.
         \item Si $\sum_{j=1}^{\infty}{A_j} = +\infty$ entonces el resultado es inmediato.
               Supongamos que $\sum_{j=1}^{\infty}{A_j} < +\infty$. Sea $\epsilon > 0$. Para
-              cada $j \in \mathbb{N}$, $\exists \{R_{j,i}\}_{i = 1}^\infty$ tal que $A_j
+              cada $j \in \mathbb{N}$, $\exists (R_{j,i})_{i = 1}^\infty$ tal que $A_j
                   \subset \bigcup_{i = 1}^\infty R_{j,i}$ y $\sum_{i = 1}^\infty
                   \text{vol}(R_{j,i}) < m^*(A_j) + \frac{\epsilon}{2^j}$. Entonces
               $\bigcup_{j=1}^{\infty} A_j \subset \bigcup_{j=1}^{\infty} \bigcup_{i =
@@ -97,7 +97,7 @@ $\R^n$.
 \end{corolario}
 
 \begin{proof}
-    Sea $\{A_j\}_{j=1}^\infty \subset R^n$ tal que $m^*(A_j) = 0 \quad \forall j \in \mathbb{N}$ entonces $m^*(\bigcup_{j=1}^\infty A_j) \leq \sum_{j=1}^\infty m^*(A_j) = 0 \implies m^*(\bigcup_{j=1}^\infty A_j) = 0$.
+    Sea $(A_j)_{j=1}^\infty \subset R^n$ tal que $m^*(A_j) = 0 \quad \forall j \in \mathbb{N}$ entonces $m^*(\bigcup_{j=1}^\infty A_j) \leq \sum_{j=1}^\infty m^*(A_j) = 0 \implies m^*(\bigcup_{j=1}^\infty A_j) = 0$.
 \end{proof}
 
 \begin{lema}
@@ -105,11 +105,11 @@ $\R^n$.
 \end{lema}
 
 \begin{proof}
-    Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $\{Q_j\}_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \sum_{j \in \N} \text{vol}(\overline{Q}_j) \leq \beta$. Por tanto, $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
+    Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $(Q_j)_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \sum_{j \in \N} \text{vol}(\overline{Q}_j) \leq \beta$. Por tanto, $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
 \end{proof}
 
 \label{Partición de un Conjunto}
-\begin{definición}[Partición de un Conjunto] 
+\begin{definición}[Partición de un Conjunto]
 Una partición del intervalo $[a,b]$ es una colección numerable de puntos $P = \{a = t_0 < t_1 < ... < t_n = b\}$. Dado un n-rectángulo $R \subset \R^n$, una partición $P =  \{P_1, P_2, ..., P_n\}$ de $R$ es una colección particiones $P_i$ de $[a_i, b_i]$ para cada $i = 1, 2, ..., n$ siendo $R = \prod_{i=1}^n [a_i, b_i]$.
 \end{definición}
 
@@ -141,7 +141,7 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
     \]
 
     $"\supseteq"$\\
-    Dado $\epsilon > 0$ existe $\{Q_j\}_{j \in \mathbb{N}}$ sucesión de n-rectángulos abiertos tal que $R \subset \bigcup_{j \in \mathbb{N}} Q_j$ y $\sum_{j \in \mathbb{N}} \text{vol}(Q_j) < m^*(R) + \epsilon$. Sabemos que R es compacto al ser cerrado y acotado y, por tanto, al ser $\bigcup_{j \in \mathbb{N}} Q_j$ un recubrimiento abierto de R, existe un subrecubrimiento finito $\{Q_1, Q_2, ..., Q_m\}$ de R. Entonces $R \subset \bigcup_{i=1}^m Q_i \subset \bigcup_{i = 1}^m \overline{Q}_i$. Consideramos $R_j = R \cap \overline{Q}_j$ para $j = 1, 2, ..., m$. Tenemos entonces que $R = \bigcup_{j = 1}^{m} \overline{Q}_j$ y además prolongando los lados podemos obtener una partición $P$ de $R$ tal que cada subrectángulo de $P$ está contenido el algún $R_j$ para $1 \leq j \leq m$. Por tanto, $\text{vol}(R) = \sum_{S \in P} \text{vol}(S) \leq \sum_{j = 1}^{m} \text{vol}(R_j) \leq \sum_{j = 1}^{m} \text{vol}(Q_j) < m^*(R) + \epsilon$. Por tanto, $m^*(R) \geq \text{vol}(R)$.
+    Dado $\epsilon > 0$ existe $(Q_j)_{j \in \mathbb{N}}$ sucesión de n-rectángulos abiertos tal que $R \subset \bigcup_{j \in \mathbb{N}} Q_j$ y $\sum_{j \in \mathbb{N}} \text{vol}(Q_j) < m^*(R) + \epsilon$. Sabemos que R es compacto al ser cerrado y acotado y, por tanto, al ser $\bigcup_{j \in \mathbb{N}} Q_j$ un recubrimiento abierto de R, existe un subrecubrimiento finito $\{Q_1, Q_2, ..., Q_m\}$ de R. Entonces $R \subset \bigcup_{i=1}^m Q_i \subset \bigcup_{i = 1}^m \overline{Q}_i$. Consideramos $R_j = R \cap \overline{Q}_j$ para $j = 1, 2, ..., m$. Tenemos entonces que $R = \bigcup_{j = 1}^{m} \overline{Q}_j$ y además prolongando los lados podemos obtener una partición $P$ de $R$ tal que cada subrectángulo de $P$ está contenido el algún $R_j$ para $1 \leq j \leq m$. Por tanto, $\text{vol}(R) = \sum_{S \in P} \text{vol}(S) \leq \sum_{j = 1}^{m} \text{vol}(R_j) \leq \sum_{j = 1}^{m} \text{vol}(Q_j) < m^*(R) + \epsilon$. Por tanto, $m^*(R) \geq \text{vol}(R)$.
 \end{proof}
 
 \subsection{Medida de Lebesgue en $\R^n$}
@@ -149,7 +149,7 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
 \textbf{Notación:} Para $A \subset \R^n$ denotamos por $A^c$ al complementario de $A$ en $\R^n$.
 
 \label{Conjunto Medible}
-\begin{definición}[Conjunto Medible] 
+\begin{definición}[Conjunto Medible]
 Un conjunto $A \subset \R^n$ es medible en el sentido de Lebesgue si para todo $R \subset \R^n$ n-rectángulo se tiene que:
 \begin{equation}
     m^*(R) = m^*(R \cap A) + m^*(R \cap A^c)
@@ -177,22 +177,22 @@ Sea $A \subset \R^n$ entonces son equivalentes:
     Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
 \end{proof}
 
- \label{sigma-Algebra}
+\label{sigma-Algebra}
 \begin{definición}[$\sigma$-Álgebra]
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de subconjuntos de $X$. Se dice que $\mathcal{A}$ es una $\sigma$-álgebra si:
 \begin{enumerate}
     \item $X \in \mathcal{A}$
     \item Si $A \in \mathcal{A} \implies A^c \in \mathcal{A}$
-    \item $\forall \{A_j\}_{j \in \N} \subset \mathcal{A}$ se tiene que $\bigcup_{j \in \N} A_j \in \mathcal{A}$
+    \item $\forall (A_j)_{j \in \N} \subset \mathcal{A}$ se tiene que $\bigcup_{j \in \N} A_j \in \mathcal{A}$
 \end{enumerate}
 \end{definición}
 
 \label{Medida}
-\begin{definición}[Medida] 
+\begin{definición}[Medida]
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra, entonces una medida en $X$ es una función $\mu: \mathcal{A} \to [0, +\infty]$ tal que:
 \begin{enumerate}
     \item $\mu(\emptyset) = 0$
-    \item Si $\{A_j\}_{j \in \N} \subset \mathcal{A}$ es una colección numerable de
+    \item Si $(A_j)_{j \in \N} \subset \mathcal{A}$ es una colección numerable de
           conjuntos disjuntos dos a dos entonces: $$\mu(\bigcup_{j \in \N} A_j) = \sum_{j
                   \in \N} \mu(A_j)$$
 \end{enumerate}
@@ -232,7 +232,7 @@ medible en el sentido de Lebesgue.
 \end{proof}
 
 \begin{lema}
-    Sea $\{A_j\}_{j \in \N} \subset \R^n$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Entonces $\bigcup_{j \in \N} A_j$ es medible en el sentido de Lebesgue y además $m^*(\bigcup_{j \in \N} A_j) = \sum_{j \in \N} m^*(A_j)$.
+    Sea $(A_j)_{j \in \N} \subset \R^n$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Entonces $\bigcup_{j \in \N} A_j$ es medible en el sentido de Lebesgue y además $m^*(\bigcup_{j \in \N} A_j) = \sum_{j \in \N} m^*(A_j)$.
 \end{lema}
 
 \begin{proof}
@@ -256,7 +256,7 @@ medible en el sentido de Lebesgue.
 \end{lema}
 
 \begin{proof}
-    Sea $\{B_j\}_{j \in \N}$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Considermos:
+    Sea $(B_j)_{j \in \N}$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Considermos:
     \[\begin{matrix}
             A_1 = B_1                       \\
             A_2 = B_2 \cap B_1^c            \\
@@ -361,7 +361,7 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
     Distinción de casos:
     \begin{enumerate}
         \item Supongamos que $m^*(E) < +\infty$: Sea $\epsilon > 0$. Por definición de medida
-              exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos abiertos tales
+              exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos abiertos tales
               que $E \subset \unj(R_j)$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) +
                   \epsilon$. Considerando el abierto $G = \unj(R_j)$, se tiene que $G$ es medible
               por el colorario anterior y $m^*(G) = m^*(E \cap G) + m^*(E \cap G^c) = m^*(E)
@@ -405,7 +405,7 @@ Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de a
 \end{corolario}
 
 \begin{lema}
-    Sea $\{A_j\}_{j \in \N}$ familia numerable y creciente de conjuntos medibles en el sentido de Lebesgue. Entonces $\bigcup_{j \in \N} A_j$ es medible en el sentido de Lebesgue y $m(\bigcup_{j \in \N} A_j) = \lim_{j \to \infty} m(A_j)$.
+    Sea $(A_j)_{j \in \N}$ familia numerable y creciente de conjuntos medibles en el sentido de Lebesgue. Entonces $\bigcup_{j \in \N} A_j$ es medible en el sentido de Lebesgue y $m(\bigcup_{j \in \N} A_j) = \lim_{j \to \infty} m(A_j)$.
 \end{lema}
 
 \begin{proof}
@@ -496,7 +496,7 @@ con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
 
 \label{Espacio medible}
 \begin{definición}[Espacio Medible]
-    Un espacio medible es un par $(X, \Sigma)$ donde $X$ es un conjunto y $\Sigma$ es una $\sigma$-álgebra de subconjuntos de $X$.
+Un espacio medible es un par $(X, \Sigma)$ donde $X$ es un conjunto y $\Sigma$ es una $\sigma$-álgebra de subconjuntos de $X$.
 \end{definición}
 Vamos a considerar los siguientes espacios medibles:
 
@@ -507,7 +507,7 @@ Vamos a considerar los siguientes espacios medibles:
 
 \label{Función medible}
 \begin{definición}[Función Medible]
-    Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$ es medible si para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) < \alpha\}$ es un conjunto medible.
+Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$ es medible si para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) < \alpha\}$ es un conjunto medible.
 \end{definición}
 
 \proposicion{
