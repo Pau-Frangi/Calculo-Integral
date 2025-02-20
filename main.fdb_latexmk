@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1740065114.52491 "c:/Users/pablo/OneDriveUCM/Universidad/Calculo Integral/Latex/Calculo-Integral/Calculo-Integral/main.tex" "main.pdf" "main" 1740065123.85048 0
+["pdflatex"] 1740065330.93111 "c:/Users/pablo/OneDriveUCM/Universidad/Calculo Integral/Latex/Calculo-Integral/Calculo-Integral/main.tex" "main.pdf" "main" 1740065337.99326 0
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740054706 81068 299f700eb05b1217173e62b88b513bd0 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1739788850 12668 dc06899bf14948622113887d9b2f36fb ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1739883553 8604 dffb4ca5ea31f9adc8922eeb047c05a3 ""
@@ -269,7 +269,7 @@
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1740054556 994 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1740054556 10224 676851cec27a977bd7bfcd466082e6b6 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1740065099 89926 bec44904db80d3c0971ccccd87d7d103 ""
+  "Theory/1 - Medida de Lebesgue.tex" 1740065322 90054 82d95b480c84fa578abb761b39860f4a ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1740054556 63 bd2d127c33e8b32d732f96edbac5f3dd ""
   "Theory/2 - Funciones integrables en varias variables.tex" 1740054556 55 95ca69457c0c91630bc2b9abfb19de04 ""
   "Theory/3 - Teorema de Fubini.tex" 1740054556 27 55d784463ce4941319b04269469c54f1 ""
@@ -282,10 +282,10 @@
   "Theory/Appendix.tex" 1740054556 0 d41d8cd98f00b204e9800998ecf8427e ""
   "Theory/Theory.tex" 1740054556 607 f3157f4f9d70b179fd8805d7e17ee730 ""
   "c:/Users/pablo/OneDriveUCM/Universidad/Calculo Integral/Latex/Calculo-Integral/Calculo-Integral/main.tex" 1740054556 841 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.aux" 1740065120 24617 6334c309d315d1025c1346d5eacb86f2 "pdflatex"
-  "main.out" 1740065120 3037 3e4bffdeb7828206319634c2d50c1f41 "pdflatex"
+  "main.aux" 1740065337 24616 bbaea762d5ef0d9f1ae8dbebbab5f96b "pdflatex"
+  "main.out" 1740065337 3037 3e4bffdeb7828206319634c2d50c1f41 "pdflatex"
   "main.tex" 1740054556 841 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1740065120 1337 c5e5c31dc5d72a1563e955f3211f70d7 "pdflatex"
+  "main.toc" 1740065337 1337 c5e5c31dc5d72a1563e955f3211f70d7 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
