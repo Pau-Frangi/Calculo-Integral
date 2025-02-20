@@ -1375,7 +1375,7 @@ Los siguientes lemas son previos y necesarios para la demostracion del Teorema d
 
 \label{lema2Tonelli}
 \begin{lema}
-    Sea $(f_j)_{j \in \mathbb{N}}$ sucesión de funciones que satisfacen el Teorema de Tonelli y $f_j \uparrow f$ en $\mathbb{R}^{n+k}$ puntalmente $\implies$ f satisface el Teorema de Tonelli.
+    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli y $f_j \uparrow f$ en $\mathbb{R}^{n+k}$ puntalmente $\implies$ f satisface el Teorema de Tonelli.
 \end{lema}
 \begin{proof}
     \leavevmode
@@ -1410,42 +1410,45 @@ El siguiente lema es una versión de lema anterior en el que se usa el teorema d
     \end{enumerate}
 \end{proof}
 
-\begin{proof}[Demostración del Teorema de Tonelli]
-\leavevmode
-\begin{enumerate}
-\item Supongamos que $f = \chi_{Q}$ donde $Q$ es un cubo semiabierto en
-$\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k$. Con $Q = A \times B$ tal
-que $A \subset \mathbb{R}^n$ y $B \subset \mathbb{R}^k$.
-\begin{enumerate}
-\item Sea $f_x = (\chi_Q)_x$ entonces:
-\[
-    \chi_Q(x,y) = \begin{cases}
-        \chi_B & x \in A    \\
-        0      & x \notin A
-    \end{cases} \text{ luego es una función medible}
-\]
-Nótese que $(\chi_E)_x = \chi_{E_x}$, pues $(\chi_E)_x(y) = \chi_E(x, y) = \begin{cases} 1 & (x, y) \in E \iff y \in E_x \\ 0 & (x, y) \notin E \iff y \notin E_x \end{cases} = \chi_{E_x}(y)$.
-\item $$F(x) = \int_{\mathbb{R}^k} (\chi_Q)_x = \begin{cases}
-        \int_{\mathbb{R}^k}\chi_B & x \in A    \\
-        0                         & x \notin A
-    \end{cases} = \begin{cases}
-        m_k(B) & x \in A    \\
-        0      & x \notin A
-    \end{cases}$$
-Luego $F(x) = m_k(B) \cdot \chi_A(x)$ es medible.
-\item $\int_{\mathbb{R}^{n+k}}\chi_Q = m_{n+k}(Q) = m_n(A) \cdot m_k(B) = \int_{\mathbb{R}^n}m_k(B) \cdot \chi_A(x) = \int_{\mathbb{R}^n}F(x)$
-\end{enumerate}
-\item Supongamos que $f = \chi_G$ donde $G$ es abierto de $\mathbb{R}^{n+k}$. Sabemos
-que $G = \bigcup_{i \in \mathbb{N}}Q_i$ con $Q_i$ cubos semiabiertos disjuntos.
-Entonces $\forall j \in \mathbb{N}$ sea $G_j = \bigcup_{i = 1}^{j}Q_i$ tenemos que $(G_j)\uparrow G$ y $\chi_{G_j} \uparrow \chi_G$ con cada $\chi_{G_j} = \sum_{i
-        = 1}^{j}\chi_{Q_i}$ que satisface el Teorema de Tonelli por lema 1 y (a).
-Luego $\chi_G$ satisface el Teorema de Tonelli por el Lema 2.
-\item Supongamos que $f = \chi_D$ donde $D$ es un conjunto $G_{\delta}$:
-\begin{observación}
-Considerando $\forall j \in \mathbb{N} \ D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 2, podemos reducirnos al caso de conjuntos acotados ($D$ es un $G_{\delta}$ acotado).
-\end{observación}
-Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $\chi_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 2' para obtener que $\chi_{D}$ satisface el Teorema de Tonelli (pues $\chi_{G_1}$ es medible y satisface el Teorema de Tonelli por (2)).
-\end{enumerate}
+\begin{proof}[Demostración del Teorema de Tonelli:]
+    \leavevmode
+    \begin{enumerate}
+        \item Primero veamos el caso en el que $f$ es la función indicatriz/característica de un cubo semiabierto. 
+        \begin{enumerate}
+            %1%
+            \item Supongamos que $f = \chi_{Q}$ donde $Q$ es un cubo semiabierto en $\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k$. Con $Q = A \times B : A \subset \mathbb{R}^n$ y $B \subset \mathbb{R}^k$ \\ 
+            \begin{observación}
+                $(\chi_E)_x = \chi_{E_x}$
+                $(\chi_E)_x(y) = \chi_E(x, y) = \begin{cases} 1 & (x, y) \in E \\ 0 & (x, y) \notin E \end{cases} = \chi_{E_x}(y)$
+            \end{observación}
+            Sea  $f_x = (\chi_Q)_x(y) = (\chi_Q)_x(y) = \begin{cases} \chi_B(y) & x \in A \\ 0 & x \notin A \end{cases}$  función medible. 
+            %2%
+            \item $$F(x) = \int_{\mathbb{R}^k} (\chi_Q)_x = \begin{cases}
+                \int_{\mathbb{R}^k}\chi_B & x \in A \\
+                0 & x \notin A
+            \end{cases} = \begin{cases}
+                m_k(B) & x \in A \\
+                0 & x \notin A
+            \end{cases} \implies$$
+            $F(x) = m_k(B) \cdot \chi_A(x)$ es medible.
+            %3%
+            \item $$\int_{\mathbb{R}^{n+k}}\chi_Q = m_{n+k}(Q) = m_n(A) \cdot m_k(B) = \int_{\mathbb{R}^n}m_k(B) \cdot \chi_A(x) = \int_{\mathbb{R}^n}F(x)$$
+            %4%
+        \end{enumerate}
+        \item    Ahora supongamos que $f$ es la función indicatriz/característica de un conjunto abierto: \\
+        %1%
+        Supongamos que $f = \chi_G : G \subset \mathbb{R}^{n+k}$ - conjunto abierto $\implies G = \bigcup_{j \in \mathbb{N}}Q_j : Q_j$-cubos semiabiertos disjuntos. $$\implies \forall j \in \mathbb{N} \text{ sea } G_j = \bigcup_{i = 1}^{j}Q_i \implies \begin{cases}
+            (G_j) \uparrow G \\
+            \chi_{G_j} \uparrow \chi_G \text{ con cada } \chi_{G_j} = \sum_{i = 1}^{j}\chi_{Q_i}
+        \end{cases}$$
+        $\implies \forall j \in  \mathbb{N} \text{   } \chi_{G_j} = \sum_{i = 1}^{j}\chi_{Q_i}$ verifica el Teorema de Tonelli por el Lema 1.4.2 y Lema 1.4.3. Luego $\chi_G$ satisface el Teorema de Tonelli por el Lema 1.4.2.
+        \item        Supongamos ahora que $f$ es la función indicatriz de un conjunto $G_{\delta}$, es decir, un conjunto resultado de la intersección numerable de conjuntos abiertos, pero bajo mas restricciones: \\
+        Supongamos que $f = \chi_D$ donde $D$ es un conjunto $G_{\delta}$: 
+        \begin{observación}
+            Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 1.4.2, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
+        \end{observación}
+        Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 1.4.3 para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
+    \end{enumerate}
 \end{proof}
 
 \begin{corolario}[Prinicpio de Cavalieri]
@@ -1466,3 +1469,4 @@ Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto ab
         \item $m_{n+k}(E) = \int_{\mathbb{R}^k}m(E_y)dy$
     \end{enumerate}
 \end{corolario}
+
