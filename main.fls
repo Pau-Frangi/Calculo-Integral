@@ -549,6 +549,8 @@ INPUT Theory\Appendix.tex
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi480\esint10.pk
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi480\esint10.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi657\esint10.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi657\esint10.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
