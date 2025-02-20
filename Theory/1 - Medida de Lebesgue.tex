@@ -75,9 +75,9 @@ $\R^n$.
     \leavevmode
     \begin{enumerate}
         \item $\emptyset \subset \bigcup_{i=1}^\infty R_j$ con $R_j$ n-rectángulos degenerados $\implies m^*(\emptyset) \leq \sum_{j=1}^\infty \text{vol}(R_j) = 0 \implies m^*(\emptyset) = 0$.
-        \item Sea $A \subset B$ y sea $(R_j)_{j \in J}$ tal que $B \subset \bigcup_{j \in
-                      J} R_j$. Entonces $(R_j)_{j \in J}$ es un recubrimiento de $A$ y por tanto
-              $m^*(A) \leq \sum_{j \in J} \text{vol}(R_j) \implies m^*(A) \leq m^*(B)$.
+        \item Sea $A \subset B$ y sea $(R_j)_{j \in J}$ tal que $B \subset \bigcup_{j \in J}
+                  R_j$. Entonces $(R_j)_{j \in J}$ es un recubrimiento de $A$ y por tanto $m^*(A)
+                  \leq \sum_{j \in J} \text{vol}(R_j) \implies m^*(A) \leq m^*(B)$.
         \item Si $\sum_{j=1}^{\infty}{A_j} = +\infty$ entonces el resultado es inmediato.
               Supongamos que $\sum_{j=1}^{\infty}{A_j} < +\infty$. Sea $\epsilon > 0$. Para
               cada $j \in \mathbb{N}$, $\exists (R_{j,i})_{i = 1}^\infty$ tal que $A_j
@@ -1201,16 +1201,16 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     $\forall k \in \mathbb{N}$ sabemos que $\exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n(k)}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$.
     Suponemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $$\text{diam}(P_k) = \sup_{i \in \{1, \dots, n(k)\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$$
     \\$\forall k \in \mathbb{N}$ denotamos $m_k = \inf\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$ y $M_k = \sup\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$.
-        $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-        $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-        Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
-        Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
-        Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
-        y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
-        Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
-        La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
-        Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
-        Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
+    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+    $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+    Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
+    Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
+    Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
+    y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
+    Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
+    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
+    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
+    Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
     $$(L)\int_{a}^{b}f = \int_{a}^{b}\varphi = \int_a^b\psi = (R)\int_{a}^{b}f$$
 \end{proof}
 
@@ -1318,122 +1318,151 @@ Por lo tanto:
 \[ F(t) = \arctan(t). \]
 }
 
-\begin{observación}
-Notación: $\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^{k}$
-$(x, y) = (x_1, \dots, x_n, y_1, \dots, y_k) \in \mathbb{R}^{n+k}$ \\
-Si $f: \mathbb{R}^{n+k} \to \mathbb{R} \implies \begin{cases}
-        f_{x}: \mathbb{R}^k \to \mathbb{R} \quad \text{con} \quad f_{x}(y) = f(x, y) \forall x \in \mathbb{R}^k \\
-        f_{y}: \mathbb{R}^n \to \mathbb{R} \quad \text{con} \quad f_{y}(x) = f(x, y)\forall x \in \mathbb{R}^n
-    \end{cases}$
-\end{observación}
+\subsection{Teoremas de Tonelli y Fubini}
+
+Notación:
+\[
+    \mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^{k} \qquad (x, y)
+    = (x_1, \dots, x_n, y_1, \dots, y_k) \in \mathbb{R}^{n+k}
+\]
+Sea $f: \mathbb{R}^{n+k} \to [-\infty, +\infty]$, entonces denotamos las
+funciones:
+\[
+    \begin{cases}
+        f_{x}: \mathbb{R}^k \to [-\infty,+ \infty] \quad \text{con} \quad f_{x}(y) = f(x, y) \quad \forall y \in \mathbb{R}^k \\
+        f_{y}: \mathbb{R}^n \to [-\infty,+ \infty] \quad \text{con} \quad f_{y}(x) = f(x, y) \quad \forall x \in \mathbb{R}^n
+    \end{cases}
+\]
 
 \begin{teorema}[Teorema de Tonelli]
     Sea $f : \mathbb{R}^{n+k} \to [0, +\infty]$ medible. Entonces:
     \begin{enumerate}
         \item Para casi todo $x \in \mathbb{R}^n$, la función $f_{x} : \mathbb{R}^k \to [0,
-                      +\infty]$ es medible en $\mathbb{R}^k$.
+                      +\infty]$ es medible en $\mathbb{R}^k$
         \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) =
-                  \int_{\mathbb{R}^k}f_x$ es medible en $\mathbb{R}^n$.
-        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dy)dx = \int_{\mathbb{R}^{n+k}}f(x,y)dxdy$
+                  \int_{\mathbb{R}^k}f_x = \int_{\R^k} f(x,y)dy$ definida en casi todo punto de
+              $\R^n$ es medible en $\mathbb{R}^n$
+        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dy)dx = \int_{\mathbb{R}^{n+k}}f(x,y)dxdy$
     \end{enumerate}
-    Además, se tiene que:
+    Además, de forma análoga se tiene que:
     \begin{enumerate}
-        \item Para casi todo $y \in \mathbb{R}^k f_y$ es medible en $\mathbb{R}^k (y \geq 0)$
+        \item Para casi todo $y \in \mathbb{R}^k$, la función $f_{y} : \mathbb{R}^n \to [0,
+                      +\infty]$ es medible en $\mathbb{R}^n$.
         \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) =
-                  \int_{\mathbb{R}^n}f_y$ es medible en $\mathbb{R}^k$
-        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^k}G = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f_y) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dx)dy = \int_{\mathbb{R}^{n+k}}f(x,y)dydx$
+                  \int_{\mathbb{R}^n}f_y = \int_{\R^n} f(x,y)dx$ definida en casi todo punto de
+              $\R^k$ es medible en $\mathbb{R}^k$.
+        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^k}G = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f_y) = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dx)dy = \int_{\mathbb{R}^{n+k}}f(x,y)dydx$
     \end{enumerate}
 \end{teorema}
+
 \begin{observación}
-    Los siguientes lemas son previos y necesarios para la demostracion del Teorema de Tonelli.
+Los siguientes lemas son previos y necesarios para la demostracion del Teorema de Tonelli.
 \end{observación}
+
+\label{lema1Tonelli}
 \begin{lema}
     Sean $f,g$ que satisfacen el Teorema de Tonelli y $a, b \geq 0 \implies af + bg$ también satisfacen el Teorema de Tonelli
 \end{lema}
-\begin{proof}
-    \begin{enumerate}
-        \item $\forall x \in \mathbb{R}^n, af +bg = a(f_x) + b(g_x)$ es medible en $\mathbb{R}^k$.
-        \item $H(x) = \int_{\mathbb{R}^k}(af + bg)_x = a\int_{\mathbb{R}^k}f_x + b\int_{\mathbb{R}^k}g_x = aF(x) + bG(x)$ es medible en $\mathbb{R}^n$
-        \item $\int_{\mathbb{R}^{n}}(af +bg) = a\int_{\mathbb{R}^{n+k}}f + b \int_{\mathbb{R}^{n+k}}g$
 
+\begin{proof}
+    \leavevmode
+    \begin{enumerate}
+        \item $\forall x \in \mathbb{R}^n, \ (af + bg)_x = a(f_x) + b(g_x)$ es medible en $\mathbb{R}^k$.
+        \item $H(x) = \int_{\mathbb{R}^k}(af + bg)_x = \int_{\mathbb{R}^k}a(f_x) + b(g_x) = \int_{\mathbb{R}^k}a(f_x) + \int_{\mathbb{R}^k}b(g_x)$ es medible en $\mathbb{R}^n$.
+        \item $\int_{\mathbb{R}^{n}}(af +bg)_x = a\int_{\mathbb{R}^{n+k}}f_x + b \int_{\mathbb{R}^{n+k}}g_x$
     \end{enumerate}
 \end{proof}
+
+\label{lema2Tonelli}
 \begin{lema}
-    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli y $f_j \uparrow f$ en $\mathbb{R^{n+k}}$ puntalmente $\implies$ f satisface el Teorema de Tonelli.
+    Sea $(f_j)_{j \in \mathbb{N}}$ sucesión de funciones que satisfacen el Teorema de Tonelli y $f_j \uparrow f$ en $\mathbb{R}^{n+k}$ puntalmente $\implies$ f satisface el Teorema de Tonelli.
 \end{lema}
 \begin{proof}
+    \leavevmode
     \begin{enumerate}
-        \item Para casi todo $x \in \mathbb{R}^{n} : f_j(x, \cdot) = (f_j)_x \uparrow f(x, \cdot) = f_x$ 
-        \item $F_j(x) = \int_{\mathbb{R}^k}(f_j)_x \uparrow \int_{\mathbb{R}^k}f_x = F(x)$ luego es medible por el Teorema de la Convergencia Monótona. 
-        \item Nuevamente por el Teorema de la Convergencia aplicado a la sucesión de (2) $F_j(x) \uparrow F(x)$ tenemos que: $\int_{\mathbb{R}^{n+k}}f = \lim_{j \infty}f_j = \mathbb{R}^n = \lim_{j \to \infty}\int_{\mathbb{R}^n}F_j = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y) \,dy)\,dx$
+        \item Para casi todo $x \in \mathbb{R}^{n}$ se tiene que $f_j(x, \cdot) = (f_j)_x
+                  \uparrow f(x, \cdot) = f_x$
+        \item $F_j(x) = \int_{\mathbb{R}^k}(f_j)_x \uparrow \int_{\mathbb{R}^k}f_x = F(x)$ luego $F$ es medible por el Teorema de la Convergencia Monótona.
+        \item Nuevamente por el Teorema de la Convergencia aplicado a la sucesión de (2)
+              $F_j(x) \uparrow F(x)$ tenemos que $\int_{\mathbb{R}^{n+k}}f = \lim_{j \to
+                      \infty} \int_{\R^{n+k}} f_j = \lim_{j \to \infty}\int_{\mathbb{R}^n}F_j =
+                  \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y) \,dy)\,dx$
     \end{enumerate}
 \end{proof}
 \begin{observación}
-    El siguiente lema es una versión de lema anterior en el que se usa el teorema de la convergencia dominada en lugar del de la convergencia monótona. 
+El siguiente lema es una versión de lema anterior en el que se usa el teorema de la convergencia dominada en lugar del de la convergencia monótona.
 \end{observación}
+
+\label{lema3Tonelli}
 \begin{lema}
-    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli. Supongamos que $(f_j)\to f$ puntualmente en $\mathbb{R}^{n+k}$ y $\exists g: \mathbb{R}^{n+k} \to [0, +\infty]$ integrable, que satisface el Teorema de Tonelli y tal que $ 0 \leq f_j \leq g \forall j \in \mathbb{N}$ Entonces, $f$ satisface el Teorema de Tonelli. 
+    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli. Supongamos que $(f_j)\to f$ puntualmente en $\mathbb{R}^{n+k}$ y $\exists g: \mathbb{R}^{n+k} \to [0, +\infty]$ integrable, que satisface el Teorema de Tonelli y tal que $ 0 \leq f_j \leq g \quad \forall j \in \mathbb{N}$. Entonces, $f$ satisface el Teorema de Tonelli.
 \end{lema}
 \begin{proof}
+    \leavevmode
     \begin{enumerate}
         \item $(f_j)_x \to f_x$ medible
         \item $\int_{\mathbb{R}^{n+k}}g = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}g_x) < +\infty$ luego $G(x) = \int_{\mathbb{R}^k}g_x < +\infty$ para casi todo $x \in \mathbb{R}^n$
-        Además, tenemos que $0 \leq (f_j)_x \leq g_x$ integrable, por lo que podemos usar el Teorema de la Convergencia Dominada $\implies$
-        $F_j(x) = \int_{\mathbb{R}^k}(f_j)_x \to F(x) = \int_{\mathbb{R}^k}f_x$ por el Teorema de la Convergencia Dominada. 
-        \item De nuevo por el Teorema de la Convergencia Dominada: $\int{\mathbb{R}^n}F = \int_{\mathbb{R}^n}F_j = \lim_{j \to \infty}\int_{\mathbb{R}^n}F_j = \lim_{j \to \infty}\int_{\mathbb{R}^{n+k}}f_j = \int_{\mathbb{R}^{n+k}}f$
+              Además, tenemos que $0 \leq (f_j)_x \leq g_x$ integrable, por lo que podemos usar el Teorema de la Convergencia Dominada $\implies$
+              $F_j(x) = \int_{\mathbb{R}^k}(f_j)_x \to F(x) = \int_{\mathbb{R}^k}f_x$
+        \item De nuevo por el Teorema de la Convergencia Dominada $\int_{\mathbb{R}^n}F =
+                  \lim_{j \to \infty}\int_{\mathbb{R}^n}F_j = \lim_{j \to
+                      \infty}\int_{\mathbb{R}^{n+k}}f_j = \int_{\mathbb{R}^{n+k}}f$
     \end{enumerate}
 \end{proof}
-
 
 \begin{proof}[Demostración del Teorema de Tonelli]
-    \begin{enumerate}
-        \item Supongamos que $f = \chi_{Q}$ donde $Q$ es un cubo semiabierto en $\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k$. Con $Q = A \times B : A \subset \mathbb{R}^n$ y $B \subset \mathbb{R}^k$ \\ Sea  $f_x = (\chi_Q)_x(y)$.
-        \begin{observación}
-            $(\chi_E)_x = \chi_{E_x}$
-            $(\chi_E)_x(y) = \chi_E(x, y) = \begin{cases} 1 & (x, y) \in E \\ 0 & (x, y) \notin E \end{cases} = \chi_{E_x}(y)$
-        \end{observación}
-        $\implies (\chi_Q)_x = \begin{cases}
-            \chi_B & x \in A \\
-            0 & x \notin A
-        \end{cases}$ La cual es una función medible. 
-        \item $$F(x) = \int_{\mathbb{R}^k} (\chi_Q)_x = \begin{cases}
-            \int_{\mathbb{R}^k}\chi_B & x \in A \\
-            0 & x \notin A
-        \end{cases} = \begin{cases}
-            m_k(B) & x \in A \\
-            0 & x \notin A
-        \end{cases} \implies$$
-        $F(x) = m_k(B) \cdot \chi_A(x)$ que es medible.
-        \item $\int_{\mathbb{R}^{n+k}}\chi_Q = m_{n+k}(Q) = m_n(A) \cdot m_k(B) = \int_{\mathbb{R}^n}m_k(B) \cdot \chi_A(x) = \int_{\mathbb{R}^n}F(x)$
-        \item Supongamos que $f = \chi_G$ donde $G$ es abierto de $\mathbb{R}^{n+k}$ Sabemos que $G = \bigcup_{j \in \mathbb{N}}Q_j$ con $Q_j$ cubos semiabiertos disjuntos. Entonces $\forall j \in \mathbb{N}$ sea $G_j = \bigcup_{i = 1}^{j}Q_i$ Entonces $(G_j)\uparrow G$ y $\chi_{G_j} \uparrow \chi_G$ con cada $\chi_{G_j} = \sum_{i = 1}^{j}\chi_{Q_i}$ que satisface el Teorema de Tonelli por el Lema 1 y (1). Luego $\chi_G$ satisface el Teorema de Tonelli por el Lema 2.
-        \item Supongamos que $f = \chi_D$ donde $D$ es un conjunto $G_{\delta}$: 
-        \begin{observación}
-            Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 2, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
-        \end{observación}
-        Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 2' para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
-    \end{enumerate}
+\leavevmode
+\begin{enumerate}
+\item Supongamos que $f = \chi_{Q}$ donde $Q$ es un cubo semiabierto en
+$\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k$. Con $Q = A \times B$ tal
+que $A \subset \mathbb{R}^n$ y $B \subset \mathbb{R}^k$.
+\begin{enumerate}
+\item Sea $f_x = (\chi_Q)_x$ entonces:
+\[
+    \chi_Q(x,y) = \begin{cases}
+        \chi_B & x \in A    \\
+        0      & x \notin A
+    \end{cases} \text{ luego es una función medible}
+\]
+Nótese que $(\chi_E)_x = \chi_{E_x}$, pues $(\chi_E)_x(y) = \chi_E(x, y) = \begin{cases} 1 & (x, y) \in E \iff y \in E_x \\ 0 & (x, y) \notin E \iff y \notin E_x \end{cases} = \chi_{E_x}(y)$.
+\item $$F(x) = \int_{\mathbb{R}^k} (\chi_Q)_x = \begin{cases}
+        \int_{\mathbb{R}^k}\chi_B & x \in A    \\
+        0                         & x \notin A
+    \end{cases} = \begin{cases}
+        m_k(B) & x \in A    \\
+        0      & x \notin A
+    \end{cases}$$
+Luego $F(x) = m_k(B) \cdot \chi_A(x)$ es medible.
+\item $\int_{\mathbb{R}^{n+k}}\chi_Q = m_{n+k}(Q) = m_n(A) \cdot m_k(B) = \int_{\mathbb{R}^n}m_k(B) \cdot \chi_A(x) = \int_{\mathbb{R}^n}F(x)$
+\end{enumerate}
+\item Supongamos que $f = \chi_G$ donde $G$ es abierto de $\mathbb{R}^{n+k}$. Sabemos
+que $G = \bigcup_{i \in \mathbb{N}}Q_i$ con $Q_i$ cubos semiabiertos disjuntos.
+Entonces $\forall j \in \mathbb{N}$ sea $G_j = \bigcup_{i = 1}^{j}Q_i$ tenemos que $(G_j)\uparrow G$ y $\chi_{G_j} \uparrow \chi_G$ con cada $\chi_{G_j} = \sum_{i
+        = 1}^{j}\chi_{Q_i}$ que satisface el Teorema de Tonelli por lema 1 y (a).
+Luego $\chi_G$ satisface el Teorema de Tonelli por el Lema 2.
+\item Supongamos que $f = \chi_D$ donde $D$ es un conjunto $G_{\delta}$:
+\begin{observación}
+Considerando $\forall j \in \mathbb{N} \ D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 2, podemos reducirnos al caso de conjuntos acotados ($D$ es un $G_{\delta}$ acotado).
+\end{observación}
+Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $\chi_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 2' para obtener que $\chi_{D}$ satisface el Teorema de Tonelli (pues $\chi_{G_1}$ es medible y satisface el Teorema de Tonelli por (2)).
+\end{enumerate}
 \end{proof}
-
-
-
 
 \begin{corolario}[Prinicpio de Cavalieri]
     Sea $E \subset \mathbb{R}^{n+k}$ medible entonces:
     \begin{enumerate}
         \item Para casi todo $x \in \mathbb{R}^n$ el conjunto $E_x = \{ y \in \mathbb{R}^k :
                   (x, y) \in E \}$ es medible en $\mathbb{R}^k$
-        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = m(E_x)$ es
-              medible en $\mathbb{R}^n$
+        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = m(E_x)$ definida
+              en casi todo punto es medible en $\mathbb{R}^n$
         \item $m_{n+k}(E) = \int_{\mathbb{R}^n}m(E_x)dx$
     \end{enumerate}
-    De forma análoga se puede tener que:
+    De forma análoga se tiene que:
     \begin{enumerate}
         \item Para casi todo $y \in \mathbb{R}^k$, el conjunto $E_y = \{ x \in \mathbb{R}^n :
                   (x, y) \in E \}$ es medible en $\mathbb{R}^n$
-        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = m(E_y)$ es
-              medible en $\mathbb{R}^k$
+        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = m(E_y)$ definida
+              en casi todo punto es medible en $\mathbb{R}^k$
         \item $m_{n+k}(E) = \int_{\mathbb{R}^k}m(E_y)dy$
     \end{enumerate}
 \end{corolario}
-
-
