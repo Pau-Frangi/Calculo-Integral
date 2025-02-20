@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1739988949.13159 "c:/Users/paufr/OneDrive/Escritorio/Advanced-Quantum-Mechanics-main/main.tex" "main.pdf" "main" 1739988952.2857 0
-  "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1739977129 81068 299f700eb05b1217173e62b88b513bd0 ""
+["pdflatex"] 1740041206.74983 "c:/Users/paufr/OneDrive/Escritorio/Advanced-Quantum-Mechanics-main/main.tex" "main.pdf" "main" 1740041210.02547 0
+  "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1739989634 81068 299f700eb05b1217173e62b88b513bd0 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi657/esint10.pk" 1739867973 13616 eb2ce24607ec8c3cff6f3f728e8586a8 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha10.tfm" 1737830961 1372 84a1ef28ab0d13263326e8d7d854aaa0 ""
@@ -267,8 +267,8 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
-  "Preamble/Preamble.tex" 1739987277 10736 af009c6cf94f69bb834875b61e656a32 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1739988944 83469 5eeabe34b7327e0737ea77c6696871fa ""
+  "Preamble/Preamble.tex" 1740039822 10224 676851cec27a977bd7bfcd466082e6b6 ""
+  "Theory/1 - Medida de Lebesgue.tex" 1740041202 83653 9d9e57a3b1ab4cd0b33eb88c22fbf3f9 ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1739791929 63 bd2d127c33e8b32d732f96edbac5f3dd ""
   "Theory/2 - Funciones integrables en varias variables.tex" 1739791694 53 95ca69457c0c91630bc2b9abfb19de04 ""
   "Theory/3 - Teorema de Fubini.tex" 1739791718 27 55d784463ce4941319b04269469c54f1 ""
@@ -281,10 +281,10 @@
   "Theory/Appendix.tex" 1737879348 0 d41d8cd98f00b204e9800998ecf8427e ""
   "Theory/Theory.tex" 1739791489 607 f3157f4f9d70b179fd8805d7e17ee730 ""
   "c:/Users/paufr/OneDrive/Escritorio/Advanced-Quantum-Mechanics-main/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.aux" 1739988951 22300 c31259ee95517d1ac931e266aeb9ad8f "pdflatex"
-  "main.out" 1739988951 3037 3e4bffdeb7828206319634c2d50c1f41 "pdflatex"
+  "main.aux" 1740041209 22787 5ac0eb22b3bf87c95d3a3ef1b312614b "pdflatex"
+  "main.out" 1740041209 3037 3e4bffdeb7828206319634c2d50c1f41 "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1739988951 1337 7330122979780d97736d29ddb3f10b6f "pdflatex"
+  "main.toc" 1740041209 1337 7330122979780d97736d29ddb3f10b6f "pdflatex"
   (generated)
   "main.aux"
   "main.log"

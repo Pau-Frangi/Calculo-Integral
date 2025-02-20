@@ -119,149 +119,148 @@
 \usepackage{amsthm}
 
 \declaretheoremstyle[
-    headfont=\bfseries, 
-    notebraces={[}{]},
-    bodyfont=\normalfont\itshape,
-    headpunct={},
-    postheadspace=\newline,
-    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-    spacebelow= 5pt,
-    spaceabove= 10pt,
-    mdframed={
-        backgroundcolor=LightRed, 
-            innertopmargin=6pt,
-            roundcorner=5pt, 
-            innerbottommargin=6pt, 
-            skipabove=\parsep, 
-            skipbelow=\parsep } 
+headfont=\bfseries,
+notebraces={[}{]},
+%notefont=\bfseries,
+bodyfont=\normalfont\itshape,
+headpunct={},
+postheadspace=\newline,
+postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+spacebelow= 5pt,
+spaceabove= 10pt,
+mdframed={
+    backgroundcolor=LightRed,
+    innertopmargin=6pt,
+    roundcorner=5pt,
+    innerbottommargin=6pt,
+    skipabove=\parsep,
+    skipbelow=\parsep }
 ]{myTheoremStyle}
 
 % example environment - thmtools
 \declaretheorem[
-    style=myTheoremStyle,
-    numberwithin=subsection
+  style=myTheoremStyle,
+  numberwithin=subsection
 ]{teorema}
 
-
 \declaretheoremstyle[
-    headfont=\bfseries, 
-    notebraces={[}{]},
-    bodyfont=\normalfont\itshape,
-    headpunct={},
-    postheadspace=\newline,
-    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-    spacebelow= 5pt,
-    spaceabove= 10pt,
-    mdframed={
-        backgroundcolor=LightOrange, 
-            innertopmargin=6pt,
-            roundcorner=5pt, 
-            innerbottommargin=6pt, 
-            skipabove=\parsep, 
-            skipbelow=\parsep } 
+headfont=\bfseries,
+notebraces={[}{]},
+bodyfont=\normalfont\itshape,
+headpunct={},
+postheadspace=\newline,
+postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+spacebelow= 5pt,
+spaceabove= 10pt,
+mdframed={
+    backgroundcolor=LightOrange,
+    innertopmargin=6pt,
+    roundcorner=5pt,
+    innerbottommargin=6pt,
+    skipabove=\parsep,
+    skipbelow=\parsep }
 ]{myPropositionStyle}
 
 % example environment - thmtools
 \declaretheorem[
-    style=myPropositionStyle,
-    numberwithin=subsection
+  style=myPropositionStyle,
+  numberwithin=subsection
 ]{proposición}
 
-
 \declaretheoremstyle[
-    headfont=\bfseries, 
-    notebraces={[}{]},
-    bodyfont=\normalfont\itshape,
-    headpunct={},
-    postheadspace=\newline,
-    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-    spacebelow= 5pt,
-    spaceabove= 10pt,
-    mdframed={
-        backgroundcolor=LightOrange, 
-            innertopmargin=6pt,
-            roundcorner=5pt, 
-            innerbottommargin=6pt, 
-            skipabove=\parsep, 
-            skipbelow=\parsep } 
+headfont=\bfseries,
+notebraces={[}{]},
+bodyfont=\normalfont\itshape,
+headpunct={},
+postheadspace=\newline,
+postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+spacebelow= 5pt,
+spaceabove= 10pt,
+mdframed={
+    backgroundcolor=LightOrange,
+    innertopmargin=6pt,
+    roundcorner=5pt,
+    innerbottommargin=6pt,
+    skipabove=\parsep,
+    skipbelow=\parsep }
 ]{myCorollaryStyle}
 
 % example environment - thmtools
 \declaretheorem[
-    style=myCorollaryStyle,
-    numberwithin=subsection
+  style=myCorollaryStyle,
+  numberwithin=subsection
 ]{corolario}
 
 \declaretheoremstyle[
-    headfont=\bfseries, 
-    notebraces={[}{]},
-    bodyfont=\normalfont\itshape,
-    headpunct={},
-    postheadspace=\newline,
-    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-    spacebelow= 5pt,
-    spaceabove= 10pt,
-    mdframed={
-        backgroundcolor=LightOrange, 
-            innertopmargin=6pt,
-            roundcorner=5pt, 
-            innerbottommargin=6pt, 
-            skipabove=\parsep, 
-            skipbelow=\parsep } 
+headfont=\bfseries,
+notebraces={[}{]},
+bodyfont=\normalfont\itshape,
+headpunct={},
+postheadspace=\newline,
+postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+spacebelow= 5pt,
+spaceabove= 10pt,
+mdframed={
+    backgroundcolor=LightOrange,
+    innertopmargin=6pt,
+    roundcorner=5pt,
+    innerbottommargin=6pt,
+    skipabove=\parsep,
+    skipbelow=\parsep }
 ]{myLemmaStyle}
 
 % example environment - thmtools
 \declaretheorem[
-    style=myLemmaStyle,
-    numberwithin=subsection
+  style=myLemmaStyle,
+  numberwithin=subsection
 ]{lema}
 
 \declaretheoremstyle[
-    headfont=\bfseries, 
-    notebraces={[}{]},
-    bodyfont=\normalfont\itshape,
-    headpunct={},
-    postheadspace=\newline,
-    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-    spacebelow= 5pt,
-    spaceabove= 10pt,
-    mdframed={
-        backgroundcolor=LightBlue, 
-            innertopmargin=6pt,
-            roundcorner=5pt, 
-            innerbottommargin=6pt, 
-            skipabove=\parsep, 
-            skipbelow=\parsep } 
+headfont=\bfseries,
+notebraces={[}{]},
+bodyfont=\normalfont\itshape,
+headpunct={},
+postheadspace=\newline,
+postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+spacebelow= 5pt,
+spaceabove= 10pt,
+mdframed={
+    backgroundcolor=LightBlue,
+    innertopmargin=6pt,
+    roundcorner=5pt,
+    innerbottommargin=6pt,
+    skipabove=\parsep,
+    skipbelow=\parsep }
 ]{myDefinitionStyle}
 
 % example environment - thmtools
 \declaretheorem[
-    style=myDefinitionStyle,
-    numberwithin=subsection
+  style=myDefinitionStyle,
+  numberwithin=subsection
 ]{definición}
 
 \declaretheoremstyle[
-    headfont=\bfseries, 
-    notebraces={[}{]},
-    bodyfont=\normalfont\itshape,
-    headpunct={},
-    postheadspace=\newline,
-    postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-    spacebelow= 5pt,
-    spaceabove= 10pt,
-    mdframed={
-        backgroundcolor=LightGreen, 
-            innertopmargin=6pt,
-            roundcorner=5pt, 
-            innerbottommargin=6pt, 
-            skipabove=\parsep, 
-            skipbelow=\parsep } 
-]{myObservationStyle} 
+headfont=\bfseries,
+notebraces={[}{]},
+bodyfont=\normalfont\itshape,
+headpunct={},
+postheadspace=\newline,
+postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
+spacebelow= 5pt,
+spaceabove= 10pt,
+mdframed={
+    backgroundcolor=LightGreen,
+    innertopmargin=6pt,
+    roundcorner=5pt,
+    innerbottommargin=6pt,
+    skipabove=\parsep,
+    skipbelow=\parsep }
+]{myObservationStyle}
 
 % example environment - thmtools
 \declaretheorem[
-    style=myObservationStyle,
-    numberwithin=subsection
+  style=myObservationStyle,
+  numberwithin=subsection
 ]{observación}
 
 % theoremstyle shortcut commands
@@ -292,7 +291,6 @@
   node [midway, fill=white] {#2};
 }% tomado de https://tex.stackexchange.com/questions/179425/a-new-command-of-the-form-tex
 
-
 \newtcolorbox{mybox}[2][]{%
   colback=white, % Box background color
   colframe=black, % Border color
@@ -304,18 +302,17 @@
   left=10pt, right=10pt, top=10pt, bottom=10pt, % Padding inside box
   breakable, % Allows the box to continue across pages
   overlay first ={ % Title always appears but only at the top of the first part
-    \node[draw=blue!50!black, thick,
-      fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
-      text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
-  },
+      \node[draw=blue!50!black, thick,
+        fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
+        text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
+    },
   overlay unbroken ={ % Title appears if the box is unbroken
-    \node[draw=blue!50!black, thick,
-      fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
-      text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
-  },
-  #1 
+      \node[draw=blue!50!black, thick,
+        fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
+        text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
+    },
+  #1
 }
-
 
 \newcommand{\ejemplo}[1]{%
   \begin{mybox}{Ejemplo}

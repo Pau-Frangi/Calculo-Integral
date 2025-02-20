@@ -2,7 +2,8 @@
 
 \subsection{Medida Exterior de Lebesgue en $\R^n$}
 
-\begin{definición}[n-Réctangulo] \label{n-rectángulo}
+ \label{n-rectángulo}
+\begin{definición}[n-Réctangulo]
 Un n-rectángulo en $\R^n$ es un conjunto de la forma:
 \begin{equation}
     R = \prod_{i=1}^n [a_i, \ b_i] = [a_1, \ b_1] \times [a_2, \ b_2] \times ... \times [a_n, \ b_n] \text{ donde } a_i \leq b_i \ \forall i
@@ -21,7 +22,8 @@ Dado $R$ n-rectángulo cerrado tal que $R = \prod_{i=1}^n [a_i, \ b_i]$, podemos
 \end{equation}
 \end{observación}
 
-\begin{definición}[Medida Exterior de Lebesgue] \label{Medida de exterior de Lebesgue}
+ \label{Medida de exterior de Lebesgue}
+\begin{definición}[Medida Exterior de Lebesgue]
 Sea $A \subset \R^n$. Definimos la medida exterior de $A$ como:
 \begin{equation}
     m^*(A) = \inf \left\{ \sum_{i=1}^\infty \text{vol}(R_i) \ | \ A \subset \bigcup_{i=1}^\infty R_i \text{ con } R_i \text{ n-rectángulos cerrados} \right\}
@@ -38,10 +40,12 @@ Sea $A \subset \R^n$
 \end{enumerate}
 \end{observación}
 
-\begin{definición}[Conjunto Nulo] \label{Conjunto nulo}
+\label{Conjunto nulo}
+\begin{definición}[Conjunto Nulo] 
 Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
 \end{definición}
 
+\ejemplo{
 \begin{enumerate}
     \item Si $R$ es un n-rectángulo degenerado, es decir, $R$ tiene alguno de los lados
           de longitud 0, entonces $R$ es un conjunto nulo ($m^*(R) = 0$).
@@ -52,6 +56,7 @@ Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
               \text{vol}([\frac{i-1}{m}, \frac{i}{m}] \times [\frac{i-1}{m}, \frac{i}{m}]) =
               \frac{1}{m^2} \cdot m = \frac{1}{m} < \epsilon$. Por tanto, $m^*(A) = 0$.
 \end{enumerate}
+}
 
 Denotamos por $\mathcal{P}(\R^n)$ al conjunto de todos los subconjuntos de
 $\R^n$.
@@ -103,7 +108,8 @@ $\R^n$.
     Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $\{Q_j\}_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \sum_{j \in \N} \text{vol}(\overline{Q}_j) \leq \beta$. Por tanto, $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
 \end{proof}
 
-\begin{definición}[Partición de un Conjunto] \label{Partición de un Conjunto}
+\label{Partición de un Conjunto}
+\begin{definición}[Partición de un Conjunto] 
 Una partición del intervalo $[a,b]$ es una colección numerable de puntos $P = \{a = t_0 < t_1 < ... < t_n = b\}$. Dado un n-rectángulo $R \subset \R^n$, una partición $P =  \{P_1, P_2, ..., P_n\}$ de $R$ es una colección particiones $P_i$ de $[a_i, b_i]$ para cada $i = 1, 2, ..., n$ siendo $R = \prod_{i=1}^n [a_i, b_i]$.
 \end{definición}
 
@@ -142,7 +148,8 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
 
 \textbf{Notación:} Para $A \subset \R^n$ denotamos por $A^c$ al complementario de $A$ en $\R^n$.
 
-\begin{definición}[Conjunto Medible] \label{Conjunto Medible}
+\label{Conjunto Medible}
+\begin{definición}[Conjunto Medible] 
 Un conjunto $A \subset \R^n$ es medible en el sentido de Lebesgue si para todo $R \subset \R^n$ n-rectángulo se tiene que:
 \begin{equation}
     m^*(R) = m^*(R \cap A) + m^*(R \cap A^c)
@@ -170,7 +177,8 @@ Sea $A \subset \R^n$ entonces son equivalentes:
     Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
 \end{proof}
 
-\begin{definición}[$\sigma$-Álgebra] \label{sigma-Algebra}
+ \label{sigma-Algebra}
+\begin{definición}[$\sigma$-Álgebra]
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de subconjuntos de $X$. Se dice que $\mathcal{A}$ es una $\sigma$-álgebra si:
 \begin{enumerate}
     \item $X \in \mathcal{A}$
@@ -179,7 +187,8 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de sub
 \end{enumerate}
 \end{definición}
 
-\begin{definición}[Medida] \label{Medida}
+\label{Medida}
+\begin{definición}[Medida] 
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra, entonces una medida en $X$ es una función $\mu: \mathcal{A} \to [0, +\infty]$ tal que:
 \begin{enumerate}
     \item $\mu(\emptyset) = 0$
@@ -187,7 +196,7 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra
           conjuntos disjuntos dos a dos entonces: $$\mu(\bigcup_{j \in \N} A_j) = \sum_{j
                   \in \N} \mu(A_j)$$
 \end{enumerate}
-\end{definición} 
+\end{definición}
 
 \begin{teorema}
     La familia $M$ de todos los conjuntos medibles de $\R^n$ es una $\sigma$-álgebra y $m = m^* \restriction_M$ es una medida numerablemente aditiva que llamaremos medida de Lebesgue en $\R^n$.
@@ -288,12 +297,12 @@ En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 
 \label{n-Cubo}
 \begin{definición}[n-Cubo]
-    Un n-cubo cerrado (respectivamente abierto) en $\R^n$ es un conjunto de la forma:
-    \begin{equation}
-        R = [a_1, b_1] \times \ldots \times [a_n, b_n] \text{ tal que } \forall i,j \in \{1,2,...,n\} \text{ se tiene que } b_i - a_i = b_j - a_j
-    \end{equation}
-    Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
-\end{definición} 
+Un n-cubo cerrado (respectivamente abierto) en $\R^n$ es un conjunto de la forma:
+\begin{equation}
+    R = [a_1, b_1] \times \ldots \times [a_n, b_n] \text{ tal que } \forall i,j \in \{1,2,...,n\} \text{ se tiene que } b_i - a_i = b_j - a_j
+\end{equation}
+Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
+\end{definición}
 
 \observacion{
     Denotaremos la norma del supremo en $\rn$ como:
@@ -381,11 +390,10 @@ En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 \end{proof}
 
 \label{sigma-Algebra de Borel}
-\begin{definición}[$\sigma$-Álgebra de Borel] 
-    La $\sigma$-álgebra de Borel en $\rn$ es la menor $\sigma$-álgebra que contiene a todos los abiertos de $\rn$ (o equivalentemente, la menor $\sigma$-álgebra que contiene a todos los cerrados de $\rn$). Los conjuntos de $\mathcal{B}(\rn)$ se llaman conjuntos de Borel o conjuntos Borelianos.\\
-    Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de abiertos. Análogamente, decimos que un conjunto $B \subset \rn$ es $F_\sigma$ si $A$ es unión numerable de cerrados.
+\begin{definición}[$\sigma$-Álgebra de Borel]
+La $\sigma$-álgebra de Borel en $\rn$ es la menor $\sigma$-álgebra que contiene a todos los abiertos de $\rn$ (o equivalentemente, la menor $\sigma$-álgebra que contiene a todos los cerrados de $\rn$). Los conjuntos de $\mathcal{B}(\rn)$ se llaman conjuntos de Borel o conjuntos Borelianos.\\
+Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de abiertos. Análogamente, decimos que un conjunto $B \subset \rn$ es $F_\sigma$ si $A$ es unión numerable de cerrados.
 \end{definición}
-
 
 \begin{corolario}
     Sea $E \subset \rn$, entonces son equivalentes:
@@ -435,11 +443,11 @@ En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 
 \label{Cubo Diádico}
 \begin{definición}[Cubo Diádico]
-    Se dice que un cubo en $\R^n$ es diádico si sus lados miden $2^{-m}$ para algún $m \in \N$.
-    Es decir, si el rectángulo Q es de la forma:
-    \[Q = \left[\frac{k_1}{2^m}, \frac{k_1 + 1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n + 1}{2^m}\right],\]
-    con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
-        \in \mathbb{Z}$ 
+Se dice que un cubo en $\R^n$ es diádico si sus lados miden $2^{-m}$ para algún $m \in \N$.
+Es decir, si el rectángulo Q es de la forma:
+\[Q = \left[\frac{k_1}{2^m}, \frac{k_1 + 1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n + 1}{2^m}\right],\]
+con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
+    \in \mathbb{Z}$
 \end{definición}
 
 \begin{teorema}
@@ -486,9 +494,10 @@ En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 
 \subsection{Medibilidad de Funciones}
 
-\definicion{
+\label{Espacio medible}
+\begin{definición}[Espacio Medible]
     Un espacio medible es un par $(X, \Sigma)$ donde $X$ es un conjunto y $\Sigma$ es una $\sigma$-álgebra de subconjuntos de $X$.
-}
+\end{definición}
 Vamos a considerar los siguientes espacios medibles:
 
 \begin{itemize}
@@ -496,9 +505,10 @@ Vamos a considerar los siguientes espacios medibles:
     \item $(X, \Sigma) = (A, B|_A)$, donde $A \subset \rn$ es un conjunto boreliano y $B|_A$ es la familia de subconjuntos borelianos de $A$.
 \end{itemize}
 
-\definicion{
+\label{Función medible}
+\begin{definición}[Función Medible]
     Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$ es medible si para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) < \alpha\}$ es un conjunto medible.
-}
+\end{definición}
 
 \proposicion{
     Sea $(X, \Sigma)$ un espacio medible y $f: X \to [-\infty, +\infty]$, entonces son equivalentes
@@ -551,7 +561,7 @@ Sea $(X, \Sigma)$ un espacio medible y $f_1, f_2, \dots, f_n: X \to \mathbb{R}$ 
 \begin{observación}
 $f = f^+ - f^-$ y $|f| = f^+ + f^-.$
 \end{observación}
-\begin{teorema}[El teorema de la convergencia monótona]
+\begin{teorema}
     Sea $(X, \Sigma)$ espacio medible y $(f_j)_{j \in \mathbb{N}}: X \to [+\infty, -\infty]$ una sucesión de funciones medibles, entonces:
     \begin{enumerate}
         \item $\sup_{j \in \mathbb{N}}\{f_j\}$ es una función medible.
@@ -603,32 +613,35 @@ Sean $f, g: \mathbb{R}^n \to [+\infty, -\infty]$ funciones medibles-Lebesgue tal
     Sea $Z = \{x \in X : f_j(x) \not\to f(x)\}$ el cual tiene medida nula por hipótesis. Entones definimos la función $g(x) = \begin{cases} \lim_{j \to \infty}f_j(x) & x \in Z^c \\ 0 & x \in Z \end{cases} \Rightarrow g(x) = f(x)$ en casi todo punto. Asimismo podemos definir la sucesión de funciones $g_j(x) = \begin{cases} f_j(x) & x \in Z^c \\ 0 & x \in Z \end{cases}$ que converge a $g$ puntualmente, por tanto, por la proposición anterior tenemos que $g$ es medible $\Rightarrow f$ es medible.
 \end{proof}
 
-\begin{definición}
-Sea $(X, \Sigma)$ espacio medible. Definimos la función característica de un conjunto $E \in \Sigma$ como: $X_E(x) = \begin{cases} 1 & x \in E \\ 0 & x \in E^c \end{cases}$
+\label{Función característica}
+\begin{definición}[Función Característica]
+Sea $(X, \Sigma)$ espacio medible. Definimos la función característica de un conjunto $E \in \Sigma$ como: \[\chi_E(x) = \begin{cases} 1 & x \in E \\ 0 & x \in E^c \end{cases}\]
 \end{definición}
 \begin{observación}
-$X_e$ es medible $\iff E \in \Sigma$
+$\chi_E$ es medible $\iff E \in \Sigma$
 \end{observación}
 \begin{proof}
-    Sea $G \subset \mathbb{R}$ abierto, podemos definir el conjunto $X_E^{-1}(G) = \{x \in X : X_E(x) \in G\} = \begin{cases} X & 0 \in G \quad 1\in G \\ E & 0 \not\in G \quad 1 \in G \\ E^c & 0 \in G \quad 1 \not\in G \\ \emptyset & 0 \not\in G \quad 1 \not\in G\end{cases}$, por tanto, $X_E$ es medible $\iff E \in \Sigma$.
+    Sea $G \subset \mathbb{R}$ abierto, podemos definir el conjunto $$\chi_E^{-1}(G) = \{x \in X : \chi_E(x) \in G\} = \begin{cases} X & 0 \in G \quad 1\in G \\ E & 0 \not\in G \quad 1 \in G \\ E^c & 0 \in G \quad 1 \not\in G \\ \emptyset & 0 \not\in G \quad 1 \not\in G\end{cases}$$
+    por tanto, $\chi_E$ es medible $\iff E \in \Sigma$.
 \end{proof}
 \begin{observación}
-Sean $E \subset \mathbb{R}^{n} y f: E \to [-\infty, +\infty]$. Entonces son equivalentes:
+Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son equivalentes:
 \begin{enumerate}
     \item $f: E \to [-\infty, +\infty]$ es medible-Lebesgue.
-    \item $f \circ X_E: \mathbb{R}^n \to [-\infty, +\infty]$ es medible-Lebesgue.
+    \item $f \circ \chi_E: \mathbb{R}^n \to [-\infty, +\infty]$ es medible-Lebesgue.
 \end{enumerate}
 \end{observación}
 \begin{proof}
+    \leavevmode
     \begin{itemize}
-        \item $(1 \implies 2): E^c$ es medible y $\{x \in E : f(x) > \alpha\}$ es medible $\implies$ $\{x \in \mathbb{R}^n : f \circ X_E(x) > \alpha\}$ es medible.
-        \item $(2 \implies 1): \{x \in \mathbb{R}^n : f \circ X_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
+        \item $(1 \implies 2): E^c$ es medible y $\{x \in E : f(x) > \alpha\}$ es medible $\implies$ $\{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible.
+        \item $(2 \implies 1): \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
     \end{itemize}
 \end{proof}
 \begin{definición}
 Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$. Se dice que $f$ es una función simple si toma un valor finito de valores. Es decir si:
 $f(X) = \{\alpha_1, \alpha_2, \dots, \alpha_n\} \subset [0, +\infty]$.
-Además denotamos a $f^-1(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_iX_{E_i}$. Asimismo obtenemos que $X = bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
+Además denotamos a $f^-1(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_i\chi_{E_i}$. Asimismo obtenemos que $X = bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
 De este modo podemos decir que f es una combinación lineal finita de funciones simples.
 \end{definición}
 \begin{observación}
@@ -638,7 +651,7 @@ f es medible $\iff \{E_1, E_2, \dots, E_n\}$ es medible.
     Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$ una función medible. Entonces existen funciones simples $(f_n)_{n \in \mathbb{N}}$ tales que:
     \begin{itemize}
         \item $0 \leq f_1 \leq f_2 \leq \dots \leq f$.
-        \item $\forall x \in X \lim_{n \to \infty}f_n(x) = f(x)$.
+        \item $\forall x \in X \quad \lim_{n \to \infty}f_n(x) = f(x)$.
         \item Si además, $f$ acotada $\implies \lim_{n \to \infty}f_n = f$ en casi todo
               punto.
     \end{itemize}
@@ -671,11 +684,13 @@ f es medible $\iff \{E_1, E_2, \dots, E_n\}$ es medible.
         \end{cases}
         \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$. Dado que $1 \leq i \leq n2^n \implies 1 \leq i \leq 2^{n+1} \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$.
 \end{proof}
-\begin{definición}
-Consideremos en $\mathbb{R}^n$ la $\sigma-$álgbra $M$ de los conjuntos medibles y la medida-Lebesgue $m$. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible, no negativa y con representación canónica $s = \sum_{i = 1}^{n}\alpha_iX_{A_i}$ donde $\mathbb{R}^n = \bigcup_{i = 1}^{m}A_i$-unión disjunta de conjuntos medibles. Entonces definimos la integral de $s$ como: $\int_{\mathbb{R}^n}s \, dx = \sum_{i = 1}^{n}\alpha_im(A_i)$.
+
+\label{Integral de una Función Simple}
+\begin{definición}[Integral de una función simple]
+Consideremos en $\mathbb{R}^n$ la $\sigma-$álgbra $M$ de los conjuntos medibles y la medida-Lebesgue $m$. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible, no negativa y con representación canónica $s = \sum_{i = 1}^{n}\alpha_i\chi_{A_i}$ donde $\mathbb{R}^n = \bigcup_{i = 1}^{m}A_i$-unión disjunta de conjuntos medibles. Entonces definimos la integral de $s$ como: \[\int_{\mathbb{R}^n}s \, dx = \sum_{i = 1}^{n}\alpha_im(A_i)\]
 \end{definición}
 \begin{observación}
-$int_{\mathbb{R}^n}0 = 0$
+$\int_{\mathbb{R}^n}0 = 0$
 \end{observación}
 \begin{proof}
     Dado $E \subset \mathbb{R}^n$ mdible definimos $\int_{E}s = \int_{\mathbb{R}^n}s\circ X_E = \sum_{i = 1}^{n}\alpha_im(A_i \cap E)$.
@@ -896,7 +911,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 El resultado análogo con $\limsup$ no es válido en gneral. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
 \end{observación}
 \begin{definición}
-Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f\circ\chi_E < +\infty$$
+Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f \circ \chi_E < +\infty$$
 \end{definición}
 \begin{observación}
 $f$ es integrable en $E \iff |f|$ es integrable en $E \iff f^+ $ y $ f^-$ son integrables en $E$.
@@ -1160,10 +1175,10 @@ $\forall u_0 \in U \ \lim_{u \to u_0} \int_{E}f(x, u)dx = F(u) = F(u_0) = \int_{
               Por la Regla de Leibniz, obtenemos:
 
               \[
-                  F'(t_0) = \lim_{t \to t_0} \frac{F(t) - F(t_0)}{t - t_0} = \lim_{t \to t_0} \int_E \frac{f(x,t) - f(x,t_0)}{t - t_0} \,dx = 
+                  F'(t_0) = \lim_{t \to t_0} \frac{F(t) - F(t_0)}{t - t_0} = \lim_{t \to t_0} \int_E \frac{f(x,t) - f(x,t_0)}{t - t_0} \,dx =
               \]
               \[
-                \lim_{t \to t_0} \left( \int_E h(x,t) dx \right) = \int_E \left( \lim_{t \to t_0} h(x,t) \right) dx = \int_E \frac{\partial}{\partial t} f(x,t) \,dx.
+                  \lim_{t \to t_0} \left( \int_E h(x,t) dx \right) = \int_E \left( \lim_{t \to t_0} h(x,t) \right) dx = \int_E \frac{\partial}{\partial t} f(x,t) \,dx.
               \]
 
               Finalmente, como \( F' \) es continua en \( (a,b) \), se concluye que \( F \in
@@ -1202,13 +1217,12 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     Sean $[a, b]\subset \mathbb{R}^n$ y $f: [a, b] \to \mathbb{R}$ una función acotada. Entonces $f$ es integrable-Riemann en $[a, b] \iff D_f = \{ x \in [a, b] \mid f \text{ no es continua en } x \}$ tiene medida nula.
 \end{teorema}
 \ejemplo{
-La función de Dirichlet 
+La función de Dirichlet
 \[
-f = \chi_{\mathbb{Q} \cap [0,1]}: [0,1] \to \mathbb{R}, \quad f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}
-\] 
-no es integrable-Riemann en $[0, 1]$.
-Pero $f = 0$ en casi todo punto $\implies f$ es integrable-Lebesgue y ésta vale: $\int_{[0, 1]}f = \int_{[0, 1]}0 = 0$
-}
+    f = \chi_{\mathbb{Q} \cap [0,1]}: [0,1] \to \mathbb{R}, \quad f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}
+\]
+no es integrable-Riemann en $[0, 1]$. Pero $f = 0$ en casi todo punto $\implies
+    f$ es integrable-Lebesgue y ésta vale: $\int_{[0, 1]}f = \int_{[0, 1]}0 = 0$ }
 
 \begin{teorema}
     Sean $-\infty \leq \alpha < \beta \leq +\infty$ y $f: (\alpha, \beta) \to \mathbb{R}$ una función absolutamente integrable-Riemann impropia en el intervalo $(\alpha, \beta)$. Entonces $f$ es integrable-Lebesgue en $(\alpha, \beta)$ y se cumple que:
@@ -1234,74 +1248,79 @@ Pero $f = 0$ en casi todo punto $\implies f$ es integrable-Lebesgue y ésta vale
     \\$\forall (b_n)_{n \in \mathbb{N}} : b_n \to \infty$ tenemos que $|\int_{b_n}^{b_m}f| \leq \int_{b_n}^{b_m}|f| \leq \epsilon$
 \end{proof}
 \ejemplo{
-    (Hoja 3. Ej: 6.a)
-    Calculemos 
-    \[ F(t) = \int_{0}^{+\infty} \frac{\sin(tx)}{x} e^{-x} \,dx, \quad \forall t \in \mathbb{R} \]
-    derivando con respecto al parámetro \( t \). Para ello, aplicamos el **Teorema de Leibniz**:
-    
-    Sea \( E \subset \mathbb{R}^n \) medible y \( (a,b) \subset \mathbb{R} \), con \( f: E \times (a,b) \to \mathbb{R} \) tal que:
-    
-    \begin{enumerate}
-        \item \( \forall u \in (a,b), f(\cdot, u): E \to \mathbb{R} \) es integrable en \( E \).
-        \item Para casi todo \( x \in E \), la función \( f(x, \cdot): (a,b) \to \mathbb{R} \) es de clase \( C^1 \) en \( (a,b) \).
-        \item Existe \( g: E \to [0, +\infty] \) integrable en \( E \) tal que 
-        \[ \left| \frac{\partial f}{\partial t}(x, t) \right| \leq g(x) \quad \text{para casi todo } x \in E, \forall u \in (a,b). \]
-    \end{enumerate}
-    
-    Entonces, \( F(t) \) es de clase \( C^1 \) en \( \mathbb{R} \) y se cumple:
-    \[ F'(t) = \int_{0}^{+\infty} \frac{\partial f}{\partial t}(x, t) \,dx. \]
-    
-    Dado que
-    \[ f(x,t) = \frac{\sin(tx)}{x} e^{-x}, \]
-    calculamos la derivada parcial con respecto a \( t \):
-    \[ \frac{\partial f}{\partial t}(x,t) = \cos(tx) e^{-x}. \]
-    
-    Verifiquemos cada una de las hipótesis del Teorema de Leibniz:
-    \begin{enumerate}
-        \item \( \forall t \in \mathbb{R}, f(x,t) \) es integrable en \( [0, +\infty) \): 
-        \[ |f(x,t)| \leq e^{-x} = g(x). \]
-        Como \( \int_{0}^{+\infty} e^{-x} \,dx = 1 < +\infty \), se cumple la integrabilidad.
-        
-        \item \( \forall x \in E, \frac{\partial f}{\partial t}(x,t) = \cos(tx) e^{-x} \) es continua en \( \mathbb{R} \), por lo que \( f(x, \cdot) \) es de clase \( C^1 \) en \( \mathbb{R} \).
-        
-        \item Se cumple que
-        \[ \left| \frac{\partial f}{\partial t}(x, t) \right| = |\cos(tx) e^{-x}| \leq e^{-x} = g(x), \]
-        que es integrable en \( [0, +\infty) \).
-    \end{enumerate}
-    
-    Por lo tanto, \( F \) es de clase \( C^1 \) en \( \mathbb{R} \) y
-    \[ F'(t) = \int_{0}^{+\infty} \cos(tx) e^{-x} \,dx. \]
-    
-    Ahora calculemos esta integral:
-    \[ I(t) = \int_{0}^{+\infty} \cos(tx) e^{-x} \,dx. \]
-    
-    Usando integración por partes con
-    \[
-        \begin{cases}
-            u = \cos(tx), & dv = e^{-x}dx, \\
-            du = -t\sin(tx)dx, & v = -e^{-x},
-        \end{cases}
-    \]
-    obtenemos:
-    \[ I(t) = [\cos(tx) e^{-x}]_{0}^{+\infty} - t \int_{0}^{+\infty} \sin(tx) e^{-x}dx. \]
-    Evaluando los límites y repitiendo el proceso para \( \sin(tx) e^{-x} \), obtenemos:
-    \[ I(t) (1+t^2) = 1. \]
-    Despejando:
-    \[ I(t) = \frac{1}{1+t^2} = F'(t). \]
-    
-    Finalmente, integramos:
-    \[ F(t) = \int \frac{dt}{1+t^2} = \arctan(t) + C. \]
-    
-    Si \( t = 0 \), entonces
-    \[ F(0) = \int_{0}^{+\infty} 0 = 0 \Rightarrow C = 0. \]
-    Por lo tanto:
-    \[ F(t) = \arctan(t). \]
+(Hoja 3. Ej: 6.a)
+Calculemos
+\[ F(t) = \int_{0}^{+\infty} \frac{\sin(tx)}{x} e^{-x} \,dx, \quad \forall t \in \mathbb{R} \]
+derivando con respecto al parámetro \( t \). Para ello, aplicamos el **Teorema
+de Leibniz**:
+
+Sea \( E \subset \mathbb{R}^n \) medible y \( (a,b) \subset \mathbb{R} \), con
+\( f: E \times (a,b) \to \mathbb{R} \) tal que:
+
+\begin{enumerate}
+    \item \( \forall u \in (a,b), f(\cdot, u): E \to \mathbb{R} \) es integrable en \( E \).
+    \item Para casi todo \( x \in E \), la función \( f(x, \cdot): (a,b) \to \mathbb{R}
+          \) es de clase \( C^1 \) en \( (a,b) \).
+    \item Existe \( g: E \to [0, +\infty] \) integrable en \( E \) tal que
+          \[ \left| \frac{\partial f}{\partial t}(x, t) \right| \leq g(x) \quad \text{para casi todo } x \in E, \forall u \in (a,b). \]
+\end{enumerate}
+
+Entonces, \( F(t) \) es de clase \( C^1 \) en \( \mathbb{R} \) y se cumple:
+\[ F'(t) = \int_{0}^{+\infty} \frac{\partial f}{\partial t}(x, t) \,dx. \]
+
+Dado que
+\[ f(x,t) = \frac{\sin(tx)}{x} e^{-x}, \]
+calculamos la derivada parcial con respecto a \( t \):
+\[ \frac{\partial f}{\partial t}(x,t) = \cos(tx) e^{-x}. \]
+
+Verifiquemos cada una de las hipótesis del Teorema de Leibniz:
+\begin{enumerate}
+    \item \( \forall t \in \mathbb{R}, f(x,t) \) es integrable en \( [0, +\infty) \):
+          \[ |f(x,t)| \leq e^{-x} = g(x). \]
+          Como \( \int_{0}^{+\infty} e^{-x} \,dx = 1 < +\infty \), se cumple la
+          integrabilidad.
+
+    \item \( \forall x \in E, \frac{\partial f}{\partial t}(x,t) = \cos(tx) e^{-x} \) es continua en \( \mathbb{R} \), por lo que \( f(x, \cdot) \) es de clase \( C^1 \) en \( \mathbb{R} \).
+
+    \item Se cumple que
+          \[ \left| \frac{\partial f}{\partial t}(x, t) \right| = |\cos(tx) e^{-x}| \leq e^{-x} = g(x), \]
+          que es integrable en \( [0, +\infty) \).
+\end{enumerate}
+
+Por lo tanto, \( F \) es de clase \( C^1 \) en \( \mathbb{R} \) y
+\[ F'(t) = \int_{0}^{+\infty} \cos(tx) e^{-x} \,dx. \]
+
+Ahora calculemos esta integral:
+\[ I(t) = \int_{0}^{+\infty} \cos(tx) e^{-x} \,dx. \]
+
+Usando integración por partes con
+\[
+    \begin{cases}
+        u = \cos(tx),      & dv = e^{-x}dx, \\
+        du = -t\sin(tx)dx, & v = -e^{-x},
+    \end{cases}
+\]
+obtenemos:
+\[ I(t) = [\cos(tx) e^{-x}]_{0}^{+\infty} - t \int_{0}^{+\infty} \sin(tx) e^{-x}dx. \]
+Evaluando los límites y repitiendo el proceso para \( \sin(tx) e^{-x} \),
+obtenemos:
+\[ I(t) (1+t^2) = 1. \]
+Despejando:
+\[ I(t) = \frac{1}{1+t^2} = F'(t). \]
+
+Finalmente, integramos:
+\[ F(t) = \int \frac{dt}{1+t^2} = \arctan(t) + C. \]
+
+Si \( t = 0 \), entonces
+\[ F(0) = \int_{0}^{+\infty} 0 = 0 \Rightarrow C = 0. \]
+Por lo tanto:
+\[ F(t) = \arctan(t). \]
 }
 
-\begin{observación} 
-    Notación: $\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^{k}$
-    $(x, y) = (x_1, \dots, x_n, y_1, \dots, y_k) \in \mathbb{R}^{n+k}$ \\
-    Si $f: \mathbb{R}^{n+k} \to \mathbb{R} \implies \begin{cases}
+\begin{observación}
+Notación: $\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^{k}$
+$(x, y) = (x_1, \dots, x_n, y_1, \dots, y_k) \in \mathbb{R}^{n+k}$ \\
+Si $f: \mathbb{R}^{n+k} \to \mathbb{R} \implies \begin{cases}
         f_{x}: \mathbb{R}^k \to \mathbb{R} \quad \text{con} \quad f_{x}(y) = f(x, y) \forall x \in \mathbb{R}^k \\
         f_{y}: \mathbb{R}^n \to \mathbb{R} \quad \text{con} \quad f_{y}(x) = f(x, y)\forall x \in \mathbb{R}^n
     \end{cases}$
@@ -1310,31 +1329,36 @@ Pero $f = 0$ en casi todo punto $\implies f$ es integrable-Lebesgue y ésta vale
 \begin{teorema} %Teorema de Tonelli
     Sea $f : \mathbb{R}^{n+k} \to [0, +\infty]$ medible. Entonces:
     \begin{enumerate}
-        \item Para casi todo $x \in \mathbb{R}^n$, la función $f_{x} : \mathbb{R}^k \to [0, +\infty]$ es medible en $\mathbb{R}^k$.
-        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = \int_{\mathbb{R}^k}f_x$ es medible en $\mathbb{R}^n$.
+        \item Para casi todo $x \in \mathbb{R}^n$, la función $f_{x} : \mathbb{R}^k \to [0,
+                      +\infty]$ es medible en $\mathbb{R}^k$.
+        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) =
+                  \int_{\mathbb{R}^k}f_x$ es medible en $\mathbb{R}^n$.
         \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dy)dx = \int_{\mathbb{R}^{n+k}}f(x,y)dxdy$
     \end{enumerate}
-    Además, se tiene que: 
+    Además, se tiene que:
     \begin{enumerate}
         \item Para casi todo $y \in \mathbb{R}^k f_y$ es medible en $\mathbb{R}^k (y \geq 0)$
-        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = \int_{\mathbb{R}^n}f_y$ es medible en $\mathbb{R}^k$
+        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) =
+                  \int_{\mathbb{R}^n}f_y$ es medible en $\mathbb{R}^k$
         \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^k}G = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f_y) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dx)dy = \int_{\mathbb{R}^{n+k}}f(x,y)dydx$
     \end{enumerate}
 \end{teorema}
 \begin{corolario} %Prinicpio de Cavalieri 
-    Sea $E \subset \mathbb{R}^{n+k}$ medible entonces: 
+    Sea $E \subset \mathbb{R}^{n+k}$ medible entonces:
     \begin{enumerate}
-        \item Para casi todo $x \in \mathbb{R}^n$ el conjunto $E_x = \{ y \in \mathbb{R}^k : (x, y) \in E \}$ es medible en $\mathbb{R}^k$
-        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = m(E_x)$ es medible en $\mathbb{R}^n$
+        \item Para casi todo $x \in \mathbb{R}^n$ el conjunto $E_x = \{ y \in \mathbb{R}^k :
+                  (x, y) \in E \}$ es medible en $\mathbb{R}^k$
+        \item La función $F: \mathbb{R}^n \to [0, +\infty]$ tal que $F(x) = m(E_x)$ es
+              medible en $\mathbb{R}^n$
         \item $m_{n+k}(E) = \int_{\mathbb{R}^n}m(E_x)dx$
     \end{enumerate}
-    De forma análoga se puede tener que: 
+    De forma análoga se puede tener que:
     \begin{enumerate}
-        \item Para casi todo $y \in \mathbb{R}^k$, el conjunto $E_y = \{ x \in \mathbb{R}^n : (x, y) \in E \}$ es medible en $\mathbb{R}^n$
-        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = m(E_y)$ es medible en $\mathbb{R}^k$
+        \item Para casi todo $y \in \mathbb{R}^k$, el conjunto $E_y = \{ x \in \mathbb{R}^n :
+                  (x, y) \in E \}$ es medible en $\mathbb{R}^n$
+        \item La función $G: \mathbb{R}^k \to [0, +\infty]$ tal que $G(y) = m(E_y)$ es
+              medible en $\mathbb{R}^k$
         \item $m_{n+k}(E) = \int_{\mathbb{R}^k}m(E_y)dy$
     \end{enumerate}
 \end{corolario}
-
-
 
