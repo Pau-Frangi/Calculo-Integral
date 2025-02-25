@@ -1322,7 +1322,7 @@ Por lo tanto:
 
 Notación:
 \[
-    \mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^{k} \qquad (x, y)
+    \mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k \qquad (x, y)
     = (x_1, \dots, x_n, y_1, \dots, y_k) \in \mathbb{R}^{n+k}
 \]
 Sea $f: \mathbb{R}^{n+k} \to [-\infty, +\infty]$, entonces denotamos las
@@ -1448,6 +1448,26 @@ El siguiente lema es una versión de lema anterior en el que se usa el teorema d
             Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 1.4.2, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
         \end{observación}
         Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 1.4.3 para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
+        \item Veamos que el Teorema de Tonelli se verifia cuando $f = \chi_N : N \subset \mathbb{R}^{n+k}$ es un conjunto de medida nula. \\
+        Supongamos entonce que $m_{n+k}(N) = 0 \implies \forall j \in \mathbb{N}$ por la regularidad $\exists G_j \subset \mathbb{R}^{n+k}$-abierto con $N \subset G_j \text{ y } m_{n+k}(G_j) < \frac{1}{j}$. \\
+        Entonces, sea $G = \bigcup_{j \in \mathbb{N}}G_j$ que es un conjunto $G_{\delta}$ y $m_{n+k}(G) \leq m_{n+k}(G_j) < \frac{1}{j} \to 0$. \\
+        Luego $N \subset G$ y $m_{(n+k)}(G) = 0 \implies \text{por el apartado anterior } \chi_G$ satisface el Teorema de Tonelli. \\
+        Por último tenemos que $0 = m_{(n+k)(G)} = \int_{\mathbb{R}^{n+k}}\chi_G = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{N_x} dy)dx$. Sabemos que para casi todo $x \in \mathbb{R}^n \widehat{F}(x)$ es medible y $\int_{\mathbb{R}^n}\widehat{F}(x)dx = 0 \implies \widehat{F}(x) = 0$ en casi todo punto de $\mathbb{R}^n$.
+        Como $N_x = \{y \in \mathbb{R}^k : (x,y) \in N\} \subset G_x$ y $m_k(G_x) = \widehat{R}(x) = 0 \implies$ $N_x$ es un conjunto nulo (luego medible) para casi todo $x \in \mathbb{R}^n$ es decir $\chi_{N_x}$ es medible. 
+        Además $0 \leq F(x) = \int_{\mathbb{R}^n} \chi_{N_x} \leq \int_{\mathbb{R}^n}\chi_{G_x} = 0 \implies F(x) = \int_{\mathbb{R}^n}\chi_{N_x} = 0$ en casi todo punto $x \in \mathbb{R}^n$ en particualr F es medible. 
+        Finalmente, $0 = \int_{\mathbb{R^{n+k}}} \chi_N = \mathbb{R^n}F(x) dx = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{N_x}dy)dx$
+        \item Veamos que si $A$ es medible $\implies f = \chi_A$ verifica el Teorema de Tonelli: Como $A = D \setminus N$ donde $\begin{cases}
+            D \text{ es un conjunto } G_{\delta} \\
+            N \text{ es un conjunto de medida nula}
+        \end{cases}$ Además tenemos que $D = A \cup N$ disjunto $\implies \chi_D = \chi_A + \chi_N \iff \chi_A = \chi_D - \chi_N \implies \chi_{A_x} = \chi_{D_x} - \chi_{N_x}$ y $\chi_{A_x}$ es medible. \\
+        $F(x) = \int_{\mathbb{R}^n}\chi_{A_x} = \int_{\mathbb{R}^n}\chi_{D_x}$ es medible para casi todo $x \in \mathbb{R}^n$
+        $\int_{\mathbb{R}^n}F(x)dx = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{D_x}dy)dx = \int_{\mathbb{R}^{n+k}}\chi_D = \int_{\mathbb{R}^{n+k}}\chi_A$ En este paso hemos aplicado la demostración del teorema 4. 
+        \item El Teorema de Tonelli se verifica para funciones simples-medibles: 
+        \item Si $f$ es una función medible, $f = \sum_{j = 1}^l \alpha_j \cdot \chi_{A_j}$ con $\begin{cases}
+            \alpha_j \in \mathbb{R} \\
+            A_j \text{ medible}
+        \end{cases} \forall j \in \mathbb{N} \implies$ usando (5) y el lema 1.5.1, obtenemos el resultado
+        \item Sea $f$ función medible no-negativa en $\mathbb{R}^{n+k}$ sabemos que $\exists (S_j)_{j \in \mathbb{N}} \uparrow f$ donde cada $S_j$ es simple, medible y no-negativa- Cada $S_j$ verifica el Teorema de Tonelli por (6), luego por el Lema 1.5.2, $f$ satisface el Teorema de Tonelli.
     \end{enumerate}
 \end{proof}
 
@@ -1469,4 +1489,28 @@ El siguiente lema es una versión de lema anterior en el que se usa el teorema d
         \item $m_{n+k}(E) = \int_{\mathbb{R}^k}m(E_y)dy$
     \end{enumerate}
 \end{corolario}
-
+\begin{proof}
+    Aplicando el Teorema de Tonelli, tomando $f = \chi_E$.
+\end{proof}
+\begin{corolario}
+    Sea $E \subset \mathbb{R}^{n+k}$ conjunto $(n+k)$-nulo. Entonces: 
+    \begin{enumerate}
+        \item Para casi todo $x \in \mathbb{R}^n, E_x$ tiene medida nula en $\mathbb{R}^k$
+        \item Para casi todo $y \in \mathbb{R}^k, E_y$ tiene medida nula en $\mathbb{R}^n$
+    \end{enumerate}
+\end{corolario}
+\begin{proof}
+    Aplicamos el Teorema de Tonelli, tomand $f = \chi_E$.
+\end{proof}
+\begin{teorema}[Teorema de Fubini]
+    Sea $f: \mathbb{R}^n \times \mathbb{R}^k \to [-\infty, +\infty]$ integrable en $\mathbb{R}^{n+k}$. Entonces: 
+    \begin{enumerate}
+        \item Para casi todo $x \in \mathbb{R}^{n} f_x: \mathbb{R}^k \to [-\infty, +\infty]$ es integrable en $\mathbb{R}^k$
+        \item La función $F: \mathbb{R}^n \to [-\infty, +\infty]$ definida por: $F(x) = \int_{\mathbb{R}^k}f_x$ es integrable en $\mathbb{R}^n$
+        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dy)dx = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dx)dy$
+    \end{enumerate}
+    Análogamente se darían los casos tomando $\mathbb{R}^k$ en lugar de $\mathbb{R}^n$.
+\end{teorema}
+\begin{proof}
+    Recordemos que $\begin{cases} f = f^+ -f^- \\ f_x = f_x^+ - f_x^- \end{cases}$ 
+\end{proof}
