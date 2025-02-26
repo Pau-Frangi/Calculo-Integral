@@ -1,6 +1,6 @@
-PWD c:\Users\pablo\OneDriveUCM\Universidad\Calculo Integral\Latex\Calculo-Integral-1
+PWD c:\Users\pablo\OneDriveUCM\Universidad\Calculo Integral\Latex\Calculo-Integral-2
 INPUT C:\Users\pablo\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\pablo\OneDriveUCM\Universidad\Calculo Integral\Latex\Calculo-Integral-1\main.tex
+INPUT c:\Users\pablo\OneDriveUCM\Universidad\Calculo Integral\Latex\Calculo-Integral-2\main.tex
 OUTPUT main.log
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -257,13 +257,6 @@ INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\latex\lipsum\lipsum.ltd.t
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\latex\lipsum\lipsum.ltd.tex
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.pathmorphing.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.pathmorphing.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\modules\pgfmoduledecorations.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.pathmorphing.code.tex
-INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.pathmorphing.code.tex
 INPUT .\Preamble\Diagonal Matrix Command.tex
 INPUT .\Preamble\Diagonal Matrix Command.tex
 INPUT .\Preamble\Diagonal Matrix Command.tex
