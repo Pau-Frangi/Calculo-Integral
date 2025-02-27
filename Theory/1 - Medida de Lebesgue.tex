@@ -1201,16 +1201,16 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     $\forall k \in \mathbb{N}$ sabemos que $\exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n(k)}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$.
     Suponemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $$\text{diam}(P_k) = \sup_{i \in \{1, \dots, n(k)\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$$
     \\$\forall k \in \mathbb{N}$ denotamos $m_k = \inf\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$ y $M_k = \sup\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$.
-    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-    $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-    Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
-    Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
-    Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
-    y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
-    Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
-    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
-    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
-    Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
+        $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+        $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+        Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
+        Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
+        Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
+        y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
+        Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
+        La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
+        Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
+        Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
     $$(L)\int_{a}^{b}f = \int_{a}^{b}\varphi = \int_a^b\psi = (R)\int_{a}^{b}f$$
 \end{proof}
 
@@ -1578,7 +1578,31 @@ el Teorema de Tonelli.
 \ejemplo{
     \begin{enumerate}
         %1%
-        \item Sea $D$ el triángulo de vértices $(2,0), (2,2)$ y $(0,1)$.\\ Intentemos
+        \item Sea $D$ el triángulo de vértices $(2,0), (2,2)$ y $(0,1)$.\\
+              \begin{center}
+                  \begin{tikzpicture}[scale=1]
+                      % Dibujar los ejes coordenados
+                      \draw[->, thick] (-1, 0) -- (3, 0) node[right] {$x$}; % Eje x
+                      \draw[->, thick] (0, -1) -- (0, 3) node[above] {$y$}; % Eje y
+
+                      % Dibujar el triángulo
+                      \draw[thick, fill=blue!20] (2, 0) -- (2, 2) -- (0, 1) -- cycle;
+
+                      % Etiquetas para los vértices
+                      \node at (2, 0) [below right] {$(2, 0)$};
+                      \node at (2, 2) [above right] {$(2, 2)$};
+                      \node at (0, 1) [left] {$(0, 1)$};
+
+                      % Marcas en los ejes (sin números)
+                      \foreach \x in {-1, 0, 1, 2, 3} {
+                              \draw (\x, -0.1) -- (\x, 0.1); % Marcas en el eje x
+                          }
+                      \foreach \y in {-1, 0, 1, 2, 3} {
+                              \draw (-0.1, \y) -- (0.1, \y); % Marcas en el eje y
+                          }
+                  \end{tikzpicture}
+              \end{center}
+              Intentemos
               calcular $$\int_D x^2y \,dx\,dy = \int_{\mathbb{R}^2} x^2y \cdot \chi_D
                   \,dx\,dy = \int_{x = -\infty}^{x = +\infty}(\int_{D_x}x^2\chi_Ddy)dx = $$
               Sabiendo que $D_x = \{y \in \mathbb{R} : (x,y) \in D\}$, si $0 \leq x \leq 2$
@@ -1609,11 +1633,41 @@ el Teorema de Tonelli.
                   = -\frac{1}{6}[e^{-y^3}]_{y = 0}^{y = +\infty}.$$
 
               %3%
-        \item Sea $V$ el sólido limitado por $x = 0, y = 0, z = 0, 3x + 2y +z = 1$.
+        \item Sea $V$ el sólido limitado por $x = 0, \ y = 0, \ z = 0, \ 3x + 2y +z = 1$.
               Calculemos: $$\begin{array}{ll}
                       \text{(a)} & \text{Vol}(V)      \\
                       \text{(b)} & \int_{V}z^2 dxdydz
                   \end{array}$$
+
+              \begin{center}
+                  \tdplotsetmaincoords{70}{120} % Ángulos para la perspectiva 3D
+                  \begin{tikzpicture}[scale=2, tdplot_main_coords]
+                      % Definir los ejes
+                      \draw[->, thick] (0, 0, 0) -- (1.5, 0, 0) node[right] {$x$};
+                      \draw[->, thick] (0, 0, 0) -- (0, 1.5, 0) node[above] {$y$};
+                      \draw[->, thick] (0, 0, 0) -- (0, 0, 1.5) node[below left] {$z$};
+
+                      % Definir los puntos de intersección del plano 3x + 2y + z = 1 con los ejes
+                      \coordinate (A) at (1/3, 0, 0); % Intersección con el eje x
+                      \coordinate (B) at (0, 1/2, 0); % Intersección con el eje y
+                      \coordinate (C) at (0, 0, 1);   % Intersección con el eje z
+
+                      % Dibujar el plano 3x + 2y + z = 1
+                      \filldraw[fill=blue!20, opacity=0.7] (A) -- (B) -- (C) -- cycle;
+
+                      % Dibujar las aristas del sólido
+                      \draw[thick] (A) -- (B) -- (C) -- cycle;
+                      \draw[thick] (0, 0, 0) -- (A);
+                      \draw[thick] (0, 0, 0) -- (B);
+                      \draw[thick] (0, 0, 0) -- (C);
+
+                      % Etiquetas para los puntos de intersección
+                      \node at (A) [above left] {$\left(\frac{1}{3}, 0, 0\right)$};
+                      \node at (B) [above right] {$\left(0, \frac{1}{2}, 0\right)$};
+                      \node at (C) [above left] {$\left(0, 0, 1\right)$};
+                  \end{tikzpicture}
+
+              \end{center}
               \begin{itemize}
                   \item[\textbf{(a)}]        Aplicamos el Lema de Cavalieri:
                         $$\text{Vol}(V) = \int_{\mathbb{R}^3} \chi_V(x,y,z)\,dx\,dy\,dz = \int_{z = 0}^{z = 1} \left(\int_{V_z}1dxdy\right)dz,$$
@@ -1775,8 +1829,8 @@ La diferencia entre ambas definciones es que en la primera se fija $x$ y se muev
 \end{observación}
 
 \begin{teorema}
-    Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y además: 
-\[m(T(A)) = |\det(T)|m(A)\]
+    Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y además:
+    \[m(T(A)) = |\det(T)|m(A)\]
 \end{teorema}
 \begin{definición}
 Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo de $U$ a $V$ si:
@@ -1797,8 +1851,8 @@ Sea $\varphi: U \to \mathbb{R}$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es
 \begin{teorema}[Teorema del Cambio de Variable]
     Sean $U,V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$. Sea $f: V \to \mathbb{R}$ medible. Entonces:
     \begin{enumerate}
-        \item Si $f$ es no negativa $\implies (f \circ \varphi) |\det(D\varphi)|$ es medible y
-              no-negativa.
+        \item Si $f$ es no negativa $\implies (f \circ \varphi) |\det(D\varphi)|$ es medible
+              y no-negativa.
         \item Si $f$ es integrable $\implies (f \circ \varphi)|\det(D\varphi)|$ es integrable \end{enumerate}
     En ambos casos se cumple que:
     $$\int_{V = \varphi(U)} f(x)dx = \int_U (f \circ \phi(u))|\det(D\varphi)|du$$
@@ -1809,51 +1863,51 @@ $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
 \end{observación}
 
 \ejemplo{
-Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
-Si tomamos el cambio de variable: \\ $$\varphi^{-1} \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
-Si tomamos la representación gráfica del cambio de variable obtenemos que:
-\begin{center}
-    \begin{minipage}{0.45\textwidth}
-        \begin{tikzpicture}[scale=1.5]
-            % Ejes coordenados
-            \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
-            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
+    Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
+    Si tomamos el cambio de variable: \\ $$\varphi^{-1} \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
+    Si tomamos la representación gráfica del cambio de variable obtenemos que:
+    \begin{center}
+        \begin{minipage}{0.45\textwidth}
+            \begin{tikzpicture}[scale=1.5]
+                % Ejes coordenados
+                \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
+                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
 
-            % Triángulo original en xy
-            \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
+                % Triángulo original en xy
+                \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
 
-            % Etiquetas de los vértices
-            \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
-            \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
-            \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
+                % Etiquetas de los vértices
+                \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
+                \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
+                \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
 
-            % Área sombreada
-            \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
-        \end{tikzpicture}
-    \end{minipage}
-    \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
-    \begin{minipage}{0.45\textwidth}
-        \begin{tikzpicture}[scale=1.5]
-            % Ejes coordenados
-            \draw[->] (-2,0) -- (2,0) node[right] {$u$};
-            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
+                % Área sombreada
+                \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
+            \end{tikzpicture}
+        \end{minipage}
+        \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
+        \begin{minipage}{0.45\textwidth}
+            \begin{tikzpicture}[scale=1.5]
+                % Ejes coordenados
+                \draw[->] (-2,0) -- (2,0) node[right] {$u$};
+                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
 
-            % Triángulo
-            \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
+                % Triángulo
+                \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
 
-            % Etiquetas de los vértices
-            \node[left] at (-2,2) {\footnotesize (-2,2)};
-            \node[right] at (2,2) {\footnotesize (2,2)};
-            \node[below] at (0,0) {\footnotesize (0,0)};
+                % Etiquetas de los vértices
+                \node[left] at (-2,2) {\footnotesize (-2,2)};
+                \node[right] at (2,2) {\footnotesize (2,2)};
+                \node[below] at (0,0) {\footnotesize (0,0)};
 
-            \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
-        \end{tikzpicture}
-    \end{minipage}
-\end{center}
+                \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
+            \end{tikzpicture}
+        \end{minipage}
+    \end{center}
 
-Si tomamos $y = 0 \implies \varphi^{-1} \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
-en tenemos que $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
-$$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$ 
-$$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
+    Si tomamos $y = 0 \implies \varphi^{-1} \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
+    en tenemos que $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
+    $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$
+    $$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
 }
 
