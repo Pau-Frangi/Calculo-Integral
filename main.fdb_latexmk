@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1740662379.60647 "c:/Users/pablo/OneDriveUCM/Universidad/Calculo Integral/Latex/Calculo-Integral-3/main.tex" "main.pdf" "main" 1740662389.78293 0
+["pdflatex"] 1740675820.90917 "c:/Users/pablo/OneDriveUCM/Universidad/Calculo Integral/Latex/Calculo-Integral-3/main.tex" "main.pdf" "main" 1740675828.4866 0
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740588356 81245 e934491651270ee8e50db9289c70f8a4 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1739788850 12668 dc06899bf14948622113887d9b2f36fb ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1739883553 8604 dffb4ca5ea31f9adc8922eeb047c05a3 ""
@@ -56,6 +56,7 @@
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1247596666 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -278,7 +279,7 @@
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1740659520 994 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1740659520 10259 73eba6dc0edaaf4010df0ba9c9e80bf6 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1740662367 110176 7a464bfa104ef7142fe7dacc26224ecd ""
+  "Theory/1 - Medida de Lebesgue.tex" 1740675820 111352 27f75e0d10740e35225cb2dbb5d2791b ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1740659520 63 bd2d127c33e8b32d732f96edbac5f3dd ""
   "Theory/2 - Funciones integrables en varias variables.tex" 1740659520 55 95ca69457c0c91630bc2b9abfb19de04 ""
   "Theory/3 - Teorema de Fubini.tex" 1740659520 27 55d784463ce4941319b04269469c54f1 ""
@@ -291,10 +292,10 @@
   "Theory/Appendix.tex" 1740659520 0 d41d8cd98f00b204e9800998ecf8427e ""
   "Theory/Theory.tex" 1740659520 607 f3157f4f9d70b179fd8805d7e17ee730 ""
   "c:/Users/pablo/OneDriveUCM/Universidad/Calculo Integral/Latex/Calculo-Integral-3/main.tex" 1740659520 841 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.aux" 1740662389 27109 354f83b0ac0f914590fa479db8f1eb5c "pdflatex"
-  "main.out" 1740662389 3247 a30d080e46c7b21caa043c91be95f117 "pdflatex"
+  "main.aux" 1740675827 27108 119e0722b36bed99f5978872cd9b3045 "pdflatex"
+  "main.out" 1740675827 3247 a30d080e46c7b21caa043c91be95f117 "pdflatex"
   "main.tex" 1740659520 841 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1740662389 1432 a7b1e10a60fbce0e1ed1173e1da3436b "pdflatex"
+  "main.toc" 1740675827 1432 ff410962bfba45272b2f48a4429b9583 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
