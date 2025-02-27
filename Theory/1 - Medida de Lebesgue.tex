@@ -1411,115 +1411,123 @@ El siguiente lema es una versión de lema anterior en el que se usa el teorema d
 \end{proof}
 
 \begin{proof}[Demostración del Teorema de Tonelli:]
-    \leavevmode
-    \begin{enumerate}
-        \item Primero veamos el caso en el que \( f \) es la función indicatriz/característica de un cubo semiabierto.
-        \begin{enumerate}
-            \item Supongamos que \( f = \chi_Q \) donde \( Q \) es un cubo semiabierto en 
-                  \( \mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k \), con  
-                  \( Q = A \times B \) donde \( A \subset \mathbb{R}^n \) y \( B \subset \mathbb{R}^k \).
-    
-                  \begin{observación}
-                    $(\chi_E)_x = \chi_{E_x}  \iff (\chi_E)_x(y) = \chi_E(x, y) = \begin{cases} 1 & (x, y) \in E \\ 0 & (x, y) \notin E \end{cases} = \chi_{E_x}(y)$
-                    \end{observación}
-    
-            Definiendo:
-    
-            $$
-            f_x = (\chi_Q)_x(y) = \begin{cases} 
-                \chi_B(y), & x \in A \\ 
-                0, & x \notin A 
-            \end{cases}
-            $$
-    
-            Se concluye que \( f_x \) es medible.
-    
-            \item Definimos la función:
-    
-            $$
-            F(x) = \int_{\mathbb{R}^k} (\chi_Q)_x \, dy = \begin{cases}
-                \int_{\mathbb{R}^k} \chi_B \, dy, & x \in A \\
-                0, & x \notin A
-            \end{cases} = 
-            \begin{cases}
-                m_k(B), & x \in A \\
-                0, & x \notin A
-            \end{cases}
-            $$
-    
-            Como resultado, \( F(x) = m_k(B) \cdot \chi_A(x) \) es medible.
-    
-            \item $$\int_{\mathbb{R}^{n+k}}\chi_Q = m_{n+k}(Q) = m_n(A) \cdot m_k(B) = \int_{\mathbb{R}^n}m_k(B) \cdot \chi_A(x) = \int_{\mathbb{R}^n}F(x)$$
-    
-        \end{enumerate}
-    
-        \item Ahora supongamos que \( f \) es la función indicatriz de un conjunto abierto \( G \subset \mathbb{R}^{n+k} \).
-    
-        Dado que \( G \) es abierto, se puede escribir como la unión numerable de cubos semiabiertos disjuntos:
-    
-        $$
-        G = \bigcup_{j \in \mathbb{N}} Q_j
-        $$
-    
-        Definiendo \( G_j = \bigcup_{i=1}^{j} Q_i \), se tiene que:
-    
-        $$
-        (G_j) \uparrow G, \quad \chi_{G_j} \uparrow \chi_G
-        $$
-    
-        Como cada \( \chi_{G_j} = \sum_{i=1}^{j} \chi_{Q_i} \) verifica el Teorema de Tonelli por los Lemas 1.4.2 y 1.4.3, se concluye que \( \chi_G \) también satisface el Teorema de Tonelli.
-        %3%
-        \item Supongamos ahora que $f$ es la función indicatriz de un conjunto $G_{\delta}$,
-        es decir, un conjunto resultado de la intersección numerable de conjuntos
-        abiertos, pero bajo mas restricciones: \\ Supongamos que $f = \chi_D$ donde $D$
-        es un conjunto $G_{\delta}$:
-        \begin{observación}
-        Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 1.4.2, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
-        \end{observación}
-        Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 1.4.3 para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
-    
-        %4%
-        Veamos que el Teorema de Tonelli se verifia cuando $f = \chi_N : N \subset
-        \mathbb{R}^{n+k}$ es un conjunto de medida nula. \\ Supongamos entonce que
-    $m_{n+k}(N) = 0 \implies \forall j \in \mathbb{N}$ por la regularidad $\exists
-        G_j \subset \mathbb{R}^{n+k}$-abierto con $N \subset G_j \text{ y }
-        m_{n+k}(G_j) < \frac{1}{j}$. \\ Entonces, sea $G = \bigcup_{j \in
-            \mathbb{N}}G_j$ que es un conjunto $G_{\delta}$ y $m_{n+k}(G) \leq m_{n+k}(G_j)
-        < \frac{1}{j} \to 0$. \\ Luego $N \subset G$ y $m_{(n+k)}(G) = 0 \implies
-        \text{por el apartado anterior } \chi_G$ satisface el Teorema de Tonelli. \\
-    Por último tenemos que $0 = m_{(n+k)(G)} = \int_{\mathbb{R}^{n+k}}\chi_G =
-        \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{N_x} dy)dx$. Sabemos que para casi
-    todo $x \in \mathbb{R}^n \widehat{F}(x)$ es medible y
-    $\int_{\mathbb{R}^n}\widehat{F}(x)dx = 0 \implies \widehat{F}(x) = 0$ en casi
-    todo punto de $\mathbb{R}^n$. Como $N_x = \{y \in \mathbb{R}^k : (x,y) \in N\}
-        \subset G_x$ y $m_k(G_x) = \widehat{R}(x) = 0 \implies$ $N_x$ es un conjunto
-    nulo (luego medible) para casi todo $x \in \mathbb{R}^n$ es decir $\chi_{N_x}$
-    es medible. Además $0 \leq F(x) = \int_{\mathbb{R}^n} \chi_{N_x} \leq
-        \int_{\mathbb{R}^n}\chi_{G_x} = 0 \implies F(x) = \int_{\mathbb{R}^n}\chi_{N_x}
-        = 0$ en casi todo punto $x \in \mathbb{R}^n$ en particualr F es medible.
-    Finalmente, $0 = \int_{\mathbb{R^{n+k}}} \chi_N = \mathbb{R^n}F(x) dx =
-        \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{N_x}dy)dx$
-        %5%
-        \item Veamos que si $A$ es medible $\implies f = \chi_A$ verifica el Teorema de
-        Tonelli: Como $A = D \setminus N$ donde $\begin{cases}
-                D \text{ es un conjunto } G_{\delta} \\
-                N \text{ es un conjunto de medida nula}
-            \end{cases}$ Además tenemos que $D = A \cup N$ disjunto $\implies \chi_D = \chi_A + \chi_N \iff \chi_A = \chi_D - \chi_N \implies \chi_{A_x} = \chi_{D_x} - \chi_{N_x}$ y $\chi_{A_x}$ es medible. \\
-        $F(x) = \int_{\mathbb{R}^n}\chi_{A_x} = \int_{\mathbb{R}^n}\chi_{D_x}$ es medible para casi todo $x \in \mathbb{R}^n$
-        $\int_{\mathbb{R}^n}F(x)dx = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{D_x}dy)dx = \int_{\mathbb{R}^{n+k}}\chi_D = \int_{\mathbb{R}^{n+k}}\chi_A$ En este paso hemos aplicado (4).
-    
-        %6%
-        \item Si $f$ es una función medible, $f = \sum_{j = 1}^l \alpha_j \cdot \chi_{A_j}$
-        con $\begin{cases}
-                \alpha_j \in \mathbb{R} \\
-                A_j \text{ medible}
-            \end{cases} \forall j \in \mathbb{N} \implies$ usando (5) y el lema 1.5.1, obtenemos el resultado.
-    
-        %7%
-        \item Sea $f$ funcion medible, no negativa en $\mathbb{R}`{n+k}$ sabemos que $\exists (S_j)_{j \in \mathbb{N}}$ sucesión de funciones simples, medibles y no-negativas tales que$(S_j) \uparrow f$. Entonces por $(6)$ cada $(S_j)$ verifica el Teorema de Toneli, luego por el Lema 1.5.2, $f$ también satisface el Teorema de Tonelli.
-    \end{enumerate}
-    \end{proof}
-    
+\leavevmode
+\begin{enumerate}
+\item Primero veamos el caso en el que \( f \) es la función
+indicatriz/característica de un cubo semiabierto.
+\begin{enumerate}
+\item Supongamos que \( f = \chi_Q \) donde \( Q \) es un cubo semiabierto en \(
+\mathbb{R}^{n+k} = \mathbb{R}^n \times \mathbb{R}^k \), con \( Q = A \times B
+\) donde \( A \subset \mathbb{R}^n \) y \( B \subset \mathbb{R}^k \).
+
+\begin{observación}
+$(\chi_E)_x = \chi_{E_x}  \iff (\chi_E)_x(y) = \chi_E(x, y) = \begin{cases} 1 & (x, y) \in E \\ 0 & (x, y) \notin E \end{cases} = \chi_{E_x}(y)$
+\end{observación}
+
+Definiendo:
+
+$$
+    f_x = (\chi_Q)_x(y) = \begin{cases}
+        \chi_B(y), & x \in A    \\
+        0,         & x \notin A
+    \end{cases}
+$$
+
+Se concluye que \( f_x \) es medible.
+
+\item Definimos la función:
+
+$$
+    F(x) = \int_{\mathbb{R}^k} (\chi_Q)_x \, dy = \begin{cases}
+        \int_{\mathbb{R}^k} \chi_B \, dy, & x \in A    \\
+        0,                                & x \notin A
+    \end{cases} =
+    \begin{cases}
+        m_k(B), & x \in A    \\
+        0,      & x \notin A
+    \end{cases}
+$$
+
+Como resultado, \( F(x) = m_k(B) \cdot \chi_A(x) \) es medible.
+
+\item $$\int_{\mathbb{R}^{n+k}}\chi_Q = m_{n+k}(Q) = m_n(A) \cdot m_k(B) = \int_{\mathbb{R}^n}m_k(B) \cdot \chi_A(x) = \int_{\mathbb{R}^n}F(x)$$
+
+\end{enumerate}
+
+\item Ahora supongamos que \( f \) es la función indicatriz de un conjunto abierto \(
+G \subset \mathbb{R}^{n+k} \).
+
+Dado que \( G \) es abierto, se puede escribir como la unión numerable de cubos
+semiabiertos disjuntos:
+
+$$
+    G = \bigcup_{j \in \mathbb{N}} Q_j
+$$
+
+Definiendo \( G_j = \bigcup_{i=1}^{j} Q_i \), se tiene que:
+
+$$
+    (G_j) \uparrow G, \quad \chi_{G_j} \uparrow \chi_G
+$$
+
+Como cada \( \chi_{G_j} = \sum_{i=1}^{j} \chi_{Q_i} \) verifica el Teorema de
+Tonelli por los Lemas 1.4.2 y 1.4.3, se concluye que \( \chi_G \) también
+satisface el Teorema de Tonelli.
+%3%
+\item Supongamos ahora que $f$ es la función indicatriz de un conjunto $G_{\delta}$,
+es decir, un conjunto resultado de la intersección numerable de conjuntos
+abiertos, pero bajo mas restricciones: \\ Supongamos que $f = \chi_D$ donde $D$
+es un conjunto $G_{\delta}$:
+\begin{observación}
+Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 1.4.2, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
+\end{observación}
+Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 1.4.3 para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
+
+%4%
+Veamos que el Teorema de Tonelli se verifia cuando $f = \chi_N : N \subset
+    \mathbb{R}^{n+k}$ es un conjunto de medida nula. \\ Supongamos entonce que
+$m_{n+k}(N) = 0 \implies \forall j \in \mathbb{N}$ por la regularidad $\exists
+    G_j \subset \mathbb{R}^{n+k}$-abierto con $N \subset G_j \text{ y }
+    m_{n+k}(G_j) < \frac{1}{j}$. \\ Entonces, sea $G = \bigcup_{j \in
+        \mathbb{N}}G_j$ que es un conjunto $G_{\delta}$ y $m_{n+k}(G) \leq m_{n+k}(G_j)
+    < \frac{1}{j} \to 0$. \\ Luego $N \subset G$ y $m_{(n+k)}(G) = 0 \implies
+    \text{por el apartado anterior } \chi_G$ satisface el Teorema de Tonelli. \\
+Por último tenemos que $0 = m_{(n+k)(G)} = \int_{\mathbb{R}^{n+k}}\chi_G =
+    \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{N_x} dy)dx$. Sabemos que para casi
+todo $x \in \mathbb{R}^n \widehat{F}(x)$ es medible y
+$\int_{\mathbb{R}^n}\widehat{F}(x)dx = 0 \implies \widehat{F}(x) = 0$ en casi
+todo punto de $\mathbb{R}^n$. Como $N_x = \{y \in \mathbb{R}^k : (x,y) \in N\}
+    \subset G_x$ y $m_k(G_x) = \widehat{R}(x) = 0 \implies$ $N_x$ es un conjunto
+nulo (luego medible) para casi todo $x \in \mathbb{R}^n$ es decir $\chi_{N_x}$
+es medible. Además $0 \leq F(x) = \int_{\mathbb{R}^n} \chi_{N_x} \leq
+    \int_{\mathbb{R}^n}\chi_{G_x} = 0 \implies F(x) = \int_{\mathbb{R}^n}\chi_{N_x}
+    = 0$ en casi todo punto $x \in \mathbb{R}^n$ en particualr F es medible.
+Finalmente, $0 = \int_{\mathbb{R^{n+k}}} \chi_N = \mathbb{R^n}F(x) dx =
+    \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{N_x}dy)dx$
+%5%
+\item Veamos que si $A$ es medible $\implies f = \chi_A$ verifica el Teorema de
+Tonelli: Como $A = D \setminus N$ donde $\begin{cases}
+        D \text{ es un conjunto } G_{\delta} \\
+        N \text{ es un conjunto de medida nula}
+    \end{cases}$ Además tenemos que $D = A \cup N$ disjunto $\implies \chi_D = \chi_A + \chi_N \iff \chi_A = \chi_D - \chi_N \implies \chi_{A_x} = \chi_{D_x} - \chi_{N_x}$ y $\chi_{A_x}$ es medible. \\
+$F(x) = \int_{\mathbb{R}^n}\chi_{A_x} = \int_{\mathbb{R}^n}\chi_{D_x}$ es medible para casi todo $x \in \mathbb{R}^n$
+$\int_{\mathbb{R}^n}F(x)dx = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{D_x}dy)dx = \int_{\mathbb{R}^{n+k}}\chi_D = \int_{\mathbb{R}^{n+k}}\chi_A$ En este paso hemos aplicado (4).
+
+%6%
+\item Si $f$ es una función medible, $f = \sum_{j = 1}^l \alpha_j \cdot \chi_{A_j}$
+con $\begin{cases}
+        \alpha_j \in \mathbb{R} \\
+        A_j \text{ medible}
+    \end{cases} \forall j \in \mathbb{N} \implies$ usando (5) y el lema 1.5.1, obtenemos el resultado.
+
+%7%
+\item Sea $f$ funcion medible, no negativa en $\mathbb{R}`{n+k}$ sabemos que $\exists
+    (S_j)_{j \in \mathbb{N}}$ sucesión de funciones simples, medibles y
+no-negativas tales que$(S_j) \uparrow f$. Entonces por $(6)$ cada $(S_j)$
+verifica el Teorema de Toneli, luego por el Lema 1.5.2, $f$ también satisface
+el Teorema de Tonelli.
+\end{enumerate}
+\end{proof}
 
 \begin{corolario}[Prinicpio de Cavalieri]
     Sea $E \subset \mathbb{R}^{n+k}$ medible entonces:
@@ -1621,61 +1629,61 @@ El siguiente lema es una versión de lema anterior en el que se usa el teorema d
                   \item[\textbf{(b)}]  $$\int_{V}z^2dxdydz = \int_{z = 0}^{z = 1}z^2(\int_{V_z}1dxdy)dz = \int_{z = 0}^{z = 1}z^2\cdot\frac{(1-z)^2}{12}dz$$
               \end{itemize}
         \item Sea $V$ el sólido limitado por el paraboloide $z = x^2 +y^2$ y por el plano
-              $z=1$.\\ Calculemos $vol(V)$. 
+              $z=1$.\\ Calculemos $vol(V)$.
 
               % remove a line
               \vspace{-1cm}
 
-\begin{center}
-              \tdplotsetmaincoords{75}{135}
-              \begin{tikzpicture}[tdplot_main_coords,scale=2.0]
-                  \tikzmath{function f(\x) {return \x;};}
-                  \pgfmathsetmacro{\zini}{0.5*sqrt(2.0)}
-                  \pgfmathsetmacro{\step}{0.01}
-                  \pgfmathsetmacro{\zsig}{\zini+\step}
-                  \pgfmathsetmacro{\nextz}{\zini+0.5*\step}
-                  \pgfmathsetmacro{\sig}{2.0*\step}
-                  \pgfmathsetmacro{\tini}{0.5*pi}
-                  \pgfmathsetmacro{\tfin}{1.85*pi}
-                  \pgfmathsetmacro{\tend}{2.5*pi}
-                  %%% Coordinate axis
-                  \draw[thick,->] (0,0,0) -- (1.5,0,0) node [below left] {\footnotesize$x$};
-                  \draw[dashed] (0,0,0) -- (-1.5,0,0);
-                  \draw[thick,->] (0,0,0) -- (0,1.5,0) node [right] {\footnotesize$y$};
-                  \draw[dashed] (0,0,0) -- (0,-1.5,0);
-                  \draw[thick] (0,0,0) -- (0,0,1.0); % Z axis (part under the plane z = 1)
-                  % The region of integration
-                  \draw[gray,thick,fill=yellow,opacity=0.35] plot[domain=0:6.2832,smooth,variable=\t] ({1.0*cos(\t r)},{1.0*sin(\t r)},{0.0});
-                  %	
-                  \draw[gray,dash dot dot] (-1,0,0) -- (-1,0,1);
-                  \draw[gray,dash dot dot] (0,-1,0) -- (0,-1,1);
-                  % The plane: x + y = 1
-                  \coordinate (A) at (1,1,1);
-                  \coordinate (B) at (-1,1,1);
-                  \coordinate (C) at (-1,-1,1);
-                  \coordinate (D) at (1,-1,1);
-                  % Curves bounding the solid.
-                  \draw[blue,thick,opacity=0.5] plot[domain=-1:1,smooth,variable=\t] ({\t},0,{\t*\t});
-                  \draw[blue,thick,opacity=0.5] plot[domain=-1:1,smooth,variable=\t] (0,{\t},{\t*\t});
-                  \draw[blue,thick,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({1.0*cos(\t r)},{1.0*sin(\t r)},{1.0});
-                  % The paraboloid (level curves z = constant)
-                  \foreach \altura in {\step,\sig,...,1.0}{
-                          \pgfmathparse{sqrt(\altura)}
-                          \pgfmathsetmacro{\radio}{\pgfmathresult}
-                          \draw[cyan,thick,opacity=0.25] plot[domain=0:6.2832,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura});
-                      }
-                  % The plane
-                  \draw[white] (C) -- (B) node[red,above,sloped,midway]{$z = 1$};
-                  \fill[pattern color=pink,pattern=north east lines] (A) -- (B) -- (C) -- (D) -- (A);
-                  \draw[thick,red] (A) -- (B) -- (C) -- (D) -- (A);
-                  %
-                  \draw[gray,dash dot dot] (1,0,0) -- (1,0,1);
-                  \draw[gray,dash dot dot] (0,1,0) -- (0,1,1);
-                  %
-                  \node[blue,left] at (0.5,-0.75,0.5) {$z = x^2 + y^2$};
-                  \draw[thick,->] (0,0,1.0) -- (0,0,1.5) node [above] {\footnotesize$z$};
-              \end{tikzpicture}
-\end{center}
+              \begin{center}
+                  \tdplotsetmaincoords{75}{135}
+                  \begin{tikzpicture}[tdplot_main_coords,scale=2.0]
+                      \tikzmath{function f(\x) {return \x;};}
+                      \pgfmathsetmacro{\zini}{0.5*sqrt(2.0)}
+                      \pgfmathsetmacro{\step}{0.01}
+                      \pgfmathsetmacro{\zsig}{\zini+\step}
+                      \pgfmathsetmacro{\nextz}{\zini+0.5*\step}
+                      \pgfmathsetmacro{\sig}{2.0*\step}
+                      \pgfmathsetmacro{\tini}{0.5*pi}
+                      \pgfmathsetmacro{\tfin}{1.85*pi}
+                      \pgfmathsetmacro{\tend}{2.5*pi}
+                      %%% Coordinate axis
+                      \draw[thick,->] (0,0,0) -- (1.5,0,0) node [below left] {\footnotesize$x$};
+                      \draw[dashed] (0,0,0) -- (-1.5,0,0);
+                      \draw[thick,->] (0,0,0) -- (0,1.5,0) node [right] {\footnotesize$y$};
+                      \draw[dashed] (0,0,0) -- (0,-1.5,0);
+                      \draw[thick] (0,0,0) -- (0,0,1.0); % Z axis (part under the plane z = 1)
+                      % The region of integration
+                      \draw[gray,thick,fill=yellow,opacity=0.35] plot[domain=0:6.2832,smooth,variable=\t] ({1.0*cos(\t r)},{1.0*sin(\t r)},{0.0});
+                      %	
+                      \draw[gray,dash dot dot] (-1,0,0) -- (-1,0,1);
+                      \draw[gray,dash dot dot] (0,-1,0) -- (0,-1,1);
+                      % The plane: x + y = 1
+                      \coordinate (A) at (1,1,1);
+                      \coordinate (B) at (-1,1,1);
+                      \coordinate (C) at (-1,-1,1);
+                      \coordinate (D) at (1,-1,1);
+                      % Curves bounding the solid.
+                      \draw[blue,thick,opacity=0.5] plot[domain=-1:1,smooth,variable=\t] ({\t},0,{\t*\t});
+                      \draw[blue,thick,opacity=0.5] plot[domain=-1:1,smooth,variable=\t] (0,{\t},{\t*\t});
+                      \draw[blue,thick,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({1.0*cos(\t r)},{1.0*sin(\t r)},{1.0});
+                      % The paraboloid (level curves z = constant)
+                      \foreach \altura in {\step,\sig,...,1.0}{
+                              \pgfmathparse{sqrt(\altura)}
+                              \pgfmathsetmacro{\radio}{\pgfmathresult}
+                              \draw[cyan,thick,opacity=0.25] plot[domain=0:6.2832,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura});
+                          }
+                      % The plane
+                      \draw[white] (C) -- (B) node[red,above,sloped,midway]{$z = 1$};
+                      \fill[pattern color=pink,pattern=north east lines] (A) -- (B) -- (C) -- (D) -- (A);
+                      \draw[thick,red] (A) -- (B) -- (C) -- (D) -- (A);
+                      %
+                      \draw[gray,dash dot dot] (1,0,0) -- (1,0,1);
+                      \draw[gray,dash dot dot] (0,1,0) -- (0,1,1);
+                      %
+                      \node[blue,left] at (0.5,-0.75,0.5) {$z = x^2 + y^2$};
+                      \draw[thick,->] (0,0,1.0) -- (0,0,1.5) node [above] {\footnotesize$z$};
+                  \end{tikzpicture}
+              \end{center}
 
               Donde $$V = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq z \leq 1\} \implies
                   \\$$ $$vol(v) = \int_{z = 0}^{z = 1}area(V_z)dz = \int_{0}^{1}\pi z dz =
@@ -1683,170 +1691,169 @@ El siguiente lema es una versión de lema anterior en el que se usa el teorema d
     \end{enumerate}
 }
 
-
 \begin{observación}
-    La diferencia entre el Teorema de Tonelli y el de Fubini, es que el primero pide que las funciones sean no-negativas estrictamente y el segundo pide que las funciones sean integrables absolutamente. 
+La diferencia entre el Teorema de Tonelli y el de Fubini, es que el primero pide que las funciones sean no-negativas estrictamente y el segundo pide que las funciones sean integrables absolutamente.
 \end{observación}
 
 \begin{definición}
-    Un conjunto $E \subset \mathbb{R}^2$ es verticalmente proyectable si es de la forma: 
-    $$E_1 = \{(x,y) : a \leq x \leq b, f(x) \leq y \leq g(x)\}$$ donde $f,g : [a,b] \to \mathbb{R}$ son funciones continuas con $f(x) \leq g(x)$.
-    Análogamente se define un conjunto $E \subset \mathbb{R}^2$ es horizontalmente proyectable si es de la forma:
-    $$E_2 = \{ (x,y) : c \leq y \leq d, \varphi(y) \leq x \leq \psi(y)\}$$
-    donde $\varphi, \psi : [c,d] \to \mathbb{R}$ son funciones continuas con $\varphi(y) \leq \psi(y)$.
-    En este caso si $f: E \to \mathbb{R}$ que es integrable en $E$: 
-    $$\int_{E_1}h(x,y)dxdy = \int_{x = a}^{x = b}\left(\int_{f(x)}^{g(x)}h(x,y)dy\right)dx$$
-    $$\int_{E_2}h(x,y)dxdy = \int_{y = c}^{y = d}\left(\int_{\varphi(y)}^{\psi(y)}h(x,y)dx\right)dy$$
+Un conjunto $E \subset \mathbb{R}^2$ es verticalmente proyectable si es de la forma:
+$$E_1 = \{(x,y) : a \leq x \leq b, f(x) \leq y \leq g(x)\}$$ donde $f,g : [a,b] \to \mathbb{R}$ son funciones continuas con $f(x) \leq g(x)$.
+Análogamente se define un conjunto $E \subset \mathbb{R}^2$ es horizontalmente proyectable si es de la forma:
+$$E_2 = \{ (x,y) : c \leq y \leq d, \varphi(y) \leq x \leq \psi(y)\}$$
+donde $\varphi, \psi : [c,d] \to \mathbb{R}$ son funciones continuas con $\varphi(y) \leq \psi(y)$.
+En este caso si $f: E \to \mathbb{R}$ que es integrable en $E$:
+$$\int_{E_1}h(x,y)dxdy = \int_{x = a}^{x = b}\left(\int_{f(x)}^{g(x)}h(x,y)dy\right)dx$$
+$$\int_{E_2}h(x,y)dxdy = \int_{y = c}^{y = d}\left(\int_{\varphi(y)}^{\psi(y)}h(x,y)dx\right)dy$$
 
-    \begin{center}
-        \begin{minipage}{0.45\textwidth}
-            \begin{tikzpicture}[scale=1.5]
-                % Ejes
-                \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-                \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
-            
-                % Curvas más variadas
-                \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) node[right] {\small $y = f(x)$}; % Ajuste aquí
-                \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) node[right] {\small $y = g(x)$};
-            
-                % Líneas verticales en x=a y x=b
-                \draw[dashed] (0.5,0.7) -- (0.5,2.4);
-                \draw[dashed] (2.5,1.1) -- (2.5,2.1);
-            
-                % Etiquetas a y b
-                \node[below] at (0.5,0) {\small $a$};
-                \node[below] at (2.5,0) {\small $b$};
-            
+\begin{center}
+    \begin{minipage}{0.45\textwidth}
+        \begin{tikzpicture}[scale=1.5]
+            % Ejes
+            \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
+            \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+
+            % Curvas más variadas
+            \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) node[right] {\small $y = f(x)$}; % Ajuste aquí
+            \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) node[right] {\small $y = g(x)$};
+
+            % Líneas verticales en x=a y x=b
+            \draw[dashed] (0.5,0.7) -- (0.5,2.4);
+            \draw[dashed] (2.5,1.1) -- (2.5,2.1);
+
+            % Etiquetas a y b
+            \node[below] at (0.5,0) {\small $a$};
+            \node[below] at (2.5,0) {\small $b$};
+
+            % Región sombreada
+            \begin{scope}
+                \clip (0.5,0.7) -- plot[domain=0.5:2.5, smooth] (\x, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) -- (2.5,1.1) -- plot[domain=2.5:0.5, smooth] (\x, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) -- cycle; % Ajuste aquí
+                \fill[gray!30] (0,0) rectangle (3,3);
+            \end{scope}
+
+            % Etiqueta de la región
+            \node at (1.5,1.5) {\small $E_1$};
+
+        \end{tikzpicture}
+    \end{minipage}
+    \hspace{0.05\textwidth} % Espacio entre las dos figuras
+    \begin{minipage}{0.45\textwidth}
+
+        \begin{tikzpicture}[scale=1.5]
+            % Ejes de coordenadas con una separación más pequeña
+            \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
+            \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+
+            \node[left] at (-0.1,0.5) {\small $c$};  % Etiqueta en y = 0.5
+            \node[left] at (-0.1,2.5) {\small $d$};  % Etiqueta en y = 2.5
+
+            % Mover la figura ligeramente a la derecha
+            \begin{scope}[shift={(1,0)}]  % Ahora solo 1 unidad a la derecha
+                \draw[thick] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5)
+                node[above] {\small $x = \varphi(y)$};
+
+                \draw[thick] (2,0.5) .. controls (2.5,1.2) and (2.5,1.8) .. (2,2.5)
+                node[above] {\small $x = \psi(y)$};
+
+                % Líneas horizontales
+                \draw[dashed] (0,0.5) -- (2,0.5);
+                \draw[dashed] (0,2.5) -- (2,2.5);
+
                 % Región sombreada
-                \begin{scope}
-                    \clip (0.5,0.7) -- plot[domain=0.5:2.5, smooth] (\x, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) -- (2.5,1.1) -- plot[domain=2.5:0.5, smooth] (\x, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) -- cycle; % Ajuste aquí
-                    \fill[gray!30] (0,0) rectangle (3,3);
-                \end{scope}
-            
-                % Etiqueta de la región
-                \node at (1.5,1.5) {\small $E_1$};
-            
-            \end{tikzpicture}
-        \end{minipage}
-        \hspace{0.05\textwidth} % Espacio entre las dos figuras
-        \begin{minipage}{0.45\textwidth}
+                \fill[gray!30] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5) --
+                (2,2.5) .. controls (2.5,1.8) and (2.5,1.2) .. (2,0.5) -- cycle;
 
-            \begin{tikzpicture}[scale=1.5]
-                % Ejes de coordenadas con una separación más pequeña
-                \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-                \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+                \node at (1.25,1.5) {\small $E_2$};
+            \end{scope}
+        \end{tikzpicture}
 
-                \node[left] at (-0.1,0.5) {\small $c$};  % Etiqueta en y = 0.5
-                \node[left] at (-0.1,2.5) {\small $d$};  % Etiqueta en y = 2.5
-            
-                % Mover la figura ligeramente a la derecha
-                \begin{scope}[shift={(1,0)}]  % Ahora solo 1 unidad a la derecha
-                    \draw[thick] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5)
-                        node[above] {\small $x = \varphi(y)$};
-            
-                    \draw[thick] (2,0.5) .. controls (2.5,1.2) and (2.5,1.8) .. (2,2.5)
-                        node[above] {\small $x = \psi(y)$};
-            
-                    % Líneas horizontales
-                    \draw[dashed] (0,0.5) -- (2,0.5);
-                    \draw[dashed] (0,2.5) -- (2,2.5);
-            
-                    % Región sombreada
-                    \fill[gray!30] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5) --
-                                    (2,2.5) .. controls (2.5,1.8) and (2.5,1.2) .. (2,0.5) -- cycle;
-                    
-                    \node at (1.25,1.5) {\small $E_2$};  
-                \end{scope}
-            \end{tikzpicture}
-            
-            
-            
-        \end{minipage}
-    \end{center}
+    \end{minipage}
+\end{center}
 \end{definición}
 
 \begin{observación}
-    La diferencia entre ambas definciones es que en la primera se fija $x$ y se mueve $y$ y en la segunda se fija $y$ y se mueve $x$. Lo que tiene como consecuencia que en la primera se integra $dx-dy$ y en la segunda $dy-dx$.
+La diferencia entre ambas definciones es que en la primera se fija $x$ y se mueve $y$ y en la segunda se fija $y$ y se mueve $x$. Lo que tiene como consecuencia que en la primera se integra $dx-dy$ y en la segunda $dy-dx$.
 \end{observación}
 
-
 \begin{teorema}
-    Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y $m(T(A)) = |\det(T)|m(A)$.
+    Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y además: 
+\[m(T(A)) = |\det(T)|m(A)\]
 \end{teorema}
 \begin{definición}
-    Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo si:
-    \begin{enumerate}
-        \item $\varphi$ es biyectiva
-        \item $\varphi$ es de clase $C^1$ en $U$
-        \item $\varphi^{-1}$ es de clase $C^1$ en $V$
-    \end{enumerate}
+Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo de $U$ a $V$ si:
+\begin{enumerate}
+    \item $\varphi$ es biyectiva
+    \item $\varphi$ es de clase $C^1$ en $U$
+    \item $\varphi^{-1}$ es de clase $C^1$ en $V$
+\end{enumerate}
 \end{definición}
 \begin{observación}
-    Sea $\phi: U \to V$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es abierto, y supongamos que $det(D\phi(x)) \neq 0 \quad \forall u \in U \implies V = \varphi(U)$ es abierto. Si $\varphi$ es inyectiva, tenemos que $\varphi: U \to \varphi(U) = V$ es un difeomorfismo. 
+Sea $\varphi: U \to \mathbb{R}$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es abierto, y supongamos que $det(D\varphi(u)) \neq 0 \quad \forall u \in U \implies V = \varphi(U)$ es abierto. Si $\varphi$ es inyectiva, tenemos que $\varphi: U \to \varphi(U) = V$ es un difeomorfismo.
 \end{observación}
 
 \begin{teorema}
-    Sean $U, V \subset \mathbb{R}^n$ abierto y $\varphi: U \to V$ difeomorfismo. Si $A \subset U$ es medible, entonces $\varphi(A)$ es medible y $m(\varphi(A)) = \int_{A}|\det(D\varphi)|$.
+    Sean $U, V \subset \mathbb{R}^n$ abierto y $\varphi: U \to V$ difeomorfismo-$C^{1}$. Si $A \subset U$ es medible, entonces $\varphi(A)$ es medible y $m(\varphi(A)) = \int_{A}|\det(D\varphi(u))|du$.
 \end{teorema}
 
-\begin{teorema}[Teorema del Cambio de Variable] 
-    Sean $U,V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$ .Sea $f: V \to \mathbb{R}$ medible. Entonces:
+\begin{teorema}[Teorema del Cambio de Variable]
+    Sean $U,V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$. Sea $f: V \to \mathbb{R}$ medible. Entonces:
     \begin{enumerate}
-        \item Si $f$ es no negativa $\implies f \circ \varphi |\det(D\varphi)|$ es medible y no-negativa. 
-        \item Si $f$ es integrable $\implies (f \circ \varphi)|\det(D\varphi)|$ es integrable 
-    \end{enumerate}
-    En ambos casos se cumple que: 
+        \item Si $f$ es no negativa $\implies (f \circ \varphi) |\det(D\varphi)|$ es medible y
+              no-negativa.
+        \item Si $f$ es integrable $\implies (f \circ \varphi)|\det(D\varphi)|$ es integrable \end{enumerate}
+    En ambos casos se cumple que:
     $$\int_{V = \varphi(U)} f(x)dx = \int_U (f \circ \phi(u))|\det(D\varphi)|du$$
 \end{teorema}
 \begin{observación}
-    Si $A \subset U$ es medible $\implies \varphi(A)$ es medible y 
-    $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
+Si $A \subset U$ es medible $\implies \varphi(A)$ es medible y
+$$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
 \end{observación}
+
 \ejemplo{
-    Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
-    Si tomamos el cambio de variable: \\ $$\varphi^-1 \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
-    Si tomamos la representación gráfica del cambio de variable obtenemos que:     
-    \begin{center}
-        \begin{minipage}{0.45\textwidth}
-            \begin{tikzpicture}[scale=1.5]
-                % Ejes coordenados
-                \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
-                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
-                
-                % Triángulo original en xy
-                \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
-                
-                % Etiquetas de los vértices
-                \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
-                \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
-                \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
-                
-                % Área sombreada
-                \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
-            \end{tikzpicture}
-        \end{minipage}
-        \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
-        \begin{minipage}{0.45\textwidth}
-            \begin{tikzpicture}[scale=1.5]
-                % Ejes coordenados
-                \draw[->] (-2,0) -- (2,0) node[right] {$u$};
-                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
-            
-                % Triángulo
-                \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
-            
-                % Etiquetas de los vértices
-                \node[left] at (-2,2) {\footnotesize (-2,2)};
-                \node[right] at (2,2) {\footnotesize (2,2)};
-                \node[below] at (0,0) {\footnotesize (0,0)};
-    
-                \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
-            \end{tikzpicture}
-        \end{minipage}
-    \end{center}
-        
-    Si tomamos $y = 0 \implies \varphi^-1 \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
-    $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv$$ en donde $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
-    $$ = \frac{1}{2} \int_{u = 0}^{u = 2}(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du)dv = \frac{1}{2} \int_{v = 0}^{v = 2}[v e^{\frac{u}{v}}]_{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^-1)[\frac{v^2}{2}]_{v = 0}^{v=2} = e - e^-1$$
+Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
+Si tomamos el cambio de variable: \\ $$\varphi^{-1} \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
+Si tomamos la representación gráfica del cambio de variable obtenemos que:
+\begin{center}
+    \begin{minipage}{0.45\textwidth}
+        \begin{tikzpicture}[scale=1.5]
+            % Ejes coordenados
+            \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
+            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
+
+            % Triángulo original en xy
+            \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
+
+            % Etiquetas de los vértices
+            \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
+            \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
+            \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
+
+            % Área sombreada
+            \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
+        \end{tikzpicture}
+    \end{minipage}
+    \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
+    \begin{minipage}{0.45\textwidth}
+        \begin{tikzpicture}[scale=1.5]
+            % Ejes coordenados
+            \draw[->] (-2,0) -- (2,0) node[right] {$u$};
+            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
+
+            % Triángulo
+            \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
+
+            % Etiquetas de los vértices
+            \node[left] at (-2,2) {\footnotesize (-2,2)};
+            \node[right] at (2,2) {\footnotesize (2,2)};
+            \node[below] at (0,0) {\footnotesize (0,0)};
+
+            \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
+        \end{tikzpicture}
+    \end{minipage}
+\end{center}
+
+Si tomamos $y = 0 \implies \varphi^{-1} \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
+en tenemos que $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
+$$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$ 
+$$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
 }
 
