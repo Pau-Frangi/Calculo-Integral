@@ -1201,16 +1201,16 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     $\forall k \in \mathbb{N}$ sabemos que $\exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n(k)}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$.
     Suponemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $$\text{diam}(P_k) = \sup_{i \in \{1, \dots, n(k)\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$$
     \\$\forall k \in \mathbb{N}$ denotamos $m_k = \inf\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$ y $M_k = \sup\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$.
-        $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-        $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-        Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
-        Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
-        Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
-        y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
-        Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
-        La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
-        Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
-        Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
+    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+    $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+    Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
+    Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
+    Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
+    y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
+    Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
+    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
+    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
+    Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
     $$(L)\int_{a}^{b}f = \int_{a}^{b}\varphi = \int_a^b\psi = (R)\int_{a}^{b}f$$
 \end{proof}
 
@@ -1634,11 +1634,12 @@ el Teorema de Tonelli.
 
               %3%
         \item Sea $V$ el sólido limitado por $x = 0, \ y = 0, \ z = 0, \ 3x + 2y +z = 1$.
-              Calculemos: $$\begin{array}{ll}
-                      \text{(a)} & \text{Vol}(V)      \\
-                      \text{(b)} & \int_{V}z^2 dxdydz
-                  \end{array}$$
-
+              Calculemos:
+              \begin{enumerate}[label=(\alph*)]
+                  \item $\text{Vol}(V)$
+                  \item $\int_{V}z^2dxdydz$
+              \end{enumerate}
+              \vspace{-1.5cm}
               \begin{center}
                   \tdplotsetmaincoords{70}{120} % Ángulos para la perspectiva 3D
                   \begin{tikzpicture}[scale=2, tdplot_main_coords]
@@ -1724,7 +1725,7 @@ el Teorema de Tonelli.
                       \foreach \altura in {\step,\sig,...,1.0}{
                               \pgfmathparse{sqrt(\altura)}
                               \pgfmathsetmacro{\radio}{\pgfmathresult}
-                              \draw[cyan,thick,opacity=0.25] plot[domain=0:6.2832,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura});
+                              \draw[blue!20,thick,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura});
                           }
                       % The plane
                       \draw[white] (C) -- (B) node[red,above,sloped,midway]{$z = 1$};
