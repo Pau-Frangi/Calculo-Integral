@@ -639,7 +639,7 @@ Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son eq
         \item $(2 \implies 1): \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
     \end{itemize}
 \end{proof}
-\begin{definición}
+\begin{definición}[Función Simple]
 Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$. Se dice que $f$ es una función simple si toma un valor finito de valores. Es decir si:
 $f(X) = \{\alpha_1, \alpha_2, \dots, \alpha_n\} \subset [0, +\infty]$.
 Además denotamos a $f^-1(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_i\chi_{E_i}$. Asimismo obtenemos que $X = bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
@@ -732,7 +732,7 @@ $\int_{\mathbb{R}^n}0 = 0$
     Aplicando el lema de integración para funciones simples: $\int_{\mathbb{R}^n} (s + t) = \sum_{i=1}^{m} \sum_{j=1}^{k} (\alpha_i + \beta_j) m(A_i \cap B_j) = \sum_{i=1}^{m} \alpha_i m(A_i \cap B_j) + \sum_{j=1}^{k} \beta_j m(A_i \cap B_j)$
     $= \int_{\mathbb{R}^n} s + \int_{\mathbb{R}^n} t$ (por el lema).
 \end{proof}
-\begin{definición}
+\begin{definición}[Integral de Lebesgue]
 Sea $f: \mathbb{R}^n \to [0, +\infty)$ una función medible. Definimos la integral de Lebesgue como:
 $$\int_{\mathbb{R}^n} f = \sup \left\{ \int_{\mathbb{R}^n} s \mid s \text{ es simple, medible y } 0 \leq s \leq f \right\}.$$
 Si $E \subset \mathbb{R}^n$ es medible y $f: E \to [0, +\infty)$, definimos:
@@ -911,7 +911,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \begin{observación}
 El resultado análogo con $\limsup$ no es válido en gneral. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
 \end{observación}
-\begin{definición}
+\begin{definición}[Función Integrable]
 Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f \circ \chi_E < +\infty$$
 \end{definición}
 \begin{observación}
@@ -1708,7 +1708,7 @@ el Teorema de Tonelli.
                       \draw[dashed] (0,0,0) -- (0,-1.5,0);
                       \draw[thick] (0,0,0) -- (0,0,1.0); % Z axis (part under the plane z = 1)
                       % The region of integration
-                      \draw[gray,thick,fill=yellow,opacity=0.35] plot[domain=0:6.2832,smooth,variable=\t] ({1.0*cos(\t r)},{1.0*sin(\t r)},{0.0});
+                      \draw[gray,thick,fill=yellow!20,opacity=0.75] plot[domain=0:6.2832,smooth,variable=\t] ({1.0*cos(\t r)},{1.0*sin(\t r)},{0.0});
                       %	
                       \draw[gray,dash dot dot] (-1,0,0) -- (-1,0,1);
                       \draw[gray,dash dot dot] (0,-1,0) -- (0,-1,1);
