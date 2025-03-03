@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1740743112.88621 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1740743118.40256 0
+["pdflatex"] 1741018712.16599 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741018718.1469 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740734792 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
@@ -278,8 +278,8 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
-  "Preamble/Preamble.tex" 1740648901 10259 73eba6dc0edaaf4010df0ba9c9e80bf6 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1740743111 114535 cc97df221fbe0cddbc4f6dd3ad1bc4c4 ""
+  "Preamble/Preamble.tex" 1740984689 10259 73eba6dc0edaaf4010df0ba9c9e80bf6 ""
+  "Theory/1 - Medida de Lebesgue.tex" 1740984689 114535 cc97df221fbe0cddbc4f6dd3ad1bc4c4 ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1739791929 63 bd2d127c33e8b32d732f96edbac5f3dd ""
   "Theory/2 - Funciones integrables en varias variables.tex" 1739791694 53 95ca69457c0c91630bc2b9abfb19de04 ""
   "Theory/3 - Teorema de Fubini.tex" 1739791718 27 55d784463ce4941319b04269469c54f1 ""
@@ -289,13 +289,13 @@
   "Theory/7 - Teorema de Green.tex" 1739791884 26 21402e56984e5608cf994e1fbc2b1a25 ""
   "Theory/8 - Superficies paramétricas.tex" 1739791891 35 3b5dcb7392c736042da48b433aa410a2 ""
   "Theory/9 - Integrales de superficie.tex" 1739791916 34 52b570430f6f0c7fe18ab525f18be7d8 ""
-  "Theory/Appendix.tex" 1737879348 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "Theory/Theory.tex" 1739791489 607 f3157f4f9d70b179fd8805d7e17ee730 ""
+  "Theory/Appendix.tex" 1741018705 731 18a3d31ad27668c3b1140df3c4872880 ""
+  "Theory/Theory.tex" 1741018480 609 5c26221cabefcb61a441168f509cbbd6 ""
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.aux" 1740743117 27666 f79a692523212efc0fe29bc769a1a95a "pdflatex"
-  "main.out" 1740743117 3247 a30d080e46c7b21caa043c91be95f117 "pdflatex"
+  "main.aux" 1741018717 28263 8bf9232b937c6161b5086584a72c1b17 "pdflatex"
+  "main.out" 1741018717 3335 f391961e2ca2f80e67f9e3cd7f0d585b "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1740743117 1432 a7b1e10a60fbce0e1ed1173e1da3436b "pdflatex"
+  "main.toc" 1741018717 1500 4813aec0275e6c50bfb43c2a42252e71 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
