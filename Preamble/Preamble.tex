@@ -7,7 +7,6 @@
 %Math
 \usepackage[makeroom]{cancel}%cancel lines math
 \usepackage{dsfont}%fonts
-\usepackage{url}
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{esint}
@@ -23,6 +22,11 @@
 \usepackage{tikz}
 \usepackage[most]{tcolorbox}
 \usepackage{lipsum}
+%Hyperlinks
+
+
+\usepackage{url}
+
 \usetikzlibrary{patterns}
 \usepackage{tikz-3dplot}
 \usetikzlibrary{math}
@@ -266,6 +270,8 @@ mdframed={
   numberwithin=subsection
 ]{observación}
 
+
+
 % theoremstyle shortcut commands
 \newcommand{\observacion}[1]{\begin{observación}#1\end{observación}}
 \newcommand{\definicion}[1]{\begin{definición}#1\end{definición}}
@@ -328,6 +334,13 @@ mdframed={
 % Define \dem to take an argument and wrap it in proof environment
 \newcommand{\dem}[1]{\begin{proof}#1\end{proof}}
 
-%Hyperlinks
-\usepackage{hyperref}
 
+\usepackage{hyperref}
+\usepackage{cleveref}
+% Configure cleveref to recognize your custom theorem styles
+\crefname{teorema}{Teorema}{Teoremas}
+\crefname{proposición}{Proposición}{Proposiciones}
+\crefname{definición}{Definición}{Definiciones}
+\crefname{lema}{Lema}{Lemas}
+\crefname{corolario}{Corolario}{Corolarios}
+\crefname{observación}{Observación}{Observaciones}

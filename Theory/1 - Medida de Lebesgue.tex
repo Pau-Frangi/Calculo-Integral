@@ -2,8 +2,7 @@
 
 \subsection{Medida Exterior de Lebesgue en $\R^n$}
 
-\label{n-rectángulo}
-\begin{definición}[n-Réctangulo]
+\begin{definición}[n-Réctangulo\label{n-rectángulo}]
 Un n-rectángulo en $\R^n$ es un conjunto de la forma:
 \begin{equation}
     R = \prod_{i=1}^n [a_i, \ b_i] = [a_1, \ b_1] \times [a_2, \ b_2] \times ... \times [a_n, \ b_n] \text{ donde } a_i \leq b_i \ \forall i
@@ -22,8 +21,7 @@ Dado $R$ n-rectángulo cerrado tal que $R = \prod_{i=1}^n [a_i, \ b_i]$, podemos
 \end{equation}
 \end{observación}
 
-\label{Medida de exterior de Lebesgue}
-\begin{definición}[Medida Exterior de Lebesgue]
+\begin{definición}[Medida Exterior de Lebesgue\label{Medida de exterior de Lebesgue}]
 Sea $A \subset \R^n$. Definimos la medida exterior de $A$ como:
 \begin{equation}
     m^*(A) = \inf \left\{ \sum_{i=1}^\infty \text{vol}(R_i) \ | \ A \subset \bigcup_{i=1}^\infty R_i \text{ con } R_i \text{ n-rectángulos cerrados} \right\}
@@ -32,7 +30,8 @@ Donde la ínfimo se toma sobre todas las colecciones numerables de n-rectángulo
 \end{definición}
 
 \begin{observación}
-Sea $A \subset \R^n$
+Sea $A \subset \R^n$ entonces:
+\vspace{-0.5em}
 \begin{enumerate}
     \item $m^*(A) = +\infty \iff \forall (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ se tiene que } \sum_{j \in J} \text{vol}(R_j) = +\infty$
     \item $m^*(A) = 0 \iff \forall \epsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \ in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \epsilon$
@@ -40,8 +39,7 @@ Sea $A \subset \R^n$
 \end{enumerate}
 \end{observación}
 
-\label{Conjunto nulo}
-\begin{definición}[Conjunto Nulo]
+\begin{definición}[Conjunto Nulo\label{Conjunto nulo}]
 Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
 \end{definición}
 
@@ -62,6 +60,7 @@ Denotamos por $\mathcal{P}(\R^n)$ al conjunto de todos los subconjuntos de
 $\R^n$.
 \begin{teorema}
     Sea $m^* \times \mathcal{P}(\R^n) \to [0, +\infty]$ una función que cumple:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $m^*(\emptyset) = 0$
         \item $m^*(A) \leq m^*(B)$ si $A \subset B$
@@ -108,8 +107,7 @@ $\R^n$.
     Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $(Q_j)_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \sum_{j \in \N} \text{vol}(\overline{Q}_j) \leq \beta$. Por tanto, $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
 \end{proof}
 
-\label{Partición de un Conjunto}
-\begin{definición}[Partición de un Conjunto]
+\begin{definición}[Partición de un Conjunto\label{Partición de un Conjunto}]
 Una partición del intervalo $[a,b]$ es una colección numerable de puntos $P = \{a = t_0 < t_1 < ... < t_n = b\}$. Dado un n-rectángulo $R \subset \R^n$, una partición $P =  \{P_1, P_2, ..., P_n\}$ de $R$ es una colección particiones $P_i$ de $[a_i, b_i]$ para cada $i = 1, 2, ..., n$ siendo $R = \prod_{i=1}^n [a_i, b_i]$.
 \end{definición}
 
@@ -121,6 +119,7 @@ Denotamos $S \in P$ para indicar que $S$ es un subrectángulo de $P$.
 
 \begin{lema}
     Sea $R \subset \R^n$ un n-rectángulo y $P$ una partición de $R$. Entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $R = \bigcup_{S \in P} S$
         \item Si $S, S' \in P$ y $S \neq S'$ entonces $S \cap S' = \emptyset$
@@ -148,8 +147,7 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
 
 \textbf{Notación:} Para $A \subset \R^n$ denotamos por $A^c$ al complementario de $A$ en $\R^n$.
 
-\label{Conjunto Medible}
-\begin{definición}[Conjunto Medible]
+\begin{definición}[Conjunto Medible\label{Conjunto Medible}]
 Un conjunto $A \subset \R^n$ es medible en el sentido de Lebesgue si para todo $R \subset \R^n$ n-rectángulo se tiene que:
 \begin{equation}
     m^*(R) = m^*(R \cap A) + m^*(R \cap A^c)
@@ -158,6 +156,7 @@ Un conjunto $A \subset \R^n$ es medible en el sentido de Lebesgue si para todo $
 
 \begin{proposición}
 Sea $A \subset \R^n$ entonces son equivalentes:
+\vspace{-0.5em}
 \begin{enumerate}
     \item $A$ es medible en el sentido de Lebesgue.
     \item $\forall E \subset \R^n$ conjunto se tiene que $m^*(E) = m^*(E \cap A) + m^*(E \cap A^c)$.
@@ -174,12 +173,12 @@ Sea $A \subset \R^n$ entonces son equivalentes:
     $"2 \implies 1"$\\
     Inmediato, tomando $E = R$.\\
     $"1 \implies 3"$\\
-    Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists \{R_j\}_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
+    Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
 \end{proof}
 
-\label{sigma-Algebra}
-\begin{definición}[$\sigma$-Álgebra]
+\begin{definición}[$\sigma$-Álgebra\label{sigma-Algebra}]
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de subconjuntos de $X$. Se dice que $\mathcal{A}$ es una $\sigma$-álgebra si:
+\vspace{-0.5em}
 \begin{enumerate}
     \item $X \in \mathcal{A}$
     \item Si $A \in \mathcal{A} \implies A^c \in \mathcal{A}$
@@ -198,8 +197,7 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra
 \end{enumerate}
 \end{definición}
 
-\label{Medida de Lebesgue en Rn}
-\begin{teorema}[Medida de Lebesgue en $\R^n$]
+\begin{teorema}[Medida de Lebesgue en $\R^n$\label{Medida de Lebesgue en Rn}]
     La familia $M$ de todos los conjuntos medibles de $\R^n$ es una $\sigma$-álgebra y $m = m^* \restriction_M$ es una medida numerablemente aditiva que llamaremos medida de Lebesgue en $\R^n$.
 \end{teorema}
 
@@ -280,9 +278,9 @@ Todo conjunto nulo es medible en el sentido de Lebesgue.
     Sea $A \subset \R^n$ nulo, entonces $m^*(A) = 0$. $\forall E \in \R^n$ se tiene que $E \cap A \subset A \implies 0 \leq m^*(E \cap A) \leq m^*(A) = 0 \implies m^*(E \cap A) = 0$. Análogamente, $E \cap A^c \subset E \implies 0 \leq m^*(E \cap A^c) \leq m^*(E) \implies m^*(E \cap A^c) = 0$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq m^*(E)$. Para la otra desigualdad, $E = (E \cap A) \cup (E \cap A^c) \implies m^*(E) \leq m^*(E \cap A) + m^*(E \cap A^c)$. Y por tanto obtenemos la igualdad $m^*(E) = m^*(E \cap A) + m^*(E \cap A^c)$.
 \end{proof}
 
-\begin{definición}
+\begin{definición}[Propiedad en casi todo punto\label{Propiedad en casi todo punto}]
 Se dice que una \textit{propiedad} se verifica en casi todo punto cuando el conjunto de puntos en los que no se verifica la propiedad es un conjunto nulo.
-\end{definición} \label{Propiedad en casi todo punto}
+\end{definición}
 
 \begin{proposición}
 Todo n-rectángulo cerrado $R \in \R^n$ es medible en el sentido de Lebesgue.
@@ -296,8 +294,7 @@ Todo n-rectángulo cerrado $R \in \R^n$ es medible en el sentido de Lebesgue.
 En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 \end{observación}
 
-\label{n-Cubo}
-\begin{definición}[n-Cubo]
+\begin{definición}[n-Cubo\label{n-Cubo}]
 Un n-cubo cerrado (respectivamente abierto) en $\R^n$ es un conjunto de la forma:
 \begin{equation}
     R = [a_1, b_1] \times \ldots \times [a_n, b_n] \text{ tal que } \forall i,j \in \{1,2,...,n\} \text{ se tiene que } b_i - a_i = b_j - a_j
@@ -322,6 +319,7 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
 
 \begin{teorema}
     Sea $G \inrn$ abierto entonces se tiene:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item G es unión numerable de n-cubos cerrados.
         \item G es unión numerable de n-cubos abiertos.
@@ -345,8 +343,7 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
     Todos los conjuntos abiertos y cerrados de $\R^n$ son medibles en el sentido de Lebesgue.
 \end{corolario}
 
-\label{Regularidad de la medida}
-\begin{teorema}[Regularidad de la Medida]
+\begin{teorema} [Regularidad de la Medida\label{Regularidad de la medida}]
     Sea $E \inrn$, entonces son equivalentes:
     \begin{enumerate}
         \item $E$ es medible en el sentido de Lebesgue.
@@ -390,14 +387,14 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
 
 \end{proof}
 
-\label{sigma-Algebra de Borel}
-\begin{definición}[$\sigma$-Álgebra de Borel]
+\begin{definición} [$\sigma$-Álgebra de Borel\label{sigma-Algebra de Borel}]
 La $\sigma$-álgebra de Borel en $\rn$ es la menor $\sigma$-álgebra que contiene a todos los abiertos de $\rn$ (o equivalentemente, la menor $\sigma$-álgebra que contiene a todos los cerrados de $\rn$). Los conjuntos de $\mathcal{B}(\rn)$ se llaman conjuntos de Borel o conjuntos Borelianos.\\
 Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de abiertos. Análogamente, decimos que un conjunto $B \subset \rn$ es $F_\sigma$ si $A$ es unión numerable de cerrados.
 \end{definición}
 
 \begin{corolario}
     Sea $E \subset \rn$, entonces son equivalentes:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $E$ es medible en el sentido de Lebesgue.
         \item $E = A \setminus N$ con $A$ siendo $G_\delta$ y $N$ un conjunto nulo.
@@ -422,11 +419,12 @@ Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de a
             1}^{\infty} B_j$ y que $(B_j)_{j \in \mathbb{N}}$ es una sucesión disjunta de
     conjuntos Entonces $m^*(\bigcup_{j = 1}^{\infty}A_j) = m^*(\bigcup_{j =
             1}^{\infty}B_j) = \sum_{j = 1}^{\infty} = \lim_{k \to \infty} m(A_k)$ Dado que
-    $m^*(A_j) = m(B_1) + m(B_2) + \ldots + m(B_j)$ $ \forall j >= 1$
+    $m^*(A_j) = m(B_1) + m(B_2) + \ldots + m(B_j)$ $ \forall j \geq 1$
 \end{proof}
 
 \begin{corolario}
     Sea $E \subset \rn$ medible entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $m(E) = \text{inf}\{m(G) : G \text{ abierto y } E \subset G\}$.
         \item $m(E) = \text{sup}\{m(K) : K \text{ compacto y } K \subset E\}$.
@@ -442,8 +440,7 @@ Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de a
     $m(E) = \sup\{m(F_k) : k \in \mathbb{N} \} = \sup\{m(K) : K \text{ compacto y } K \subset E\}$
 \end{proof}
 
-\label{Cubo Diádico}
-\begin{definición}[Cubo Diádico]
+\begin{definición}[Cubo Diádico\label{Cubo Diádico}]
 Se dice que un cubo en $\R^n$ es diádico si sus lados miden $2^{-m}$ para algún $m \in \N$.
 Es decir, si el rectángulo Q es de la forma:
 \[Q = \left[\frac{k_1}{2^m}, \frac{k_1 + 1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n + 1}{2^m}\right],\]
@@ -495,8 +492,7 @@ con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
 
 \subsection{Medibilidad de Funciones}
 
-\label{Espacio medible}
-\begin{definición}[Espacio Medible]
+\begin{definición}[Espacio Medible\label{Espacio medible}]
 Un espacio medible es un par $(X, \Sigma)$ donde $X$ es un conjunto y $\Sigma$ es una $\sigma$-álgebra de subconjuntos de $X$.
 \end{definición}
 Vamos a considerar los siguientes espacios medibles:
@@ -506,8 +502,7 @@ Vamos a considerar los siguientes espacios medibles:
     \item $(X, \Sigma) = (A, B|_A)$, donde $A \subset \rn$ es un conjunto boreliano y $B|_A$ es la familia de subconjuntos borelianos de $A$.
 \end{itemize}
 
-\label{Función medible}
-\begin{definición}[Función Medible]
+\begin{definición}[Función Medible\label{Función medible}]
 Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$ es medible si para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) < \alpha\}$ es un conjunto medible.
 \end{definición}
 
@@ -532,6 +527,7 @@ Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$
 \begin{proof}
     Teniendo en cuenta que $X \setminus \{x \in X : f(x) < \alpha\} = \{x \in X : f(x) \geq \alpha\}$ dado que las $\sigma$-álgebras son cerradas bajo complementarios, obtenemos que $(1) \iff (2) $ y $(3) \iff (4)$.\\
     Veamos ahora la relación $(1) \iff (4)$:
+    \vspace{-0.5em}
     \begin{itemize}
         \item $(1) \implies (4)$: Podemos tomar el conjunto $\{x \in X : f(x) \leq \alpha\} = \bigcap_{k = 1}^{\infty}{\{x \in X : f(x) < \alpha + \frac{1}{k}\}}$ que es una intersección numerable de conjuntos medibles por (1). Por tanto al tomar el limite cuando $k \to \infty$ obtenemos que $\{x \in X : f(x) \leq \alpha\}$ es medible.
         \item $(4) \implies (1)$: Equivalentemente al apartado anterior podemos obtener que el conjunto $\{x \in X : f(x) < \alpha\}$ = $\bigcup_{k = 1}^{\infty}{\{x \in X : f(x) \leq \alpha - \frac{1}{k}\}}$ es medible por (4). Por tanto, también al tomar el límite cuando $k \to \infty$ obtenemos que $\{x \in X : f(x) < \alpha\}$ es medible.
@@ -557,13 +553,14 @@ Sea $(X, \Sigma)$ un espacio medible y $f_1, f_2, \dots, f_n: X \to \mathbb{R}$ 
 \end{proof}
 
 \begin{corolario}
-    Sean $(X, \Sigma)$ espacio medible y $f, g: X \to \mathbb{R}$ funciones medibles, entonces $f + g$ $f \circ g$, $max\{f, g\}$, $min\{f, g\}$, $f^+=max\{f, 0\}$, $f^- = min\{f, 0\}$ son todo funciones medibles.
+    Sean $(X, \Sigma)$ espacio medible y $f, g: X \to \mathbb{R}$ funciones medibles, entonces $f + g$, $f \circ g$, $max\{f, g\}$, $min\{f, g\}$, $f^+=max\{f, 0\}$, $f^- = min\{f, 0\}$ son todo funciones medibles.
 \end{corolario}
 \begin{observación}
 $f = f^+ - f^-$ y $|f| = f^+ + f^-.$
 \end{observación}
 \begin{teorema}
     Sea $(X, \Sigma)$ espacio medible y $(f_j)_{j \in \mathbb{N}}: X \to [+\infty, -\infty]$ una sucesión de funciones medibles, entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $\sup_{j \in \mathbb{N}}\{f_j\}$ es una función medible.
         \item $\inf_{j \in \mathbb{N}}\{f_j\}$ es una función medible.
@@ -614,8 +611,7 @@ Sean $f, g: \mathbb{R}^n \to [+\infty, -\infty]$ funciones medibles-Lebesgue tal
     Sea $Z = \{x \in X : f_j(x) \not\to f(x)\}$ el cual tiene medida nula por hipótesis. Entones definimos la función $g(x) = \begin{cases} \lim_{j \to \infty}f_j(x) & x \in Z^c \\ 0 & x \in Z \end{cases} \Rightarrow g(x) = f(x)$ en casi todo punto. Asimismo podemos definir la sucesión de funciones $g_j(x) = \begin{cases} f_j(x) & x \in Z^c \\ 0 & x \in Z \end{cases}$ que converge a $g$ puntualmente, por tanto, por la proposición anterior tenemos que $g$ es medible $\Rightarrow f$ es medible.
 \end{proof}
 
-\label{Función característica}
-\begin{definición}[Función Característica]
+\begin{definición}[Función Característica\label{Función característica}]
 Sea $(X, \Sigma)$ espacio medible. Definimos la función característica de un conjunto $E \in \Sigma$ como: \[\chi_E(x) = \begin{cases} 1 & x \in E \\ 0 & x \in E^c \end{cases}\]
 \end{definición}
 \begin{observación}
@@ -627,6 +623,7 @@ $\chi_E$ es medible $\iff E \in \Sigma$
 \end{proof}
 \begin{observación}
 Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son equivalentes:
+\vspace{-0.5em}
 \begin{enumerate}
     \item $f: E \to [-\infty, +\infty]$ es medible-Lebesgue.
     \item $f \circ \chi_E: \mathbb{R}^n \to [-\infty, +\infty]$ es medible-Lebesgue.
@@ -642,7 +639,7 @@ Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son eq
 \begin{definición}[Función Simple]
 Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$. Se dice que $f$ es una función simple si toma un valor finito de valores. Es decir si:
 $f(X) = \{\alpha_1, \alpha_2, \dots, \alpha_n\} \subset [0, +\infty]$.
-Además denotamos a $f^-1(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_i\chi_{E_i}$. Asimismo obtenemos que $X = bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
+Además denotamos a $f^{-1}(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_i\chi_{E_i}$. Asimismo obtenemos que $X = \bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
 De este modo podemos decir que f es una combinación lineal finita de funciones simples.
 \end{definición}
 \begin{observación}
@@ -650,6 +647,7 @@ f es medible $\iff \{E_1, E_2, \dots, E_n\}$ es medible.
 \end{observación}
 \begin{teorema}
     Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$ una función medible. Entonces existen funciones simples $(f_n)_{n \in \mathbb{N}}$ tales que:
+    \vspace{-0.5em}
     \begin{itemize}
         \item $0 \leq f_1 \leq f_2 \leq \dots \leq f$.
         \item $\forall x \in X \quad \lim_{n \to \infty}f_n(x) = f(x)$.
@@ -659,7 +657,7 @@ f es medible $\iff \{E_1, E_2, \dots, E_n\}$ es medible.
 \end{teorema}
 \begin{proof}
     $\forall n \in \mathbb{N}, 1 \leq i \leq n2^n$ definimos:
-    $E_{n, i} = f^-1([\frac{i-1}{2^n}, \frac{i}{2^n}]) = \{x \in X : \frac{i-1}{2^n} \leq f(x) < \frac{i}{2^n}\}$ y $F_n = f^-1([n, +\infty]) = \{x \in X : f(x) > n\}$.
+    $E_{n, i} = f^{-1}([\frac{i-1}{2^n}, \frac{i}{2^n}]) = \{x \in X : \frac{i-1}{2^n} \leq f(x) < \frac{i}{2^n}\}$ y $F_n = f^-1([n, +\infty]) = \{x \in X : f(x) > n\}$.
     Los cuales son conjuntos medibles por ser preimágenes de conjuntos medibles. Sea entonces $(f_n)_{n\in\mathbb{N}} = \sum_{i = 1}^{n2^n}\frac{i-1}{2^n}X_{E_{n, i}} + nX_{F_n}$, la cual es una sucesión de funcion simples.
     Analicemos la convergencia (puntual) $\lim_{n \to \infty}f_n(x) = f(x)$:
     \begin{itemize}
@@ -686,8 +684,7 @@ f es medible $\iff \{E_1, E_2, \dots, E_n\}$ es medible.
         \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$. Dado que $1 \leq i \leq n2^n \implies 1 \leq i \leq 2^{n+1} \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$.
 \end{proof}
 
-\label{Integral de una Función Simple}
-\begin{definición}[Integral de una función simple]
+\begin{definición}[Integral de una función simple\label{Integral de una Función Simple}]
 Consideremos en $\mathbb{R}^n$ la $\sigma-$álgbra $M$ de los conjuntos medibles y la medida-Lebesgue $m$. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible, no negativa y con representación canónica $s = \sum_{i = 1}^{n}\alpha_i\chi_{A_i}$ donde $\mathbb{R}^n = \bigcup_{i = 1}^{m}A_i$-unión disjunta de conjuntos medibles. Entonces definimos la integral de $s$ como: \[\int_{\mathbb{R}^n}s \, dx = \sum_{i = 1}^{n}\alpha_im(A_i)\]
 \end{definición}
 \begin{observación}
@@ -697,7 +694,7 @@ $\int_{\mathbb{R}^n}0 = 0$
     Dado $E \subset \mathbb{R}^n$ mdible definimos $\int_{E}s = \int_{\mathbb{R}^n}s\circ X_E = \sum_{i = 1}^{n}\alpha_im(A_i \cap E)$.
 \end{proof}
 \begin{lema}
-    Sea $\mathbb{R}^n = \bigcup_{k = 1}^{\infty}X_k$ unión disjunta de conjuntos medibles. Sea $s: \mathbb{R^n} \to [0, +\infty]$ una función simple, medible y no negativa. Entonces $\int_{\mathbb{R}^n}s = \sum_{k = 1}^{\infty}\int_{X_k}s$.
+    Sea $\mathbb{R}^n = \bigcup_{k = 1}^{\infty}X_k$ unión disjunta de conjuntos medibles. Sea $s: \mathbb{R^n} \to [0, +\infty]$ una función simple, medible y no negativa. Entonces $\int_{\mathbb{R}}^n s = \sum_{k = 1}^{\infty}\int_{X_k}s$.
 \end{lema}
 \begin{proof}
     Supongamos que
@@ -740,6 +737,7 @@ $$\int_E f = \sup \left\{ \int_{\mathbb{R}^n} s \cdot \chi_E \mid s \text{ es si
 \end{definición}
 \begin{proposición}
 Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
+\vspace{-0.5em}
 \begin{enumerate}
     \item si $0 \leq f \leq g$ y $E \subset F$ entonces $\int_E f \leq \int_F g$.
     \item si $f, g, \geq \implies \int_E (f + g) = \int_E f + \int_E g$.
@@ -809,14 +807,14 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     \end{enumerate}
 \end{proof}
 
-\begin{teorema}[Convergencia Monótona]
+\begin{teorema} [Convergencia Monótona\label{TCM}]    
     Sea $(f_k)_{k \in \mathbb{N}} : \mathbb{R}^n \to [0, +\infty]$ una sucesión de funciones medibles tales que:
     \begin{enumerate}
         \item $f_1 \leq f_2 \leq \dots$. (en $\mathbb{R}^n$)
         \item $\lim_{k \to \infty} f_k = f$ (puntualmente en $\mathbb{R}^n$)
     \end{enumerate}
     Entonces se cumple que:
-    $$\lim_{k \to \infty} \int_{\mathbb{R}^n} f_k = \int_{\mathbb{R}^n} f.$$
+    $$\lim_{k \to \infty} \int_{\mathbb{R}^n} f_k = \int_{\mathbb{R}^n} f.$$    
 \end{teorema}
 \begin{proof}
     La sucesión $\{ f_k \}_{k \in \mathbb{N}}$ es monótona creciente en $[0, +\infty)$.
@@ -853,12 +851,13 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     función simple, medible y no-negativa (por ser $0 \leq s \leq f$). Por tanto,
     obtenemos la ansiada desigualdad: $l \geq \int_{\mathbb{R}^n} f$.
 \end{proof}
-\begin{teorema}
+\begin{teorema} [Convergencia Monótona Versión Refinada]
     Sea $E \subset \mathbb{R}^n$ medible y $f_k: E \to [0, +\infty]$ sucesión de funcion medibles y $f: E \to [0, +\infty]$ tales que:
     \begin{enumerate}
-        \item $f_1 \leq f_2 \leq \dots$ (en casi todo punto de $E$)
+        \item $f_1(x) \leq f_2(x) \leq \dots$ (en casi todo punto de $E$)
         \item $\lim_{k \to \infty}f_k = f$ (en casi todo punto de $E$)
     \end{enumerate}
+    Entonces se cumple que: $$\lim_{k \to \infty}\int_{E}f_k = \int_{E}f.$$
 \end{teorema}
 \begin{proof}
     Denotamos el conjunto $$ N = \{ x \in E \mid (1) \text{ y } (2) \text{ no se cumplen} \} $$
@@ -870,21 +869,23 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     $$ \int_E f = \int_{E \setminus N} f = \int_{\mathbb{R}^n}\hat{f} = \lim_{k \to \infty} \int_{\mathbb{R}^n} \hat{f}_k = \lim_{k \to \infty} \int_E f_k. $$
 \end{proof}
 \begin{corolario}
+    \vspace{-2.5em}
     \begin{enumerate}
-        \item si $f, g: \mathbb{R}^n \to [0, +\infty]$ son medibles, medibles y no-negativas
-              $\implies$ $$\int_{\mathbb{R}^n}f+g = \int_{\mathbb{R}^n}f +
+        \item Si $f, g: \mathbb{R}^n \to [0, +\infty]$ son medibles, medibles y no-negativas se tiene que:
+              $$\int_{\mathbb{R}^n}f+g = \int_{\mathbb{R}^n}f +
                   \int_{\mathbb{R}^n}g$$.
-        \item si $(f_k)_{k\in \mathbb{N}}: \mathbb{R} \to [0, +\infty]$ sucesión de funciones
-              mediles $\forall k \in \mathbb{N} \implies$ $$\int_{E}\sum_{k=1}^{\infty}f_k =
+        \item Si $(f_k)_{k\in \mathbb{N}}: \mathbb{R} \to [0, +\infty]$ sucesión de funciones
+              mediles $\forall k \in \mathbb{N}$ se tiene que: $$\int_{E}\sum_{k=1}^{\infty}f_k =
                   \sum_{k=1}^{\infty}\int_{E}f_k$$.
     \end{enumerate}
 \end{corolario}
 \begin{proof}
+    \leavevmode
     \begin{enumerate}
         \item Sabemos que existen sucesiones crecientes \( (s_j)_{j \in \mathbb{N}} \) y \(
               (t_j)_{j \in \mathbb{N}} \) de funciones simples medibles no negativas tales
               que $lim_{j \to \infty} s_j = f$ y $lim_{j \to \infty} t_j = g$. Por lo tanto,
-              aplicando el **Teorema de la Convergencia Monótona** obtenemos que: $$
+              aplicando el \cref{TCM} obtenemos que: $$
                   \int_{\mathbb{R}^n}f+g = \lim_{j\to \infty}\int_{\mathbb{R}^n}s_j + t_j =
                   \lim_{j\to \infty}\int_{\mathbb{R}^n}s_j + \lim_{j\to
                       \infty}\int_{\mathbb{R}^n}t_j = \int_{\mathbb{R}^n}f + \int_{\mathbb{R}^n}g. $$
@@ -897,12 +898,12 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     \end{enumerate}
 \end{proof}
 \begin{lema}
-    Sea $(f_k)_{k\in\mathbb{R}^n}$ sucesión de funciones medibles, entonces: $$\int_{\mathbb{R}^n}\liminf_{k\to\infty}f_k \leq liminf_{k\to\infty}\int_{\mathbb{R}^n}f_k$$
+    Sea $(f_k)_{k\in\mathbb{R}^n}$ sucesión de funciones medibles, entonces: $$\int_{\mathbb{R}^n}\liminf_{k\to\infty}f_k \leq \liminf_{k\to\infty}\int_{\mathbb{R}^n}f_k$$
 \end{lema}
 \begin{proof}
     Sea $$ f = \liminf_{k \to \infty} f_k = \lim_{k \to \infty} \inf_{j \geq k} f_j = \lim_{k \to \infty} g_k $$
     Dado que $ g_k \geq 0 $, la sucesión $ (g_k) $ está compuesta por funciones medibles y no negativas para todo $ k \in \mathbb{N} $. Además, es una sucesión creciente en el sentido de que
-    $$ g_k \leq g_{k+1}, \quad \forall k \in \mathbb{N}. $$ Por el **Teorema de la Convergencia Monótona **, se tiene que:
+    $$ g_k \leq g_{k+1}, \quad \forall k \in \mathbb{N}. $$ Por el \cref{TCM}, se tiene que:
     $$ \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k.$$ Por definición del $ \liminf $, se cumple la desigualdad:
     $$\lim_{k \to \infty} \int_{\mathbb{R}^n} g_k \leq \liminf_{k \to \infty} \int_{\mathbb{R}^n} g_k.$$
     Finalmente, dado que $ g_k \leq f $, se concluye que:
@@ -926,7 +927,7 @@ $f$ es integrable en $E \iff |f|$ es integrable en $E \iff f^+ $ y $ f^-$ son in
 \end{proof}
 \begin{proposición}
 Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedades:
-
+\vspace{-0.5em}
 \begin{enumerate}
     %1%
     \item Si $f, g$ son integrables en $E$, entonces $f+g$ también es integrable y $$
@@ -1006,8 +1007,9 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
               subaditvidad) se concluye que $$ m(A) = \lim_{k \to \infty} m(A_k) = 0. $$
     \end{enumerate}
 \end{proof}
-\begin{teorema}
+\begin{teorema} [Convergencia Dominada\label{Convergencia Dominada}]
     Sean $E \subset \mathbb{R^n}$ medible y $\forall k \in \mathbb{N}, f_k: E \to [-\infty, +\infty]$ funciones medibles. Supongamos que $\exists g: E \to [-\infty, +\infty]$ integrable en E tal que $|f_k| < g$ en casi todo punto de $E$ y $\forall k \in \mathbb{N}$. Si además suponemos que $\lim_{k \to \infty} f_k = f$ en casi todo punto de $E$, entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $f_k \text{ y } f \text{ son integrables en }E$
         \item $\lim_{k \to \infty} \int_{E} |f_k - f| = 0$
@@ -1061,6 +1063,7 @@ $$ F(u) = \int_{E}f(x, u)dx$$
 \end{definición}
 \begin{teorema}
     Sean $E \subset \mathbb{R}^n$ conjunto medible, $U \subset \mathbb{R}^n$ conjunto cualquiera, $f: E \times U \to \mathbb{R}$ y suponemos que:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $\forall u \in U f(\cdot, u): E \to \mathbb{R}$ es medible.
         \item $\forall x \in E f(x, \cdot): U \to \mathbb{R}$ es continua.
@@ -1092,7 +1095,7 @@ $$ F(u) = \int_{E}f(x, u)dx$$
         |f_k(x)| = |f(x, u_k)| \leq g(x), \quad \forall k \in \mathbb{N}, \quad \forall x \in E.
     \]
 
-    Aplicando el Teorema de Convergencia Dominada (TCD), se concluye que \( f_k \)
+    Aplicando el \cref{Convergencia Dominada} (TCD), se concluye que \( f_k \)
     es integrable para todo \( k \in \mathbb{N} \) y
     \[
         \int_E f_k \to \int_E f.
@@ -1112,6 +1115,7 @@ $\forall u_0 \in U \ \lim_{u \to u_0} \int_{E}f(x, u)dx = F(u) = F(u_0) = \int_{
 % Regla de Leibniz
 \begin{teorema} [Regla de Leibniz]
     Sean $E \subset \mathbb{R}^n$ conjunto medible, $U = (a, b) \subset \mathbb{R}$ conjunto abierto y $f: E \times U \to \mathbb{R}$. Y además supongamos que:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item $\forall u \in U f(\cdot, u): E \to \mathbb{R}$ es integrable en E.
         \item $\forall x \in E f(x, \cdot): U \to \mathbb{R}$ es de clase $C^1$ en $U$.
@@ -1336,6 +1340,7 @@ funciones:
 
 \begin{teorema}[Teorema de Tonelli]
     Sea $f : \mathbb{R}^{n+k} \to [0, +\infty]$ medible. Entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item Para casi todo $x \in \mathbb{R}^n$, la función $f_{x} : \mathbb{R}^k \to [0,
                       +\infty]$ es medible en $\mathbb{R}^k$
@@ -1345,6 +1350,7 @@ funciones:
         \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dy)dx = \int_{\mathbb{R}^{n+k}}f(x,y)dxdy$
     \end{enumerate}
     Además, de forma análoga se tiene que:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item Para casi todo $y \in \mathbb{R}^k$, la función $f_{y} : \mathbb{R}^n \to [0,
                       +\infty]$ es medible en $\mathbb{R}^n$.
@@ -1359,9 +1365,8 @@ funciones:
 Los siguientes lemas son previos y necesarios para la demostracion del Teorema de Tonelli.
 \end{observación}
 
-\label{lema1Tonelli}
 \begin{lema}
-    Sean $f,g$ que satisfacen el Teorema de Tonelli y $a, b \geq 0 \implies af + bg$ también satisfacen el Teorema de Tonelli
+    Sean $f,g$ que satisfacen el Teorema de Tonelli y $a, b \geq 0 \implies af + bg$ también satisfacen el Teorema de Tonelli\label{lema1Tonelli}
 \end{lema}
 
 \begin{proof}
@@ -1373,9 +1378,8 @@ Los siguientes lemas son previos y necesarios para la demostracion del Teorema d
     \end{enumerate}
 \end{proof}
 
-\label{lema2Tonelli}
 \begin{lema}
-    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli y $f_j \uparrow f$ en $\mathbb{R}^{n+k}$ puntalmente $\implies$ f satisface el Teorema de Tonelli.
+    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli y $f_j \uparrow f$ en $\mathbb{R}^{n+k}$ puntalmente $\implies$ f satisface el Teorema de Tonelli.\label{lema2Tonelli}
 \end{lema}
 \begin{proof}
     \leavevmode
@@ -1393,9 +1397,8 @@ Los siguientes lemas son previos y necesarios para la demostracion del Teorema d
 El siguiente lema es una versión de lema anterior en el que se usa el teorema de la convergencia dominada en lugar del de la convergencia monótona.
 \end{observación}
 
-\label{lema3Tonelli}
 \begin{lema}
-    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli. Supongamos que $(f_j)\to f$ puntualmente en $\mathbb{R}^{n+k}$ y $\exists g: \mathbb{R}^{n+k} \to [0, +\infty]$ integrable, que satisface el Teorema de Tonelli y tal que $ 0 \leq f_j \leq g \quad \forall j \in \mathbb{N}$. Entonces, $f$ satisface el Teorema de Tonelli.
+    Sea $(f_j)_{j\int\mathbb{N}}$ sucesion de funciones que satisfacen el Teorema de Tonelli. Supongamos que $(f_j)\to f$ puntualmente en $\mathbb{R}^{n+k}$ y $\exists g: \mathbb{R}^{n+k} \to [0, +\infty]$ integrable, que satisface el Teorema de Tonelli y tal que $ 0 \leq f_j \leq g \quad \forall j \in \mathbb{N}$. Entonces, $f$ satisface el Teorema de Tonelli.\label{lema3Tonelli}
 \end{lema}
 \begin{proof}
     \leavevmode
@@ -1531,6 +1534,7 @@ el Teorema de Tonelli.
 
 \begin{corolario}[Prinicpio de Cavalieri]
     Sea $E \subset \mathbb{R}^{n+k}$ medible entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item Para casi todo $x \in \mathbb{R}^n$ el conjunto $E_x = \{ y \in \mathbb{R}^k :
                   (x, y) \in E \}$ es medible en $\mathbb{R}^k$
@@ -1539,6 +1543,7 @@ el Teorema de Tonelli.
         \item $m_{n+k}(E) = \int_{\mathbb{R}^n}m(E_x)dx$
     \end{enumerate}
     De forma análoga se tiene que:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item Para casi todo $y \in \mathbb{R}^k$, el conjunto $E_y = \{ x \in \mathbb{R}^n :
                   (x, y) \in E \}$ es medible en $\mathbb{R}^n$
@@ -1552,6 +1557,7 @@ el Teorema de Tonelli.
 \end{proof}
 \begin{corolario}
     Sea $E \subset \mathbb{R}^{n+k}$ conjunto $(n+k)$-nulo. Entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item Para casi todo $x \in \mathbb{R}^n, E_x$ tiene medida nula en $\mathbb{R}^k$
         \item Para casi todo $y \in \mathbb{R}^k, E_y$ tiene medida nula en $\mathbb{R}^n$
@@ -1562,6 +1568,7 @@ el Teorema de Tonelli.
 \end{proof}
 \begin{teorema}[Teorema de Fubini]
     Sea $f: \mathbb{R}^n \times \mathbb{R}^k \to [-\infty, +\infty]$ integrable en $\mathbb{R}^{n+k}$. Entonces:
+    \vspace{-0.5em}
     \begin{enumerate}
         \item Para casi todo $x \in \mathbb{R}^{n} f_x: \mathbb{R}^k \to [-\infty, +\infty]$
               es integrable en $\mathbb{R}^k$
@@ -1835,6 +1842,7 @@ La diferencia entre ambas definciones es que en la primera se fija $x$ y se muev
 \end{teorema}
 \begin{definición}
 Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo de $U$ a $V$ si:
+\vspace{-0.5em}
 \begin{enumerate}
     \item $\varphi$ es biyectiva
     \item $\varphi$ es de clase $C^1$ en $U$
