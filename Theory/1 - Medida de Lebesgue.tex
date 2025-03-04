@@ -1919,4 +1919,165 @@ $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
     $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$
     $$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
 }
+\begin{definición}[Coordenadas polares]
+    En el plano bidimensional $\mathbb{R}^2$, las \textbf{coordenadas polares} $(r, \theta)$ están definidas en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:  
+    $$ 
+    \varphi(r, \theta) =
+    \begin{cases} 
+        x = r\cos\theta, \\ 
+        y = r\sin\theta.
+    \end{cases}
+    $$  
+    Donde:  
+    \begin{itemize}
+        \item $r \geq 0$ es la distancia radial desde el origen.
+        \item $\theta \in [0, 2\pi)$ es el ángulo medido desde el eje positivo $x$ en sentido antihorario.
+    \end{itemize}
+
+    El dominio de la transformación es:  
+    $$
+    U = \{(r, \theta) : r > 0, 0 < \theta < 2\pi\}.
+    $$  
+    Y su imagen en coordenadas cartesianas es el plano sin el semieje positivo $x$:  
+    $$
+    V = \mathbb{R}^2 \setminus \{ (x,y) : x \geq 0, y = 0\}.
+    $$  
+
+    La transformación $\varphi: U \to V$ es un \textbf{difeomorfismo de clase} $C^1$, ya que cumple las siguientes condiciones:  
+    \begin{itemize}
+        \item $\varphi$ es de clase $C^1$, es decir, tiene derivadas continuas en $U$.
+        \item $\varphi$ es biyectiva entre $U$ y $V$.
+        \item El determinante del Jacobiano es no nulo:
+        $$
+        \det(D_{\varphi})(r, \theta) =
+        \begin{vmatrix} 
+            \cos\theta & -r\sin\theta \\  
+            \sin\theta & r\cos\theta  
+        \end{vmatrix} = r\cos^2\theta + r\sin^2\theta = r \neq 0.
+        $$
+    \end{itemize}
+    Esto implica que el elemento diferencial de área en coordenadas polares es:  
+    $$ 
+    dA = r \, dr \, d\theta.
+    $$  
+\end{definición}
+
+\ejemplo{
+    \begin{itemize}
+        \item Área del círculo $D = \{ (x,y) : x^2 + y^2 \leq R^2\}$ de centro $(0,0)$ y radio $R$:  
+        $$ \text{Área}(D) = \text{Área}(D \cup V) = \int_{\varphi^{-1}(D \cup V)} f(r \cos\theta, r \sin\theta) \left| \det(D_{\varphi(r, \theta)}) \right| dr d\theta. $$  
+        Evaluando la integral:  
+        $$ \int_{0}^{2\pi} \left( \int_{0}^{R} r \, dr \right) d\theta = \pi R^2. $$
+    
+        \item Para la región $A = \{(x,y) : x^2 + y^2 \leq 1, \, y \geq 0\}$ con $f(x,y) = \sqrt{x^2+y^2}$:  
+        $$ \int_{A} f(x,y) \, dx \, dy = \int_{\theta = 0}^{\theta = \pi} \left( \int_{r = 0}^{r = 1} r \cdot r \, ( \text{Jacobiano} ) \, dr \right) d\theta. $$  
+        Resolviendo:  
+        $$ \pi \cdot \int_{r = 0}^{r = 1} r^2 \, dr = \frac{\pi}{3}. $$
+    \end{itemize}    
+}
+\begin{definición}[Coordenadas cilíndricas]
+    En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:  
+    $$ 
+    \varphi:
+    \begin{cases} 
+        x = r\cos\theta, \\ 
+        y = r\sin\theta, \\ 
+        z = z.
+    \end{cases}
+    $$  
+    Donde:  
+    \begin{itemize}
+        \item $r \geq 0$ es la distancia radial desde el eje $z$.
+        \item $\theta \in [0, 2\pi)$ es el ángulo azimutal, medido desde el eje positivo $x$ en el plano $xy$.
+        \item $z \in \mathbb{R}$ representa la coordenada vertical, la misma que en cartesianas.
+    \end{itemize}
+
+    El dominio de la transformación es:  
+    $$
+    U = \{(r, \theta, z) : r > 0, \ 0 < \theta \leq 2\pi\}.
+    $$  
+    Y su imagen es el espacio tridimensional excepto el semieje positivo $x$:  
+    $$
+    V = \mathbb{R}^3 \setminus \{ (x,y,z) : x \geq 0, y = 0\}.
+    $$  
+
+    La matriz jacobiana de la transformación es:  
+    $$
+    D\varphi =
+    \begin{bmatrix}
+        \cos\theta & -r\sin\theta & 0 \\  
+        \sin\theta & r\cos\theta & 0 \\  
+        0 & 0 & 1  
+    \end{bmatrix}.
+    $$  
+    Su determinante, que representa el factor de cambio de volumen, es:  
+    $$ 
+    \left| \det(D\varphi) \right| = r > 0.
+    $$  
+    Esto implica que el elemento diferencial de volumen en coordenadas cilíndricas es:  
+    $$ 
+    dV = r \, dr \, d\theta \, dz.
+    $$  
+\end{definición}
+
+\ejemplo{
+        Sea $V$ el sólido limitado por $z = x^2 + y^2$ y $z = 2$, y consideremos la función:  
+    $$ f(x,y,z) = x^2 + y^2 + z^2. $$  
+    Evaluamos la integral:  
+    $$ \int_{V} (x^2 + y^2 + z^2) \, dx \, dy \, dz. $$  
+    Cambiamos a coordenadas cilíndricas, donde $x^2 + y^2 = r^2$, obteniendo:  
+    $$ \int_{z = 0}^{2} \int_{\theta = 0}^{2\pi} \int_{r = 0}^{\sqrt{z}} (r^2 + z^2) \cdot r \, dr \, d\theta \, dz. $$  
+    Separando la integral en términos de $\theta$:  
+    $$ \left( \int_{\theta = 0}^{2\pi} 1 \, d\theta \right)  
+    \left( \int_{z = 0}^{2} \left( \int_{r = 0}^{\sqrt{z}} (r^3 + z^2 r) \, dr \right) dz \right). $$  
+    Resolviendo la integral en $\theta$:  
+    $$ 2\pi \int_{z = 0}^{2} \left[ \frac{r^4}{4} + \frac{z^2 r^2}{2} \right]_{r = 0}^{r = \sqrt{z}} dz. $$  
+    Sustituyendo $r = \sqrt{z}$:  
+    $$ 2\pi \int_{z = 0}^{2} \left( \frac{z^2}{4} + \frac{z^3}{2} \right) dz. $$  
+    Resolviendo la integral en $z$:  
+    $$ 2\pi \left[ \frac{z^3}{12} + \frac{z^4}{8} \right]_{z = 0}^{z = 2}. $$  
+    Evaluando los límites:  
+    $$ 2\pi \left( \frac{8}{12} + \frac{16}{8} \right) = 2\pi \left( \frac{2}{3} + 2 \right) = 2\pi \left( \frac{8}{3} \right) = \frac{16\pi}{3}. $$  
+    Por lo tanto, el resultado final es:  
+    $$ \frac{16\pi}{3}. $$  
+}
+\begin{definición}[Coordenadas esféricas]
+    En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:  
+    $$ 
+    \psi:
+    \begin{cases} 
+        x = r\cos\theta \sin\phi, \\ 
+        y = r\sin\theta \sin\phi, \\ 
+        z = r\cos\phi.
+    \end{cases}
+    $$  
+    Donde:  
+    \begin{itemize}
+        \item $r \geq 0$ es la distancia radial desde el origen.
+        \item $\theta \in [0, 2\pi)$ es el ángulo azimutal medido en el plano $xy$ desde el eje positivo $x$.
+        \item $\phi \in [0, \pi]$ es el ángulo polar o colatitud, medido desde el eje positivo $z$.
+    \end{itemize}
+    
+    La matriz jacobiana de esta transformación es:  
+    $$
+    D_\psi =
+    \begin{bmatrix}
+        \cos\theta \sin\phi & -r\sin\theta \sin\phi & r\cos\theta \cos\phi \\  
+        \sin\theta \sin\phi & r\cos\theta \sin\phi & r\sin\theta \cos\phi \\  
+        \cos\phi & 0 & -r\sin\phi  
+    \end{bmatrix}.
+    $$
+    Su determinante, que representa el factor de cambio de volumen, es:  
+    $$ 
+    \left| \det D_\psi \right| = r^2 \sin\phi.
+    $$  
+    Esto implica que el elemento diferencial de volumen en coordenadas esféricas es:  
+    $$ 
+    dV = r^2 \sin\phi \, dr \, d\theta \, d\phi.
+    $$  
+\end{definición}
+\ejemplo{
+    $B_r = \{(x,y,z) : x^2 + y^2 + z^2 \leq R^2\} \implies$ \\ $$vol(B_r) = \int_{B_r}1dxdydz = \int_{0}^{2\pi}\left(\int_{0}^{\pi}\left(\int_{0}^{R}r^2\sin(\phi)dr\right)d\phi\right)d\theta = \frac{4}{3}\pi R^3$$
+}
+
 
