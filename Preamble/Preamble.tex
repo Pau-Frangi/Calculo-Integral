@@ -28,6 +28,8 @@
 %Hyperlinks
 
 
+
+
 \usepackage{url}
 
 \usetikzlibrary{patterns}
@@ -122,6 +124,22 @@
 \colorlet{LightGreen}{green!15}
 \colorlet{LightBlue}{blue!15}
 \colorlet{LightRed}{red!15}
+\colorlet{veccol}{green!70!black}
+\colorlet{vcol}{green!70!black}
+\colorlet{xcol}{blue!85!black}
+\colorlet{projcol}{xcol!60}
+\colorlet{unitcol}{xcol!60!black!85}
+\colorlet{unitcol2}{vcol!60!black!85}
+\colorlet{myblue}{blue!70!black}
+\colorlet{myred}{red!70!black}
+\tikzstyle{vector}=[->,very thick,xcol]
+\tikzstyle{mydashed}=[dash pattern=on 2pt off 2pt]
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.1) --++ (#2-180:0.2)} %0.03*\xmax
+
+
+\usetikzlibrary{angles,quotes} % for pic
+\usepackage{contour}
+\contourlength{1.3pt}
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
