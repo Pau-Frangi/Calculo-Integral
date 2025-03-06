@@ -2322,3 +2322,93 @@ $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
     Finalmente, el cambio de variable nos ofrece que el volumen del conjunto es:  
     $$ 2\sqrt{6} \pi. $$
 }
+
+\begin{observación}
+    Sean $U, V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$.
+    $$\varphi = \begin{cases} x_1 = x_1(u_1, \ldots, u_n) \\ \vdots \\ x_n = x_n(u_1, \ldots, u_n) \end{cases}$$
+    Entonces: 
+    $$det(D_{\varphi}) = \frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}} = \begin{vmatrix} \frac{\partial{x_1}}{\partial{u_1}} & \cdots & \frac{\partial{x_1}}{\partial{u_n}} \\ \vdots & \ddots & \vdots \\ \frac{\partial{x_n}}{\partial{u_1}} & \cdots & \frac{\partial{x_n}}{\partial{u_n}} \end{vmatrix}$$
+    Entonces el Teorema de Cambio de Variable queda como: 
+    $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\det(D_{\varphi})|du_1 \cdots du_n =$$ $$
+    = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}}|du_1 \cdots du_n$$
+\end{observación}
+
+\ejemplo{
+    Calcúlese el área entre las rectas $\begin{cases} x + y = a \\ x + y = b \\ 2x - 3y = c \\ 2x - 3y = d \end{cases}$ 
+    Supongamos que $a < b, c < d$.\\
+    \begin{center}
+        \begin{tikzpicture}[scale=0.7]
+            % Ejes
+            \draw[thick,->] (-2,0) -- (4,0) node[right] {\small $x$};
+            \draw[thick,->] (0,-3) -- (0,4) node[above] {\small $y$};
+            
+            % Conjunto de rectas paralelas
+            \draw[thick] (-2,0) -- (1,3) node[right] {\small $2x - 3y = d$};
+            \draw[thick] (-1,-2) -- (3,2) node[right] {\small $2x - 3y = c$};
+            
+            \draw[thick] (-1,4) -- (4,-1) node[right] {\small $x + 4y = b$};
+            \draw[thick] (-1,2) -- (3,-2) node[right] {\small $x + 4y = a$};
+
+            % Región sombreada
+            \fill[pattern=north east lines, pattern color=black, opacity=0.5] 
+                (0.5,2.5) -- (2,1) -- (1,0) -- (-0.5,1.5) -- cycle;
+        \end{tikzpicture}
+    \end{center}
+    Para ello tomemos el cambio de variable: $\begin{cases} u = x + y \\ v = 2x -3y \end{cases} \implies$\\
+    $$ area(D) = \int_{D = \varphi(E)}1 dx dy = \int_{E}1 |\frac{\partial{(x,y)}{(u,v)}|} du dv$$
+    Donde $\frac{\partial{(u, v)}}{\partial{(x, y)}} = \begin{vmatrix} \frac{\partial{x}}{\partial{u}} & \frac{\partial{x}}{\partial{v}} \\ \frac{\partial{y}}{\partial{u}} & \frac{\partial{y}}{\partial{v}} \end{vmatrix} = \begin{vmatrix} 1 & 2 \\ 1 & -3 \end{vmatrix} = -5 \implies \frac{\partial{(x,y)}}{\partial(u,v)} = \frac{1}{-5}$\\ 
+    Entonces la integral anterior queda de la forma: 
+    $$\int_{E}\frac{1}{5}dudv = \frac{1}{5}\cdot area(E) = \frac{1}{5}(b-a)(d-c)$$
+}
+\ejemplo{
+    Ejercicio 6.b\\
+    Sea el conjunto $D = \{(x,y) : 1 \leq x^2 - y^2 \leq 9, 2 \leq x \cdot y \leq 4\}$, queremos calcular la integral $$\int_{D} x^2 + y^2 dx dy$$
+    Para ello consideremos el cambio de variable ("hiperbólico"): $\psi = \begin{cases} u = x^2 - y^2 \\ v = 2xy \end{cases}$\\
+    Si $\begin{cases} x = r\cos(\theta) \\ y = r\sin(\theta)\end{cases} \implies \begin{cases} u = r^2(\cos^2(\theta) - \sin^2(\theta)) = r^2(\cos(2\theta)) \\ 
+    v = r^2 2\sin(\theta)\cos(\theta) = r^2(\sin^2(\theta)) \end{cases}$\\
+    Sean $V = \{(x,y) : x > 0. y > 0\}, U = \{(u,v) : v > 0\}$. Entonces $\psi: V \to U$ es biyectiva y existe $\varphi = \psi^{-1}: U \to V$
+    Sean $D^{+} = \{(x,y) \in D : X > 0, y > 0\}$ y $D^{-} = \{(x,y) \in D : x < 0, y < 0\}$\\
+    Entonces $\int_{D^{+}}x^2 + y^2 dx dy = \int_{D^{-}}x^2+y^2 dx dy$\\
+    Sea entonces el cambio de variable $\begin{cases} \bar{x} = -x \\ \bar{y} = -y \end{cases}$\\ con el jacobiano igual a 1.\\
+    Entonces $\int_{D^{-}}x^2 + y^2 dx dy = \int_{D^{+}} (-x)^2 + (-y)^2 dx dy = \int_{D^{+}} x^2 + y^2 dx dy$\\ Entonces, 
+    $\int_{D} x^2 + y^2 dx dy = 2\int_{D^{+}} x^2 + y^2 dx dy = 2\int_{E}\sqrt{u^2 + v^2} \frac{\partial{(x,y)}}{\partial{(u,v)}} du dv = \int_{E}\sqrt{u^2 + v^2} du dv$\\
+    Ya que tenemos que $x^2 + y^2 = r^2 = \sqrt{u^2 + v^2}$\\
+    Donde además tenemos que: $\frac{\partial{(u,v)}}{\partial{(x,y)}} = \begin{vmatrix} 2x & -2y \\ 2y & 2x \end{vmatrix} = 4x^2 + 4y^2 \implies \frac{\partial{(x,y)}}{\partial{(u,v)}} = \frac{1}{4x^2 + 4y^2} = \frac{1}{4\sqrt{u^2 + v^2}}$\\
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            % Sombreado leve en todo el primer cuadrante
+            \fill[black,opacity=0.1] (0,0) -- (3,0) -- (3,3) -- (0,3) -- cycle;
+    
+            % Ejes
+            \draw[thick,->] (-0.5,0) -- (3,0) node[right] {\small $x$};
+            \draw[thick,->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+            
+            % Vector r con "r" más arriba y "P" en la punta
+            \draw[thick,->] (0,0) -- (1.5,0.75) node[right] {\small $P$};
+            \node at (0.85,0.55) {\small $r$};  % "r" más arriba en la flecha
+    
+            % Ángulo theta
+            \draw[thick] (0.8,0) arc (0:26.57:0.8);
+            \node at (1.1,0.2) {\small $\theta$};
+    
+        \end{tikzpicture}
+    \end{center}
+
+    Asi finalmente la integral da $\frac{1}{2}area(E) = \frac{1}{2} \cdot 32 = 16$
+}
+
+
+\ejemplo{
+    Calcúlese el volumen comprendido entre $z = f(x,y) z = g(xy)$ sobre D, con D la proyección de las funciones sobre el plano z. Entonces, 
+    $$ vol = \int_{D}(f(x,y) - g(x,y))dx dy = \int{D} 1 dx dy = \int_{D} \left[\int_{z = g(x,y)}^{z = f(x,y)}1 dz\right]dx dy$$
+}
+
+\ejemplo{
+    \underline{Bóveda de Vivinani}\\
+    Calcúlese el volumen comprendido entre la esfera $x^2 + y^2 + z^2 = a^2$ y el cilindro $x^2 + y^2 ay$ con $a > 0$\\
+    Donde tomando valores en la esfera podemos obtener: $$\begin{cases} x^2 + y^2 - ay = 0 \iff x^2 + (y^2 - \frac{a}{2})^2 = \frac{a^2}{4} \\ x^2 + (y - \frac{a}{2})^2 = x^2 + y^2 + \frac{a^2}{4} - ay = \frac{a^2}{4} \end{cases}$$
+    Si tomamos que $r^2 = x^2 + y^2$ y $ay = ar\sin(\theta)$ entonces, 
+    La ecuación de la circunferencia es en coordenadas polares es: $r = a\cos(\theta)$
+    $$vol = 2\int_{D}\sqrt{a^2 - x^2 - y^2} dx dy = 2\int_{\theta = 0}^{\theta = 2\pi}\int_{r = 0}^{r a\sin(\theta)}\sqrt{a^2 -r^2}r dr d\theta = 2\int_{0}^{2\pi} \left[-\frac{1}{3}(a^2-r^2)^{\frac{3}{2}}\right]^{r = a\sin(\theta)}_{r = 0} d\theta = \frac{2}{3} \int_{\theta = 0}^{\theta = \pi} a^3 - (a^2 - a^2\sin^2(\theta))^{\frac{3}{2}}d\theta = \frac{2}{3}\int_{\theta = 0}^{\theta = \pi} a^3 - a^3|\cos^3(\theta)|d\theta = 4 \frac{a^3}{3}\int_{0}^{\theta = \frac{\pi}{2}} 1- \cos^3(\theta)d\theta = \frac{4\pi a^3}{3}(\frac{\frac{\pi}{2}} - \frac{2}{3})$$
+    Todo esto teniendo en cuenta que $(\cos^3(\theta))^{\frac{3}{2}} = |\cos^3(\theta)|$
+}
