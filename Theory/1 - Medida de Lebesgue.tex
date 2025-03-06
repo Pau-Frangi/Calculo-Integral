@@ -187,7 +187,7 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una colección de sub
 \end{definición}
 
 \label{Medida}
-\begin{definición}[Medida]
+\begin{definición}[Medida\label{Medida}]
 Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra, entonces una medida en $X$ es una función $\mu: \mathcal{A} \to [0, +\infty]$ tal que:
 \begin{enumerate}
     \item $\mu(\emptyset) = 0$
@@ -636,7 +636,7 @@ Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son eq
         \item $(2 \implies 1): \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
     \end{itemize}
 \end{proof}
-\begin{definición}[Función Simple]
+\begin{definición}[Función Simple\label{Funcion Simple}]
 Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$. Se dice que $f$ es una función simple si toma un valor finito de valores. Es decir si:
 $f(X) = \{\alpha_1, \alpha_2, \dots, \alpha_n\} \subset [0, +\infty]$.
 Además denotamos a $f^{-1}(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_i\chi_{E_i}$. Asimismo obtenemos que $X = \bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
@@ -729,7 +729,7 @@ $\int_{\mathbb{R}^n}0 = 0$
     Aplicando el lema de integración para funciones simples: $\int_{\mathbb{R}^n} (s + t) = \sum_{i=1}^{m} \sum_{j=1}^{k} (\alpha_i + \beta_j) m(A_i \cap B_j) = \sum_{i=1}^{m} \alpha_i m(A_i \cap B_j) + \sum_{j=1}^{k} \beta_j m(A_i \cap B_j)$
     $= \int_{\mathbb{R}^n} s + \int_{\mathbb{R}^n} t$ (por el lema).
 \end{proof}
-\begin{definición}[Integral de Lebesgue]
+\begin{definición}[Integral de Lebesgue\label{Integral de Lebesgue}]
 Sea $f: \mathbb{R}^n \to [0, +\infty)$ una función medible. Definimos la integral de Lebesgue como:
 $$\int_{\mathbb{R}^n} f = \sup \left\{ \int_{\mathbb{R}^n} s \mid s \text{ es simple, medible y } 0 \leq s \leq f \right\}.$$
 Si $E \subset \mathbb{R}^n$ es medible y $f: E \to [0, +\infty)$, definimos:
@@ -851,7 +851,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     función simple, medible y no-negativa (por ser $0 \leq s \leq f$). Por tanto,
     obtenemos la ansiada desigualdad: $l \geq \int_{\mathbb{R}^n} f$.
 \end{proof}
-\begin{teorema} [Convergencia Monótona Versión Refinada]
+\begin{teorema} [Convergencia Monótona Versión Refinada\label{TCM Refinada}]
     Sea $E \subset \mathbb{R}^n$ medible y $f_k: E \to [0, +\infty]$ sucesión de funcion medibles y $f: E \to [0, +\infty]$ tales que:
     \begin{enumerate}
         \item $f_1(x) \leq f_2(x) \leq \dots$ (en casi todo punto de $E$)
@@ -862,7 +862,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \begin{proof}
     Denotamos el conjunto $$ N = \{ x \in E \mid (1) \text{ y } (2) \text{ no se cumplen} \} $$
     Sabemos que \( m(N) = 0 \). Definimos la sucesión de funciones $$ \hat{f}_k = f_k \cdot \chi_{E \setminus  N}, \quad \forall k \in \mathbb{N} \text{ y } \hat{f} = f \cdot \chi_{E\setminus N}$$
-    Podemos aplicar el **Teorema de la Convergencia Monótona**, lo que nos permite concluir que:
+    Podemos aplicar el \cref{TCM}, lo que nos permite concluir que:
     1. \( \hat{f}_k \to f \) puntualmente.
     2. Se cumple la convergencia de integrales.
     Por lo tanto, tomando límites en la integral:
@@ -912,7 +912,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \begin{observación}
 El resultado análogo con $\limsup$ no es válido en gneral. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
 \end{observación}
-\begin{definición}[Función Integrable]
+\begin{definición}[Función Integrable\label{Función Integrable}]
 Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f \circ \chi_E < +\infty$$
 \end{definición}
 \begin{observación}
@@ -1057,7 +1057,7 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
               \]
     \end{enumerate}
 \end{proof}
-\begin{definición}[Integral Paramétrica]
+\begin{definición}[Integral Paramétrica\label{Integral Paramétrica}]
 Sea $f$ función integrable, se define una función por su integral paramétrica como:
 $$ F(u) = \int_{E}f(x, u)dx$$
 \end{definición}
@@ -1566,7 +1566,7 @@ el Teorema de Tonelli.
 \begin{proof}
     Aplicamos el Teorema de Tonelli, tomand $f = \chi_E$.
 \end{proof}
-\begin{teorema}[Teorema de Fubini]
+\begin{teorema}[Teorema de Fubini\label{Teorema de Fubini}]
     Sea $f: \mathbb{R}^n \times \mathbb{R}^k \to [-\infty, +\infty]$ integrable en $\mathbb{R}^{n+k}$. Entonces:
     \vspace{-0.5em}
     \begin{enumerate}
@@ -1757,7 +1757,7 @@ el Teorema de Tonelli.
 La diferencia entre el Teorema de Tonelli y el de Fubini, es que el primero pide que las funciones sean no-negativas estrictamente y el segundo pide que las funciones sean integrables absolutamente.
 \end{observación}
 
-\begin{definición}
+\begin{definición} [Conjunto Verticalmente Proyectable\label{Conjunto Verticalmente Proyectable}]
 Un conjunto $E \subset \mathbb{R}^2$ es verticalmente proyectable si es de la forma:
 $$E_1 = \{(x,y) : a \leq x \leq b, f(x) \leq y \leq g(x)\}$$ donde $f,g : [a,b] \to \mathbb{R}$ son funciones continuas con $f(x) \leq g(x)$.
 Análogamente se define un conjunto $E \subset \mathbb{R}^2$ es horizontalmente proyectable si es de la forma:
@@ -1840,7 +1840,7 @@ La diferencia entre ambas definciones es que en la primera se fija $x$ y se muev
     Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y además:
     \[m(T(A)) = |\det(T)|m(A)\]
 \end{teorema}
-\begin{definición}
+\begin{definición} [Difeomorfismo\label{difeomorfismo}]
 Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo de $U$ a $V$ si:
 \vspace{-0.5em}
 \begin{enumerate}
@@ -1857,7 +1857,7 @@ Sea $\varphi: U \to \mathbb{R}$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es
     Sean $U, V \subset \mathbb{R}^n$ abierto y $\varphi: U \to V$ difeomorfismo-$C^{1}$. Si $A \subset U$ es medible, entonces $\varphi(A)$ es medible y $m(\varphi(A)) = \int_{A}|\det(D\varphi(u))|du$.
 \end{teorema}
 
-\begin{teorema}[Teorema del Cambio de Variable]
+\begin{teorema}[Teorema del Cambio de Variable\label{TCV}]
     Sean $U,V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$. Sea $f: V \to \mathbb{R}$ medible. Entonces:
     \begin{enumerate}
         \item Si $f$ es no negativa $\implies (f \circ \varphi) |\det(D\varphi)|$ es medible
