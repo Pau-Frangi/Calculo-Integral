@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741286393.49922 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741286400.6846 0
+["pdflatex"] 1741360904.10462 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741360911.06194 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741028488 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
@@ -329,15 +329,15 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1741286345 11240 9a3a6b7c450bd658f17c50bd722f5ff4 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1741286383 143102 eb38650d44243660dd88b295d89630dd ""
+  "Theory/1 - Medida de Lebesgue.tex" 1741360903 139268 a21a7b1a5089e24f810fb17bc08b3958 ""
   "Theory/Theory.tex" 1741272688 643 4c72caf8d4b98868cbb2bb0cf7106b37 ""
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
   "images/1.png" 1741278654 213487 28f2eb685a04f3361a846e6c316cb978 ""
-  "images/2.png" 1741280079 65609 e695956d56387ceb41082f691c0e65af ""
-  "main.aux" 1741286400 32136 76600ea95f8886002ae706ff5e6add14 "pdflatex"
-  "main.out" 1741286400 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
+  "images/2.png" 1741360867 66931 b3f73b466633af2e7aaab61f52562108 ""
+  "main.aux" 1741360910 31616 ccadfc33b2c7acaa0fa5de1571f84246 "pdflatex"
+  "main.out" 1741360910 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1741286400 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
+  "main.toc" 1741360910 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
