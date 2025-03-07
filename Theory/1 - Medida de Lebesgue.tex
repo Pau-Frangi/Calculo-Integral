@@ -2404,11 +2404,13 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
     \[
         V = \{(x,y) : x > 0, y > 0\}, \quad U = \{(u,v) : v > 0\}
     \]
-    Entonces $\psi: V \to U$ es biyectiva y existe $\varphi = \psi^{-1}: U \to V$.
+    Entonces $\psi: V \to U$ es biyectiva y existe $\varphi = \psi^{-1}: U \to V$. Además el conjunto transformado es
 
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{images/1.png}
-    \end{center}
+    \[
+        E = \psi(D) = \{(u,v) \in \mathbb{R}^2 : 1 \leq u \leq 9, 4 \leq v \leq 8\}
+    \] 
+
+    \input{TikZ/conj1.tex}
 
     Sean
     \[
@@ -2476,7 +2478,7 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
 
     Así finalmente la integral da
     \[
-        \frac{1}{2} \text{area}(E) = \frac{1}{2} \cdot 32 = 16
+        \frac{1}{2} \text{area}(E) = \frac{1}{2} \cdot (9-1) \cdot (8-4) = 16
     \]
 }
 
