@@ -1206,16 +1206,16 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     $\forall k \in \mathbb{N}$ sabemos que $\exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n(k)}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$.
     Suponemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $$\text{diam}(P_k) = \sup_{i \in \{1, \dots, n(k)\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$$
     \\$\forall k \in \mathbb{N}$ denotamos $m_k = \inf\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$ y $M_k = \sup\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$.
-    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-    $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-    Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
-    Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
-    Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
-    y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
-    Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
-    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
-    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
-    Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
+        $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+        $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+        Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
+        Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
+        Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
+        y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
+        Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
+        La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
+        Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
+        Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
     $$(L)\int_{a}^{b}f = \int_{a}^{b}\varphi = \int_a^b\psi = (R)\int_{a}^{b}f$$
 \end{proof}
 
@@ -1922,13 +1922,21 @@ $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
 }
 \begin{definición}[Coordenadas polares]
 En el plano bidimensional $\mathbb{R}^2$, las \textbf{coordenadas polares} $(r, \theta)$ están definidas en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
-$$
-    \varphi(r, \theta) =
-    \begin{cases}
-        x = r\cos\theta, \\
-        y = r\sin\theta.
-    \end{cases}
-$$
+
+\begin{minipage}{0.5\textwidth}
+    \[
+        \varphi(r, \theta) =
+        \begin{cases}
+            x = r\cos\theta, \\
+            y = r\sin\theta.
+        \end{cases}
+    \]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \input{TikZ/PolarCoord.tex}
+\end{minipage}
+
 Donde:
 \begin{itemize}
     \item $r \geq 0$ es la distancia radial desde el origen.
@@ -2106,15 +2114,23 @@ $$
     $$
 }
 \begin{definición}[Coordenadas cilíndricas]
-En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:
-$$
-    \varphi:
-    \begin{cases}
-        x = r\cos\theta, \\
-        y = r\sin\theta, \\
-        z = z.
-    \end{cases}
-$$
+En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
+
+\begin{minipage}{0.5\textwidth}
+    \[
+        \varphi(r, \theta, z) = 
+        \begin{cases}
+            x = r\cos\theta, \\
+            y = r\sin\theta, \\
+            z = z.
+        \end{cases}
+    \]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \input{TikZ/CylindricalCoord.tex}
+\end{minipage}
+
 Donde:
 \begin{itemize}
     \item $r \geq 0$ es la distancia radial desde el eje $z$.
@@ -2167,15 +2183,16 @@ $$ \frac{16\pi}{3}. $$
 }
 \begin{definición}[Coordenadas esféricas]
 En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
+
 \begin{minipage}{0.5\textwidth}
-\[
-    \psi:
-    \begin{cases}
-        x = r\cos\theta \sin\phi, \\
-        y = r\sin\theta \sin\phi, \\
-        z = r\cos\phi.
-    \end{cases}
-\]
+    \[
+        \varphi(r, \theta, \phi) =
+        \begin{cases}
+            x = r\cos\theta \sin\phi, \\
+            y = r\sin\theta \sin\phi, \\
+            z = r\cos\phi.
+        \end{cases}
+    \]
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
     \centering
@@ -2189,7 +2206,7 @@ Donde:
     \item $\phi \in [0, \pi]$ es el ángulo polar o colatitud, medido desde el eje positivo $z$.
 \end{itemize}
 
-La matriz jacobiana de esta transformación es: $$ D_\psi =
+La matriz jacobiana de esta transformación es: $$ D_\varphi =
     \begin{bmatrix}
         \cos\theta \sin\phi & -r\sin\theta \sin\phi & r\cos\theta \cos\phi \\
         \sin\theta \sin\phi & r\cos\theta \sin\phi  & r\sin\theta \cos\phi \\
@@ -2198,7 +2215,7 @@ La matriz jacobiana de esta transformación es: $$ D_\psi =
 $$
 Su determinante, que representa el factor de cambio de volumen, es:
 $$
-    \left| \det D_\psi \right| = r^2 \sin\phi.
+    \left| \det D_\varphi \right| = r^2 \sin\phi.
 $$
 Esto implica que el elemento diferencial de volumen en coordenadas esféricas es:
 $$
@@ -2212,7 +2229,7 @@ $$
 \begin{definición}[Coordenadas elípticas]
 En el plano, las coordenadas elípticas $(r, \theta)$ se definen en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
 $$
-    \psi:
+    \varphi (r, \theta) =
     \begin{cases}
         x = a r \cos\theta, \\
         y = b r \sin\theta.
@@ -2225,7 +2242,7 @@ Donde:
     \item $a, b > 0$ son constantes que determinan los semiejes de las elipses.
 \end{itemize}
 
-La matriz jacobiana de esta transformación es: $$ D_\psi =
+La matriz jacobiana de esta transformación es: $$ D_\varphi =
     \begin{bmatrix}
         a\cos\theta & -a r \sin\theta \\
         b\sin\theta & b r \cos\theta
@@ -2233,7 +2250,7 @@ La matriz jacobiana de esta transformación es: $$ D_\psi =
 $$
 
 Su determinante, que representa el factor de cambio de área, es: $$ \left| \det
-    D_\psi \right| = a b r. $$
+    D_\varphi \right| = a b r. $$
 
 Esto implica que el elemento diferencial de área en coordenadas elípticas es:
 $$ dA = a b r \, dr \, d\theta. $$
@@ -2479,24 +2496,24 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
 \ejemplo{
 Calcúlese el volumen comprendido entre $z = f(x,y)$, $z = g(xy)$ sobre D, con D la proyección de las funciones sobre el plano z. Entonces,
 $$ vol = \int_{D}(f(x,y) - g(x,y))dx dy = \int_ {D} 1 dx dy dz = \int_{D} \left[\int_{z = g(x,y)}^{z = f(x,y)}1 dz\right]dx dy$$
-    }
+}
 
-    \vspace{1em}
+\vspace{1em}
 
-    \ejemplo{
-    \underline{Bóveda de Viviani}\\
-    Calcúlese el volumen comprendido entre la esfera $x^2 + y^2 + z^2 = a^2$ y el cilindro $x^2 + y^2 = ay$ con $a > 0$.
-    \vspace{-1.2em}
+\ejemplo{
+\underline{Bóveda de Viviani}\\
+Calcúlese el volumen comprendido entre la esfera $x^2 + y^2 + z^2 = a^2$ y el cilindro $x^2 + y^2 = ay$ con $a > 0$.
+\vspace{-1.2em}
 
-    \begin{center}
-        \includegraphics[width=0.4\textwidth]{images/2.png}
-    \end{center}
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{images/2.png}
+\end{center}
 
-    \vspace{-1em}
+\vspace{-1em}
 
-    Donde tomando valores en la esfera podemos obtener: $$\begin{cases} x^2 + y^2 - ay = 0 \iff x^2 + (y - \frac{a}{2})^2 = \frac{a^2}{4} \\ x^2 + (y - \frac{a}{2})^2 = x^2 + y^2 + \frac{a^2}{4} - ay = \frac{a^2}{4} \end{cases}$$
-    Si tomamos que $r^2 = x^2 + y^2$ y $ay = ar\sin(\theta)$ entonces,
-    La ecuación de la circunferencia es en coordenadas polares es: $r = a\cos(\theta)$
+Donde tomando valores en la esfera podemos obtener: $$\begin{cases} x^2 + y^2 - ay = 0 \iff x^2 + (y - \frac{a}{2})^2 = \frac{a^2}{4} \\ x^2 + (y - \frac{a}{2})^2 = x^2 + y^2 + \frac{a^2}{4} - ay = \frac{a^2}{4} \end{cases}$$
+Si tomamos que $r^2 = x^2 + y^2$ y $ay = ar\sin(\theta)$ entonces,
+La ecuación de la circunferencia es en coordenadas polares es: $r = a\cos(\theta)$
 
 $$vol = 2\int_{D}\sqrt{a^2 - x^2 - y^2} dx dy = 2\int_{\theta = 0}^{\theta = 2\pi}\int_{r = 0}^{r = a\sin(\theta)}\sqrt{a^2 -r^2}r dr d\theta$$
 $$ = 2\int_{\theta = 0}^{\theta = \pi} \left[-\frac{1}{3}(a^2-r^2)^{\frac{3}{2}}\right]^{r = a\sin(\theta)}_{r = 0} d\theta = \frac{2}{3} \int_{\theta = 0}^{\theta = \pi} a^3 - (a^2 - a^2\sin^2(\theta))^{\frac{3}{2}}d\theta$$
