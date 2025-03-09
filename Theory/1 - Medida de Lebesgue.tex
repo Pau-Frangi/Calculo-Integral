@@ -2166,15 +2166,22 @@ Por lo tanto, el resultado final es:
 $$ \frac{16\pi}{3}. $$
 }
 \begin{definición}[Coordenadas esféricas]
-En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:
-$$
+En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
+\begin{minipage}{0.5\textwidth}
+\[
     \psi:
     \begin{cases}
         x = r\cos\theta \sin\phi, \\
         y = r\sin\theta \sin\phi, \\
         z = r\cos\phi.
     \end{cases}
-$$
+\]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \input{TikZ/SphericalCoord.tex}
+\end{minipage}
+
 Donde:
 \begin{itemize}
     \item $r \geq 0$ es la distancia radial desde el origen.

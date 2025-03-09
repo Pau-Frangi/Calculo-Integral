@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741374163.46263 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741374172.98664 0
+["pdflatex"] 1741524605.67469 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741524621.28065 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741368995 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
@@ -48,6 +48,7 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti12.tfm" 1136765053 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti7.tfm" 1136765053 1492 86331993fe614793f5e7e755835c31c5 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti8.tfm" 1136765053 1504 1747189e0441d1c18f3ea56fafc1c480 ""
+  "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti9.tfm" 1136765053 1476 cccc6cc4935c18ec3d5623b77ecb8b74 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/esint/esint10.tfm" 1136768653 364 55557743e6c24ee44e49bc5e8dbbe3cd ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
@@ -335,16 +336,17 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1741369394 11346 402ed2f7e494ddf73f5f44790519bec5 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1741374152 139078 e73ed61b4101d9441786de9ddf64d37d ""
+  "Theory/1 - Medida de Lebesgue.tex" 1741524406 139233 226a1a0e2eabdc93bf93c062d6656fe1 ""
   "Theory/Theory.tex" 1741272688 643 4c72caf8d4b98868cbb2bb0cf7106b37 ""
+  "TikZ/SphericalCoord.tex" 1741524604 12237 0abb446053ea7ab11897ad5af6212491 ""
   "TikZ/conj1.tex" 1741371541 35592 9e9a204f8200b8500ac84fffb6f401d7 ""
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
   "images/2.png" 1741360867 66931 b3f73b466633af2e7aaab61f52562108 ""
   "images/inteParab.png" 1741374021 345944 7c938287c5489d575f63a0c4ce115741 ""
-  "main.aux" 1741374172 31572 9333545fbf9e39cfe349be1e5788c562 "pdflatex"
-  "main.out" 1741374172 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
+  "main.aux" 1741524620 31616 b757efe16f3e697718da123043629676 "pdflatex"
+  "main.out" 1741524620 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1741374172 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
+  "main.toc" 1741524620 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
