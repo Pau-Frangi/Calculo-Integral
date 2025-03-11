@@ -2521,4 +2521,74 @@ $$= \frac{2}{3}\int_{\theta = 0}^{\theta = \pi} a^3 - a^3|\cos^3(\theta)|d\theta
 $$= \frac{4 a^3}{3} \left[\theta - \left(\sin(\theta)-\frac{\sin^3(\theta)}{3}\right) \right]_{\theta = 0}^{\theta = \frac{\pi}{2}} =  \frac{4 a^3}{3} \left(\frac{\pi}{2} - \frac{2}{3}\right) $$
 
 Todo esto teniendo en cuenta que $(\cos^3(\theta))^{\frac{3}{2}} =
-    |\cos^3(\theta)|$ }
+    |\cos^3(\theta)|$ 
+}
+
+\begin{definición}[Camino]
+    Un camino (o curva paramétrica) en $\mathbb{R}^n$ es una función continua $\gamma: I \to \R^n$ donde $I \subset \R$ es un intervalo. \\
+    Si $\gamma$ es diferenciable en un punto $t \in I$, entonces el vector velocidad de $\gamma$ en el punto (instante) $t$ es el vector tangente a la curva en ese punto, es decir, el vector: 
+    $$\gamma'(t) = (\gamma_1'(t), \ldots, \gamma_n'(t)) \text{ si } \gamma = (\gamma_1, \ldots, \gamma_n)$$
+\end{definición}
+
+\begin{definición}[Longitud de un camino]
+    Sea $\gamma: [a,b] \to \R^n$ un camino en $\R^n$. Sea $\sigma = \{a = t_1 < t_2 < \ldots < t_n = b\}$ partición de $[a,b]$. Definimos $$\Sigma(\gamma, \sigma) = \sum_{i = 1}^{m} = ||\gamma(t_i) - \gamma(t_{i-1})||$$
+    Definimos entones la longitud de $\gamma$ como: $$L(\gamma) = \sup\{\Sigma(\gamma, \sigma)  \sigma \text{ es una partición de } [a, b]\} \in [0, + \infty]$$
+    Decios que $\gamma$ es rectifiable si $L(\gamma) < + \infty$.
+\end{definición}
+
+\begin{observación}
+    Existen caminos continuos que no son rectificables. Por ejemplo, la curva de Peano, el copo de nieve de Koch o la dada por: 
+    $$l(\gamma) \geq \sum_{n = 1}^{N}\frac{1}{n} \forall n \in \mathbb{N} \text{ luego } l(\gamma) \geq \sum_{n = 1}^{\infty}\frac{1}{n} = + \infty$$
+\end{observación}
+
+\begin{definición}[Camino $C^1$ a trozos]
+    Decimos que un camino $\gamma: [a, b] \to \mathbb{R}^n$ en $C-1$ a trozos si: 
+    $$\exists \mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n = b\}$$ tal que $\gamma|_{[t_{i-1}, t_i]}$ es $C^1$ para todo $i = 1, \ldots, n$.
+\end{definición}
+
+\begin{observación}
+    En cada intervalo $[t_{i-1}, t_i]$ la función $\gamma$ es $C^1$, es decir, en los extremos admite derivadas laterales. 
+\end{observación}
+
+\begin{teorema}
+    Sea $\gamma: [a, b] \to \mathbb{R}^n$ un camino $C^1$ a trozos. Entonces $\gamma$ es rectificable y su longitud es:
+    $$l(\gamma) = \int_{a}^{b}||\gamma'(t)||dt$$	
+\end{teorema}
+
+\begin{observación}
+    $t \to ||\gamma'(t)||$ existe, y es continua, salvo quiza en un número finito de puntos, luego en particular es integrable en sentido Riemann y en sentio Lebesgue.
+    \\Además, si $\mathcal{P} = \{t_0 = a < t_1 < \ldots < t_n 0 b\}$ es partición de $[a,b] \implies \int_{a}^{b} ||\gamma'(t)||dt = \sum_{i = 1}^{n} \int_{t_{i-1}}^{t_i}||\gamma'(t)||dt$
+\end{observación}
+
+Para la demostración del teorema anterior, veamos un lema previo: 
+\begin{lema}
+    Sea $\gamma: [a, b] \to \mathbb{R}^n$ camino continuo $\implies$
+    $$||\int_{a}^{b} \gamma(t)dt|| \leq \int_{a}^{b}||\gamma(t)||dt$$
+    donde: 
+    $$\int_{a}^{b} \gamma(t)dt = (\int_{a}^{b} \gamma_1(t)dt, \ldots, \int_{a}^{b} \gamma_n(t)dt) \in \mathbb{R}^n$$
+\end{lema}
+\begin{proof}
+    Hagamos una distinción de casos: 
+    \begin{itemize}
+        \item Si $u = \int_a^b \gamma(t)dt = 0$
+        \item Si $u = \int_a^b \gamma(t)dt \neq 0$, sea $u \in \mathbb{R}^n$ con $||u|| = 1 \implies$ $$||v|| = <u, v> = \sum_{i = 1}^{u} u_i \int_{a}^{b} \gamma_i(t)dt = \int_{a}^{b} \sum_{i = 1}^{n} u_i \gamma_i(t)dt \leq \int_{a}^{b}||\gamma(t)||dt = ||\int_{a}^{b} \gamma(t)dt||$$
+    \end{itemize}
+\end{proof}
+
+\begin{proof}
+    Veamos ahora la demostración del teorema: \\
+    Podemos suponer que $\gamma: [a, b] \to \mathbb{R}^n$ es $C^1$ en casi todo $[a, b]$. 
+    \begin{enumerate}
+        \item Veamos que $l(\gamma) \leq \int_{a}^{b}||\gamma'(t)||dt$: \\
+        Sea $\mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$. Entonces:
+        $$\Sigma(\gamma, \mathcal{P}) = \sum_{i = 1}^{n}||\gamma(t_i) - \gamma(t_{i-1})|| = \sum_{i = 1}^{n}||\int_{t_{i-1}}^{t_i}\gamma'(t)dt|| \leq \sum_{ i = 1}^{n}\int_{y_{i-1}}^{t_i}||\gamma'(t)||dt = \int_{a}^{b} ||\gamma'(t)||dt \forall \text{ partición } \mathcal{P}$$
+        Luego, tomando el supremo de todas las particiones, obtenemos que $l(\gamma) \leq \int_{a}^{b}||\gamma'(t)||dt$
+        \item Como $t \to ||\gamma'(t)||$ es continua en casi todo $[a, b]$-compacto, luego es uniformemente continua en $[a, b]$.\\
+        Dado $\epsilon > 0, \exists \delta > 0$ tal que si $t,s \in [a, b]$ y $|t-s| < \delta \implies ||\gamma'(t) - \gamma'(s)|| < \epsilon$\\
+        Sea $\mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$ con $t_i - t_{i-1} < \delta \forall i = 1, \ldots, n$\
+        $$\int_{t_{i-1}}^{t_i}||\gamma'(t)||dt \leq \int_{t_{i-1}}^{t_i}||\gamma'(t_i)|| + \epsilon dt = ||\gamma(t_i)||\cdot (t_i - t_{i -1}) + \epsilon(t_1 - t_{i-1}) = ||\int_{t_{i-1}}^{t_i}\gamma'(t)dt|| + \epsilon(t_i - t_{i-1}) = ||(\gamma_1'(t_i), \ldots, \gamma_n'(t_i))|| \cdot (t_i - t_{i-1}) + \epsilon(t_i - t_{i-1}) = \leq ||\int_{t_{i -1}}^{t_i}(\gamma'(t_i) - \gamma'(t)dt)dt +\int_{t_{i-1}}^{t_i}||\gamma'(t)||dt + \epsilon(t_i - t_{i-1}) = \leq \int_{t_{i-1}}^{t_i}||\gamma'(t_i) - \gamma'(t)||dt + \int_{t_{i-1}}^{t_i}||\gamma'(t)||dt + \epsilon(t_i - t_{i-1}) \leq 2\epsilon(t_i - t_{i-1}) + ||\int_{t_{i-1}}^{t_i}||\gamma'(t)||dt = 2\epsilon(t_i - t_{i-1})\cdot ||\gamma(t_i) - \gamma(t_{i-1})||$$
+        Luego, 
+        $$\int_{a}^{b}||\gamma'(t)||dt = \sum_{i = 1}^n \int_{t_{i-1}}^{t_i}||\gamma'(t)||dt \leq \sum_{i = 1}^{n}2\epsilon(t_i - t_{i-1}) + ||\gamma(t_i) - \gamma(t_{i-1})|| = 2\epsilon(b-a) + \Sigma(\gamma, \mathcal{P}) \leq 2\epsilon(b-a) + l(\gamma)$$
+        Todo esto está sacado del libro de Facenda, Fremiche.
+    \end{enumerate}
+\end{proof}
