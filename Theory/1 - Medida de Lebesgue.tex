@@ -2592,3 +2592,108 @@ Para la demostración del teorema anterior, veamos un lema previo:
         Todo esto está sacado del libro de Facenda, Fremiche.
     \end{enumerate}
 \end{proof}
+
+\ejemplo{
+    Sea $\gamma: [0, 2\pi] \to \mathbb{R}^2$ con $\gamma(t) = (\cos(t), \sin(t))$\\
+    Con ademas: $\gamma(0) = (1,0) = p$ \\
+    De lo que sacamos: $\gamma'(t) = (-\sin(t), \cos(t))$ \\
+    En particular $\gamma'(0) = (0,1) = \vec{v}$ \\
+
+    Cambiando de parámetro: \\
+    Sea: $t=2\pi s$ con $0\leq s \leq 1$ \\
+    Ahora: $\sigma(s) = (\cos(2\pi s), \sin(2\pi s))$ con $0\leq s \leq 1$ \\
+    Entonces la derivada sale:
+    $$
+    \sigma'(s) = (2\pi (-\sin(2\pi s), \cos(2\pi s)))
+    $$
+    En particular, en $0$: $\sigma'(0) = 2\pi (0,1) = (0,2\pi)$\\
+
+    Podemos hacer tambien el cambio $t=-2\pi s$ \\
+    Que resulta: $\alpha(s) = (\cos(2\pi s), -\sin(2\pi s))$
+    Entonces la derivada sale:
+    $$
+    \alpha'(s) = (2\pi (-\sin(2\pi s), -\cos(2\pi s)))
+    $$
+}
+
+\begin{definición}
+    Sea $\gamma : [a,b] \to \mathbb{R^n}$ camino $C^1$ a trozos y sea $f:Im\gamma \to \mathbb{R}$ continua \\
+    Diremos que $f$ es un campo escalar sobre $Im\gamma$ \\
+    Definimos: 
+    $$ \int_{\gamma} f = \int_{a}^{b} f(\gamma(t)) \cdot ||\gamma'(t)||dt$$ \\
+
+    Notacion: Podemos denotar $$\int_{\gamma} f = \int_{\gamma} f ds$$ \\
+    Ademas $$\l(\gamma) = \int_{a}^{b} ||\gamma'(t)||dt = \int_{a}^{b} ds$$
+\end{definición}
+
+\begin{definición}
+    Dos caminos $\gamma: [a,b] \to \mathbb{R^n}$ y $\sigma:[c,d] \to \mathbb{R^n}$ son equivalentes si: \\
+    $$ \exists h:[c,d] \to [a,b] $$ homeomorfismo $C^1$ que cumple ademas que \\
+    $$h' \neq 0$$ en $[c,d]$ tal que ademas $$[a,b] \to_{\gamma} \mathbb{R^n} \leftarrow_\sigma [c,d] \leftrightarrow_{h} [a,b]$$ \\
+    Tenemos ademas que: $\sigma = \gamma \circ h$ con $\sigma(s) = \gamma(h(s))$ $\forall s \in [c,d]$ \\
+    Ahora, por el teorema de Bolzano tenemos dos posibilidades:
+    \begin{enumerate}
+        \item Si $h'>0$ es decir, $h$ es creciente, decimos que h conserva la orientacion (o que $\gamma$ y $\sigma$ tienen la misma orientacion)
+        \item Si $h'<0$ es decir, $h$ es decreciente, decimos que $h$ invierte la orientacion ($\gamma$ y $\sigma$ tienen orientacion opuesta)
+    \end{enumerate}
+\end{definición}
+
+\begin{observación}
+    \begin{enumerate}
+        \item Si $h:[c,d] \to [a,b]$ es biyectiva y $C^1$ con $h' \neq 0$ entonces aplicando el Teorema de la funcion inversa obtenemos que $h$ admite inversa local al rededor de cada punto. \\
+        Ademas se cumple que $(h^{-1})'(h(s)) = \frac{1}{h'(s)}$ $\forall s \in [c,d]$ \\
+        Como ademas $h$ es biyectiva la inversa local coincide con la inversa global, luego $h:[c,d] \to [a,b]$ es un difeomorfismo $C^1$, es decir, $\exists h^{-1}:[a,b] \to [c,d]$ que es $C^1$
+        \item Usando esto obtenemos que la equivalencia de caminos es una relacion de equivalencia.
+    \end{enumerate}
+\end{observación}
+
+\begin{teorema}
+    Sean $\gamma: [a,b] \to \mathbb{R^n}$ y $\gamma:[c,d] \to \mathbb{R^n}$ caminos $C^1$ a trozos equivalentes. \\
+    Sea ademas $f:Im(\gamma)=Im(\sigma) \to \mathbb{R}$ continua, entonces: \\
+    $$\int_{\gamma}f=\int_{\sigma}f$$
+\end{teorema}
+
+\begin{observación}
+    Si $\gamma$ y $\sigma$ son equivalentes $\implies Im(\gamma)=Im(\sigma)$
+\end{observación}
+
+\begin{proof}
+    Tenemos $h:[c,d] \to [a,b]$ difeomorfismo $C^1$ con $\gamma \circ h = \sigma$ con ademas $\sigma(s) = \gamma(h(s)) \implies \sigma'(s) = \gamma'(h(s))h'(s)=h'(s)\gamma'(h(s))$ \\
+    \begin{enumerate}
+        \item Caso 1: $h$ es creciente $(h'>0)$ \\
+        $$\int_{\gamma} f = \int_{t=a}^{t=b} f(\gamma(t))||\gamma'(t)||dt = \int_{s=c}^{s=d} f(\gamma(h(s))) ||\gamma'(h(s))\\h'(s)ds$$ \\
+        Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)$ obtenemos:
+        $$\int_{s=c}^{s=d} f(\gamma(h(s)))$$
+        FALTA POR TERMINAR
+        \item Caso 2: $h$ es decreciente $(h'<0)$\\
+        Tenemos $$ \int_{\gamma} f= \int_{t=a}^{t=b} f(\gamma(t)) ||(\gamma'(t))||dt=\int_{s=d}^{s=c}f(\gamma(h(s)))$$
+        FALTA POR TERMINAR
+    \end{enumerate}
+\end{proof}
+
+\begin{corolario}
+    Si $\gamma$ y $\sigma$ son equivalentes y $C^1$ a trozos $\implies l(\gamma)=l(\sigma)$
+\end{corolario}
+
+\begin{proof}
+    $$l(\gamma) =\int_{\gamma}1=\int_{a}^{b}||\gamma'(t)||dt=\int_{\sigma}1=l(\sigma)$$
+\end{proof}
+
+\begin{definición}
+    Sea $\gamma:[a,b] \to \mathbb{R^n}$ camino $C^1$ a trozos. Definimos el camino inverso como: \\
+    $$(-\gamma):[a,b] \to \mathbb{R^n}$$ como $$ (-\gamma)(s)=\gamma(a+b-s)$$
+\end{definición}
+
+\begin{observación}
+    De hecho, $(-\gamma)$ es equivalente a $\gamma$ con $(-\gamma)(s)=\gamma(h(s))$ luego $Im(-\gamma)=Im(\gamma)$
+\end{observación}
+
+\begin{definición}[Concatenacion de caminos]
+    Sean $\gamma:[a,b] \to \mathbb{R^n}$ y $\sigma:[c,d] \to \mathbb{R^n}$ caminos $C^1$ a trozos con $\gamma(b)=\sigma(c)$\\
+    Definimos su concatenacion como:\\
+    $$\gamma + \sigma:[a,b+(d-c)] \to \mathbb{R^n}$$\\
+    $$(\gamma + \sigma) = \begin{cases}
+         \gamma(t), \text{ si } a \leq t \leq b \\
+         \sigma(t - b + c) \text{ si } b\leq t \leq b+(d-c)$$
+    \end{cases}
+\end{definición} 
