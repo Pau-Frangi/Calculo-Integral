@@ -2309,14 +2309,6 @@ $$ dA = a b r \, dr \, d\theta. $$
     Volumen comprendido entre los paraboloides:
     $$ 2z = 4 + \frac{x^2}{3} + y^2, \quad 2z = \frac{2x^2}{3} + 3y^2 $$
 
-    \vspace{-2.1em}
-
-    \begin{center}
-        \includegraphics[width=0.6\textwidth]{images/inteParab.png}
-    \end{center}
-
-    \vspace{-2em}
-
     Eliminando $z$: $$ 4 + \frac{x^2}{3} + y^2 = \frac{2x^2}{3} + 3y^2 \iff
         \frac{x^2}{3} + 2y^2 = 4 $$ Lo cual es un cilindro elíptico de $\mathbb{R}^3$.
 
@@ -2324,6 +2316,17 @@ $$ dA = a b r \, dr \, d\theta. $$
         \right\} $$ Luego, el volumen está dado por: $$ \text{vol} = \int_{E} \left(2 +
         \frac{x^2}{6} + \frac{y^2}{2} \right) - \left(\frac{x^2}{3} + \frac{3y^2}{2}
         \right) dx \, dy = \int_{E} \left(2 - \frac{x^2}{6} - y^2 \right) dx \, dy $$
+
+
+        \vspace{-2.1em}
+
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{images/Parabs.png}
+        \end{center}
+    
+        \vspace{-2em}
+
+
     Haciendo el cambio de coordenadas elípticas: $$ a = \sqrt{12} = 2\sqrt{3},
         \quad b = \sqrt{2} $$ $$ x = 2\sqrt{3} r\cos\theta, \quad y = \sqrt{2}
         r\sin\theta $$ El jacobiano es: $$ J = 2\sqrt{6} $$ Finalmente, el cambio de

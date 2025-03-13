@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741542594.29903 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741542609.89949 0
+["pdflatex"] 1741625763.51686 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741625780.28171 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741368995 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
@@ -336,19 +336,19 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1741369394 11346 402ed2f7e494ddf73f5f44790519bec5 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1741531833 139690 96a29e43926883b22abd83cd30861159 ""
+  "Theory/1 - Medida de Lebesgue.tex" 1741625746 139717 ed242e5abe4c3ddb112f4a4a1543ee51 ""
   "Theory/Theory.tex" 1741272688 643 4c72caf8d4b98868cbb2bb0cf7106b37 ""
   "TikZ/CylindricalCoord.tex" 1741530438 4238 851a5f36d97fde55876320065b3cfda7 ""
   "TikZ/PolarCoord.tex" 1741531386 829 4178615fc1bc8e5a9f37f0a9c1b25acc ""
   "TikZ/SphericalCoord.tex" 1741524604 12237 0abb446053ea7ab11897ad5af6212491 ""
-  "TikZ/conj1.tex" 1741542593 35592 ef8ef2ee02efc6badac7c96f98e06a73 ""
+  "TikZ/conj1.tex" 1741602394 35592 ef8ef2ee02efc6badac7c96f98e06a73 ""
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
   "images/2.png" 1741360867 66931 b3f73b466633af2e7aaab61f52562108 ""
-  "images/inteParab.png" 1741374021 345944 7c938287c5489d575f63a0c4ce115741 ""
-  "main.aux" 1741542609 31704 52ff3f9fdff2008e4e9b440833635c70 "pdflatex"
-  "main.out" 1741542609 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
+  "images/Parabs.png" 1741625637 648449 d5669c26bd86ec14e38b6f70c758023f ""
+  "main.aux" 1741625779 31704 4f51dc092d979670b579c122c1c3ebb6 "pdflatex"
+  "main.out" 1741625779 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1741542609 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
+  "main.toc" 1741625779 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
