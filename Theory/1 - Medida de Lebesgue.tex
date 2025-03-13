@@ -2594,26 +2594,49 @@ Para la demostración del teorema anterior, veamos un lema previo:
 \end{proof}
 
 \ejemplo{
-    Sea $\gamma: [0, 2\pi] \to \mathbb{R}^2$ con $\gamma(t) = (\cos(t), \sin(t))$\\
-    Con ademas: $\gamma(0) = (1,0) = p$ \\
-    De lo que sacamos: $\gamma'(t) = (-\sin(t), \cos(t))$ \\
-    En particular $\gamma'(0) = (0,1) = \vec{v}$ \\
+    Sea la curva parametrizada 
+\[
+\gamma: [0, 2\pi] \to \mathbb{R}^2, \quad \gamma(t) = (\cos t, \sin t).
+\]
 
-    Cambiando de parámetro: \\
-    Sea: $t=2\pi s$ con $0\leq s \leq 1$ \\
-    Ahora: $\sigma(s) = (\cos(2\pi s), \sin(2\pi s))$ con $0\leq s \leq 1$ \\
-    Entonces la derivada sale:
-    $$
-    \sigma'(s) = (2\pi (-\sin(2\pi s), \cos(2\pi s)))
-    $$
-    En particular, en $0$: $\sigma'(0) = 2\pi (0,1) = (0,2\pi)$\\
+Además, se cumple que 
+\[
+\gamma(0) = (1,0) = p.
+\]
+Derivando, obtenemos
+\[
+\gamma'(t) = (-\sin t, \cos t),
+\]
+y en particular,
+\[
+\gamma'(0) = (0,1) = \vec{v}.
+\]
 
-    Podemos hacer tambien el cambio $t=-2\pi s$ \\
-    Que resulta: $\alpha(s) = (\cos(2\pi s), -\sin(2\pi s))$
-    Entonces la derivada sale:
-    $$
-    \alpha'(s) = (2\pi (-\sin(2\pi s), -\cos(2\pi s)))
-    $$
+\subsection*{Cambio de parámetro}
+
+Consideremos el cambio de variable $t = 2\pi s$ con $0 \leq s \leq 1$. Definiendo la nueva curva
+\[
+\sigma(s) = (\cos(2\pi s), \sin(2\pi s)), \quad 0 \leq s \leq 1,
+\]
+obtenemos su derivada:
+\[
+\sigma'(s) = (2\pi (-\sin(2\pi s)), 2\pi \cos(2\pi s)).
+\]
+En particular, en $s = 0$,
+\[
+\sigma'(0) = 2\pi (0,1) = (0,2\pi).
+\]
+
+\subsection*{Otro cambio de parámetro}
+
+Si realizamos el cambio $t = -2\pi s$, obtenemos la curva
+\[
+\alpha(s) = (\cos(2\pi s), -\sin(2\pi s)).
+\]
+Calculamos su derivada:
+\[
+\alpha'(s) = (2\pi (-\sin(2\pi s)), -2\pi \cos(2\pi s)).
+\]
 }
 
 \begin{definición}

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741860747.36972 "c:/Users/Diego/OneDrive - Universidad Complutense de Madrid (UCM)/DIEGO UCM/CI/APUNTES LATEX/Calculo-Integral-13/main.tex" "main.pdf" "main" 1741860767.57477 0
+["pdflatex"] 1741869958.60623 "c:/Users/Diego/OneDrive - Universidad Complutense de Madrid (UCM)/DIEGO UCM/CI/APUNTES LATEX/Calculo-Integral-13/main.tex" "main.pdf" "main" 1741869993.37725 0
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741693637 81245 e934491651270ee8e50db9289c70f8a4 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1740147393 12668 a3ed22f2cef16b37e8699fac08a7818a ""
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740147388 8604 fdb648dba843a788b6889c3602aac16d ""
@@ -336,7 +336,7 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1741777065 994 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1741777065 11346 402ed2f7e494ddf73f5f44790519bec5 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1741860726 150452 3ee260c9d6c316d74c49a511822e0c67 ""
+  "Theory/1 - Medida de Lebesgue.tex" 1741869922 151067 ab3dff5c522c498815ab69d51f2e542f ""
   "Theory/Theory.tex" 1741777065 643 4c72caf8d4b98868cbb2bb0cf7106b37 ""
   "TikZ/CylindricalCoord.tex" 1741777065 4238 851a5f36d97fde55876320065b3cfda7 ""
   "TikZ/PolarCoord.tex" 1741777065 829 4178615fc1bc8e5a9f37f0a9c1b25acc ""
@@ -345,10 +345,10 @@
   "c:/Users/Diego/OneDrive - Universidad Complutense de Madrid (UCM)/DIEGO UCM/CI/APUNTES LATEX/Calculo-Integral-13/main.tex" 1741777065 841 1b372881b4c1eed5e4d814048ae28800 ""
   "images/2.png" 1741777065 66931 b3f73b466633af2e7aaab61f52562108 ""
   "images/inteParab.png" 1741777065 345944 7c938287c5489d575f63a0c4ce115741 ""
-  "main.aux" 1741860767 36007 b0774383b513b14ca8c47d78b25cf33f "pdflatex"
-  "main.out" 1741860767 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
+  "main.aux" 1741869992 36212 4f7bccdc210b7fc2fd666719e81768c6 "pdflatex"
+  "main.out" 1741869992 1362 43de7568cb4a9a0c0d9507a64af2cb0d "pdflatex"
   "main.tex" 1741777065 841 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1741860767 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
+  "main.toc" 1741869992 636 e5051d102b8e164b65192003a3df0c39 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
