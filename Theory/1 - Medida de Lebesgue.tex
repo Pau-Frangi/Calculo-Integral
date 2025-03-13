@@ -2647,6 +2647,15 @@ Para la demostración del teorema anterior, veamos un lema previo:
     \end{enumerate}
 \end{observación}
 
+\begin{observación}
+    Si $K\subset \mathbb{R^n}$ compacto y $h:K \to H\subset \mathbb{R^n}$ es continua y biyectiva, entonces $h:K \to H$ es un homeomorfismo.
+\end{observación}
+
+\begin{proof}
+    Tenemos que $h:K \to H$ es biyectiva, luego $\exists h^{-1}:H \to K$, veamos que es biyectiva. \\
+    Dado $C \subset K$ cerrado $\implies$ $C$ es compacto $\implies$ $h(C)$ es compacto $\implies$ $(h^{-1})^{-1}(C)=h(C)$ que es compacto en $H$, luego es cerrado en $H$ \\
+\end{proof}
+
 \begin{teorema}
     Sean $\gamma: [a,b] \to \mathbb{R^n}$ y $\gamma:[c,d] \to \mathbb{R^n}$ caminos $C^1$ a trozos equivalentes. \\
     Sea ademas $f:Im(\gamma)=Im(\sigma) \to \mathbb{R}$ continua, entonces: \\
@@ -2661,13 +2670,13 @@ Para la demostración del teorema anterior, veamos un lema previo:
     Tenemos $h:[c,d] \to [a,b]$ difeomorfismo $C^1$ con $\gamma \circ h = \sigma$ con ademas $\sigma(s) = \gamma(h(s)) \implies \sigma'(s) = \gamma'(h(s))h'(s)=h'(s)\gamma'(h(s))$ \\
     \begin{enumerate}
         \item Caso 1: $h$ es creciente $(h'>0)$ \\
-        $$\int_{\gamma} f = \int_{t=a}^{t=b} f(\gamma(t))||\gamma'(t)||dt = \int_{s=c}^{s=d} f(\gamma(h(s))) ||\gamma'(h(s))\\h'(s)ds$$ \\
-        Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)$ obtenemos:
-        $$\int_{s=c}^{s=d} f(\gamma(h(s)))$$
-        FALTA POR TERMINAR
+        $$\int_{\gamma} f = \int_{t=a}^{t=b} f(\gamma(t))||\gamma'(t)||dt = \int_{s=c}^{s=d} f(\gamma(h(s))) ||\gamma'(h(s))||h'(s)ds$$ \\
+        Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)ds$ obtenemos:
+        $$\int_{s=c}^{s=d} f(\sigma(h(s)))||\sigma'(s)||ds=\int_{\sigma}f$$
         \item Caso 2: $h$ es decreciente $(h'<0)$\\
-        Tenemos $$ \int_{\gamma} f= \int_{t=a}^{t=b} f(\gamma(t)) ||(\gamma'(t))||dt=\int_{s=d}^{s=c}f(\gamma(h(s)))$$
-        FALTA POR TERMINAR
+        Tenemos $$ \int_{\gamma} f= \int_{t=a}^{t=b} f(\gamma(t)) ||(\gamma'(t))||dt=\int_{s=d}^{s=c}f(\gamma(h(s)))||\gamma'(h(s))||h'(s)ds$$ \\
+        Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)ds$ obtenemos:
+        $$\int_{s=c}^{s=d} f(\gamma(h(s)))||\gamma'(h(s))||(-h'(s))ds = \int_{\sigma}f$$ 
     \end{enumerate}
 \end{proof}
 
@@ -2695,5 +2704,5 @@ Para la demostración del teorema anterior, veamos un lema previo:
     $$(\gamma + \sigma) = \begin{cases}
          \gamma(t), \text{ si } a \leq t \leq b \\
          \sigma(t - b + c) \text{ si } b\leq t \leq b+(d-c)$$
-    \end{cases}
+    \end{cases}$$
 \end{definición} 
