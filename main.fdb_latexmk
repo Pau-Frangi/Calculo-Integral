@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1741892334.62502 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1741892352.85449 0
-  "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741880307 85269 91ab854c05f02ecfc449dd78c7dd787d ""
+["pdflatex"] 1742051908.42481 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1742051930.14477 0
+  "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1742021746 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi657/esint10.pk" 1739867973 13616 eb2ce24607ec8c3cff6f3f728e8586a8 ""
@@ -339,10 +339,10 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1737830419 957 86797f6883aa9637224e9e09b84c6f7c ""
-  "Preamble/Preamble.tex" 1741884235 11368 d2829fc609cc0a892f8d6fe5fa039812 ""
-  "Theory/1 - Medida de Lebesgue.tex" 1741892333 160389 7f463a7952bb5421d6425202dff7e753 ""
+  "Preamble/Preamble.tex" 1742051322 11406 da8aad4913fb67f2d8b2e7af84671937 ""
+  "Theory/1 - Medida de Lebesgue.tex" 1742051906 160889 991cb4b33e588eee3bb13cb126c18213 ""
   "Theory/Theory.tex" 1741272688 643 4c72caf8d4b98868cbb2bb0cf7106b37 ""
-  "TikZ/CamVec.aux" 1741892352 1353 2fcf0e26bad85fdef5c04ec55c938d8a "pdflatex"
+  "TikZ/CamVec.aux" 1742051929 1353 02a7b25cb01301928ca025e003c30b63 "pdflatex"
   "TikZ/CamVec.tex" 1741890926 1616 485291b224ccaddaa94a840bfdc542bc ""
   "TikZ/CylindricalCoord.tex" 1741530438 4238 851a5f36d97fde55876320065b3cfda7 ""
   "TikZ/PolarCoord.tex" 1741531386 829 4178615fc1bc8e5a9f37f0a9c1b25acc ""
@@ -351,10 +351,10 @@
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
   "images/2.png" 1741360867 66931 b3f73b466633af2e7aaab61f52562108 ""
   "images/Parabs.png" 1741625637 648449 d5669c26bd86ec14e38b6f70c758023f ""
-  "main.aux" 1741892352 38661 80a9032cc2fbe7d69bba50688e759725 "pdflatex"
-  "main.out" 1741892352 1512 f3976a88aac34f0a16e747693bd1d41b "pdflatex"
+  "main.aux" 1742051929 38704 cff1cc6d6ecc2594ee3a64a2009cafc9 "pdflatex"
+  "main.out" 1742051929 1512 f3976a88aac34f0a16e747693bd1d41b "pdflatex"
   "main.tex" 1739868285 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1741892352 721 164e2fe3a9044afb7e2a2e87e6891132 "pdflatex"
+  "main.toc" 1742051929 721 164e2fe3a9044afb7e2a2e87e6891132 "pdflatex"
   (generated)
   "TikZ/CamVec.aux"
   "main.aux"

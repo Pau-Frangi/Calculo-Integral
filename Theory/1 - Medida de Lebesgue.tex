@@ -306,15 +306,15 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
 \observacion{
     Denotaremos la norma del supremo en $\rn$ como:
     \begin{equation}
-        ||x||_{\infty} = \sup_{i=1}^n \{|x_i|\} \text{ para } x = (x_1, x_2, ..., x_n) \in \rn
+         \lVert x \rVert _{\infty} = \sup_{i=1}^n \{|x_i|\} \text{ para } x = (x_1, x_2, ..., x_n) \in \rn
     \end{equation}
     Llamaremos bola abierta de centro $x \in \rn$ y radio $r > 0$ al conjunto:
     \begin{equation}
-        B_{\infty}(x, r) = \{y \in \rn : ||y - x||_{\infty} < r\} \equiv (x_1 - r, x_1 + r) \times \ldots \times (x_n - r, x_n + r)
+        B_{\infty}(x, r) = \{y \in \rn :  \lVert y - x \rVert _{\infty} < r\} \equiv (x_1 - r, x_1 + r) \times \ldots \times (x_n - r, x_n + r)
     \end{equation}
     Análogamente, llamaremos bola cerrada de centro $x \in \rn$ y radio $r > 0$ al conjunto:
     \begin{equation}
-        \overline{B}_{\infty}(x, r) = \{y \in \rn : ||y - x||_{\infty} \leq r\} \equiv [x_1 - r, x_1 + r] \times \ldots \times [x_n - r, x_n + r]
+        \overline{B}_{\infty}(x, r) = \{y \in \rn :  \lVert y - x \rVert _{\infty} \leq r\} \equiv [x_1 - r, x_1 + r] \times \ldots \times [x_n - r, x_n + r]
     \end{equation}
 }
 
@@ -328,10 +328,10 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
 \end{teorema}
 
 \begin{proof}
-    Consideremos la familia de n-cubos $\mathcal{B} = \{\overline{B}_\infty(q,r):q\in \mathbb{Q}^n, r \in \mathbb{Q}, r>0, \overline{B}_\infty(q,r) \subset G\}$. Veamos que $G = \bigcup_{B \in \mathcal{B}}B$. Dado que $B \in G \quad \forall B \in \mathcal{B}$ entonces es inmediato ver que $\bigcup_{B \in \mathcal{B}}B \subset G$. Por ser G abierto, $\exists \delta > 0$ tal que $B_{\infty}(x, \delta) \subset G$. Sea $r \in \Q$ con $0 < r < \frac{\delta}{2}$, por la densidad de $\Q^n$ en $\R^n$, sabemos que $\exists q \in \Q^n$ tal que $||x - q||_{\infty} < r$. Veamos entonces que $x \in B_{\infty}(q, r) \subset B_{\infty}(x, \delta) \subset G$.\\
-    Dado $y \inrn$ con $||y - q||_{\infty} < r$ se sigue:
+    Consideremos la familia de n-cubos $\mathcal{B} = \{\overline{B}_\infty(q,r):q\in \mathbb{Q}^n, r \in \mathbb{Q}, r>0, \overline{B}_\infty(q,r) \subset G\}$. Veamos que $G = \bigcup_{B \in \mathcal{B}}B$. Dado que $B \in G \quad \forall B \in \mathcal{B}$ entonces es inmediato ver que $\bigcup_{B \in \mathcal{B}}B \subset G$. Por ser G abierto, $\exists \delta > 0$ tal que $B_{\infty}(x, \delta) \subset G$. Sea $r \in \Q$ con $0 < r < \frac{\delta}{2}$, por la densidad de $\Q^n$ en $\R^n$, sabemos que $\exists q \in \Q^n$ tal que $ \lVert x - q \rVert _{\infty} < r$. Veamos entonces que $x \in B_{\infty}(q, r) \subset B_{\infty}(x, \delta) \subset G$.\\
+    Dado $y \inrn$ con $ \lVert y - q \rVert _{\infty} < r$ se sigue:
     \[
-        ||y - x||_{\infty} \leq ||y - q||_{\infty} + ||q - x||_{\infty} < r + r = 2r < \delta
+         \lVert y - x \rVert _{\infty} \leq  \lVert y - q \rVert _{\infty} +  \lVert q - x \rVert _{\infty} < r + r = 2r < \delta
     \]
     Por tanto $y \in B_{\infty}(x, \delta) \implies x \in \overline{B}_{\infty}(q,
         r) \subset G$. Luego $G = \bigcup_{B \in \mathcal{B}}B$.\\ Nótese que
@@ -1865,7 +1865,7 @@ Sea $\varphi: U \to \mathbb{R}$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es
               y no-negativa.
         \item Si $f$ es integrable $\implies (f \circ \varphi)|\det(D\varphi)|$ es integrable \end{enumerate}
     En ambos casos se cumple que:
-    $$\int_{V = \varphi(U)} f(x)dx = \int_U (f \circ \phi(u))|\det(D\varphi)|du$$
+    $$\int_{V = \varphi(U)} f(x)dx = \int_U (f \circ \varphi(u))|\det(D\varphi)|du$$
 \end{teorema}
 \begin{observación}
 Si $A \subset U$ es medible $\implies \varphi(A)$ es medible y
@@ -2040,8 +2040,6 @@ $$
     \end{enumerate}
 }
 
-\vspace{1em}
-
 \ejemplo{
     \underline{Curvas en coordenadas polares}
 
@@ -2113,6 +2111,8 @@ $$
         A = \frac{3\pi}{2} a^2.
     $$
 }
+
+
 \begin{definición}[Coordenadas cilíndricas]
 En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
 
@@ -2257,8 +2257,6 @@ $$ dA = a b r \, dr \, d\theta. $$
 
 \end{definición}
 
-\vspace{1em}
-
 \ejemplo{
     Consideremos la región elíptica definida en coordenadas cartesianas como:
     $$
@@ -2301,9 +2299,9 @@ $$ dA = a b r \, dr \, d\theta. $$
         \text{Área}(E) = 2\pi \cdot \frac{ab}{2} = \pi ab.
     $$
 
-    Así, hemos obtenido el área de la elipse usando coordenadas elípticas. }
+    Así, hemos obtenido el área de la elipse usando coordenadas elípticas. 
+}
 
-\vspace{1em}
 
 \ejemplo{
     Volumen comprendido entre los paraboloides:
@@ -2342,8 +2340,6 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
     = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}}|du_1 \cdots du_n$$
 \end{observación}
 
-\vspace{1em}
-
 \ejemplo{
     Ejercicio 4 (Hoja 4)\\
     Calcula el área del recinto delimitado por las rectas $\begin{cases} x + y = a \\ x + y = b \\ 2x - 3y = c \\ 2x - 3y = d \end{cases}$
@@ -2372,9 +2368,9 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
     Donde
     \[\frac{\partial{(u, v)}}{\partial{(x, y)}} = \begin{vmatrix} \frac{\partial{x}}{\partial{u}} & \frac{\partial{x}}{\partial{v}} \\ \frac{\partial{y}}{\partial{u}} & \frac{\partial{y}}{\partial{v}} \end{vmatrix} = \begin{vmatrix} 1 & 1 \\ 2 & -3 \end{vmatrix} = -5 \implies \frac{\partial{(x,y)}}{\partial(u,v)} = \frac{1}{-5}\]
     Entonces la integral anterior queda de la forma: $$\int_{E}\frac{1}{5}dudv =
-        \frac{1}{5}\cdot area(E) = \frac{1}{5}(b-a)(d-c)$$ }
+        \frac{1}{5}\cdot area(E) = \frac{1}{5}(b-a)(d-c)$$ 
+}
 
-\vspace{1em}
 
 \ejemplo{
     Ejercicio 6.b (Hoja 4)\\
@@ -2492,14 +2488,11 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
     \]
 }
 
-\vspace{1em}
-
 \ejemplo{
 Calcúlese el volumen comprendido entre $z = f(x,y)$, $z = g(xy)$ sobre D, con D la proyección de las funciones sobre el plano z. Entonces,
 $$ vol = \int_{D}(f(x,y) - g(x,y))dx dy = \int_ {D} 1 dx dy dz = \int_{D} \left[\int_{z = g(x,y)}^{z = f(x,y)}1 dz\right]dx dy$$
 }
 
-\vspace{1em}
 
 \ejemplo{
 \underline{Bóveda de Viviani}\\
@@ -2531,9 +2524,9 @@ $$\gamma'(t) = (\gamma_1'(t), \ldots, \gamma_n'(t)) \text{ si } \gamma = (\gamma
 \end{definición}
 
 \begin{definición}[Longitud de un camino]
-Sea $\gamma: [a,b] \to \R^n$ un camino en $\R^n$. Sea $\sigma = \{a = t_1 < t_2 < \ldots < t_n = b\}$ partición de $[a,b]$. Definimos $$\Sigma(\gamma, \sigma) = \sum_{i = 1}^{m} = ||\gamma(t_i) - \gamma(t_{i-1})||$$
+Sea $\gamma: [a,b] \to \R^n$ un camino en $\R^n$. Sea $\sigma = \{a = t_1 < t_2 < \ldots < t_n = b\}$ partición de $[a,b]$. Definimos $$\Sigma(\gamma, \sigma) = \sum_{i = 1}^{m} =  \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert $$
 Definimos entones la longitud de $\gamma$ como: $$L(\gamma) = \sup\{\Sigma(\gamma, \sigma)  \sigma \text{ es una partición de } [a, b]\} \in [0, + \infty]$$
-Decios que $\gamma$ es rectifiable si $L(\gamma) < + \infty$.
+Decimos que $\gamma$ es \textbf{rectificable} si $L(\gamma) < + \infty$.
 \end{definición}
 
 \begin{observación}
@@ -2542,7 +2535,7 @@ $$l(\gamma) \geq \sum_{n = 1}^{N}\frac{1}{n} \forall n \in \mathbb{N} \text{ lue
 \end{observación}
 
 \begin{definición}[Camino $C^1$ a trozos]
-Decimos que un camino $\gamma: [a, b] \to \mathbb{R}^n$ en $C-1$ a trozos si:
+Decimos que un camino $\gamma: [a, b] \to \mathbb{R}^n$ es $C^1$ a trozos si:
 $$\exists \mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n = b\}$$ tal que $\gamma|_{[t_{i-1}, t_i]}$ es $C^1$ para todo $i = 1, \ldots, n$.
 \end{definición}
 
@@ -2552,18 +2545,18 @@ En cada intervalo $[t_{i-1}, t_i]$ la función $\gamma$ es $C^1$, es decir, en l
 
 \begin{teorema}
     Sea $\gamma: [a, b] \to \mathbb{R}^n$ un camino $C^1$ a trozos. Entonces $\gamma$ es rectificable y su longitud es:
-    $$l(\gamma) = \int_{a}^{b}||\gamma'(t)||dt$$
+    $$l(\gamma) = \int_{a}^{b} \lVert \gamma'(t) \rVert dt$$
 \end{teorema}
 
 \begin{observación}
-$t \to ||\gamma'(t)||$ existe, y es continua, salvo quiza en un número finito de puntos, luego en particular es integrable en sentido Riemann y en sentio Lebesgue.
-\\Además, si $\mathcal{P} = \{t_0 = a < t_1 < \ldots < t_n 0 b\}$ es partición de $[a,b] \implies \int_{a}^{b} ||\gamma'(t)||dt = \sum_{i = 1}^{n} \int_{t_{i-1}}^{t_i}||\gamma'(t)||dt$
+$t \to  \lVert \gamma'(t) \rVert $ existe, y es continua, salvo quiza en un número finito de puntos, luego en particular es integrable en sentido Riemann y en sentio Lebesgue.
+\\Además, si $\mathcal{P} = \{t_0 = a < t_1 < \ldots < t_n = b\}$ es partición de $[a,b] \implies \int_{a}^{b}  \lVert \gamma'(t) \rVert dt = \sum_{i = 1}^{n} \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt$
 \end{observación}
 
 Para la demostración del teorema anterior, veamos un lema previo:
 \begin{lema}
     Sea $\gamma: [a, b] \to \mathbb{R}^n$ camino continuo $\implies$
-    $$||\int_{a}^{b} \gamma(t)dt|| \leq \int_{a}^{b}||\gamma(t)||dt$$
+    $$ \lVert \int_{a}^{b} \gamma(t)dt \rVert  \leq \int_{a}^{b} \lVert \gamma(t) \rVert dt$$
     donde:
     $$\int_{a}^{b} \gamma(t)dt = (\int_{a}^{b} \gamma_1(t)dt, \ldots, \int_{a}^{b} \gamma_n(t)dt) \in \mathbb{R}^n$$
 \end{lema}
@@ -2571,10 +2564,10 @@ Para la demostración del teorema anterior, veamos un lema previo:
     Hagamos una distinción de casos:
     \begin{itemize}
         \item Si $u = \int_a^b \gamma(t)dt = 0$
-        \item Si $u = \int_a^b \gamma(t)dt \neq 0$, sea $u \in \mathbb{R}^n$ con $||u|| = 1
-                  \implies$ $$||v|| = <u, v> = \sum_{i = 1}^{u} u_i \int_{a}^{b} \gamma_i(t)dt =
+        \item Si $u = \int_a^b \gamma(t)dt \neq 0$, sea $u \in \mathbb{R}^n$ con $ \lVert u \rVert  = 1
+                  \implies$ $$ \lVert v \rVert  = <u, v> = \sum_{i = 1}^{u} u_i \int_{a}^{b} \gamma_i(t)dt =
                   \int_{a}^{b} \sum_{i = 1}^{n} u_i \gamma_i(t)dt \leq
-                  \int_{a}^{b}||\gamma(t)||dt = ||\int_{a}^{b} \gamma(t)dt||$$
+                  \int_{a}^{b} \lVert \gamma(t) \rVert dt =  \lVert \int_{a}^{b} \gamma(t)dt \rVert $$
     \end{itemize}
 \end{proof}
 
@@ -2582,32 +2575,32 @@ Para la demostración del teorema anterior, veamos un lema previo:
     Veamos ahora la demostración del teorema: \\
     Podemos suponer que $\gamma: [a, b] \to \mathbb{R}^n$ es $C^1$ en casi todo $[a, b]$.
     \begin{enumerate}
-        \item Veamos que $l(\gamma) \leq \int_{a}^{b}||\gamma'(t)||dt$: \\ Sea $\mathcal{P} =
+        \item Veamos que $l(\gamma) \leq \int_{a}^{b} \lVert \gamma'(t) \rVert dt$: \\ Sea $\mathcal{P} =
                   \{a = t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$. Entonces:
-              $$\Sigma(\gamma, \mathcal{P}) = \sum_{i = 1}^{n}||\gamma(t_i) -
-                  \gamma(t_{i-1})|| = \sum_{i = 1}^{n}||\int_{t_{i-1}}^{t_i}\gamma'(t)dt|| \leq
-                  \sum_{ i = 1}^{n}\int_{y_{i-1}}^{t_i}||\gamma'(t)||dt = \int_{a}^{b}
-                  ||\gamma'(t)||dt \forall \text{ partición } \mathcal{P}$$ Luego, tomando el
+              $$\Sigma(\gamma, \mathcal{P}) = \sum_{i = 1}^{n} \lVert \gamma(t_i) -
+                  \gamma(t_{i-1}) \rVert  = \sum_{i = 1}^{n} \lVert \int_{t_{i-1}}^{t_i}\gamma'(t)dt \rVert  \leq
+                  \sum_{ i = 1}^{n}\int_{y_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt = \int_{a}^{b}
+                   \lVert \gamma'(t) \rVert dt \forall \text{ partición } \mathcal{P}$$ Luego, tomando el
               supremo de todas las particiones, obtenemos que $l(\gamma) \leq
-                  \int_{a}^{b}||\gamma'(t)||dt$
-        \item Como $t \to ||\gamma'(t)||$ es continua en casi todo $[a, b]$-compacto, luego
+                  \int_{a}^{b} \lVert \gamma'(t) \rVert dt$
+        \item Como $t \to  \lVert \gamma'(t) \rVert $ es continua en casi todo $[a, b]$-compacto, luego
               es uniformemente continua en $[a, b]$.\\ Dado $\epsilon > 0, \exists \delta >
-                  0$ tal que si $t,s \in [a, b]$ y $|t-s| < \delta \implies ||\gamma'(t) -
-                  \gamma'(s)|| < \epsilon$\\ Sea $\mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n =
+                  0$ tal que si $t,s \in [a, b]$ y $|t-s| < \delta \implies  \lVert \gamma'(t) -
+                  \gamma'(s) \rVert  < \epsilon$\\ Sea $\mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n =
                   b\}$ partición de $[a, b]$ con $t_i - t_{i-1} < \delta \forall i = 1, \ldots,
-                  n$\ $$\int_{t_{i-1}}^{t_i}||\gamma'(t)||dt \leq
-                  \int_{t_{i-1}}^{t_i}||\gamma'(t_i)|| + \epsilon dt = ||\gamma(t_i)||\cdot (t_i
-                  - t_{i -1}) + \epsilon(t_1 - t_{i-1}) = ||\int_{t_{i-1}}^{t_i}\gamma'(t)dt|| +
-                  \epsilon(t_i - t_{i-1}) = ||(\gamma_1'(t_i), \ldots, \gamma_n'(t_i))|| \cdot
-                  (t_i - t_{i-1}) + \epsilon(t_i - t_{i-1}) = \leq ||\int_{t_{i
-                              -1}}^{t_i}(\gamma'(t_i) - \gamma'(t)dt)dt +\int_{t_{i-1}}^{t_i}||\gamma'(t)||dt
-                  + \epsilon(t_i - t_{i-1}) = \leq \int_{t_{i-1}}^{t_i}||\gamma'(t_i) -
-                  \gamma'(t)||dt + \int_{t_{i-1}}^{t_i}||\gamma'(t)||dt + \epsilon(t_i - t_{i-1})
-                  \leq 2\epsilon(t_i - t_{i-1}) + ||\int_{t_{i-1}}^{t_i}||\gamma'(t)||dt =
-                  2\epsilon(t_i - t_{i-1})\cdot ||\gamma(t_i) - \gamma(t_{i-1})||$$ Luego,
-              $$\int_{a}^{b}||\gamma'(t)||dt = \sum_{i = 1}^n
-                  \int_{t_{i-1}}^{t_i}||\gamma'(t)||dt \leq \sum_{i = 1}^{n}2\epsilon(t_i -
-                  t_{i-1}) + ||\gamma(t_i) - \gamma(t_{i-1})|| = 2\epsilon(b-a) + \Sigma(\gamma,
+                  n$\ $$\int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt \leq
+                  \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) \rVert  + \epsilon dt =  \lVert \gamma(t_i) \rVert \cdot (t_i
+                  - t_{i -1}) + \epsilon(t_1 - t_{i-1}) =  \lVert \int_{t_{i-1}}^{t_i}\gamma'(t)dt \rVert  +
+                  \epsilon(t_i - t_{i-1}) =  \lVert (\gamma_1'(t_i), \ldots, \gamma_n'(t_i)) \rVert  \cdot
+                  (t_i - t_{i-1}) + \epsilon(t_i - t_{i-1}) = \leq \int_{t_{i
+                              -1}}^{t_i}(\gamma'(t_i) - \gamma'(t)dt)dt +\int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt
+                  + \epsilon(t_i - t_{i-1}) = \leq \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) -
+                  \gamma'(t) \rVert dt + \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt + \epsilon(t_i - t_{i-1})
+                  \leq 2\epsilon(t_i - t_{i-1}) + \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt =
+                  2\epsilon(t_i - t_{i-1})\cdot  \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert $$ Luego,
+              $$\int_{a}^{b} \lVert \gamma'(t) \rVert dt = \sum_{i = 1}^n
+                  \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt \leq \sum_{i = 1}^{n}2\epsilon(t_i -
+                  t_{i-1}) +  \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert  = 2\epsilon(b-a) + \Sigma(\gamma,
                   \mathcal{P}) \leq 2\epsilon(b-a) + l(\gamma)$$ Todo esto está sacado del libro
               de Facenda, Fremiche.
     \end{enumerate}
@@ -2664,10 +2657,10 @@ Para la demostración del teorema anterior, veamos un lema previo:
 Sea $\gamma : [a,b] \to \mathbb{R}^n$ camino $C^1$ a trozos y sea $f:Im\gamma \to \mathbb{R}$ continua \\
 Diremos que $f$ es un campo escalar sobre $Im\gamma$ \\
 Definimos:
-$$ \int_{\gamma} f = \int_{a}^{b} f(\gamma(t)) \cdot ||\gamma'(t)||dt$$ \\
+$$ \int_{\gamma} f = \int_{a}^{b} f(\gamma(t)) \cdot  \lVert \gamma'(t) \rVert dt$$ \\
 
 Notacion: Podemos denotar $$\int_{\gamma} f = \int_{\gamma} f ds$$ \\ Ademas
-$$\l(\gamma) = \int_{a}^{b} ||\gamma'(t)||dt = \int_{a}^{b} ds$$
+$$\l(\gamma) = \int_{a}^{b}  \lVert \gamma'(t) \rVert dt = \int_{a}^{b} ds$$
 \end{definición}
 
 \begin{definición}
@@ -2721,14 +2714,14 @@ Si $\gamma$ y $\sigma$ son equivalentes $\implies Im(\gamma)=Im(\sigma)$
     Tenemos $h:[c,d] \to [a,b]$ difeomorfismo $C^1$ con $\gamma \circ h = \sigma$ con ademas $\sigma(s) = \gamma(h(s)) \implies \sigma'(s) = \gamma'(h(s))h'(s)=h'(s)\gamma'(h(s))$ \\
     \begin{enumerate}
         \item Caso 1: $h$ es creciente $(h'>0)$ \\ $$\int_{\gamma} f = \int_{t=a}^{t=b}
-                  f(\gamma(t))||\gamma'(t)||dt = \int_{s=c}^{s=d} f(\gamma(h(s)))
-                  ||\gamma'(h(s))||h'(s)ds$$ \\ Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)ds$
-              obtenemos: $$\int_{s=c}^{s=d} f(\sigma(h(s)))||\sigma'(s)||ds=\int_{\sigma}f$$
+                  f(\gamma(t)) \lVert \gamma'(t) \rVert dt = \int_{s=c}^{s=d} f(\gamma(h(s)))
+                   \lVert \gamma'(h(s)) \rVert h'(s)ds$$ \\ Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)ds$
+              obtenemos: $$\int_{s=c}^{s=d} f(\sigma(h(s))) \lVert \sigma'(s) \rVert ds=\int_{\sigma}f$$
         \item Caso 2: $h$ es decreciente $(h'<0)$\\ Tenemos $$ \int_{\gamma} f=
                   \int_{t=a}^{t=b} f(\gamma(t))
-                  ||(\gamma'(t))||dt=\int_{s=d}^{s=c}f(\gamma(h(s)))||\gamma'(h(s))||h'(s)ds$$ \\
+                   \lVert (\gamma'(t)) \rVert dt=\int_{s=d}^{s=c}f(\gamma(h(s))) \lVert \gamma'(h(s)) \rVert h'(s)ds$$ \\
               Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)ds$ obtenemos: $$\int_{s=c}^{s=d}
-                  f(\gamma(h(s)))||\gamma'(h(s))||(-h'(s))ds = \int_{\sigma}f$$
+                  f(\gamma(h(s))) \lVert \gamma'(h(s)) \rVert (-h'(s))ds = \int_{\sigma}f$$
     \end{enumerate}
 \end{proof}
 
@@ -2737,7 +2730,7 @@ Si $\gamma$ y $\sigma$ son equivalentes $\implies Im(\gamma)=Im(\sigma)$
 \end{corolario}
 
 \begin{proof}
-    $$l(\gamma) =\int_{\gamma}1=\int_{a}^{b}||\gamma'(t)||dt=\int_{\sigma}1=l(\sigma)$$
+    $$l(\gamma) =\int_{\gamma}1=\int_{a}^{b} \lVert \gamma'(t) \rVert dt=\int_{\sigma}1=l(\sigma)$$
 \end{proof}
 
 \begin{definición}
