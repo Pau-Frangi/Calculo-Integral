@@ -1,1 +1,454 @@
 \section{Integrales de línea: campos escalares y vectoriales}
+
+\begin{definición}[Camino]
+    Un camino (o curva paramétrica) en $\mathbb{R}^n$ es una función continua $\gamma: I \to \R^n$ donde $I \subset \R$ es un intervalo. \\
+    Si $\gamma$ es diferenciable en un punto $t \in I$, entonces el vector velocidad de $\gamma$ en el punto (instante) $t$ es el vector tangente a la curva en ese punto, es decir, el vector:
+$$\gamma'(t) = (\gamma_1'(t), \ldots, \gamma_n'(t)) \text{ si } \gamma = (\gamma_1, \ldots, \gamma_n)$$
+    \end{definición}
+
+    \begin{definición}[Longitud de un camino]
+    Sea $\gamma: [a,b] \to \R^n$ un camino en $\R^n$. Sea $\sigma = \{a = t_1 < t_2 < \ldots < t_n = b\}$ partición de $[a,b]$. Definimos $$\Sigma(\gamma, \sigma) = \sum_{i = 1}^{n} \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert $$
+    Definimos entones la longitud de $\gamma$ como: $$L(\gamma) = \sup\{\Sigma(\gamma, \sigma) \ | \  \sigma \text{ es una partición de } [a, b]\} \in [0, + \infty]$$
+    Decimos que $\gamma$ es \textbf{rectificable} si $L(\gamma) < + \infty$.
+    \end{definición}
+
+    \begin{observación}
+    Existen caminos continuos que no son rectificables. Por ejemplo, la curva de Peano, el copo de nieve de Koch o la dada por:
+$$l(\gamma) \geq \sum_{n = 1}^{N}\frac{1}{n} \forall n \in \mathbb{N} \text{ luego } l(\gamma) \geq \sum_{n = 1}^{\infty}\frac{1}{n} = + \infty$$
+    \end{observación}
+
+    \begin{definición}[Camino $C^1$ a trozos]
+    Decimos que un camino $\gamma: [a, b] \to \mathbb{R}^n$ es $C^1$ a trozos si:
+$$\exists \mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n = b\}$$ tal que $\gamma|_{[t_{i-1}, t_i]}$ es $C^1$ para todo $i = 1, \ldots, n$.
+    \end{definición}
+
+    \begin{observación}
+    En cada intervalo $[t_{i-1}, t_i]$ la función $\gamma$ es $C^1$, es decir, en los extremos admite derivadas laterales, aunque puede ocurrir que sean distintas.
+    \end{observación}
+
+    \begin{teorema}
+        Sea $\gamma: [a, b] \to \mathbb{R}^n$ un camino $C^1$ a trozos. Entonces $\gamma$ es rectificable y su longitud es:
+        $$l(\gamma) = \int_{a}^{b} \lVert \gamma'(t) \rVert dt$$
+    \end{teorema}
+
+    \begin{observación}
+    Tenemos que $t \to  \lVert \gamma'(t) \rVert $ existe, y es continua, salvo quiza en un número finito de puntos, luego en particular es integrable en sentido Riemann y en sentio Lebesgue.
+    \\Además, si $\mathcal{P} = \{t_0 = a < t_1 < \ldots < t_n = b\}$ es partición de $[a,b]$ entonces:
+    \[
+        \int_{a}^{b}  \lVert \gamma'(t) \rVert dt = \sum_{i = 1}^{n} \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt
+    \]
+    \end{observación}
+
+    Para la demostración del teorema anterior, veamos un lema previo:
+    \begin{lema}
+        Sea $\gamma: [a, b] \to \mathbb{R}^n$ camino continuo entonces se cumple que:
+        $$ \lVert \int_{a}^{b} \gamma(t)dt \rVert  \leq \int_{a}^{b} \lVert \gamma(t) \rVert dt$$
+        donde:
+        $$\int_{a}^{b} \gamma(t)dt = \left(\int_{a}^{b} \gamma_1(t)dt, \ldots, \int_{a}^{b} \gamma_n(t)dt \right)\in \mathbb{R}^n$$
+    \end{lema}
+    \begin{proof}
+        Hagamos una distinción de casos:
+        \begin{itemize}
+            \item Si $u = \int_a^b \gamma(t)dt = 0$
+            \item Si $u = \int_a^b \gamma(t)dt \neq 0$, sea $u \in \mathbb{R}^n$ con $ \lVert u
+                      \rVert = 1 \implies$ $$ \lVert v \rVert = \langle u, v \rangle = \sum_{i =
+                          1}^{u} u_i \int_{a}^{b} \gamma_i(t)dt = \int_{a}^{b} \sum_{i = 1}^{n} u_i
+                      \gamma_i(t)dt \leq \int_{a}^{b} \lVert \gamma(t) \rVert dt = \lVert
+                      \int_{a}^{b} \gamma(t)dt \rVert $$
+        \end{itemize}
+    \end{proof}
+
+    \begin{proof}
+        Veamos ahora la demostración del teorema: \\
+        Podemos suponer que $\gamma: [a, b] \to \mathbb{R}^n$ es $C^1$ en casi todo $[a, b]$.
+        \begin{enumerate}
+            \item Veamos que $l(\gamma) \leq \int_{a}^{b} \lVert \gamma'(t) \rVert dt$: \\ Sea
+                  $\mathcal{P} = \{a = t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$.
+                  Entonces: $$\Sigma(\gamma, \mathcal{P}) = \sum_{i = 1}^{n} \lVert \gamma(t_i) -
+                      \gamma(t_{i-1}) \rVert = \sum_{i = 1}^{n} \lVert
+                      \int_{t_{i-1}}^{t_i}\gamma'(t)dt \rVert \leq \sum_{ i =
+                          1}^{n}\int_{y_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt = \int_{a}^{b} \lVert
+                      \gamma'(t) \rVert dt \quad \forall \text{ partición } \mathcal{P}$$ Luego,
+                  tomando el supremo de todas las particiones, obtenemos que $l(\gamma) \leq
+                      \int_{a}^{b} \lVert \gamma'(t) \rVert dt$
+            \item Como $t \to \lVert \gamma'(t) \rVert $ es continua en casi todo $[a,
+                              b]$-compacto, luego es uniformemente continua en $[a, b]$.\\ Dado $\epsilon >
+                      0, \exists \delta > 0$ tal que si $t,s \in [a, b]$ y $|t-s| < \delta \implies
+                      \lVert \gamma'(t) - \gamma'(s) \rVert < \epsilon$\\ Sea $\mathcal{P} = \{a =
+                      t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$ con $t_i - t_{i-1} <
+                      \delta \quad \forall i = 1, \ldots, n$\ $$\int_{t_{i-1}}^{t_i} \lVert \gamma'(t)
+                      \rVert dt \leq \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) \rVert + \epsilon dt =
+                      \lVert \gamma(t_i) \rVert \cdot (t_i - t_{i -1}) + \epsilon(t_1 - t_{i-1})$$
+                  $$= \lVert \int_{t_{i-1}}^{t_i}\gamma'(t)dt \rVert + \epsilon(t_i - t_{i-1}) =
+                      \lVert (\gamma_1'(t_i), \ldots, \gamma_n'(t_i)) \rVert \cdot (t_i - t_{i-1}) +
+                      \epsilon(t_i - t_{i-1})$$
+                      $$ \leq \int_{t_{i -1}}^{t_i}(\gamma'(t_i) -
+                      \gamma'(t)dt)dt +\int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt +
+                      \epsilon(t_i - t_{i-1})$$ 
+                    $$ \leq \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) -
+                    \gamma'(t) \rVert dt + \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt +
+                    \epsilon(t_i - t_{i-1}) \leq 2\epsilon(t_i - t_{i-1}) + \int_{t_{i-1}}^{t_i}
+                    \lVert \gamma'(t) \rVert dt$$
+                    $$ = 2\epsilon(t_i - t_{i-1})\cdot \lVert \gamma(t_i)
+                    - \gamma(t_{i-1}) \rVert $$
+                      Luego, $$\int_{a}^{b} \lVert \gamma'(t) \rVert dt =
+                      \sum_{i = 1}^n \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt \leq \sum_{i =
+                          1}^{n}2\epsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert =
+                      2\epsilon(b-a) + \Sigma(\gamma, \mathcal{P}) \leq 2\epsilon(b-a) + l(\gamma)$$
+                  Todo esto está sacado del libro de Facenda, Fremiche.
+        \end{enumerate}
+    \end{proof}
+
+    \ejemplo{
+        Sea la curva parametrizada
+        \[
+            \gamma: [0, 2\pi] \to \mathbb{R}^2, \quad \gamma(t) = (\cos t, \sin t).
+        \]
+
+        Además, se cumple que
+        \[
+            \gamma(0) = (1,0) = p.
+        \]
+        Derivando, obtenemos
+        \[
+            \gamma'(t) = (-\sin t, \cos t),
+        \]
+        y en particular,
+        \[
+            \gamma'(0) = (0,1) = \vec{v}.
+        \]
+
+        \subsection*{Cambio de parámetro}
+
+        Consideremos el cambio de variable $t = 2\pi s$ con $0 \leq s \leq 1$.
+        Definiendo la nueva curva
+        \[
+            \sigma(s) = (\cos(2\pi s), \sin(2\pi s)), \quad 0 \leq s \leq 1,
+        \]
+        obtenemos su derivada:
+        \[
+            \sigma'(s) = (2\pi (-\sin(2\pi s)), 2\pi \cos(2\pi s)).
+        \]
+        En particular, en $s = 0$,
+        \[
+            \sigma'(0) = 2\pi (0,1) = (0,2\pi).
+        \]
+
+        \subsection*{Otro cambio de parámetro}
+
+        Si realizamos el cambio $t = -2\pi s$, obtenemos la curva
+        \[
+            \alpha(s) = (\cos(2\pi s), -\sin(2\pi s)).
+        \]
+        Calculamos su derivada:
+        \[
+            \alpha'(s) = (2\pi (-\sin(2\pi s)), -2\pi \cos(2\pi s)).
+        \]
+    }
+
+    \begin{definición}
+    Sea $\gamma : [a,b] \to \mathbb{R}^n$ camino $C^1$ a trozos y sea $f:Im\gamma \to \mathbb{R}$ continua \\
+    Diremos que $f$ es un campo escalar sobre $Im\gamma$ \\
+    Definimos:
+$$ \int_{\gamma} f = \int_{a}^{b} f(\gamma(t)) \cdot  \lVert \gamma'(t) \rVert dt$$ \\
+
+    Notacion: Podemos denotar $$\int_{\gamma} f = \int_{\gamma} f ds$$ \\ Ademas
+$$\l(\gamma) = \int_{a}^{b} \lVert \gamma'(t) \rVert dt = \int_{a}^{b} ds$$
+    \end{definición}
+
+    \begin{definición}
+    Dos caminos $\gamma: [a,b] \to \mathbb{R}^n$ y $\sigma:[c,d] \to \mathbb{R^n}$ son equivalentes si: \\
+$$ \exists h:[c,d] \to [a,b] $$ homeomorfismo $C^1$ que cumple ademas que \\
+$$h' \neq 0$$ en $[c,d]$ tal que ademas $$[a,b] \to_{\gamma} \mathbb{R}^n \leftarrow_\sigma [c,d] \leftrightarrow_{h} [a,b]$$ \\
+    Tenemos ademas que: $\sigma = \gamma \circ h$ con $\sigma(s) = \gamma(h(s))$ $\forall s \in [c,d]$ \\
+    Ahora, por el teorema de Bolzano tenemos dos posibilidades:
+    \begin{enumerate}
+        \item Si $h'>0$ es decir, $h$ es creciente, decimos que h conserva la orientacion (o
+              que $\gamma$ y $\sigma$ tienen la misma orientacion)
+        \item Si $h'<0$ es decir, $h$ es decreciente, decimos que $h$ invierte la orientacion
+              ($\gamma$ y $\sigma$ tienen orientacion opuesta)
+    \end{enumerate}
+    \end{definición}
+
+    \begin{observación}
+    \vspace{-2.5em}
+    \begin{enumerate}
+        \item Si $h:[c,d] \to [a,b]$ es biyectiva y $C^1$ con $h' \neq 0$ entonces aplicando
+              el Teorema de la funcion inversa obtenemos que $h$ admite inversa local al
+              rededor de cada punto. \\ Ademas se cumple que $(h^{-1})'(h(s)) =
+                  \frac{1}{h'(s)}$ $\forall s \in [c,d]$ \\ Como ademas $h$ es biyectiva la
+              inversa local coincide con la inversa global, luego $h:[c,d] \to [a,b]$ es un
+              difeomorfismo $C^1$, es decir, $\exists h^{-1}:[a,b] \to [c,d]$ que es $C^1$
+        \item Usando esto obtenemos que la equivalencia de caminos es una relacion de
+              equivalencia.
+    \end{enumerate}
+    \end{observación}
+
+    \begin{observación}
+    Si $K\subset \mathbb{R}^n$ compacto y $h:K \to H\subset \mathbb{R^n}$ es continua y biyectiva, entonces $h:K \to H$ es un homeomorfismo.
+    \end{observación}
+
+    \begin{proof}
+        Tenemos que $h:K \to H$ es biyectiva, luego $\exists h^{-1}:H \to K$, veamos que es biyectiva. \\
+        Dado $C \subset K$ cerrado $\implies$ $C$ es compacto $\implies$ $h(C)$ es compacto $\implies$ $(h^{-1})^{-1}(C)=h(C)$ que es compacto en $H$, luego es cerrado en $H$ \\
+    \end{proof}
+
+    \begin{teorema}
+        Sean $\gamma: [a,b] \to \mathbb{R}^n$ y $\gamma:[c,d] \to \mathbb{R}^n$ caminos $C^1$ a trozos equivalentes. \\
+        Sea ademas $f:Im(\gamma)=Im(\sigma) \to \mathbb{R}$ continua, entonces: \\
+        $$\int_{\gamma}f=\int_{\sigma}f$$
+    \end{teorema}
+
+    \begin{observación}
+    Si $\gamma$ y $\sigma$ son equivalentes $\implies Im(\gamma)=Im(\sigma)$
+    \end{observación}
+
+    \begin{proof}
+        Tenemos $h:[c,d] \to [a,b]$ difeomorfismo $C^1$ con $\gamma \circ h = \sigma$ con ademas $\sigma(s) = \gamma(h(s)) \implies \sigma'(s) = \gamma'(h(s))h'(s)=h'(s)\gamma'(h(s))$ \\
+        \begin{enumerate}
+            \item Caso 1: $h$ es creciente $(h'>0)$ \\ $$\int_{\gamma} f = \int_{t=a}^{t=b}
+                      f(\gamma(t)) \lVert \gamma'(t) \rVert dt = \int_{s=c}^{s=d} f(\gamma(h(s)))
+                      \lVert \gamma'(h(s)) \rVert h'(s)ds$$ \\ Haciendo ahora el cambio $t=h(s)$ y
+                  $dt=h'(s)ds$ obtenemos: $$\int_{s=c}^{s=d} f(\sigma(h(s))) \lVert \sigma'(s)
+                      \rVert ds=\int_{\sigma}f$$
+            \item Caso 2: $h$ es decreciente $(h'<0)$\\ Tenemos $$ \int_{\gamma} f=
+                      \int_{t=a}^{t=b} f(\gamma(t)) \lVert (\gamma'(t)) \rVert
+                      dt=\int_{s=d}^{s=c}f(\gamma(h(s))) \lVert \gamma'(h(s)) \rVert h'(s)ds$$ \\
+                  Haciendo ahora el cambio $t=h(s)$ y $dt=h'(s)ds$ obtenemos: $$\int_{s=c}^{s=d}
+                      f(\gamma(h(s))) \lVert \gamma'(h(s)) \rVert (-h'(s))ds = \int_{\sigma}f$$
+        \end{enumerate}
+    \end{proof}
+
+    \begin{corolario}
+        Si $\gamma$ y $\sigma$ son equivalentes y $C^1$ a trozos $\implies l(\gamma)=l(\sigma)$
+    \end{corolario}
+
+    \begin{proof}
+        $$l(\gamma) =\int_{\gamma}1=\int_{a}^{b} \lVert \gamma'(t) \rVert dt=\int_{\sigma}1=l(\sigma)$$
+    \end{proof}
+
+    \begin{definición}
+    Sea $\gamma:[a,b] \to \mathbb{R^n}$ camino $C^1$ a trozos. Definimos el camino inverso como: \\
+$$(-\gamma):[a,b] \to \mathbb{R^n}$$ como $$ (-\gamma)(s)=\gamma(a+b-s)$$
+    \end{definición}
+
+    \begin{observación}
+    De hecho, $(-\gamma)$ es equivalente a $\gamma$ con $(-\gamma)(s)=\gamma(h(s))$ luego $Im(-\gamma)=Im(\gamma)$
+    \end{observación}
+
+    \begin{definición}[Concatenacion de caminos]
+    Sean $\gamma:[a,b] \to \mathbb{R^n}$ y $\sigma:[c,d] \to \mathbb{R^n}$ caminos $C^1$ a trozos con $\gamma(b)=\sigma(c)$\\
+    Definimos su concatenacion como:\\
+$$\gamma + \sigma:[a,b+(d-c)] \to \mathbb{R^n}$$
+$$(\gamma + \sigma) = \begin{cases}
+    \gamma(t), \text{ si } a \leq t \leq b \\
+    \sigma(t - b + c) \text{ si } b\leq t \leq b+(d-c)
+\end{cases}$$
+\end{definición}
+
+\begin{observación}
+En este caso, si
+\[
+    f : \operatorname{Im}(\gamma_1) \cup \dots \cup \operatorname{Im}(\gamma_m) \longrightarrow \mathbb{R}
+\]
+es continua en las curvas, entonces se cumple:
+\[
+    \int_{\gamma_1 + \dots + \gamma_m} f = \sum_{i=1}^{m} \int_{\gamma_i} f
+\]
+\end{observación}
+
+\ejemplo{
+
+Dado el camino \(\gamma\) definido por:
+\[
+    \gamma : [0, 2\pi] \to \mathbb{R}^3 \qquad \gamma(t) = (\underbrace{\cos(t)}_{x(t)}, \, \underbrace{\sin(t)}_{y(t)}, \, \underbrace{t}_{z(t)})
+\]
+
+Y la funcion \(f : \mathbb{R}^3 \to \mathbb{R}\) dada por:
+
+\[
+    f(x,y,z) = x^2 + y^2 + z^2
+\]
+
+Entonces, calcular la integral de \(f\) a lo largo de \(\gamma\).
+
+\[
+    x^2(t) + y^2(t) = 1 \qquad  \gamma(0) = (1, 0, 0), \quad \gamma(2\pi) = (1, 0, 2\pi)
+\]
+
+\[
+    \gamma'(t) = (-\sin(t), \, \cos(t), \, 1), \quad \|\gamma'(t)\| = \sqrt{\sin^2(t) + \cos^2(t) + 1} = \sqrt{2}
+\]
+
+\[
+    \int_{\gamma} f = \int_0^{2\pi} \left( \cos^2(t) + \sin^2(t) + t^2 \right) \sqrt{2} \, dt = \int_0^{2\pi} (1 + t^2) \sqrt{2} \, dt = \left[ t + \frac{t^3}{3} \right]_0^{2\pi} \sqrt{2} = \left( 2\pi + \frac{8\pi^3}{3} \right) \sqrt{2}
+\]
+
+}
+
+\subsection{Campos Vectoriales}
+
+\begin{definición} [Campo Vectorial]
+Sea $A \subset \mathbb{R}^n$, un campo vectorial continuo en $A$ es una función continua $\vec{F} : A \to \mathbb{R}^n$ que asigna a cada punto $x \in A$ un vector $\vec{F}(x) \in \mathbb{R}^n$.
+\end{definición}
+\begin{definición} [Integral de un Campo Vectorial a lo largo de un Camino]
+Sea $\gamma : [a, b] \to \mathbb{R}^n$ un camino $\mathcal{C}^1$ a trozos y $\vec{F} : \operatorname{Im}(\gamma) \to \mathbb{R}^n$ un campo vectorial continuo. Se define la integral de $\vec{F}$ a lo largo de $\gamma$ como:
+\[
+    \int_\gamma \vec{F} = \int_a^b \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt
+\]
+\end{definición}
+
+\begin{observación}
+El producto escalar $\langle \vec{F}(\gamma(t)), \gamma'(t) \rangle$ representa la proyección ortogonal del vector $\vec{F}(\gamma(t))$ en la dirección de la tangente a $\gamma \text{ en } \gamma(t)$.
+\include{TikZ/CamVec.tex}
+\end{observación}
+
+\textbf{Notación:}\\
+Si
+\[
+    \gamma(t) = (x_1(t), \ldots, x_n(t)) \quad \text{y} \quad \gamma'(t) = (x_1'(t), \ldots, x_n'(t))
+\]
+entonces:
+\[
+    \int_\gamma \vec{F} = \int_a^b \langle \vec{F}(x_1(t), \ldots, x_n(t)), (x_1'(t), \ldots, x_n'(t)) \rangle dt
+\]
+\[
+    = \int_a^b \left[ F_1(\gamma(t)) x_1'(t) + \cdots + F_n(\gamma(t)) x_n'(t) \right] dt = \int_\gamma F_1 \, dx_1 + \cdots + F_n \, dx_n
+\]
+donde $dx_i = x_i'(t) dt$, para $i = 1, \ldots, n$ y $\vec{F} = (F_1, \ldots,
+    F_n)$.
+
+\begin{teorema}
+    Sean $\gamma : [a, b] \to \mathbb{R}^n$ y $\sigma : [c, d] \to \mathbb{R}^n$ caminos $\mathcal{C}^1$ a trozos y equivalentes, y sea $\vec{F} : \operatorname{Im}(\gamma) = \operatorname{Im}(\sigma) \to \mathbb{R}^n$ un campo vectorial continuo. Entonces:
+    \vspace{-0.5em}
+    \begin{enumerate}
+        \item $\displaystyle \int_\gamma \vec{F} = \int_\sigma \vec{F}$ \quad si $\gamma$ y $\sigma$ tienen la misma orientación.
+        \item $\displaystyle \int_\gamma \vec{F} = - \int_\sigma \vec{F}$ \quad si $\gamma$ y $\sigma$ tienen orientación opuesta.
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof}
+    Sabemos que existe $h: [c,d] \to [a,b]$, biyección de clase $C^1$ con $h' \neq 0$, tal que:
+
+    \[
+        \begin{tikzcd}
+            {[a,b]} \arrow[r, "\gamma"] & \operatorname{Im}(\sigma) \\
+            {[c,d]} \arrow[u, "h"] \arrow[ur, "\sigma"']
+        \end{tikzcd}
+    \]
+    Luego
+    \[ \sigma'(s) = \gamma'(h(s)) h'(s), \quad \forall s \in [c,d]. \]
+
+    Distinguimos dos casos según la orientación de los caminos:
+
+    \begin{itemize}
+        \item \textbf{Caso 1: Misma orientación}\\
+              Si $r$ y $\sigma$ tienen la misma orientación, entonces $h' > 0$ (es decir, $h$ es creciente). Se tiene que:
+              \[
+                  \int_{\gamma} \vec{F} = \int_{t=a}^{t=b} \langle \vec{F} (\gamma (t)), \gamma'(t) \rangle dt = \int_{s=c}^{s=d} \langle \vec{F} (\gamma(h(s))), \gamma'(h(s)) \rangle h'(s) ds
+              \]
+              \[
+                  = \int_{s=c}^{s=d} \langle \vec{F} (\sigma(s)), \sigma'(s) \rangle ds = \int_{\sigma} \vec{F}
+              \]
+              Donde el cambio de variable viende dado por:
+              \[
+                  \begin{cases}
+                      t = h(s) \\
+                      dt = h'(s) ds
+                  \end{cases}
+              \]
+        \item \textbf{Caso 2: Orientación opuesta}\\
+              Si $\gamma$ y $\sigma$ tienen orientación opuesta, entonces $h' < 0$ (es decir, $h$ es decreciente). En este caso:
+              \[
+                  \int_{\gamma} \vec{F} = \int_{t=a}^{t=b} \langle \vec{F} (\gamma(t)), \gamma'(t) \rangle dt = \int_{s=d}^{s=c} \langle \vec{F} (\gamma(h(s))), \gamma'(h(s)) \rangle h'(s) ds
+              \]
+              \[
+                  = -\int_{s=c}^{s=d} \langle \vec{F} (\sigma(s)), \sigma'(s) \rangle ds = -\int_{\sigma} \vec{F}
+              \]
+    \end{itemize}
+\end{proof}
+
+\begin{observación}
+Dado una camino continuo $\gamma : [a, b] \to \mathbb{R}^n$ cualesquiera y un campo vectorial continuo $\vec{F} : \operatorname{Im}(\gamma) \to \mathbb{R}^n$, se cumple que:
+\vspace{-0.5em}
+\begin{enumerate}
+    \item $\int_{-\gamma} \vec{F} = -\int_{\gamma} \vec{F}$.
+    \item $\int_{\gamma_1+\ldots+\gamma_2} \vec{F} = \sum_{i=1}^{n} \int_{\gamma_i} \vec{F}$.
+\end{enumerate}
+\end{observación}
+
+\ejemplo{
+Un camino puede ser diferenciable (ó $C^1$) y, sin embargo, su imagen puede presentar "picos". Por ejemplo, el camino $\gamma : [-1, 1] \to \mathbb{R}^2$ dado por $\gamma(t) = (t^3, |t^3|)$ es $C^1$ en el intervalo $[-1, 1]$, pero su imagen presenta un pico en el origen. En efecto,
+
+\[
+    \gamma'(t) = (\gamma_1'(t), \gamma_2'(t)) \quad \text{con} \quad \gamma_1'(t) = 3t^2 \quad \text{y} \quad \gamma_2'(t) = \begin{cases} 3t^2 & \text{si } t \geq 0 \\ -3t^2 & \text{si } t < 0 \end{cases}
+\]
+
+\[
+    \gamma_2'(0) = \lim_{t \to 0} \frac{\gamma_2(t) - \gamma_2(0)}{t} = \lim_{t \to 0} \frac{t^2|t|-0}{t} = \lim_{t \to 0} t|t| = 0
+\]
+
+Luego $\gamma'(0)$ existe y además $\gamma'(0) = (0, 0)$. Sin embargo, la
+imagen de $\gamma$ en el origen presenta un pico, lo que implica que la curva
+no es regular en ese punto.
+
+}
+
+\begin{definición} [Camino Simple y Regular]
+Diremos que una función \( \gamma: [a,b] \to \mathbb{R}^n \) es un \textbf{camino simple y regular} si:
+\vspace{-0.5em}
+\begin{itemize}
+    \item \( \gamma \) es continua.
+    \item \( \gamma \) es inyectiva (simple).
+    \item \( \gamma \) es de clase \( C^1 \) en \( [a,b] \) y cumple que \( \gamma'(t) \neq 0 \) para todo \( t \in [a,b] \).
+\end{itemize}
+\end{definición}
+
+\begin{observación}
+\begin{enumerate}
+    \vspace{-2.5em}
+    \item En este caso, la función \( \gamma: [a,b] \to \operatorname{Im}(\gamma) \) es
+          un homeomorfismo sobre su imagen.
+    \item Diremos que \( C \subset \mathbb{R}^n \) es una \textbf{curva simple y regular}
+          si \( C = \operatorname{Im}(\gamma) \), donde \( \gamma \) es un camino simple
+          y regular. En este caso, \( \gamma \) es una \textbf{parametrización simple y
+              regular} de \( C \).
+\end{enumerate}
+\end{observación}
+
+\ejemplo{
+    Consideremos la curva:
+    \[
+        C = \{(x,y) \in \mathbb{R}^2 \mid x^2 + y^2 = 1, \quad y > 0 \}.
+    \]
+
+    \begin{center}
+        \begin{tikzpicture}
+            % Axes
+            \draw[->] (-1.5, 0) -- (1.5, 0) node[right]{$x$}; % x-axis
+            \draw[->] (0, -0.5) -- (0, 1.5) node[above]{$y$}; % y-axis
+
+            % Upper semicircle (centered at origin)
+            \draw (1, 0) arc[start angle=0, end angle=180, radius=1];
+            \node at (0, 1) [above right]{$1$};
+
+            % Label
+            \node at (1.2, 1.2) {$C$};
+        \end{tikzpicture}
+    \end{center}
+
+    Una posible parametrización es:
+    \[
+        \gamma: [0, \pi] \to \mathbb{R}^2  \qquad \gamma(t) = (\cos (t) \sin (t))
+    \]
+    Su derivada es:
+    \[
+        \gamma'(t) = (-\sin (t), \cos (t)) \neq (0,0), \quad \forall t \in (0,\pi).
+    \]
+    Por lo tanto, \( \operatorname{Im}(\gamma) = C \), confirmando que \( \gamma \)
+    es una parametrización simple y regular de \( C \). }
+
+\begin{teorema}
+    Sea \( C \subset \mathbb{R}^n \) una curva simple y regular y sean \( \gamma \) y \( \sigma \) parametrizaciones simples y regulares de \( C \). Entonces, \( \gamma \) y \( \sigma \) son equivalentes.
+\end{teorema}
+
