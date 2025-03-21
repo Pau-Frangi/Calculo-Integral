@@ -60,14 +60,13 @@ Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
 Denotamos por $\mathcal{P}(\R^n)$ al conjunto de todos los subconjuntos de
 $\R^n$.
 \begin{teorema}
-    Sea $m^* : \mathcal{P}(\R^n) \to [0, +\infty]$ una función que cumple:
+    La función $m^* : \mathcal{P}(\R^n) \to [0, +\infty]$ satisface:
     \vspace{-0.5em}
     \begin{enumerate}
         \item $m^*(\emptyset) = 0$
         \item $m^*(A) \leq m^*(B)$ si $A \subset B$
         \item $m^*(\bigcup_{i=1}^\infty A_i) \leq \sum_{i=1}^\infty m^*(A_i)$
     \end{enumerate}
-    Entonces $m^*$ es una medida exterior en $\R^n$.
 \end{teorema}
 
 \begin{proof}
@@ -78,11 +77,11 @@ $\R^n$.
         \item Sea $A \subset B$ y sea $(R_j)_{j \in J}$ tal que $B \subset \bigcup_{j \in J}
                   R_j$. Entonces $(R_j)_{j \in J}$ es un recubrimiento de $A$ y por tanto $m^*(A)
                   \leq \sum_{j \in J} \text{vol}(R_j) \implies m^*(A) \leq m^*(B)$.
-        \item Si $\sum_{j=1}^{\infty}{A_j} = +\infty$ entonces el resultado es inmediato.
-              Supongamos que $\sum_{j=1}^{\infty}{A_j} < +\infty$. Sea $\epsilon > 0$. Para
-              cada $j \in \mathbb{N}$, $\exists (R_{j,i})_{i = 1}^\infty$ tal que $A_j
-                  \subset \bigcup_{i = 1}^\infty R_{j,i}$ y $\sum_{i = 1}^\infty
-                  \text{vol}(R_{j,i}) < m^*(A_j) + \frac{\epsilon}{2^j}$. Entonces
+        \item Si $\sum_{j=1}^{\infty}{m^*(A_j)} = +\infty$ entonces el resultado es
+              inmediato. Supongamos que $\sum_{j=1}^{\infty}{m^*(A_j)} < +\infty$. Sea
+              $\epsilon > 0$. Para cada $j \in \mathbb{N}$, $\exists (R_{j,i})_{i =
+                      1}^\infty$ tal que $A_j \subset \bigcup_{i = 1}^\infty R_{j,i}$ y $\sum_{i =
+                      1}^\infty \text{vol}(R_{j,i}) < m^*(A_j) + \frac{\epsilon}{2^j}$. Entonces
               $\bigcup_{j=1}^{\infty} A_j \subset \bigcup_{j=1}^{\infty} \bigcup_{i =
                       1}^\infty R_{j,i}$ y por tanto se tiene que $m^*(\bigcup_{j=1}^{\infty} A_j)
                   \leq \sum_{j=1}^{\infty} \sum_{i = 1}^\infty \text{vol}(R_{j,i}) <
@@ -105,7 +104,7 @@ $\R^n$.
 \end{lema}
 
 \begin{proof}
-    Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $(Q_j)_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \sum_{j \in \N} \text{vol}(\overline{Q}_j) \leq \beta$. Por tanto, $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
+    Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $(Q_j)_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
 \end{proof}
 
 \begin{definición}[Partición de un Conjunto\label{Partición de un Conjunto}]
@@ -133,15 +132,16 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
 \end{proposición}
 
 \begin{proof}
-    \leavevmode\\
-    $"\subseteq "$\\
-    Sea \( R \subset \bigcup_{j \in \mathbb{N}} R_j \) con \( R_1 = R \) y \( R_j \) degenerados para \( j > 1 \). Entonces:
-    \[
-        m^*(R) \leq \sum_{j \in \mathbb{N}} \text{vol}(R_j) = \text{vol}(R_1) + \sum_{j=2}^{\infty} \text{vol}(R_j) = \text{vol}(R_1) = \text{vol}(R).
-    \]
-
-    $"\supseteq"$\\
-    Dado $\epsilon > 0$ existe $(Q_j)_{j \in \mathbb{N}}$ sucesión de n-rectángulos abiertos tal que $R \subset \bigcup_{j \in \mathbb{N}} Q_j$ y $\sum_{j \in \mathbb{N}} \text{vol}(Q_j) < m^*(R) + \epsilon$. Sabemos que R es compacto al ser cerrado y acotado y, por tanto, al ser $\bigcup_{j \in \mathbb{N}} Q_j$ un recubrimiento abierto de R, existe un subrecubrimiento finito $\{Q_1, Q_2, ..., Q_m\}$ de R. Entonces $R \subset \bigcup_{i=1}^m Q_i \subset \bigcup_{i = 1}^m \overline{Q}_i$. Consideramos $R_j = R \cap \overline{Q}_j$ para $j = 1, 2, ..., m$. Tenemos entonces que $R = \bigcup_{j = 1}^{m} \overline{Q}_j$ y además prolongando los lados podemos obtener una partición $P$ de $R$ tal que cada subrectángulo de $P$ está contenido el algún $R_j$ para $1 \leq j \leq m$. Por tanto, $\text{vol}(R) = \sum_{S \in P} \text{vol}(S) \leq \sum_{j = 1}^{m} \text{vol}(R_j) \leq \sum_{j = 1}^{m} \text{vol}(Q_j) < m^*(R) + \epsilon$. Por tanto, $m^*(R) \geq \text{vol}(R)$.
+    \leavevmode
+    \begin{itemize}
+        \item $m^*(R) \leq \text{vol}(R)$\\
+              Sea \( R \subset \bigcup_{j \in \mathbb{N}} R_j \) con \( R_1 = R \) y \( R_j \) degenerados para \( j > 1 \). Entonces:
+              \[
+                  m^*(R) \leq \sum_{j \in \mathbb{N}} \text{vol}(R_j) = \text{vol}(R_1) + \sum_{j=2}^{\infty} \text{vol}(R_j) = \text{vol}(R_1) = \text{vol}(R).
+              \]
+        \item $m^*(R) \geq \text{vol}(R)$\\
+              Dado $\epsilon > 0$ existe $(Q_j)_{j \in \mathbb{N}}$ sucesión de n-rectángulos abiertos tal que $R \subset \bigcup_{j \in \mathbb{N}} Q_j$ y $\sum_{j \in \mathbb{N}} \text{vol}(Q_j) < m^*(R) + \epsilon$. Sabemos que R es compacto al ser cerrado y acotado y, por tanto, al ser $\bigcup_{j \in \mathbb{N}} Q_j$ un recubrimiento abierto de R, existe un subrecubrimiento finito $\{Q_1, Q_2, ..., Q_m\}$ de R. Entonces $R \subset \bigcup_{i=1}^m Q_i \subset \bigcup_{i = 1}^m \overline{Q}_i$. Consideramos $R_j = R \cap \overline{Q}_j$ para $j = 1, 2, ..., m$. Tenemos entonces que $R = \bigcup_{j = 1}^{m} \overline{Q}_j$ y además prolongando los lados podemos obtener una partición $P$ de $R$ tal que cada subrectángulo de $P$ está contenido el algún $R_j$ para $1 \leq j \leq m$. Por tanto, $\text{vol}(R) = \sum_{S \in P} \text{vol}(S) \leq \sum_{j = 1}^{m} \text{vol}(R_j) \leq \sum_{j = 1}^{m} \text{vol}(Q_j) < m^*(R) + \epsilon$. Por tanto, $m^*(R) \geq \text{vol}(R)$.
+    \end{itemize}
 \end{proof}
 
 \subsection{Medida de Lebesgue en $\R^n$}
@@ -166,15 +166,17 @@ Sea $A \subset \R^n$ entonces son equivalentes:
 \end{proposición}
 
 \begin{proof}
-    \leavevmode\\
-    $"2 \implies 3"$\\
-    Trivial\\
-    $"3 \implies 2"$\\
-    $m^*(E) = m^*(E \cap A) + m^*(E \cap A^c) + m^*(E \cap A \cap A^c) \leq m^*(E \cap A) + m^*(E \cap A^c)$\\
-    $"2 \implies 1"$\\
-    Inmediato, tomando $E = R$.\\
-    $"1 \implies 3"$\\
-    Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
+    \leavevmode
+    \begin{itemize}
+        \item $(2) \implies (3)$\\
+              Trivial.
+        \item $(3) \implies (2)$\\
+              Sabemos que $m^*(E) \leq m^*(E \cap A) + m^*(E \cap A^c)$. Veamos que la otra desigualdad se cumple siempre: $m^*(E) = m^*((E \cap A) \cup (E \cap A^c)) \leq m^*(E \cap A) + m^*(E \cap A^c)$.
+        \item $(2) \implies (1)$\\
+              Inmediato, tomando $E = R$.
+        \item $(1) \implies (3)$\\
+              Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
+    \end{itemize}
 \end{proof}
 
 \begin{definición}[$\sigma$-Álgebra\label{sigma-Algebra}]
@@ -228,7 +230,44 @@ medible en el sentido de Lebesgue.
 \end{lema}
 
 \begin{proof}
-    Observemos primero que $A \cup B = (A^c \cap B) \cup (A \cap B) \cup (A \cap B^c)$ luego entonces tenemos que $m^*(A \cup B) \leq m^*(A^c \cap B) + m^*(A \cap B) + m^*(A \cap B^c)$. Sea $E \subset \R^n$ conjunto. Entonces $m^*(E) = m^*(E \cap A) + m^*(E \cap A^c) = m^*(E \cap A) + m^*(E \cap A^c \cap B) + m^*(E \cap A^c \cap B^c) = m^*(E \cap A \cap B) + m^*(E \cap A \cap B^c) + m^*(E \cap A^c \cap B) + m^*(E \cap A^c \cap B^c) \geq m^*(E \cap (A \cup B)) + m^*(E \cap A^c \cap B^c) = m^*(E \cap (A \cup B)) + m^*(E \cap (A \cup B)^c).$
+    Observemos primero que
+    \[
+        A \cup B = (A^c \cap B) \cup (A \cap B) \cup (A \cap B^c)
+    \]
+    luego entonces tenemos que
+    \[
+        m^*(A \cup B) \leq m^*(A^c \cap B) + m^*(A \cap B) + m^*(A \cap B^c)
+    \]
+
+    Sea \( E \subset \R^n \) un conjunto, entonces por la medibilidad de \( A \)
+    tenemos que
+    \[
+        m^*(E) = m^*(E \cap A) + m^*(E \cap A^c)
+    \]
+
+    Además, sabemos que \( B \) es medible, luego para los conjuntos \( E \cap A^c
+    \) y \(E \cap E\) se verifica
+    \[
+        \begin{matrix}
+            m^*(E \cap A^c) = m^*(E \cap A^c \cap B) + m^*(E \cap A^c \cap B^c) \\
+            m^*(E \cap A) = m^*(E \cap A \cap B) + m^*(E \cap A \cap B^c)
+        \end{matrix}
+    \]
+
+    Por tanto, 
+    \[
+        m^*(E) = m^*(E \cap A) + m^*(E \cap A^c) = m^*(E \cap A) + m^*(E \cap A^c \cap B) + m^*(E \cap A^c \cap B^c)
+    \]
+    \[
+        = \underbrace{m^*(E \cap A \cap B) + m^*(E \cap A \cap B^c) + m^*(E \cap A^c \cap B)}_{\geq \ m^*(E \cap (A \cup B))} + \underbrace{m^*(E \cap A^c \cap B^c)}_{m^*(E \cap (A \cup B)^c)}
+    \]
+
+    Finalmente, observamos que
+    \[
+        m^*(E) \geq m^*(E \cap (A \cup B)) + m^*(E \cap (A \cup B)^c)
+    \]
+    y por tanto \( A \cup B \) es medible.\\
+    Nótese que la medibilidad de la intersección es inmediata, pues \( A \cap B = (A^c \cup B^c)^c \), y ya hemos demostrado que el complementario de un conjunto medible es medible.
 \end{proof}
 
 \begin{lema}
