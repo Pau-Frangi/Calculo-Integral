@@ -552,7 +552,7 @@ donde $\varphi$ es un potencial de $\vec{F}$.
                 U \arrow[ru, "\varphi"']
                 \end{tikzcd}
                 \]
-                En particlar tenemos que $g$ es de clase $C^1$ y además:
+                En particular tenemos que $g$ es de clase $C^1$ y además:
               \[
                  g'(t) = (\varphi \circ \gamma)'(t) = D\varphi (\gamma(t)) (\gamma'(t)) = \langle \nabla \varphi (\gamma(t)), \gamma'(t) \rangle = \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle
               \]
@@ -567,7 +567,7 @@ donde $\varphi$ es un potencial de $\vec{F}$.
     \end{enumerate}
 \end{proof}
 
-\begin{teorema} [Caracterización de los Campos Conservarivos]
+\begin{teorema} [Caracterización de los Campos Conservativos]
     Sea el conjunto $U \subset \mathbb{R}^n$ abierto y conexo, y $\vec{F}: U \to \mathbb{R}^n$ un campo vectorial continuo, entonces son equivalentes:
     \begin{enumerate}
         \item El campo $\vec{F}$ es conservativo.
@@ -588,18 +588,36 @@ donde $\varphi$ es un potencial de $\vec{F}$.
           \]
     \item $(2) \implies (3)$: Sean $\gamma_1$ y $\gamma_2$ caminos $C^1$ a trozos con los mismos extremos. Consideramos $\gamma = \gamma_1 + (-\gamma_2)$, que es un camino cerrado. Por hipótesis, $\int_{\gamma} \vec{F} = 0$, y por la proposición anterior:
           \[
-              \int_{\gamma} \vec{F} = \varphi(\gamma_1(b)) - \varphi(\gamma_1(a)) - \varphi(\gamma_2(b)) + \varphi(\gamma_2(a)) = 0
-          \]
-          \[
-              \varphi(\gamma_1(b)) - \varphi(\gamma_1(a)) = \varphi(\gamma_2(b)) - \varphi(\gamma_2(a))
+              0 = \int_{\gamma} \vec{F} = \int_{\gamma_1 + (-\gamma_2)} \vec{F} = \int_{\gamma_1} \vec{F} - \int_{\gamma_2} \vec{F} \implies \int_{\gamma_1} \vec{F} = \int_{\gamma_2} \vec{F}
           \]
     \item $(2) \implies (4)$ y $(3) \implies (5)$: trivial
     \item $(4) \implies (5):$ es análogo a $(2) \implies (3)$.
-    \item $(5) \implies (1):$ Sea $x_0 \in U$ fijo y definimos $\varphi: U \to \mathbb{R}$ como:
-          \[
-              \varphi(x) = \int_{\sigma} \vec{F}
-          \]
-          donde $\sigma$ es un camino cualquiera de $x_0$ a $x$. Por hipótesis, $\varphi$ está bien definida y es de clase $C^1$. Además, $\nabla \varphi = \vec{F}$.
+    \item $(5) \implies (1):$ Consideramos un punto \(x \in U\) y un vector unitario \(e_i\) en la dirección del eje \(i\)-ésimo. Tomamos un segmento de línea recta \(\gamma\) que va de \(x\) a \(x + h e_i\), donde \(h\) es un número real pequeño.
+
+    La integral de \(\vec{F}\) sobre \(\gamma\) es:
+    \[
+    \int_{\gamma} \vec{F} \cdot d\vec{r} = \varphi(x + h e_i) - \varphi(x)
+    \]
+    
+    Dividiendo ambos lados por \(h\) y tomando el límite cuando \(h \to 0\), obtenemos:
+    \[
+    \lim_{h \to 0} \frac{\varphi(x + h e_i) - \varphi(x)}{h} = \frac{\partial \varphi}{\partial x_i}(x)
+    \]
+    
+    Por otro lado, la integral de \(\vec{F}\) sobre \(\gamma\) también se puede expresar como:
+    \[
+    \int_{\gamma} \vec{F} \cdot d\vec{r} = \int_{0}^{h} \vec{F}(x + t e_i) \cdot e_i \, dt
+    \]
+    
+    Tomando el límite cuando \(h \to 0\), obtenemos:
+    \[
+    \lim_{h \to 0} \frac{1}{h} \int_{0}^{h} \vec{F}(x + t e_i) \cdot e_i \, dt = \vec{F}(x) \cdot e_i = F_i(x)
+    \]
+    
+    Luego
+    \[
+    \frac{\partial \varphi}{\partial x_i}(x) = F_i(x) \implies \nabla \varphi = \vec{F}
+    \]
 \end{itemize}
 \end{proof}
 
@@ -618,16 +636,16 @@ Sea el conjunto $U \subset \mathbb{R}^n$ abierto y conexo. Dados los puntos $p, 
 \end{lema}
 
 \begin{proof}
-Sea el conjutno $A = \{x \in U \mid \text{existe } \sigma \text{ poligonal de lados paralelos a los ejes coordenados que une } p \text{ con } x\}$.
+Sea el conjunto $$A = \{x \in U \mid \text{existe } \sigma \text{ poligonal de lados paralelos a los ejes coordenados que une } p \text{ con } x\}$$
 \begin{itemize}
-    \item $p \in A$ ya que $\sigma = p$ es un poligonal que une $p$ con $p$ y $A \neq \emptyset$.
+    \item $p \in A \neq \emptyset$.
     \item $A$ es abierto. Si $x \in A$ entonces $x \in U$ abierto, luego $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Además, $B(x, \epsilon) \subset A$. Si $y \in B(x, \epsilon)$ entonces $\exists \sigma_{xy}$ poligonal que une $x$ con $y$ y también existe $\sigma_{x}$ poligonal que une $p$ con $x$. Por lo tanto, $\sigma_{x} + \sigma_{xy}$ es un poligonal que une $p$ con $y$.
     \item $A$ es cerrado en $U$. $U \setminus A$ es abierto. Si $x \in U \setminus A$ entonces $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Como antes, se tiene que $B(x, \epsilon) \subset U \setminus A$.
 \end{itemize} 
 Por lo tanto, $A$ es abierto y cerrado en $U$ y como $U$ es conexo, $A = U$.\\
 Podemos definir $\varphi(x) = \int_{\sigma_{x}} \vec{F}$ donde $\sigma_{x}$ es un poligonal de $U$ de lados paralelos a los ejes coordenados que une $p$ con $x$.\\
 Veamos que $\varphi$ es un potencial de $\vec{F}$ en $U$, es decir, $\nabla \varphi = \vec{F}$, o que es lo mismo: 
-$$F = (F_1, \ldots, F_n) = \left(\frac{\partial \varphi}{\partial x_1}, \ldots, \frac{\partial \varphi}{\partial x_n}\right)$$
+$$\vec{F} = (F_1, \ldots, F_n) = \left(\frac{\partial \varphi}{\partial x_1}, \ldots, \frac{\partial \varphi}{\partial x_n}\right)$$
 Por tanto nos preguntamos si $\lim_{h \to 0} \frac{\varphi(x + he_i) - \varphi(x)}{h} = F_i(x)$ para $i = 1, \ldots, n$.
 $$ \varphi (x + he_i) - \varphi(x) = \int_{p}^{x + he_i} \vec{F} - \int_{p}^{x} \vec{F} = \int_{x}^{x + he_i} \vec{F}$$
 $$= \int_{0}^{1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt 

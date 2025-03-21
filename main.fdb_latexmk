@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1742497400.97867 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1742497419.03238 0
+["pdflatex"] 1742542965.96389 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1742542983.48208 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1742021746 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
@@ -346,14 +346,14 @@
   "Theory/3 - Teorema de Fubini.tex" 1742298322 24720 c6b569d0529bcc65ca609b4fbf8d7938 ""
   "Theory/4 - Cambio de variables.tex" 1742289887 36238 d193fd5866d751198eb769961597eaac ""
   "Theory/5 - Funciones definidas por integrales.tex" 1739791750 44 39446b244b8b69fce00e3821ccaacbe9 ""
-  "Theory/6 - Integrales de línea.tex" 1742497382 36931 565f8d0647c96a645568950fe293a5eb ""
+  "Theory/6 - Integrales de línea.tex" 1742542965 37597 f7416138cbe555b45b65b564e406c8b9 ""
   "Theory/7 - Teorema de Green.tex" 1741894684 26 21402e56984e5608cf994e1fbc2b1a25 ""
   "Theory/8 - Superficies paramétricas.tex" 1739791891 35 3b5dcb7392c736042da48b433aa410a2 ""
   "Theory/9 - Integrales de superficie.tex" 1739791916 34 52b570430f6f0c7fe18ab525f18be7d8 ""
   "Theory/Appendix.tex" 1741025167 25 2612fd1c6688150b58ce028dd5948ccb ""
   "Theory/Examenes Resueltos.tex" 1742301076 1604 3c237250d9b59f28eba056ada4ba354e ""
   "Theory/Theory.tex" 1742382286 648 699b635a82a1efcbcb95b5d2e908bb35 ""
-  "TikZ/CamVec.aux" 1742497417 1354 c746acb763b168fcf2e1147f6f9521eb "pdflatex"
+  "TikZ/CamVec.aux" 1742542982 1354 c746acb763b168fcf2e1147f6f9521eb "pdflatex"
   "TikZ/CamVec.tex" 1741890926 1616 485291b224ccaddaa94a840bfdc542bc ""
   "TikZ/CylindricalCoord.tex" 1741530438 4238 851a5f36d97fde55876320065b3cfda7 ""
   "TikZ/PolarCoord.tex" 1741531386 829 4178615fc1bc8e5a9f37f0a9c1b25acc ""
@@ -362,10 +362,10 @@
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1742382305 804 1b372881b4c1eed5e4d814048ae28800 ""
   "images/2.png" 1741360867 66931 b3f73b466633af2e7aaab61f52562108 ""
   "images/Parabs.png" 1741625637 648449 d5669c26bd86ec14e38b6f70c758023f ""
-  "main.aux" 1742497418 43303 e5429d885712d4991a22bfe5bfa49b69 "pdflatex"
-  "main.out" 1742497418 4228 ceb71372df2f37a7c580366e690fcd90 "pdflatex"
+  "main.aux" 1742542982 43259 2ec36bf18f28397e4949ee02457ae947 "pdflatex"
+  "main.out" 1742542982 4228 ceb71372df2f37a7c580366e690fcd90 "pdflatex"
   "main.tex" 1742382305 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1742497418 1941 640b4514de65da5cd1ecc2b1db700cd4 "pdflatex"
+  "main.toc" 1742542982 1941 640b4514de65da5cd1ecc2b1db700cd4 "pdflatex"
   (generated)
   "TikZ/CamVec.aux"
   "main.aux"
