@@ -237,6 +237,7 @@ $\int_{\mathbb{R}^n}0 = 0$
 \begin{corolario}
     Sean $s, t: \mathbb{R}^n \to [0, +\infty]$ funciones simples, medibles y no negativas. Entonces:
     $\int_{\mathbb{R}^n}(s + t) = \int_{\mathbb{R}^n}s + \int_{\mathbb{R}^n}t$.
+    \label{sumaIntSimples}
 \end{corolario}
 \begin{proof}
     Sea $S = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}$ y $t = \sum_{j=1}^{k} \beta_j \cdot \chi_{B_j}$. Dado que $\mathbb{R}^n = \bigcup_{i=1}^{m} \bigcup_{j=1}^{k} (A_i \cap B_j)$, donde la unión es disjunta y los conjuntos $A_i, B_j$ son medibles, se tiene que en $A_i \cap B_j: s + t = \alpha_i + \beta_j$.
@@ -280,10 +281,10 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
         \[
         \int_E f \leq \int_E g.
         \]
-        \item  Consideremos funciones simples \( s, t \) tales que \( 0 \leq s \leq f \cdot \chi_E \) y \( 0 \leq t \leq g \cdot \chi_E \). Como \( s+t \) es también una función simple y satisface \( 0 \leq s + t \leq (f+g) \cdot \chi_E \), tenemos:
+        \item  Consideremos funciones simples \( s, t \) tales que \( 0 \leq s \leq f \cdot \chi_E \) y \( 0 \leq t \leq g \cdot \chi_E \). Como \( s+t \) es también una función simple y satisface \( 0 \leq s + t \leq (f+g) \cdot \chi_E \), tenemos por el \cref{sumaIntSimples}:
 
         \[
-        \int_{\mathbb{R}^n} (s+t) \cdot \chi_E = \int_{\mathbb{R}^n} s \cdot \chi_E + \int_{\mathbb{R}^n} t \cdot \chi_E.
+        \int_{\mathbb{R}^n} (s+t) \cdot \chi_E = \int_{\mathbb{R}^n} s \cdot \chi_E + \int_{\mathbb{R}^n} t \cdot \chi_E
         \]
     
         Tomando el supremo sobre todas las funciones simples \( s \) y \( t \), obtenemos:
@@ -297,9 +298,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
         \[
         \int_E (f+g) = \int_E f + \int_E g.
         \]
-        \item Si $f = c \cdot 0$, entonces es trivial.
-
-              Si $c > 0$, tomamos $s = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}$, con $0 \leq
+        \item Si $f = c \cdot 0$, entonces es trivial. Si $c > 0$, tomamos $s = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}$, con $0 \leq
                   s \leq f$.
 
               Entonces, $c \cdot s = \sum_{i=1}^{m} c \cdot \alpha_i \cdot \chi_{A_i}$, con
@@ -309,7 +308,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
                   m(A_i) = c \sum_{i=1}^{m} \alpha_i \cdot m(A_i) = c \int_{\mathbb{R}^n} s. $$
 
               Tomando el supremo, obtenemos $$ \int_{\mathbb{R}^n} c \cdot f = c \sup \left\{
-                  \int_{\mathbb{R}^n} s \mid s \text{ es simple, } 0 \leq s \leq f \right\} = c
+                  \int_{\mathbb{R}^n} s \mid s \text{ es simple, medible y } 0 \leq s \leq f \right\} = c
                   \int_{\mathbb{R}^n} f. $$
 
         \item Si $m(E) = 0$, entonces para toda $s$ simple y medible tal que $0 \leq s \leq
@@ -355,20 +354,20 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \begin{teorema} [Convergencia Monótona\label{TCM}]
     Sea $(f_k)_{k \in \mathbb{N}} : \mathbb{R}^n \to [0, +\infty]$ una sucesión de funciones medibles tales que:
     \begin{enumerate}
-        \item $f_1 \leq f_2 \leq \dots$. (en $\mathbb{R}^n$)
+        \item $f_1(x) \leq f_2(x) \leq \dots$. (en $\mathbb{R}^n$)
         \item $\lim_{k \to \infty} f_k = f$ (puntualmente en $\mathbb{R}^n$)
     \end{enumerate}
     Entonces se cumple que:
     $$\lim_{k \to \infty} \int_{\mathbb{R}^n} f_k = \int_{\mathbb{R}^n} f.$$
 \end{teorema}
 \begin{proof}
-    La sucesión $\{ f_k \}_{k \in \mathbb{N}}$ es monótona creciente en $[0, +\infty)$.
+    La sucesión $(f_k)_{k \in \mathbb{N}}$ es monótona creciente en $[0, +\infty)$.
     Por lo tanto, existe el límite:
     $$ l = \lim\limits_{k \to \infty} f_k, \in [0, +\infty].$$
     Dado que $f_k(x) \leq f(x) \quad \forall x \in \mathbb{R}^n$, tenemos que:
-    $$\int_{\mathbb{R}^n} f_k \leq \int_{\mathbb{R}^n} f.$$ Queda demostrar la otra desigualdad para probar el teorema.//
+    $$\int_{\mathbb{R}^n} f_k \leq \int_{\mathbb{R}^n} f.$$ Queda demostrar la otra desigualdad para probar el teorema.\\
     Sea $s$ una función simple y medible en $\mathbb{R}^n$ con $0 \leq s \leq f$, y fijemos un $c \in (0, 1)$.
-    $\forall k \in \mathbb{N}$, definimos la sucesión de conjuntos $E_k = \{ x \in \mathbb{R}^n : f_k(x) \geq c \cdot s(x) \}$. Esta sucesión es medible (debido a que tanto $f_k$ como $s$ son medibles) y es creciente (debido a que $f_k \leq f_{k+1}$ y $c \cdot s \leq c \cdot f \leq f$).
+    $\forall k \in \mathbb{N}$, definimos la sucesión de conjuntos $$E_k = \{ x \in \mathbb{R}^n : f_k(x) \geq c \cdot s(x) \}$$ Esta sucesión es medible (debido a que tanto $f_k$ como $s$ son medibles) y es creciente (debido a que $f_k \leq f_{k+1}$ y $c \cdot s \leq c \cdot f \leq f$).
     Ahora veamos que:
     $$
         \bigcup\limits_{k=1}^{\infty} E_k = \mathbb{R}^n.
@@ -376,15 +375,15 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     Sea $x \in \mathbb{R}^n$. Entonces,
     \[
         \begin{cases}
-            \text{Si } f_k(x) = 0, \Rightarrow s(x) = 0 \Rightarrow 0 = f_k(x) \Rightarrow 0 = s(x) \Rightarrow x \in E_k \quad \forall k. \\
-            \text{Si } f_k(x) > 0, \Rightarrow c \cdot s(x) \leq f_k(x) \Rightarrow \forall k \in \mathbb{N}, \quad c \cdot s(x) \leq f_k(x).
+            \text{Si } f(x) = 0 \implies f_k(x) = c \cdot s(x) = 0 \implies x \in E_k \quad \forall k \\
+            \text{Si } f(x) > 0 \implies \exists k \in \mathbb{N} : c \cdot s(x) \leq f_k(x) \leq f(x) \implies x \in E_k
         \end{cases}
     \]
-    Por lo tanto, $x \in \mathbb{R}^n$. Veamos que: $$\int_{\mathbb{R}^n} s =
+    Por lo tanto, $x \in E_k$. Veamos que: $$\int_{\mathbb{R}^n} s =
         \lim\limits_{k \to \infty} \int_{E_k} s.$$ Dado que $s = \sum_{j=1}^{m}
-        \alpha_j \cdot \chi_{A_j}$ con $s^-1(\alpha_j) = A_j$ tenemos: $$ m(A_j) =
-        m(\bigcap_{k = 1}^{\infty}(E_k\cap A_j)) = \lim\limits_{k \to \infty} m(E_k
-        \cap A_j). $$ Entonces:$$\int_{\mathbb{R}^n} s = \sum_{j=1}^{m} \alpha_j \cdot
+        \alpha_j \cdot \chi_{A_j}$ con $s^{-1}(\alpha_j) = A_j$ y $(E_k)_{k \in \mathbb{N}}$ es una sucesión creciente, entonces, para cada $j = 1, \ldots, m$, tenemos por el \cref{limUnionMedible}: $$ m(A_j) =
+        m \left(\bigcup_{k = 1}^{\infty}(E_k\cap A_j)\right) = \lim\limits_{k \to \infty} m(E_k
+        \cap A_j). $$ Luego:$$\int_{\mathbb{R}^n} s = \sum_{j=1}^{m} \alpha_j \cdot
         m(A_j) = \sum_{j=1}^{m} \alpha_j \cdot \lim\limits_{k \to \infty} m(E_k \cap
         A_j) = \lim\limits_{k \to \infty} \sum_{j=1}^{m} \alpha_j \cdot m(E_k \cap A_j)
         = \lim\limits_{k \to \infty} \int_{E_k} s$$ Finalmente, obtenemos que: $$
@@ -416,7 +415,7 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \begin{corolario}
     \vspace{-2.5em}
     \begin{enumerate}
-        \item Si $f, g: \mathbb{R}^n \to [0, +\infty]$ son medibles, medibles y no-negativas
+        \item Si $f, g: \mathbb{R}^n \to [0, +\infty]$ son medibles y no-negativas
               se tiene que: $$\int_{\mathbb{R}^n}f+g = \int_{\mathbb{R}^n}f +
                   \int_{\mathbb{R}^n}g$$.
         \item Si $(f_k)_{k\in \mathbb{N}}: \mathbb{R} \to [0, +\infty]$ sucesión de funciones
@@ -442,8 +441,8 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
                       1}^{\infty}\int_{\mathbb{R}^n}f_k$$.
     \end{enumerate}
 \end{proof}
-\begin{lema}
-    Sea $(f_k)_{k\in\mathbb{R}^n}$ sucesión de funciones medibles, entonces: $$\int_{\mathbb{R}^n}\liminf_{k\to\infty}f_k \leq \liminf_{k\to\infty}\int_{\mathbb{R}^n}f_k$$
+\begin{lema} [de Fatou]
+    Sea $(f_k)_{k\in\mathbb{R}^n}$ sucesión de funciones medibles no negativas, entonces: $$\int_{\mathbb{R}^n}\liminf_{k\to\infty}f_k \leq \liminf_{k\to\infty}\int_{\mathbb{R}^n}f_k$$
 \end{lema}
 \begin{proof}
     Sea $$ f = \liminf_{k \to \infty} f_k = \lim_{k \to \infty} \inf_{j \geq k} f_j = \lim_{k \to \infty} g_k $$
@@ -455,13 +454,16 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     $$\int_{\mathbb{R}^n} g_k \leq \int_{\mathbb{R}^n} f_k.$$
 \end{proof}
 \begin{observación}
-El resultado análogo con $\limsup$ no es válido en gneral. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
+El resultado análogo con $\limsup$ no es válido en general. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
 \end{observación}
+
+\subsection{Funciones Integrables-Lebesgue}
+
 \begin{definición}[Función Integrable\label{Función Integrable}]
 Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f \circ \chi_E < +\infty$$
 \end{definición}
 \begin{observación}
-$f$ es integrable en $E \iff |f|$ es integrable en $E \iff f^+ $ y $ f^-$ son integrables en $E$.
+$f$ es integrable en $E \iff |f|$ es integrable en $E \iff f^+ $ y $ f^-$ son integrables en $E$, donde $f^+ = \max\{f, 0\}$ y $f^- = \max\{-f, 0\}$.
 \end{observación}
 \begin{lema}
     Sean $E \subset \mathbb{R}^n$ y $f = g - h$ con $g, h: E \to [-\infty, +\infty]$ funciones integrables. Entonces, $$ \int_{E}f = \int_{E}g - \int_{E}h.$$
@@ -553,7 +555,7 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
     \end{enumerate}
 \end{proof}
 \begin{teorema} [Convergencia Dominada\label{Convergencia Dominada}]
-    Sean $E \subset \mathbb{R^n}$ medible y $\forall k \in \mathbb{N}, f_k: E \to [-\infty, +\infty]$ funciones medibles. Supongamos que $\exists g: E \to [-\infty, +\infty]$ integrable en E tal que $|f_k| < g$ en casi todo punto de $E$ y $\forall k \in \mathbb{N}$. Si además suponemos que $\lim_{k \to \infty} f_k = f$ en casi todo punto de $E$, entonces:
+    Sean $E \subset \mathbb{R}^n$ medible y $\forall k \in \mathbb{N}, f_k: E \to [-\infty, +\infty]$ funciones medibles. Supongamos que $\exists g: E \to [0, +\infty]$ integrable en E tal que $|f_k| < g$ en casi todo punto de $E$ y $\forall k \in \mathbb{N}$. Si además suponemos que $\lim_{k \to \infty} f_k = f$ en casi todo punto de $E$, entonces:
     \vspace{-0.5em}
     \begin{enumerate}
         \item $f_k \text{ y } f \text{ son integrables en }E$
@@ -569,10 +571,9 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
               que \( f_k \) es integrable en \( E \). Además, como \( |f| \leq g \), se sigue
               que \( f \) también es integrable en \( E \).
 
-        \item Observamos que \( |f_k - f| \leq |f_k| + |f| \leq g + g = 2g \geq 0 \), lo que
-              implica que \( 2g - |f_k - f| \geq 0 \). Además, la sucesión de funciones \(
-              \{h_k\}_{k \in \mathbb{N}} \) converge casi en todo punto de \( E \) a \( 2g -
-              0 = 2g \). Aplicando el **lema de Fatou** a \( \hat{f}_k = h_k \chi_{E} \),
+        \item Observamos que \( 0 \leq |f_k - f| \leq |f_k| + |f| \leq g + g = 2g \), lo que
+              implica que \(0 \leq 2g - |f_k - f| = h_k \). Además, la sucesión de funciones \( (h_k)_{k \in \mathbb{N}} \) converge en casi todo punto de \( E \) a \( 2g -
+              0 = 2g \). Aplicando el lema de Fatou a \( \hat{f}_k = h_k \chi_{E} \),
               obtenemos que:
               \[
                   \int_{E} \lim_{k \to \infty} h_k = \liminf_{k \to \infty} \int_{E} h_k
@@ -610,8 +611,8 @@ $$ F(u) = \int_{E}f(x, u)dx$$
     Sean $E \subset \mathbb{R}^n$ conjunto medible, $U \subset \mathbb{R}^n$ conjunto cualquiera, $f: E \times U \to \mathbb{R}$ y suponemos que:
     \vspace{-0.5em}
     \begin{enumerate}
-        \item $\forall u \in U f(\cdot, u): E \to \mathbb{R}$ es medible.
-        \item $\forall x \in E f(x, \cdot): U \to \mathbb{R}$ es continua.
+        \item $\forall u \in U \ f(\cdot, u): E \to \mathbb{R}$ es medible.
+        \item $\forall x \in E \ f(x, \cdot): U \to \mathbb{R}$ es continua.
         \item $\exists g: E \to [0, +\infty]$ integrable en $E$ tal que $|f(x, u)| \leq g(x)$ en casi todo punto de $E$ y $\forall u \in U$.
     \end{enumerate}
     Entonces podemos decir que:
@@ -662,8 +663,8 @@ $\forall u_0 \in U \ \lim_{u \to u_0} \int_{E}f(x, u)dx = F(u) = F(u_0) = \int_{
     Sean $E \subset \mathbb{R}^n$ conjunto medible, $U = (a, b) \subset \mathbb{R}$ conjunto abierto y $f: E \times U \to \mathbb{R}$. Y además supongamos que:
     \vspace{-0.5em}
     \begin{enumerate}
-        \item $\forall u \in U f(\cdot, u): E \to \mathbb{R}$ es integrable en E.
-        \item $\forall x \in E f(x, \cdot): U \to \mathbb{R}$ es de clase $C^1$ en $U$.
+        \item $\forall u \in U \ f(\cdot, u): E \to \mathbb{R}$ es integrable en E.
+        \item $\forall x \in E \ f(x, \cdot): U \to \mathbb{R}$ es de clase $C^1$ en $U$.
         \item $\exists g: E \to [0, +\infty]$ integrable en $E$ tal que $|\frac{\partial f}{\partial u}(x, u)| \leq g(x)$ en casi todo punto de $E$ y $\forall u \in U$.
     \end{enumerate}
     Entonces se cumple que:
@@ -740,7 +741,7 @@ $\forall u_0 \in U \ \lim_{u \to u_0} \int_{E}f(x, u)dx = F(u) = F(u_0) = \int_{
 \subsection{Relación entre la integral de Lebesgue y la integral de Riemann}
 
 \begin{teorema}
-    Sea $[a, b] \subset \mathbb{R}^n$ y $ f:[a,b] \to \mathbb{R}$ integrable Riemann en $[a, b]$. Entonces $f$ es integrable Lebesgue en $[a, b]$ y se cumple que:
+    Sea $[a, b] \subset \mathbb{R}$ y $ f:[a,b] \to \mathbb{R}$ integrable Riemann en $[a, b]$. Entonces $f$ es integrable Lebesgue en $[a, b]$ y se cumple que:
     $$ (L) \int_{a}^{b}f = (R) \int_{a}^{b}f $$
 \end{teorema}
 \begin{observación}
