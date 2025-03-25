@@ -445,16 +445,18 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
     Sea $(f_k)_{k\in\mathbb{R}^n}$ sucesión de funciones medibles no negativas, entonces: $$\int_{\mathbb{R}^n}\liminf_{k\to\infty}f_k \leq \liminf_{k\to\infty}\int_{\mathbb{R}^n}f_k$$
 \end{lema}
 \begin{proof}
-    Sea $$ f = \liminf_{k \to \infty} f_k = \lim_{k \to \infty} \inf_{j \geq k} f_j = \lim_{k \to \infty} g_k $$
-    Dado que $ g_k \geq 0 $, la sucesión $ (g_k) $ está compuesta por funciones medibles y no negativas para todo $ k \in \mathbb{N} $. Además, es una sucesión creciente en el sentido de que
-    $$ g_k \leq g_{k+1}, \quad \forall k \in \mathbb{N}. $$ Por el \cref{TCM}, se tiene que:
-    $$ \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k.$$ Por definición del $ \liminf $, se cumple la desigualdad:
-    $$\lim_{k \to \infty} \int_{\mathbb{R}^n} g_k \leq \liminf_{k \to \infty} \int_{\mathbb{R}^n} g_k.$$
-    Finalmente, dado que $ g_k \leq f $, se concluye que:
-    $$\int_{\mathbb{R}^n} g_k \leq \int_{\mathbb{R}^n} f_k.$$
+    Sea $$ f = \liminf_{k \to \infty} f_k = \lim_{k \to \infty} \left(\inf_{j \geq k} f_j\right) = \lim_{k \to \infty} g_k $$
+    Dado que $ g_k \geq 0 $, la sucesión $ (g_k)_{k \in \mathbb{N}} $ está compuesta por funciones medibles y no negativas para todo $ k \in \mathbb{N} $. Además, es una sucesión creciente en el sentido de que
+    $$ g_k \leq g_{k+1}, \quad \forall k \in \mathbb{N}. $$ Por el \cref{TCM} (TCM), se tiene que:
+    $$ \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k.$$ Por construcción de la sucesión $ (g_k)_{k \in \mathbb{N}} $, se cumple la igualdad:
+    $$\liminf_{k \to \infty} \int_{\mathbb{R}^n} g_k = \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k$$
+    Finalmente, dado que $ g_k \leq f_k $, se concluye que:
+    $$\int_{\mathbb{R}^n} g_k \leq \int_{\mathbb{R}^n} f_k \implies \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k = \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \liminf_{k \to \infty} \int_{\mathbb{R}^n} g_k \leq \liminf_{k \to \infty} \int_{\mathbb{R}^n} f_k$$
+    Nótese que para dos sucesiones $ (a_k)_{k \in \mathbb{N}} $ y $ (b_k)_{k \in \mathbb{N}} $ tal que $ a_k \leq b_k $ para todo $ k \in \mathbb{N} $, se cumple que:
+    $$ \liminf_{k \to \infty} a_k \leq \liminf_{k \to \infty} b_k $$
 \end{proof}
 \begin{observación}
-El resultado análogo con $\limsup$ no es válido en general. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
+El resultado análogo con $\limsup$ no es válido en general. Fijémonos que si intentásemos una demostración análoga, no se podría aplicar el \cref{TCM} (TCM), pues la sucesión de funciones $ (h_k)_{k \in \mathbb{N}} $ definida por $ h_k = \sup_{j \geq k} f_j $ no es creciente, sino decreciente. Podemos tomar de contraejemplo la función $f_k = k \cdot \chi_{[k, \infty]}$.
 \end{observación}
 
 \subsection{Funciones Integrables-Lebesgue}

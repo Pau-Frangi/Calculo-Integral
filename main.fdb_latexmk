@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1742845595.02259 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1742845614.32452 0
+["pdflatex"] 1742889362.32064 "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" "main.pdf" "main" 1742889380.70459 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1742724407 85269 91ab854c05f02ecfc449dd78c7dd787d ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi480/esint10.pk" 1740064018 8604 75bdaf5dba8ea8b8c2b6ae8a9f8f003f ""
@@ -341,7 +341,7 @@
   "Preamble/Preamble.tex" 1742557212 11729 cde29e85695c9aed89a46e9c3ffb9ae6 ""
   "Theory/1 - Medida de Lebesgue.tex" 1742839564 34150 03f6b6a07ee34e0a523d662d0144c8ef ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1739791929 63 bd2d127c33e8b32d732f96edbac5f3dd ""
-  "Theory/2 - Funciones integrables en varias variables.tex" 1742845390 51564 5f769d4825eca2f16b6ded102653c1d2 ""
+  "Theory/2 - Funciones integrables en varias variables.tex" 1742889342 52305 75399930aeb9d0060fc7be0b8c12f4bc ""
   "Theory/3 - Teorema de Fubini.tex" 1742845525 24722 5c7659cfadf99fd072925d5886b95261 ""
   "Theory/4 - Cambio de variables.tex" 1742289887 36238 d193fd5866d751198eb769961597eaac ""
   "Theory/5 - Funciones definidas por integrales.tex" 1739791750 44 39446b244b8b69fce00e3821ccaacbe9 ""
@@ -352,7 +352,7 @@
   "Theory/Appendix.tex" 1741025167 25 2612fd1c6688150b58ce028dd5948ccb ""
   "Theory/Examenes Resueltos.tex" 1742301076 1604 3c237250d9b59f28eba056ada4ba354e ""
   "Theory/Theory.tex" 1742382286 648 699b635a82a1efcbcb95b5d2e908bb35 ""
-  "TikZ/CamVec.aux" 1742845613 1354 5592fdb325f594d055615e09caeac5ed "pdflatex"
+  "TikZ/CamVec.aux" 1742889379 1354 8f0d89b7b31668e30ed56d28a8ea7155 "pdflatex"
   "TikZ/CamVec.tex" 1741890926 1616 485291b224ccaddaa94a840bfdc542bc ""
   "TikZ/CylindricalCoord.tex" 1741530438 4238 851a5f36d97fde55876320065b3cfda7 ""
   "TikZ/PolarCoord.tex" 1741531386 829 4178615fc1bc8e5a9f37f0a9c1b25acc ""
@@ -361,10 +361,10 @@
   "c:/Users/paufr/OneDrive/Escritorio/Calculo Integral/main.tex" 1742382305 804 1b372881b4c1eed5e4d814048ae28800 ""
   "images/2.png" 1741360867 66931 b3f73b466633af2e7aaab61f52562108 ""
   "images/Parabs.png" 1741625637 648449 d5669c26bd86ec14e38b6f70c758023f ""
-  "main.aux" 1742845613 45031 16570e2a89b567a18c6e935886054127 "pdflatex"
-  "main.out" 1742845613 4679 bd2cabefd3e14b263a8e5d1ff22a4ef1 "pdflatex"
+  "main.aux" 1742889380 44897 af180d09ef1a92fe8747a8ba22aa02fe "pdflatex"
+  "main.out" 1742889380 4679 bd2cabefd3e14b263a8e5d1ff22a4ef1 "pdflatex"
   "main.tex" 1742382305 804 1b372881b4c1eed5e4d814048ae28800 ""
-  "main.toc" 1742845613 2140 cc75a6b88f9c2245b8bb2e54a89d98d2 "pdflatex"
+  "main.toc" 1742889380 2140 cc75a6b88f9c2245b8bb2e54a89d98d2 "pdflatex"
   (generated)
   "TikZ/CamVec.aux"
   "main.aux"
