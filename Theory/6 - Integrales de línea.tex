@@ -680,5 +680,86 @@ $$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^
     Luego $\varphi(x,y,z) = \int_{\gamma_1} \vec{F} + \int_{\gamma_2} \vec{F} + \int_{\gamma_3} \vec{F} = xy + \sin(yz)$.\\
     En efecto, para confirmar que $\vec{F}$ es conservativo, debemos verificar que $\nabla \varphi = \vec{F}$.
     $$\nabla \varphi = \left(\frac{\partial \varphi}{\partial x}, \frac{\partial \varphi}{\partial y}, \frac{\partial \varphi}{\partial z}\right) = (y, x+z\cos(yz), y\cos(yz)) = \vec{F}$$
-    Por lo tanto, $\vec{F}$ es conservativo.
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[->] (-1,0,0) -- (2.5,0,0) node[right] {$x$};
+            \draw[->] (0,-1,0) -- (0,2.5,0) node[right] {$z$};
+            \draw[->] (0,0,-1) -- (0,0,3) node[left] {$y$};
+            %\node at (-1.2,0.5,0) {$p=(0,0,0)$};
+            %\node at (2,2.5,2) {$(x,y,z)$};
+            \draw[blue][->] (0,0,0) -- (0,0,2) node[black][left] {$\gamma_1$};
+            \draw[blue][->] (0,0,2) -- (2,0,2) node[black][below] {$\gamma_2$};
+            \draw[blue][->] (2,0,2) -- (2,2,2) node[black][right] {$\gamma_3$};
+            \draw[dashed] (2,0,0) -- (2,0,2); % Linea discontinua
+            \fill[red] (0,0,0) circle (1pt) node[black][above left] {$p=(0,0,0)$}; % Punto
+            \fill[red] (2,2,2) circle (1pt) node[black][above] {$(x,y,z)$}; % Punto
+        \end{tikzpicture} 
+    \end{center}
+
+    Por lo tanto, $\vec{F}$ es conservativo.\\
+    De forma alternativa se podría haber visto que $\vec{F}$ es un campo conservativo, buscando una funcion $\varphi$ tal que $\vec{F} = \nabla \varphi$, es decir: 
+    \begin{enumerate}
+        \item $F_1 = \frac{\partial \varphi}{\partial x} = y \implies \varphi = xy + g(y,z)$
+        \item $F_2 = \frac{\partial \varphi}{\partial y} = x + z\cos(yz) \implies \frac{\partial g}{\partial y} = z\cos(yz) \implies g = \sin(yz) + h(z)$
+        \item $F_3 = \frac{\partial \varphi}{\partial z} = y\cos(yz) \implies \frac{\partial h}{\partial z} = y\cos(yz) \implies h = \frac{y}{z}\sin(yz) + c$
+    \end{enumerate} $$\implies$$
+    \begin{enumerate}
+        \item $\varphi = \int \frac{d\varphi}{dx}dx = \int y dx = xy + H(y,z)$ constante con respecto a $x$
+        \item $\frac{d\varphi}{dz} = \frac{dH}{dz} = y\cos(yz) \implies H = \int y\cos(yz)dz = \sin(yz) + G(y)$ constante con respecto a $z$
+        \item $\frac{d\varphi}{dy} = \frac{d}{dy}(yx + \sin(yz) + G(y)) = x + z\cos(yz) + G'(y) = x + z\cos(yz) \implies G'(y) = 0 \implies G(y) = cte.$
+    \end{enumerate} 
 }
+
+\begin{proposición}
+    SEan $U \subset \mathbb{R}^n$ abierto y $\vec{F}: U \to \mathbb{R}^n$ campo conservativo de clase $C^1 \implies$ $$\frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i} \quad \forall i,j = 1, \ldots, n \text{ en } U$$
+\end{proposición}
+\begin{proof}
+    Tomemos $\varphi: U \to \mathbb{R}$ tal que $\frac{\partial\varphi}{dx_i} = F_i \in C^1 \forall i = 1, \ldots, n$. Luego $\varphi$ es de clase $C^2$ y por el teorema de las derivadas cruzadas (Shcwartz) se tiene que:
+    $$\frac{\partial}{\partial x_i}(F_j) = \frac{\partial^2 \varphi}{\partial x_i \partial x_j} = \frac{\partial^2 \varphi}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j}(F_i)$$
+\end{proof}
+\begin{corolario}
+    Sean $U \subset \mathbb{R}^2$ abierto y $\vec{F} = (P, Q): U \to \mathbb{R}^2$ campo vectorial de clase $C^1$, entonces, si $\vec{F}$ es campo conservativo, se tiene que:
+    $$\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \text{ en } U$$
+    (Si $(P, Q) = \nabla \varphi \implies \frac{\partial P}{\partial y} = \frac{\partial^2 \varphi}{\partial y \partial x} = \frac{\partial^2 \varphi}{\partial x \partial y} = \frac{\partial Q}{\partial x}$ en U)
+\end{corolario}
+\begin{proof}
+    $$\begin{cases}
+        F_1 = P \\ F_2 = Q
+    \end{cases}$$
+\end{proof}
+\begin{observación}
+    En general el recíproco no es cierto, depende de la forma del dominio ($U$).
+\end{observación}
+\begin{observación}
+    \underline{Terminología}:
+    \begin{itemize}
+        \item Una forma diferencial de orden 1 en $U$ es una expresión de la forma $\omega = Pdx + Qdy$ con $P, Q$ de clase $C^1$ en $U$. 
+        \item $\omega$ es cerrada si $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ en $U$.
+        \item $\omega$ es exacta si $\exists \varphi \in C^2(U) : \frac{\partial\varphi}{\partial x} = P, \frac{\partial Q}{\partial y} = Q \iff \nabla \varphi = (P, Q)$ en $U$.
+    \end{itemize} 
+    Hemos visto que $\omega$ exacta $\implies$ $\omega$ cerrada.
+\end{observación}
+\begin{definición}[Curva de Jordan]
+    Una curva de Jordan $C$ en $\mathbb{R}^2$ es la imagen de un camino cerrado y simple en $\mathbb{R}^2$, es decir, $C = Im(\gamma)$ con $\gamma: [a,b] \to \mathbb{R}^2$ continua, inyectiva en $[a, b)$ y $\gamma(a) = \gamma(b)$.
+\end{definición}
+\begin{observación}
+    Se puede demostrar que $C$ es un homeomorfa a la circunferencia unitaria $S^1$.
+\end{observación}
+\begin{teorema}[Teorema de la curva de Jordan]
+    Toda curva de Jordan $C$ en $\mathbb{R}^2$ divide al plano en dos regiones  o componentes conexas, una acotada, denominada \underline{parte interior a $C$} y otra no acotada, denominada \underline{parte exterior a $C$}, siendo $C$ la frontera común a ambas regiones. Es decir, 
+    $$\mathbb{R}^2 = Int(C) \cup Ext(C) \cup C \text{ con } \begin{cases}
+        Int(C) = \text{abierto conexo acotado} \\ Ext(C) = \text{ abierto conexo no acotado} \\ Fr(Int(C)) = C = Fr(Ext(C))
+    \end{cases} \text{ unión disjunta}$$
+\end{teorema}
+\begin{definición}[Conexión simple]
+    Un abierto y conexo en $\mathbb{R}^2$ se dice que es simplemente conexo si $\forall C$ curva de Jordan en $U$, $Int(C) \subset U$. Conceptualmente, ésto se ve como que $U$ tiene un agujero. 
+\end{definición}
+
+\begin{definición}[Orientación de una curva de Jordan]
+    Sea $C \subset \R^2$ curva de Jordan que además, es de clase $C^1$ a trozos. Se deine la orientación positiva en $C$ y se denota $C^+$ como el sentio de recorrido continuo a las agujas del reloj. \\
+    Conceptualmente, es el sentido de recorrido que deja la parte interior de $C$ a la izquierda.   
+\end{definición}
+
+\begin{teorema}[Teorema de Green]
+    
+\end{teorema}
