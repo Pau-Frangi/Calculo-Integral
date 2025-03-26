@@ -1,760 +1,835 @@
 \section{Cambio de variables}
 
-
 \begin{definición} [Conjunto Verticalmente Proyectable\label{Conjunto Verticalmente Proyectable}]
-    Un conjunto $E \subset \mathbb{R}^2$ es verticalmente proyectable si es de la forma:
-    $$E_1 = \{(x,y) : a \leq x \leq b, f(x) \leq y \leq g(x)\}$$ donde $f,g : [a,b] \to \mathbb{R}$ son funciones continuas con $f(x) \leq g(x)$.
-    Análogamente se define un conjunto $E \subset \mathbb{R}^2$ es horizontalmente proyectable si es de la forma:
-    $$E_2 = \{ (x,y) : c \leq y \leq d, \varphi(y) \leq x \leq \psi(y)\}$$
-    donde $\varphi, \psi : [c,d] \to \mathbb{R}$ son funciones continuas con $\varphi(y) \leq \psi(y)$.
-    En este caso si $f: E \to \mathbb{R}$ que es integrable en $E$:
-    $$\int_{E_1}h(x,y)dxdy = \int_{x = a}^{x = b}\left(\int_{f(x)}^{g(x)}h(x,y)dy\right)dx$$
-    $$\int_{E_2}h(x,y)dxdy = \int_{y = c}^{y = d}\left(\int_{\varphi(y)}^{\psi(y)}h(x,y)dx\right)dy$$
-    
+Un conjunto $E \subset \mathbb{R}^2$ es verticalmente proyectable si es de la forma:
+$$E_1 = \{(x,y) : a \leq x \leq b, f(x) \leq y \leq g(x)\}$$ donde $f,g : [a,b] \to \mathbb{R}$ son funciones continuas con $f(x) \leq g(x)$.
+Análogamente se define un conjunto $E \subset \mathbb{R}^2$ es horizontalmente proyectable si es de la forma:
+$$E_2 = \{ (x,y) : c \leq y \leq d, \varphi(y) \leq x \leq \psi(y)\}$$
+donde $\varphi, \psi : [c,d] \to \mathbb{R}$ son funciones continuas con $\varphi(y) \leq \psi(y)$.
+En este caso si $f: E \to \mathbb{R}$ que es integrable en $E$:
+$$\int_{E_1}h(x,y)dxdy = \int_{x = a}^{x = b}\left(\int_{f(x)}^{g(x)}h(x,y)dy\right)dx$$
+$$\int_{E_2}h(x,y)dxdy = \int_{y = c}^{y = d}\left(\int_{\varphi(y)}^{\psi(y)}h(x,y)dx\right)dy$$
+
+\begin{center}
+    \begin{minipage}{0.45\textwidth}
+        \begin{tikzpicture}[scale=1.5]
+            % Ejes
+            \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
+            \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+
+            % Curvas más variadas
+            \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) node[right] {\small $y = f(x)$}; % Ajuste aquí
+            \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) node[right] {\small $y = g(x)$};
+
+            % Líneas verticales en x=a y x=b
+            \draw[dashed] (0.5,0.7) -- (0.5,2.4);
+            \draw[dashed] (2.5,1.1) -- (2.5,2.1);
+
+            % Etiquetas a y b
+            \node[below] at (0.5,0) {\small $a$};
+            \node[below] at (2.5,0) {\small $b$};
+
+            % Región sombreada
+            \begin{scope}
+                \clip (0.5,0.7) -- plot[domain=0.5:2.5, smooth] (\x, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) -- (2.5,1.1) -- plot[domain=2.5:0.5, smooth] (\x, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) -- cycle; % Ajuste aquí
+                \fill[gray!30] (0,0) rectangle (3,3);
+            \end{scope}
+
+            % Etiqueta de la región
+            \node at (1.5,1.5) {\small $E_1$};
+
+        \end{tikzpicture}
+    \end{minipage}
+    \hspace{0.05\textwidth} % Espacio entre las dos figuras
+    \begin{minipage}{0.45\textwidth}
+
+        \begin{tikzpicture}[scale=1.5]
+            % Ejes de coordenadas con una separación más pequeña
+            \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
+            \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+
+            \node[left] at (-0.1,0.5) {\small $c$};  % Etiqueta en y = 0.5
+            \node[left] at (-0.1,2.5) {\small $d$};  % Etiqueta en y = 2.5
+
+            % Mover la figura ligeramente a la derecha
+            \begin{scope}[shift={(1,0)}]  % Ahora solo 1 unidad a la derecha
+                \draw[thick] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5)
+                node[above] {\small $x = \varphi(y)$};
+
+                \draw[thick] (2,0.5) .. controls (2.5,1.2) and (2.5,1.8) .. (2,2.5)
+                node[above] {\small $x = \psi(y)$};
+
+                % Líneas horizontales
+                \draw[dashed] (0,0.5) -- (2,0.5);
+                \draw[dashed] (0,2.5) -- (2,2.5);
+
+                % Región sombreada
+                \fill[gray!30] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5) --
+                (2,2.5) .. controls (2.5,1.8) and (2.5,1.2) .. (2,0.5) -- cycle;
+
+                \node at (1.25,1.5) {\small $E_2$};
+            \end{scope}
+        \end{tikzpicture}
+
+    \end{minipage}
+\end{center}
+\end{definición}
+
+\begin{observación}
+La diferencia entre ambas definciones es que en la primera se fija $x$ y se mueve $y$ y en la segunda se fija $y$ y se mueve $x$. Lo que tiene como consecuencia que en la primera se integra $dx-dy$ y en la segunda $dy-dx$.
+\end{observación}
+
+\begin{teorema}
+    Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y además:
+    \[m(T(A)) = |\det(T)|m(A)\]
+\end{teorema}
+\begin{definición} [Difeomorfismo\label{difeomorfismo}]
+Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo de $U$ a $V$ si:
+\vspace{-0.5em}
+\begin{enumerate}
+    \item $\varphi$ es biyectiva
+    \item $\varphi$ es de clase $C^1$ en $U$
+    \item $\varphi^{-1}$ es de clase $C^1$ en $V$
+\end{enumerate}
+\end{definición}
+\begin{observación}
+Sea $\varphi: U \to \mathbb{R}$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es abierto, y supongamos que $det(D\varphi(u)) \neq 0 \quad \forall u \in U \implies V = \varphi(U)$ es abierto. Si $\varphi$ es inyectiva, tenemos que $\varphi: U \to \varphi(U) = V$ es un difeomorfismo.
+\end{observación}
+
+\begin{teorema}
+    Sean $U, V \subset \mathbb{R}^n$ abierto y $\varphi: U \to V$ difeomorfismo-$C^{1}$. Si $A \subset U$ es medible, entonces $\varphi(A)$ es medible y $m(\varphi(A)) = \int_{A}|\det(D\varphi(u))|du$.
+\end{teorema}
+
+\begin{teorema}[Teorema del Cambio de Variable\label{TCV}]
+    Sean $U,V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$. Sea $f: V \to \mathbb{R}$ medible. Entonces:
+    \begin{enumerate}
+        \item Si $f$ es no negativa $\implies (f \circ \varphi) |\det(D\varphi)|$ es medible
+              y no-negativa.
+        \item Si $f$ es integrable $\implies (f \circ \varphi)|\det(D\varphi)|$ es integrable \end{enumerate}
+    En ambos casos se cumple que:
+    $$\int_{V = \varphi(U)} f(x)dx = \int_U (f \circ \varphi(u))|\det(D\varphi)|du$$
+\end{teorema}
+\begin{observación}
+Si $A \subset U$ es medible $\implies \varphi(A)$ es medible y
+$$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
+\end{observación}
+
+\ejemplo{
+    Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
+    Si tomamos el cambio de variable: \\ $$\varphi^{-1} \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
+    Si tomamos la representación gráfica del cambio de variable obtenemos que:
     \begin{center}
         \begin{minipage}{0.45\textwidth}
             \begin{tikzpicture}[scale=1.5]
-                % Ejes
-                \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-                \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
-    
-                % Curvas más variadas
-                \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) node[right] {\small $y = f(x)$}; % Ajuste aquí
-                \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) node[right] {\small $y = g(x)$};
-    
-                % Líneas verticales en x=a y x=b
-                \draw[dashed] (0.5,0.7) -- (0.5,2.4);
-                \draw[dashed] (2.5,1.1) -- (2.5,2.1);
-    
-                % Etiquetas a y b
-                \node[below] at (0.5,0) {\small $a$};
-                \node[below] at (2.5,0) {\small $b$};
-    
-                % Región sombreada
-                \begin{scope}
-                    \clip (0.5,0.7) -- plot[domain=0.5:2.5, smooth] (\x, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) -- (2.5,1.1) -- plot[domain=2.5:0.5, smooth] (\x, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) -- cycle; % Ajuste aquí
-                    \fill[gray!30] (0,0) rectangle (3,3);
-                \end{scope}
-    
-                % Etiqueta de la región
-                \node at (1.5,1.5) {\small $E_1$};
-    
+                % Ejes coordenados
+                \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
+                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
+
+                % Triángulo original en xy
+                \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
+
+                % Etiquetas de los vértices
+                \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
+                \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
+                \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
+
+                % Área sombreada
+                \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
             \end{tikzpicture}
         \end{minipage}
-        \hspace{0.05\textwidth} % Espacio entre las dos figuras
+        \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
         \begin{minipage}{0.45\textwidth}
-    
             \begin{tikzpicture}[scale=1.5]
-                % Ejes de coordenadas con una separación más pequeña
-                \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-                \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
-    
-                \node[left] at (-0.1,0.5) {\small $c$};  % Etiqueta en y = 0.5
-                \node[left] at (-0.1,2.5) {\small $d$};  % Etiqueta en y = 2.5
-    
-                % Mover la figura ligeramente a la derecha
-                \begin{scope}[shift={(1,0)}]  % Ahora solo 1 unidad a la derecha
-                    \draw[thick] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5)
-                    node[above] {\small $x = \varphi(y)$};
-    
-                    \draw[thick] (2,0.5) .. controls (2.5,1.2) and (2.5,1.8) .. (2,2.5)
-                    node[above] {\small $x = \psi(y)$};
-    
-                    % Líneas horizontales
-                    \draw[dashed] (0,0.5) -- (2,0.5);
-                    \draw[dashed] (0,2.5) -- (2,2.5);
-    
-                    % Región sombreada
-                    \fill[gray!30] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5) --
-                    (2,2.5) .. controls (2.5,1.8) and (2.5,1.2) .. (2,0.5) -- cycle;
-    
-                    \node at (1.25,1.5) {\small $E_2$};
-                \end{scope}
+                % Ejes coordenados
+                \draw[->] (-2,0) -- (2,0) node[right] {$u$};
+                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
+
+                % Triángulo
+                \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
+
+                % Etiquetas de los vértices
+                \node[left] at (-2,2) {\footnotesize (-2,2)};
+                \node[right] at (2,2) {\footnotesize (2,2)};
+                \node[below] at (0,0) {\footnotesize (0,0)};
+
+                \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
             \end{tikzpicture}
-    
         \end{minipage}
     \end{center}
-    \end{definición}
-    
-    \begin{observación}
-    La diferencia entre ambas definciones es que en la primera se fija $x$ y se mueve $y$ y en la segunda se fija $y$ y se mueve $x$. Lo que tiene como consecuencia que en la primera se integra $dx-dy$ y en la segunda $dy-dx$.
-    \end{observación}
-    
-    \begin{teorema}
-        Sea $T: \mathbb{R}^n \to \mathbb{R}^n$ aplicación lineal. Sea $A \subset \mathbb{R}^n$ medible $\implies T(A)$ es medible y además:
-        \[m(T(A)) = |\det(T)|m(A)\]
-    \end{teorema}
-    \begin{definición} [Difeomorfismo\label{difeomorfismo}]
-    Sean $U, V \subset \mathbb{R}^n$ abiertos se dice que $\varphi: U \to V$ es un difeomorfismo de $U$ a $V$ si:
-    \vspace{-0.5em}
-    \begin{enumerate}
-        \item $\varphi$ es biyectiva
-        \item $\varphi$ es de clase $C^1$ en $U$
-        \item $\varphi^{-1}$ es de clase $C^1$ en $V$
-    \end{enumerate}
-    \end{definición}
-    \begin{observación}
-    Sea $\varphi: U \to \mathbb{R}$ de clase $C^1$ donde $U \subset \mathbb{R}^n$ es abierto, y supongamos que $det(D\varphi(u)) \neq 0 \quad \forall u \in U \implies V = \varphi(U)$ es abierto. Si $\varphi$ es inyectiva, tenemos que $\varphi: U \to \varphi(U) = V$ es un difeomorfismo.
-    \end{observación}
-    
-    \begin{teorema}
-        Sean $U, V \subset \mathbb{R}^n$ abierto y $\varphi: U \to V$ difeomorfismo-$C^{1}$. Si $A \subset U$ es medible, entonces $\varphi(A)$ es medible y $m(\varphi(A)) = \int_{A}|\det(D\varphi(u))|du$.
-    \end{teorema}
-    
-    \begin{teorema}[Teorema del Cambio de Variable\label{TCV}]
-        Sean $U,V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$. Sea $f: V \to \mathbb{R}$ medible. Entonces:
-        \begin{enumerate}
-            \item Si $f$ es no negativa $\implies (f \circ \varphi) |\det(D\varphi)|$ es medible
-                  y no-negativa.
-            \item Si $f$ es integrable $\implies (f \circ \varphi)|\det(D\varphi)|$ es integrable \end{enumerate}
-        En ambos casos se cumple que:
-        $$\int_{V = \varphi(U)} f(x)dx = \int_U (f \circ \varphi(u))|\det(D\varphi)|du$$
-    \end{teorema}
-    \begin{observación}
-    Si $A \subset U$ es medible $\implies \varphi(A)$ es medible y
-    $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
-    \end{observación}
-    
-    \ejemplo{
-        Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
-        Si tomamos el cambio de variable: \\ $$\varphi^{-1} \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
-        Si tomamos la representación gráfica del cambio de variable obtenemos que:
-        \begin{center}
-            \begin{minipage}{0.45\textwidth}
-                \begin{tikzpicture}[scale=1.5]
-                    % Ejes coordenados
-                    \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
-                    \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
-    
-                    % Triángulo original en xy
-                    \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
-    
-                    % Etiquetas de los vértices
-                    \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
-                    \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
-                    \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
-    
-                    % Área sombreada
-                    \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
-                \end{tikzpicture}
-            \end{minipage}
-            \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
-            \begin{minipage}{0.45\textwidth}
-                \begin{tikzpicture}[scale=1.5]
-                    % Ejes coordenados
-                    \draw[->] (-2,0) -- (2,0) node[right] {$u$};
-                    \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
-    
-                    % Triángulo
-                    \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
-    
-                    % Etiquetas de los vértices
-                    \node[left] at (-2,2) {\footnotesize (-2,2)};
-                    \node[right] at (2,2) {\footnotesize (2,2)};
-                    \node[below] at (0,0) {\footnotesize (0,0)};
-    
-                    \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
-                \end{tikzpicture}
-            \end{minipage}
-        \end{center}
-    
-        Si tomamos $y = 0 \implies \varphi^{-1} \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
-        en tenemos que $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
-        $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$
-        $$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
-    }
-    \begin{definición}[Coordenadas polares]
-    En el plano bidimensional $\mathbb{R}^2$, las \textbf{coordenadas polares} $(r, \theta)$ están definidas en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
-    
-    \begin{minipage}{0.5\textwidth}
-        \[
-            \varphi(r, \theta) =
-            \begin{cases}
-                x = r\cos\theta, \\
-                y = r\sin\theta.
-            \end{cases}
-        \]
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \input{TikZ/PolarCoord.tex}
-    \end{minipage}
-    
-    Donde:
-    \begin{itemize}
-        \item $r \geq 0$ es la distancia radial desde el origen.
-        \item $\theta \in [0, 2\pi)$ es el ángulo medido desde el eje positivo $x$ en sentido antihorario.
-    \end{itemize}
-    
-    El dominio de la transformación es: $$ U = \{(r, \theta) : r > 0, 0 < \theta <
-        2\pi\}. $$ Y su imagen en coordenadas cartesianas es el plano sin el semieje
-    positivo $x$: $$ V = \mathbb{R}^2 \setminus \{ (x,y) : x \geq 0, y = 0\}. $$
-    
-    La transformación $\varphi: U \to V$ es un \textbf{difeomorfismo de clase}
-    $C^1$, ya que cumple las siguientes condiciones:
-    \begin{itemize}
-        \item $\varphi$ es de clase $C^1$, es decir, tiene derivadas continuas en $U$.
-        \item $\varphi$ es biyectiva entre $U$ y $V$.
-        \item El determinante del Jacobiano es no nulo: $$ \det(D_{\varphi})(r, \theta) = \begin{vmatrix}
-            \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
-            \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
-        \end{vmatrix} =
-                  \begin{vmatrix}
-                      \cos\theta & -r\sin\theta \\
-                      \sin\theta & r\cos\theta
-                  \end{vmatrix} = r\cos^2\theta + r\sin^2\theta = r \neq 0.
-              $$
-    \end{itemize}
-    Esto implica que el elemento diferencial de área en coordenadas polares es:
-    $$
-        dA = r \, dr \, d\theta.
-    $$
-    \end{definición}
-    
-    \ejemplo{
-        \begin{itemize}
-            \item Área del círculo $D = \{ (x,y) : x^2 + y^2 \leq R^2\}$ de centro $(0,0)$ y radio $R$:
-                  $$ \text{Área}(D) = \text{Área}(D \cap V) = \int_{\varphi^{-1}(D \cap V)} f(r \cos\theta, r \sin\theta) \left| \det(D_{\varphi(r, \theta)}) \right| dr d\theta. $$
-                  Evaluando la integral:
-                  $$ \int_{0}^{2\pi} \left( \int_{0}^{R} r \, dr \right) d\theta = \pi R^2. $$
-    
-            \item Para la región $A = \{(x,y) : x^2 + y^2 \leq 1, \, y \geq 0\}$ con $f(x,y) =
-                      \sqrt{x^2+y^2}$: $$ \int_{A} f(x,y) \, dx \, dy = \int_{\theta = 0}^{\theta =
-                          \pi} \left( \int_{r = 0}^{r = 1} r \cdot r \, dr \right) d\theta. $$
-                  Resolviendo: $$ \pi \cdot \int_{r = 0}^{r = 1} r^2 \, dr = \frac{\pi}{3}. $$
-        \end{itemize}
-    }
-    \ejemplo{
-        Realicemos el cálculo de integrales gaussianas:
-    
-        \begin{enumerate}
-            % Integral gaussiana en una dimensión
-            \item $g(t) = e^{-t^2}$: Es fácil ver que $g(t) \geq 0$ es integrable en $\mathbb{R}$. Para ver dicha integral, separemos $\mathbb{R} = (-\infty,0) \cup [0,+\infty)$.
-    
-                  \begin{enumerate}
-                      \item Para $(0, +\infty)$: Si $t \geq 1 \implies t^2 \geq t \implies e^{-t^2} \leq
-                                e^{-t}$. Entonces: $$ \int_{0}^{+\infty} e^{-t^2} dt = \int_{0}^{1} e^{-t^2}dt
-                                + \int_{1}^{+\infty}e^{-t^2}dt \leq 1 + \int_{1}^{+\infty}e^{-t^2}dt \leq 1 +
-                                e^{-1} < +\infty. $$
-    
-                      \item Para $(-\infty, 0)$: Consideremos la integral: $$ \int_{-\infty}^{0}e^{-t^2}dt.
-                            $$ Tomamos el cambio de variable $s = -t$, lo que implica $ds = -dt$. Entonces,
-                            la integral se transforma en: $$ \int_{\infty}^{0} e^{-s^2} (-ds) =
-                                \int_{0}^{+\infty} e^{-s^2} ds. $$ Por lo tanto, $$ \int_{-\infty}^{0} e^{-t^2}
-                                dt = \int_{0}^{+\infty} e^{-t^2} dt. $$ Luego, la integral total es: $$ I =
-                                \int_{-\infty}^{+\infty}e^{-t^2}dt = 2\int_{0}^{+\infty}e^{-t^2}dt. $$
-                  \end{enumerate}
-    
-                  % Integral gaussiana en dos dimensiones
-            \item Para $f(x,y) = e^{-(x^2+y^2)}$, existen dos maneras de calcular la integral:
-    
-                  \begin{enumerate}
-                      \item **Usando coordenadas polares:**
-                            $$
-                                \int_{\mathbb{R}^2}e^{-(x^2+y^2)}dx dy = \int_{0}^{2\pi} \left( \int_{0}^{+\infty}e^{-r^2}r dr \right)d\theta.
-                            $$
-                            Separando las integrales:
-                            $$
-                                \left(\int_{0}^{2\pi} 1 \, d\theta\right) \left(\int_{0}^{+\infty} e^{-r^2} r \, dr\right).
-                            $$
-                            Evaluando la integral en $r$:
-                            $$
-                                \int_{0}^{+\infty} e^{-r^2} r \, dr = \left[-\frac{1}{2}e^{-r^2}\right]_{0}^{+\infty} = \frac{1}{2}.
-                            $$
-                            Entonces, el resultado final es:
-                            $$
-                                2\pi \cdot \frac{1}{2} = \pi.
-                            $$
-    
-                      \item **Usando el producto de integrales unidimensionales:**
-                            $$
-                                \int_{x = -\infty}^{x = +\infty}\left(\int_{y = -\infty}^{y = +\infty}e^{-(x^2+y^2)}dy\right)dx.
-                            $$
-                            Como la exponencial es separable, podemos escribir:
-                            $$
-                                \int_{-\infty}^{+\infty} e^{-x^2}dx \cdot \int_{-\infty}^{+\infty} e^{-y^2}dy.
-                            $$
-                            Definiendo $I = \int_{-\infty}^{+\infty} e^{-x^2}dx$, se tiene que:
-                            $$
-                                I^2 = \pi \implies I = \sqrt{\pi}.
-                            $$
-                            Así, la integral en $\mathbb{R}^2$ es:
-                            $$
-                                I^2 = \pi.
-                            $$
-                  \end{enumerate}
-        \end{enumerate}
-    }
-    
-    \ejemplo{
-        \underline{Curvas en coordenadas polares}
-    
-        Calculemos el área encerrada por la curva en coordenadas polares $$ r = a(1 +
-            \cos\theta), $$ la cual describe un **cardioide** con $a > 0$.
-    
-        \textbf{Análisis del comportamiento de $r$:}
-        Evaluemos $r$ en algunos valores característicos de $\theta$:
-    
-        \[
-            \begin{array}{c|c|c}
-                \theta         & r = a(1 + \cos\theta) & Comportamiento               \\ \hline
-                0              & 2a                    & r \text{ decrece} \downarrow \\
-                \frac{\pi}{2}  & a                     & r \text{ decrece} \downarrow \\
-                \pi            & 0                     & r \text{ aumenta} \uparrow   \\
-                \frac{3\pi}{2} & a                     & r \text{ aumenta} \uparrow   \\
-                2\pi           & 2a                    & r \text{ aumenta} \uparrow
-            \end{array}
-        \]
-    
-        \textbf{Cálculo del área encerrada:}
-        Utilizamos la fórmula del área en coordenadas polares:
-    
-        $$
-            A = \int_{\theta = 0}^{\theta = 2\pi} \int_{r = 0}^{r = a(1 + \cos\theta)} r \, dr \, d\theta.
-        $$
-    
-        Evaluando la integral interna:
-    
-        $$
-            \int_{0}^{a(1 + \cos\theta)} r \, dr = \left[ \frac{r^2}{2} \right]_{0}^{a(1 + \cos\theta)}
-            = \frac{a^2}{2} (1 + \cos\theta)^2.
-        $$
-    
-        Ahora resolvemos la integral en $\theta$:
-    
-        $$
-            A = \frac{a^2}{2} \int_{0}^{2\pi} (1 + 2\cos\theta + \cos^2\theta) \, d\theta.
-        $$
-    
-        Usando la identidad trigonométrica:
-    
-        $$
-            \cos^2\theta = \frac{1 + \cos 2\theta}{2},
-        $$
-    
-        la integral se reescribe como:
-    
-        $$
-            A = \frac{a^2}{2} \int_{0}^{2\pi} \left( 1 + 2\cos\theta + \frac{1 + \cos 2\theta}{2} \right) d\theta.
-        $$
-    
-        Evaluamos término a término:
-    
-        - $\int_{0}^{2\pi} 1 \, d\theta = 2\pi$.
-        - $\int_{0}^{2\pi} \cos\theta \, d\theta = 0$.
-        - $\int_{0}^{2\pi} \cos 2\theta \, d\theta = 0$.
-    
-        Por lo tanto:
-    
-        $$
-            A = \frac{a^2}{2} \left( 2\pi + \frac{2\pi}{2} \right) = \frac{3\pi}{2} a^2.
-        $$
-    
-        \textbf{Conclusión:}
-        El área encerrada por el cardioide es:
-    
-        $$
-            A = \frac{3\pi}{2} a^2.
-        $$
-    }
-    
-    \begin{definición}[Coordenadas cilíndricas]
-    En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
-    
-    \begin{minipage}{0.5\textwidth}
-        \[
-            \varphi(r, \theta, z) =
-            \begin{cases}
-                x = r\cos\theta, \\
-                y = r\sin\theta, \\
-                z = z.
-            \end{cases}
-        \]
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \input{TikZ/CylindricalCoord.tex}
-    \end{minipage}
-    
-    Donde:
-    \begin{itemize}
-        \item $r \geq 0$ es la distancia radial desde el eje $z$.
-        \item $\theta \in [0, 2\pi)$ es el ángulo azimutal, medido desde el eje positivo $x$ en el plano $xy$.
-        \item $z \in \mathbb{R}$ representa la coordenada vertical, la misma que en cartesianas.
-    \end{itemize}
-    
-    El dominio de la transformación es: $$ U = \{(r, \theta, z) : r > 0, \ 0 <
-        \theta \leq 2\pi\}. $$ Y su imagen es el espacio tridimensional excepto el
-    semieje positivo $x$: $$ V = \mathbb{R}^3 \setminus \{ (x,y,z) : x \geq 0, y =
-        0\}. $$
-    
-    La matriz jacobiana de la transformación es: $$ D\varphi =
-        \begin{bmatrix}
-            \cos\theta & -r\sin\theta & 0 \\
-            \sin\theta & r\cos\theta  & 0 \\
-            0          & 0            & 1
-        \end{bmatrix}.
-    $$
-    Su determinante, que representa el factor de cambio de volumen, es:
-    $$
-        \left| \det(D\varphi) \right| = r > 0.
-    $$
-    Esto implica que el elemento diferencial de volumen en coordenadas cilíndricas es:
-    $$
-        dV = r \, dr \, d\theta \, dz.
-    $$
-    \end{definición}
-    
-    \ejemplo{
-    Sea $V$ el sólido limitado por $z = x^2 + y^2$ y $z = 2$, y consideremos la función:
-    $$ f(x,y,z) = x^2 + y^2 + z^2. $$
-    Evaluamos la integral:
-    $$ \int_{V} (x^2 + y^2 + z^2) \, dx \, dy \, dz. $$
-    Cambiamos a coordenadas cilíndricas, donde $x^2 + y^2 = r^2$, obteniendo:
-    $$ \int_{z = 0}^{2} \int_{\theta = 0}^{2\pi} \int_{r = 0}^{\sqrt{z}} (r^2 + z^2) \cdot r \, dr \, d\theta \, dz. $$
-    Separando la integral en términos de $\theta$:
-    $$ \left( \int_{\theta = 0}^{2\pi} 1 \, d\theta \right)
-        \left( \int_{z = 0}^{2} \left( \int_{r = 0}^{\sqrt{z}} (r^3 + z^2 r) \, dr \right) dz \right). $$
-    Resolviendo la integral en $\theta$:
-    $$ 2\pi \int_{z = 0}^{2} \left[ \frac{r^4}{4} + \frac{z^2 r^2}{2} \right]_{r = 0}^{r = \sqrt{z}} dz. $$
-    Sustituyendo $r = \sqrt{z}$:
-    $$ 2\pi \int_{z = 0}^{2} \left( \frac{z^2}{4} + \frac{z^3}{2} \right) dz. $$
-    Resolviendo la integral en $z$:
-    $$ 2\pi \left[ \frac{z^3}{12} + \frac{z^4}{8} \right]_{z = 0}^{z = 2}. $$
-    Evaluando los límites:
-    $$ 2\pi \left( \frac{8}{12} + \frac{16}{8} \right) = 2\pi \left( \frac{2}{3} + 2 \right) = 2\pi \left( \frac{8}{3} \right) = \frac{16\pi}{3}. $$
-    Por lo tanto, el resultado final es:
-    $$ \frac{16\pi}{3}. $$
-    }
-    \begin{definición}[Coordenadas esféricas]
-    En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
-    
-    \begin{minipage}{0.5\textwidth}
-        \[
-            \varphi(r, \theta, \phi) =
-            \begin{cases}
-                x = r\cos\theta \sin\phi, \\
-                y = r\sin\theta \sin\phi, \\
-                z = r\cos\phi.
-            \end{cases}
-        \]
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \input{TikZ/SphericalCoord.tex}
-    \end{minipage}
-    
-    Donde:
-    \begin{itemize}
-        \item $r \geq 0$ es la distancia radial desde el origen.
-        \item $\theta \in [0, 2\pi)$ es el ángulo azimutal medido en el plano $xy$ desde el eje positivo $x$.
-        \item $\phi \in [0, \pi]$ es el ángulo polar o colatitud, medido desde el eje positivo $z$.
-    \end{itemize}
-    
-    La matriz jacobiana de esta transformación es: $$ D_\varphi =
-        \begin{bmatrix}
-            \cos\theta \sin\phi & -r\sin\theta \sin\phi & r\cos\theta \cos\phi \\
-            \sin\theta \sin\phi & r\cos\theta \sin\phi  & r\sin\theta \cos\phi \\
-            \cos\phi            & 0                     & -r\sin\phi
-        \end{bmatrix}.
-    $$
-    Su determinante, que representa el factor de cambio de volumen, es:
-    $$
-        \left| \det D_\varphi \right| = r^2 \sin\phi.
-    $$
-    Esto implica que el elemento diferencial de volumen en coordenadas esféricas es:
-    $$
-        dV = r^2 \sin\phi \, dr \, d\theta \, d\phi.
-    $$
-    \end{definición}
-    \ejemplo{
-        $B_r = \{(x,y,z) : x^2 + y^2 + z^2 \leq R^2\} \implies$ \\ $$vol(B_r) = \int_{B_r}1dxdydz = \int_{0}^{2\pi}\left(\int_{0}^{\pi}\left(\int_{0}^{R}r^2\sin(\phi)dr\right)d\phi\right)d\theta = \frac{4}{3}\pi R^3$$
-    }
-    
-    \begin{definición}[Coordenadas elípticas]
-    En el plano, las coordenadas elípticas $(r, \theta)$ se definen en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
-    $$
-        \varphi (r, \theta) =
+
+    Si tomamos $y = 0 \implies \varphi^{-1} \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
+    en tenemos que $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
+    $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$
+    $$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
+}
+\begin{definición}[Coordenadas polares]
+En el plano bidimensional $\mathbb{R}^2$, las \textbf{coordenadas polares} $(r, \theta)$ están definidas en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
+
+\begin{minipage}{0.5\textwidth}
+    \[
+        \varphi(r, \theta) =
         \begin{cases}
-            x = a r \cos\theta, \\
-            y = b r \sin\theta.
+            x = r\cos\theta, \\
+            y = r\sin\theta.
         \end{cases}
-    $$
-    Donde:
+    \]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \input{TikZ/PolarCoord.tex}
+\end{minipage}
+
+Donde:
+\begin{itemize}
+    \item $r \geq 0$ es la distancia radial desde el origen.
+    \item $\theta \in [0, 2\pi)$ es el ángulo medido desde el eje positivo $x$ en sentido antihorario.
+\end{itemize}
+
+El dominio de la transformación es: $$ U = \{(r, \theta) : r > 0, 0 < \theta <
+    2\pi\}. $$ Y su imagen en coordenadas cartesianas es el plano sin el semieje
+positivo $x$: $$ V = \mathbb{R}^2 \setminus \{ (x,y) : x \geq 0, y = 0\}. $$
+
+La transformación $\varphi: U \to V$ es un \textbf{difeomorfismo de clase}
+$C^1$, ya que cumple las siguientes condiciones:
+\begin{itemize}
+    \item $\varphi$ es de clase $C^1$, es decir, tiene derivadas continuas en $U$.
+    \item $\varphi$ es biyectiva entre $U$ y $V$.
+    \item El determinante del Jacobiano es no nulo: $$ \det(D_{\varphi})(r, \theta) = \begin{vmatrix}
+                  \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+                  \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+              \end{vmatrix} =
+              \begin{vmatrix}
+                  \cos\theta & -r\sin\theta \\
+                  \sin\theta & r\cos\theta
+              \end{vmatrix} = r\cos^2\theta + r\sin^2\theta = r \neq 0.
+          $$
+\end{itemize}
+Esto implica que el elemento diferencial de área en coordenadas polares es:
+$$
+    dA = r \, dr \, d\theta.
+$$
+\end{definición}
+
+\ejemplo{
     \begin{itemize}
-        \item $r \geq 0$ es la coordenada radial, que describe la escala de la elipse.
-        \item $\theta \in [0, 2\pi)$ es el ángulo que mide la posición en la elipse, similar al ángulo en coordenadas polares.
-        \item $a, b > 0$ son constantes que determinan los semiejes de las elipses.
+        \item Área del círculo $D = \{ (x,y) : x^2 + y^2 \leq R^2\}$ de centro $(0,0)$ y radio $R$:
+              $$ \text{Área}(D) = \text{Área}(D \cap V) = \int_{\varphi^{-1}(D \cap V)} f(r \cos\theta, r \sin\theta) \left| \det(D_{\varphi(r, \theta)}) \right| dr d\theta. $$
+              Evaluando la integral:
+              $$ \int_{0}^{2\pi} \left( \int_{0}^{R} r \, dr \right) d\theta = \pi R^2. $$
+
+        \item Para la región $A = \{(x,y) : x^2 + y^2 \leq 1, \, y \geq 0\}$ con $f(x,y) =
+                  \sqrt{x^2+y^2}$: $$ \int_{A} f(x,y) \, dx \, dy = \int_{\theta = 0}^{\theta =
+                      \pi} \left( \int_{r = 0}^{r = 1} r \cdot r \, dr \right) d\theta. $$
+              Resolviendo: $$ \pi \cdot \int_{r = 0}^{r = 1} r^2 \, dr = \frac{\pi}{3}. $$
     \end{itemize}
-    
-    La matriz jacobiana de esta transformación es: $$ D_\varphi =
+}
+\ejemplo{
+    Realicemos el cálculo de integrales gaussianas:
+
+    \begin{enumerate}
+        % Integral gaussiana en una dimensión
+        \item $g(t) = e^{-t^2}$: Es fácil ver que $g(t) \geq 0$ es integrable en $\mathbb{R}$. Para ver dicha integral, separemos $\mathbb{R} = (-\infty,0) \cup [0,+\infty)$.
+
+              \begin{enumerate}
+                  \item Para $(0, +\infty)$: Si $t \geq 1 \implies t^2 \geq t \implies e^{-t^2} \leq
+                            e^{-t}$. Entonces: $$ \int_{0}^{+\infty} e^{-t^2} dt = \int_{0}^{1} e^{-t^2}dt
+                            + \int_{1}^{+\infty}e^{-t^2}dt \leq 1 + \int_{1}^{+\infty}e^{-t^2}dt \leq 1 +
+                            e^{-1} < +\infty. $$
+
+                  \item Para $(-\infty, 0)$: Consideremos la integral: $$ \int_{-\infty}^{0}e^{-t^2}dt.
+                        $$ Tomamos el cambio de variable $s = -t$, lo que implica $ds = -dt$. Entonces,
+                        la integral se transforma en: $$ \int_{\infty}^{0} e^{-s^2} (-ds) =
+                            \int_{0}^{+\infty} e^{-s^2} ds. $$ Por lo tanto, $$ \int_{-\infty}^{0} e^{-t^2}
+                            dt = \int_{0}^{+\infty} e^{-t^2} dt. $$ Luego, la integral total es: $$ I =
+                            \int_{-\infty}^{+\infty}e^{-t^2}dt = 2\int_{0}^{+\infty}e^{-t^2}dt. $$
+              \end{enumerate}
+
+              % Integral gaussiana en dos dimensiones
+        \item Para $f(x,y) = e^{-(x^2+y^2)}$, existen dos maneras de calcular la integral:
+
+              \begin{enumerate}
+                  \item **Usando coordenadas polares:**
+                        $$
+                            \int_{\mathbb{R}^2}e^{-(x^2+y^2)}dx dy = \int_{0}^{2\pi} \left( \int_{0}^{+\infty}e^{-r^2}r dr \right)d\theta.
+                        $$
+                        Separando las integrales:
+                        $$
+                            \left(\int_{0}^{2\pi} 1 \, d\theta\right) \left(\int_{0}^{+\infty} e^{-r^2} r \, dr\right).
+                        $$
+                        Evaluando la integral en $r$:
+                        $$
+                            \int_{0}^{+\infty} e^{-r^2} r \, dr = \left[-\frac{1}{2}e^{-r^2}\right]_{0}^{+\infty} = \frac{1}{2}.
+                        $$
+                        Entonces, el resultado final es:
+                        $$
+                            2\pi \cdot \frac{1}{2} = \pi.
+                        $$
+
+                  \item **Usando el producto de integrales unidimensionales:**
+                        $$
+                            \int_{x = -\infty}^{x = +\infty}\left(\int_{y = -\infty}^{y = +\infty}e^{-(x^2+y^2)}dy\right)dx.
+                        $$
+                        Como la exponencial es separable, podemos escribir:
+                        $$
+                            \int_{-\infty}^{+\infty} e^{-x^2}dx \cdot \int_{-\infty}^{+\infty} e^{-y^2}dy.
+                        $$
+                        Definiendo $I = \int_{-\infty}^{+\infty} e^{-x^2}dx$, se tiene que:
+                        $$
+                            I^2 = \pi \implies I = \sqrt{\pi}.
+                        $$
+                        Así, la integral en $\mathbb{R}^2$ es:
+                        $$
+                            I^2 = \pi.
+                        $$
+              \end{enumerate}
+    \end{enumerate}
+}
+
+\ejemplo{
+    \underline{Curvas en coordenadas polares}
+
+    Calculemos el área encerrada por la curva en coordenadas polares $$ r = a(1 +
+        \cos\theta), $$ la cual describe un **cardioide** con $a > 0$.
+
+    \textbf{Análisis del comportamiento de $r$:}
+    Evaluemos $r$ en algunos valores característicos de $\theta$:
+
+    \[
+        \begin{array}{c|c|c}
+            \theta         & r = a(1 + \cos\theta) & Comportamiento               \\ \hline
+            0              & 2a                    & r \text{ decrece} \downarrow \\
+            \frac{\pi}{2}  & a                     & r \text{ decrece} \downarrow \\
+            \pi            & 0                     & r \text{ aumenta} \uparrow   \\
+            \frac{3\pi}{2} & a                     & r \text{ aumenta} \uparrow   \\
+            2\pi           & 2a                    & r \text{ aumenta} \uparrow
+        \end{array}
+    \]
+
+    \textbf{Cálculo del área encerrada:}
+    Utilizamos la fórmula del área en coordenadas polares:
+
+    $$
+        A = \int_{\theta = 0}^{\theta = 2\pi} \int_{r = 0}^{r = a(1 + \cos\theta)} r \, dr \, d\theta.
+    $$
+
+    Evaluando la integral interna:
+
+    $$
+        \int_{0}^{a(1 + \cos\theta)} r \, dr = \left[ \frac{r^2}{2} \right]_{0}^{a(1 + \cos\theta)}
+        = \frac{a^2}{2} (1 + \cos\theta)^2.
+    $$
+
+    Ahora resolvemos la integral en $\theta$:
+
+    $$
+        A = \frac{a^2}{2} \int_{0}^{2\pi} (1 + 2\cos\theta + \cos^2\theta) \, d\theta.
+    $$
+
+    Usando la identidad trigonométrica:
+
+    $$
+        \cos^2\theta = \frac{1 + \cos 2\theta}{2},
+    $$
+
+    la integral se reescribe como:
+
+    $$
+        A = \frac{a^2}{2} \int_{0}^{2\pi} \left( 1 + 2\cos\theta + \frac{1 + \cos 2\theta}{2} \right) d\theta.
+    $$
+
+    Evaluamos término a término:
+
+    - $\int_{0}^{2\pi} 1 \, d\theta = 2\pi$.
+    - $\int_{0}^{2\pi} \cos\theta \, d\theta = 0$.
+    - $\int_{0}^{2\pi} \cos 2\theta \, d\theta = 0$.
+
+    Por lo tanto:
+
+    $$
+        A = \frac{a^2}{2} \left( 2\pi + \frac{2\pi}{2} \right) = \frac{3\pi}{2} a^2.
+    $$
+
+    \textbf{Conclusión:}
+    El área encerrada por el cardioide es:
+
+    $$
+        A = \frac{3\pi}{2} a^2.
+    $$
+}
+
+\begin{definición}[Coordenadas cilíndricas]
+En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
+
+\begin{minipage}{0.5\textwidth}
+    \[
+        \varphi(r, \theta, z) =
+        \begin{cases}
+            x = r\cos\theta, \\
+            y = r\sin\theta, \\
+            z = z.
+        \end{cases}
+    \]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \input{TikZ/CylindricalCoord.tex}
+\end{minipage}
+
+Donde:
+\begin{itemize}
+    \item $r \geq 0$ es la distancia radial desde el eje $z$.
+    \item $\theta \in [0, 2\pi)$ es el ángulo azimutal, medido desde el eje positivo $x$ en el plano $xy$.
+    \item $z \in \mathbb{R}$ representa la coordenada vertical, la misma que en cartesianas.
+\end{itemize}
+
+El dominio de la transformación es: $$ U = \{(r, \theta, z) : r > 0, \ 0 <
+    \theta \leq 2\pi\}. $$ Y su imagen es el espacio tridimensional excepto el
+semieje positivo $x$: $$ V = \mathbb{R}^3 \setminus \{ (x,y,z) : x \geq 0, y =
+    0\}. $$
+
+La matriz jacobiana de la transformación es: $$ D\varphi =
+    \begin{bmatrix}
+        \cos\theta & -r\sin\theta & 0 \\
+        \sin\theta & r\cos\theta  & 0 \\
+        0          & 0            & 1
+    \end{bmatrix}.
+$$
+Su determinante, que representa el factor de cambio de volumen, es:
+$$
+    \left| \det(D\varphi) \right| = r > 0.
+$$
+Esto implica que el elemento diferencial de volumen en coordenadas cilíndricas es:
+$$
+    dV = r \, dr \, d\theta \, dz.
+$$
+\end{definición}
+
+\ejemplo{
+Sea $V$ el sólido limitado por $z = x^2 + y^2$ y $z = 2$, y consideremos la función:
+$$ f(x,y,z) = x^2 + y^2 + z^2. $$
+Evaluamos la integral:
+$$ \int_{V} (x^2 + y^2 + z^2) \, dx \, dy \, dz. $$
+Cambiamos a coordenadas cilíndricas, donde $x^2 + y^2 = r^2$, obteniendo:
+$$ \int_{z = 0}^{2} \int_{\theta = 0}^{2\pi} \int_{r = 0}^{\sqrt{z}} (r^2 + z^2) \cdot r \, dr \, d\theta \, dz. $$
+Separando la integral en términos de $\theta$:
+$$ \left( \int_{\theta = 0}^{2\pi} 1 \, d\theta \right)
+    \left( \int_{z = 0}^{2} \left( \int_{r = 0}^{\sqrt{z}} (r^3 + z^2 r) \, dr \right) dz \right). $$
+Resolviendo la integral en $\theta$:
+$$ 2\pi \int_{z = 0}^{2} \left[ \frac{r^4}{4} + \frac{z^2 r^2}{2} \right]_{r = 0}^{r = \sqrt{z}} dz. $$
+Sustituyendo $r = \sqrt{z}$:
+$$ 2\pi \int_{z = 0}^{2} \left( \frac{z^2}{4} + \frac{z^3}{2} \right) dz. $$
+Resolviendo la integral en $z$:
+$$ 2\pi \left[ \frac{z^3}{12} + \frac{z^4}{8} \right]_{z = 0}^{z = 2}. $$
+Evaluando los límites:
+$$ 2\pi \left( \frac{8}{12} + \frac{16}{8} \right) = 2\pi \left( \frac{2}{3} + 2 \right) = 2\pi \left( \frac{8}{3} \right) = \frac{16\pi}{3}. $$
+Por lo tanto, el resultado final es:
+$$ \frac{16\pi}{3}. $$
+}
+
+\ejemplo{
+
+
+Sea \( V \) la porción de la semiesfera \( 0 \leq z \leq \sqrt{2 - x^2 -
+    y^2} \) que está fuera del cilindro \( x^2 + y^2 = 1 \).\\
+Queremos calcular la integral
+\[
+    I = \int_V z \,dx\,dy\,dz
+\]
+En coordenadas cilíndricas, las variables se expresan como:
+$$ \varphi(r, \theta, z) =
+\begin{cases}
+    x = r\cos\theta, \\
+    y = r\sin\theta, \\
+    z = z.
+\end{cases}
+$$
+
+donde el jacobiano de la transformación es \( r \).
+Los límites en estas coordenadas son:
+
+\begin{itemize}
+    \item \( 0 \leq z \leq 1 \) porque la semiesfera en z llega hasta \( \sqrt{2 - x^2 - y^2} \), pero solo consideramos de $z=0$ hasta \( z = 1 \), pues los puntos de la esfera donde $1 \leq z \leq \sqrt{2}$ están dentro del cilindro, luego no los consideramos.
+    \item \( 1 \leq r \leq \sqrt{2 - z^2} \) porque el cilindro \( x^2 + y^2 = 1 \) define el límite inferior y la semiesfera define el superior.
+    \item \( 0 \leq \theta \leq 2\pi \), ya que se recorre toda la circunferencia.
+\end{itemize}
+
+Así, la integral se reescribe como:
+
+\[
+    I = \int_0^{2\pi} \int_0^1 \int_1^{\sqrt{2 - z^2}} z r \, dr \, dz \, d\theta.
+\]
+
+Calculamos la integral iterada:
+
+\[
+    I = \int_0^{2\pi} \int_0^1 z \left( \int_1^{\sqrt{2 - z^2}} r \, dr \right) dz \, d\theta.
+\]
+
+La integral en \( r \) es:
+
+\[
+    \int_1^{\sqrt{2 - z^2}} r \, dr = \left[ \frac{r^2}{2} \right]_1^{\sqrt{2 - z^2}} = \frac{(2 - z^2)}{2} - \frac{1}{2} = \frac{1 - z^2}{2}.
+\]
+
+Sustituyendo en la integral:
+
+\[
+    I = \int_0^{2\pi} \int_0^1 z \cdot \frac{1 - z^2}{2} \, dz \, d\theta.
+\]
+
+Resolviendo la integral en \( z \):
+
+\[
+    \frac{1}{2} \int_0^1 z (1 - z^2) \, dz = \frac{1}{2} \int_0^1 (z - z^3) \, dz.
+\]
+
+Calculamos:
+
+\[
+    \frac{1}{2} \left[ \frac{z^2}{2} - \frac{z^4}{4} \right]_0^1 = \frac{1}{2} \left( \frac{1}{2} - \frac{1}{4} \right) = \frac{1}{2} \times \frac{1}{4} = \frac{1}{8}.
+\]
+
+Finalmente, integramos en \( \theta \):
+
+\[
+    \int_0^{2\pi} \frac{1}{8} \, d\theta = 2\pi \frac{1}{8}  = \frac{\pi}{4}.
+\]
+
+Luego, la integral es:
+
+\[
+    I = \frac{\pi}{4}.
+\]
+}
+
+\begin{definición}[Coordenadas esféricas]
+En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
+
+\begin{minipage}{0.5\textwidth}
+    \[
+        \varphi(r, \theta, \phi) =
+        \begin{cases}
+            x = r\cos\theta \sin\phi, \\
+            y = r\sin\theta \sin\phi, \\
+            z = r\cos\phi.
+        \end{cases}
+    \]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \input{TikZ/SphericalCoord.tex}
+\end{minipage}
+
+Donde:
+\begin{itemize}
+    \item $r \geq 0$ es la distancia radial desde el origen.
+    \item $\theta \in [0, 2\pi)$ es el ángulo azimutal medido en el plano $xy$ desde el eje positivo $x$.
+    \item $\phi \in [0, \pi]$ es el ángulo polar o colatitud, medido desde el eje positivo $z$.
+\end{itemize}
+
+La matriz jacobiana de esta transformación es: $$ D_\varphi =
+    \begin{bmatrix}
+        \cos\theta \sin\phi & -r\sin\theta \sin\phi & r\cos\theta \cos\phi \\
+        \sin\theta \sin\phi & r\cos\theta \sin\phi  & r\sin\theta \cos\phi \\
+        \cos\phi            & 0                     & -r\sin\phi
+    \end{bmatrix}.
+$$
+Su determinante, que representa el factor de cambio de volumen, es:
+$$
+    \left| \det D_\varphi \right| = r^2 \sin\phi.
+$$
+Esto implica que el elemento diferencial de volumen en coordenadas esféricas es:
+$$
+    dV = r^2 \sin\phi \, dr \, d\theta \, d\phi.
+$$
+\end{definición}
+\ejemplo{
+    $B_r = \{(x,y,z) : x^2 + y^2 + z^2 \leq R^2\} \implies$ \\ $$vol(B_r) = \int_{B_r}1dxdydz = \int_{0}^{2\pi}\left(\int_{0}^{\pi}\left(\int_{0}^{R}r^2\sin(\phi)dr\right)d\phi\right)d\theta = \frac{4}{3}\pi R^3$$
+}
+
+\begin{definición}[Coordenadas elípticas]
+En el plano, las coordenadas elípticas $(r, \theta)$ se definen en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
+$$
+    \varphi (r, \theta) =
+    \begin{cases}
+        x = a r \cos\theta, \\
+        y = b r \sin\theta.
+    \end{cases}
+$$
+Donde:
+\begin{itemize}
+    \item $r \geq 0$ es la coordenada radial, que describe la escala de la elipse.
+    \item $\theta \in [0, 2\pi)$ es el ángulo que mide la posición en la elipse, similar al ángulo en coordenadas polares.
+    \item $a, b > 0$ son constantes que determinan los semiejes de las elipses.
+\end{itemize}
+
+La matriz jacobiana de esta transformación es: $$ D_\varphi =
+    \begin{bmatrix}
+        a\cos\theta & -a r \sin\theta \\
+        b\sin\theta & b r \cos\theta
+    \end{bmatrix}.
+$$
+
+Su determinante, que representa el factor de cambio de área, es: $$ \left| \det
+    D_\varphi \right| = a b r. $$
+
+Esto implica que el elemento diferencial de área en coordenadas elípticas es:
+$$ dA = a b r \, dr \, d\theta. $$
+
+\end{definición}
+
+\ejemplo{
+    Consideremos la región elíptica definida en coordenadas cartesianas como:
+    $$
+        E = \left\{ (x,y) \mid \frac{x^2}{a^2} + \frac{y^2}{b^2} \leq 1 \right\}.
+    $$
+    En coordenadas elípticas, esto equivale a:
+    $$
+        E = \left\{ (r, \theta) \mid 0 \leq \theta \leq 2\pi, 0 \leq r \leq 1 \right\}.
+    $$
+
+    \textbf{Cálculo del jacobiano:}
+    La matriz jacobiana de la transformación es:
+    $$
+        D\varphi =
         \begin{bmatrix}
-            a\cos\theta & -a r \sin\theta \\
-            b\sin\theta & b r \cos\theta
+            a\cos\theta & -ar\sin\theta \\
+            b\sin\theta & br\cos\theta
         \end{bmatrix}.
     $$
-    
-    Su determinante, que representa el factor de cambio de área, es: $$ \left| \det
-        D_\varphi \right| = a b r. $$
-    
-    Esto implica que el elemento diferencial de área en coordenadas elípticas es:
-    $$ dA = a b r \, dr \, d\theta. $$
-    
-    \end{definición}
-    
-    \ejemplo{
-        Consideremos la región elíptica definida en coordenadas cartesianas como:
-        $$
-            E = \left\{ (x,y) \mid \frac{x^2}{a^2} + \frac{y^2}{b^2} \leq 1 \right\}.
-        $$
-        En coordenadas elípticas, esto equivale a:
-        $$
-            E = \left\{ (r, \theta) \mid 0 \leq \theta \leq 2\pi, 0 \leq r \leq 1 \right\}.
-        $$
-    
-        \textbf{Cálculo del jacobiano:}
-        La matriz jacobiana de la transformación es:
-        $$
-            D\varphi =
-            \begin{bmatrix}
-                a\cos\theta & -ar\sin\theta \\
-                b\sin\theta & br\cos\theta
-            \end{bmatrix}.
-        $$
-        Su determinante es:
-        $$
-            \det(D\varphi) = ab r.
-        $$
-    
-        \textbf{Cálculo del área de la elipse:}
-        La integral de área en coordenadas elípticas se expresa como:
-        $$
-            \text{Área}(E) = \int_{\theta = 0}^{2\pi} \int_{r = 0}^{1} ab r \, dr \, d\theta.
-        $$
-        Resolviendo la integral en $r$:
-        $$
-            \int_{0}^{1} ab r \, dr = ab \left[\frac{r^2}{2} \right]_{0}^{1} = \frac{ab}{2}.
-        $$
-        Evaluando la integral en $\theta$:
-        $$
-            \int_{0}^{2\pi} d\theta = 2\pi.
-        $$
-        Por lo tanto, el área de la elipse es:
-        $$
-            \text{Área}(E) = 2\pi \cdot \frac{ab}{2} = \pi ab.
-        $$
-    
-        Así, hemos obtenido el área de la elipse usando coordenadas elípticas. }
-    
-    \ejemplo{
-        Volumen comprendido entre los paraboloides:
-        $$ 2z = 4 + \frac{x^2}{3} + y^2, \quad 2z = \frac{2x^2}{3} + 3y^2 $$
-    
-        Eliminando $z$: $$ 4 + \frac{x^2}{3} + y^2 = \frac{2x^2}{3} + 3y^2 \iff
-            \frac{x^2}{3} + 2y^2 = 4 $$ Lo cual es un cilindro elíptico de $\mathbb{R}^3$.
-    
-        Definimos el dominio: $$ E = \left\{ (x,y) \mid \frac{x^2}{3} + 2y^2 \leq 4
-            \right\} $$ Luego, el volumen está dado por: $$ \text{vol} = \int_{E} \left(2 +
-            \frac{x^2}{6} + \frac{y^2}{2} \right) - \left(\frac{x^2}{3} + \frac{3y^2}{2}
-            \right) dx \, dy = \int_{E} \left(2 - \frac{x^2}{6} - y^2 \right) dx \, dy $$
-    
-        \vspace{-2.1em}
-    
-        \begin{center}
-            \includegraphics[width=0.6\textwidth]{images/Parabs.png}
-        \end{center}
-    
-        \vspace{-2em}
-    
-        Haciendo el cambio de coordenadas elípticas: $$ a = \sqrt{12} = 2\sqrt{3},
-            \quad b = \sqrt{2} $$ $$ x = 2\sqrt{3} r\cos\theta, \quad y = \sqrt{2}
-            r\sin\theta $$ El jacobiano es: $$ J = 2\sqrt{6} $$ Finalmente, el cambio de
-        variable nos ofrece que el volumen del conjunto es: $$ 2\sqrt{6} \pi. $$ }
-    
-    \vspace{1em}
-    
-    \begin{observación}
-    Sean $U, V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$.
-    $$\varphi = \begin{cases} x_1 = x_1(u_1, \ldots, u_n) \\ \vdots \\ x_n = x_n(u_1, \ldots, u_n) \end{cases}$$
-    Entonces:
-    $$det(D_{\varphi}) = \frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}} = \begin{vmatrix} \frac{\partial{x_1}}{\partial{u_1}} & \cdots & \frac{\partial{x_1}}{\partial{u_n}} \\ \vdots & \ddots & \vdots \\ \frac{\partial{x_n}}{\partial{u_1}} & \cdots & \frac{\partial{x_n}}{\partial{u_n}} \end{vmatrix}$$
-    Entonces el Teorema de Cambio de Variable queda como:
-    $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\det(D_{\varphi})|du_1 \cdots du_n =$$ $$
-        = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}}|du_1 \cdots du_n$$
-    \end{observación}
-    
-    \ejemplo{
-        Ejercicio 4 (Hoja 4)\\
-        Calcula el área del recinto delimitado por las rectas $\begin{cases} x + y = a \\ x + y = b \\ 2x - 3y = c \\ 2x - 3y = d \end{cases}$
-        Supongamos que $a < b, c < d$.\\
-        \vspace{-1.5em}
-        \begin{center}
-            \begin{tikzpicture}[scale=0.7]
-                % Ejes
-                \draw[thick,->] (-2,0) -- (4,0) node[right] {\small $x$};
-                \draw[thick,->] (0,-3) -- (0,4) node[above] {\small $y$};
-    
-                % Conjunto de rectas paralelas
-                \draw[thick] (-2,0) -- (1,3) node[right] {\small $2x - 3y = d$};
-                \draw[thick] (-1,-2) -- (3,2) node[right] {\small $2x - 3y = c$};
-    
-                \draw[thick] (-1,4) -- (4,-1) node[right] {\small $x + 4y = b$};
-                \draw[thick] (-1,2) -- (3,-2) node[right] {\small $x + 4y = a$};
-    
-                % Región sombreada
-                \fill[pattern=north east lines, pattern color=black, opacity=0.5]
-                (0.5,2.5) -- (2,1) -- (1,0) -- (-0.5,1.5) -- cycle;
-            \end{tikzpicture}
-        \end{center}
-        Para ello tomemos el cambio de variable: $\varphi^{-1} = \psi = \begin{cases} u = x + y \\ v = 2x -3y \end{cases} $\\
-        \[area(D) = \int_{D = \varphi(E)}1 dx dy = \int_{E}1 \left| \frac{\partial(x,y)}{\partial (u,v)} \right| du dv\]
-        Donde
-        \[\frac{\partial{(u, v)}}{\partial{(x, y)}} = \begin{vmatrix} \frac{\partial{x}}{\partial{u}} & \frac{\partial{x}}{\partial{v}} \\ \frac{\partial{y}}{\partial{u}} & \frac{\partial{y}}{\partial{v}} \end{vmatrix} = \begin{vmatrix} 1 & 1 \\ 2 & -3 \end{vmatrix} = -5 \implies \frac{\partial{(x,y)}}{\partial(u,v)} = \frac{1}{-5}\]
-        Entonces la integral anterior queda de la forma: $$\int_{E}\frac{1}{5}dudv =
-            \frac{1}{5}\cdot area(E) = \frac{1}{5}(b-a)(d-c)$$ }
-    
-    \ejemplo{
-        Ejercicio 6.b (Hoja 4)\\
-    
-        Sea el conjunto
-        \[
-            D = \{(x,y) \in \mathbb{R}^2 : 1 \leq x^2 - y^2 \leq 9, 2 \leq xy \leq 4\}
-        \]
-        queremos calcular la integral
-        \[
-            \int_{D} (x^2 + y^2) dx dy
-        \]
-    
-        Para ello consideremos el cambio de variable ("hiperbólico"):
-        \[
-            \psi = \begin{cases}
-                u = x^2 - y^2 \\
-                v = 2xy
-            \end{cases}
-        \]
-    
-        Si
-        \[
-            \begin{cases}
-                x = r\cos(\theta) \\
-                y = r\sin(\theta)
-            \end{cases}
-            \implies
-            \begin{cases}
-                u = r^2(\cos^2(\theta) - \sin^2(\theta)) = r^2\cos(2\theta) \\
-                v = r^2 2\sin(\theta)\cos(\theta) = r^2\sin(2\theta)
-            \end{cases}
-        \]
-    
-        Sean
-        \[
-            V = \{(x,y) : x > 0, y > 0\}, \quad U = \{(u,v) : v > 0\}
-        \]
-        Entonces $\psi: V \to U$ es biyectiva y existe $\varphi = \psi^{-1}: U \to V$.
-        Además el conjunto transformado es
-    
-        \[
-            E = \psi(D) = \{(u,v) \in \mathbb{R}^2 : 1 \leq u \leq 9, 4 \leq v \leq 8\}
-        \]
-    
-        \input{TikZ/conj1.tex}
-    
-        Sean
-        \[
-            D^{+} = \{(x,y) \in D : x > 0, y > 0\}, \quad D^{-} = \{(x,y) \in D : x < 0, y < 0\}
-        \]
-    
-        Entonces
-        \[
-            \int_{D^{+}} (x^2 + y^2) dx dy = \int_{D^{-}} (x^2+y^2) dx dy
-        \]
-    
-        Sea entonces el cambio de variable
-        \[
-            \begin{cases}
-                \bar{x} = -x \\
-                \bar{y} = -y
-            \end{cases}
-        \]
-        con el jacobiano igual a 1.
-    
-        Entonces
-        \[
-            \int_{D^{-}} (x^2 + y^2) dx dy = \int_{D^{+}} (-x)^2 + (-y)^2 dx dy = \int_{D^{+}} x^2 + y^2 dx dy
-        \]
-    
-        Entonces,
-        \[
-            \int_{D} x^2 + y^2 dx dy = 2\int_{D^{+}} x^2 + y^2 dx dy = 2\int_{E}\sqrt{u^2 + v^2} \frac{\partial{(x,y)}}{\partial{(u,v)}} du dv = \int_{E}\sqrt{u^2 + v^2} du dv
-        \]
-    
-        Ya que tenemos que
-        \[
-            x^2 + y^2 = r^2 = \sqrt{u^2 + v^2}
-        \]
-    
-        Donde además tenemos que:
-        \[
-            \frac{\partial{(u,v)}}{\partial{(x,y)}} =
-            \begin{vmatrix}
-                2x & -2y \\
-                2y & 2x
-            \end{vmatrix} = 4x^2 + 4y^2
-            \implies
-            \frac{\partial{(x,y)}}{\partial{(u,v)}} = \frac{1}{4x^2 + 4y^2} = \frac{1}{4\sqrt{u^2 + v^2}}
-        \]
-    
-        \begin{center}
-            \begin{tikzpicture}[scale=1]
-                % Sombreado leve en todo el primer cuadrante
-                \fill[black,opacity=0.1] (0,0) -- (3,0) -- (3,3) -- (0,3) -- cycle;
-    
-                % Ejes
-                \draw[thick,->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-                \draw[thick,->] (0,-0.5) -- (0,3) node[above] {\small $y$};
-    
-                % Vector r con "r" más arriba y "P" en la punta
-                \draw[thick,->] (0,0) -- (1.5,0.75) node[right] {\small $P$};
-                \node at (0.85,0.55) {\small $r$};  % "r" más arriba en la flecha
-    
-                % Ángulo theta
-                \draw[thick] (0.8,0) arc (0:26.57:0.8);
-                \node at (1.1,0.2) {\small $\theta$};
-            \end{tikzpicture}
-        \end{center}
-    
-        Así finalmente la integral da
-        \[
-            \frac{1}{2} \text{area}(E) = \frac{1}{2} \cdot (9-1) \cdot (8-4) = 16
-        \]
+    Su determinante es:
+    $$
+        \det(D\varphi) = ab r.
+    $$
+
+    \textbf{Cálculo del área de la elipse:}
+    La integral de área en coordenadas elípticas se expresa como:
+    $$
+        \text{Área}(E) = \int_{\theta = 0}^{2\pi} \int_{r = 0}^{1} ab r \, dr \, d\theta.
+    $$
+    Resolviendo la integral en $r$:
+    $$
+        \int_{0}^{1} ab r \, dr = ab \left[\frac{r^2}{2} \right]_{0}^{1} = \frac{ab}{2}.
+    $$
+    Evaluando la integral en $\theta$:
+    $$
+        \int_{0}^{2\pi} d\theta = 2\pi.
+    $$
+    Por lo tanto, el área de la elipse es:
+    $$
+        \text{Área}(E) = 2\pi \cdot \frac{ab}{2} = \pi ab.
+    $$
+
+    Así, hemos obtenido el área de la elipse usando coordenadas elípticas. }
+
+\ejemplo{
+    Volumen comprendido entre los paraboloides:
+    $$ 2z = 4 + \frac{x^2}{3} + y^2, \quad 2z = \frac{2x^2}{3} + 3y^2 $$
+
+    Eliminando $z$: $$ 4 + \frac{x^2}{3} + y^2 = \frac{2x^2}{3} + 3y^2 \iff
+        \frac{x^2}{3} + 2y^2 = 4 $$ Lo cual es un cilindro elíptico de $\mathbb{R}^3$.
+
+    Definimos el dominio: $$ E = \left\{ (x,y) \mid \frac{x^2}{3} + 2y^2 \leq 4
+        \right\} $$ Luego, el volumen está dado por: $$ \text{vol} = \int_{E} \left(2 +
+        \frac{x^2}{6} + \frac{y^2}{2} \right) - \left(\frac{x^2}{3} + \frac{3y^2}{2}
+        \right) dx \, dy = \int_{E} \left(2 - \frac{x^2}{6} - y^2 \right) dx \, dy $$
+
+    \vspace{-2.1em}
+
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{images/Parabs.png}
+    \end{center}
+
+    \vspace{-2em}
+
+    Haciendo el cambio de coordenadas elípticas: $$ a = \sqrt{12} = 2\sqrt{3},
+        \quad b = \sqrt{2} $$ $$ x = 2\sqrt{3} r\cos\theta, \quad y = \sqrt{2}
+        r\sin\theta $$ El jacobiano es: $$ J = 2\sqrt{6} $$ Finalmente, el cambio de
+    variable nos ofrece que el volumen del conjunto es: $$ 2\sqrt{6} \pi. $$ }
+
+\vspace{1em}
+
+\begin{observación}
+Sean $U, V \subset \mathbb{R}^n$ abiertos y $\varphi: U \to V$ difeomorfismo-$C^1$.
+$$\varphi = \begin{cases} x_1 = x_1(u_1, \ldots, u_n) \\ \vdots \\ x_n = x_n(u_1, \ldots, u_n) \end{cases}$$
+Entonces:
+$$det(D_{\varphi}) = \frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}} = \begin{vmatrix} \frac{\partial{x_1}}{\partial{u_1}} & \cdots & \frac{\partial{x_1}}{\partial{u_n}} \\ \vdots & \ddots & \vdots \\ \frac{\partial{x_n}}{\partial{u_1}} & \cdots & \frac{\partial{x_n}}{\partial{u_n}} \end{vmatrix}$$
+Entonces el Teorema de Cambio de Variable queda como:
+$$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\det(D_{\varphi})|du_1 \cdots du_n =$$ $$
+    = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}}|du_1 \cdots du_n$$
+\end{observación}
+
+\ejemplo{
+    Ejercicio 4 (Hoja 4)\\
+    Calcula el área del recinto delimitado por las rectas $\begin{cases} x + y = a \\ x + y = b \\ 2x - 3y = c \\ 2x - 3y = d \end{cases}$
+    Supongamos que $a < b, c < d$.\\
+    \vspace{-1.5em}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.7]
+            % Ejes
+            \draw[thick,->] (-2,0) -- (4,0) node[right] {\small $x$};
+            \draw[thick,->] (0,-3) -- (0,4) node[above] {\small $y$};
+
+            % Conjunto de rectas paralelas
+            \draw[thick] (-2,0) -- (1,3) node[right] {\small $2x - 3y = d$};
+            \draw[thick] (-1,-2) -- (3,2) node[right] {\small $2x - 3y = c$};
+
+            \draw[thick] (-1,4) -- (4,-1) node[right] {\small $x + 4y = b$};
+            \draw[thick] (-1,2) -- (3,-2) node[right] {\small $x + 4y = a$};
+
+            % Región sombreada
+            \fill[pattern=north east lines, pattern color=black, opacity=0.5]
+            (0.5,2.5) -- (2,1) -- (1,0) -- (-0.5,1.5) -- cycle;
+        \end{tikzpicture}
+    \end{center}
+    Para ello tomemos el cambio de variable: $\varphi^{-1} = \psi = \begin{cases} u = x + y \\ v = 2x -3y \end{cases} $\\
+    \[area(D) = \int_{D = \varphi(E)}1 dx dy = \int_{E}1 \left| \frac{\partial(x,y)}{\partial (u,v)} \right| du dv\]
+    Donde
+    \[\frac{\partial{(u, v)}}{\partial{(x, y)}} = \begin{vmatrix} \frac{\partial{x}}{\partial{u}} & \frac{\partial{x}}{\partial{v}} \\ \frac{\partial{y}}{\partial{u}} & \frac{\partial{y}}{\partial{v}} \end{vmatrix} = \begin{vmatrix} 1 & 1 \\ 2 & -3 \end{vmatrix} = -5 \implies \frac{\partial{(x,y)}}{\partial(u,v)} = \frac{1}{-5}\]
+    Entonces la integral anterior queda de la forma: $$\int_{E}\frac{1}{5}dudv =
+        \frac{1}{5}\cdot area(E) = \frac{1}{5}(b-a)(d-c)$$ }
+
+\ejemplo{
+    Ejercicio 6.b (Hoja 4)\\
+
+    Sea el conjunto
+    \[
+        D = \{(x,y) \in \mathbb{R}^2 : 1 \leq x^2 - y^2 \leq 9, 2 \leq xy \leq 4\}
+    \]
+    queremos calcular la integral
+    \[
+        \int_{D} (x^2 + y^2) dx dy
+    \]
+
+    Para ello consideremos el cambio de variable ("hiperbólico"):
+    \[
+        \psi = \begin{cases}
+            u = x^2 - y^2 \\
+            v = 2xy
+        \end{cases}
+    \]
+
+    Si
+    \[
+        \begin{cases}
+            x = r\cos(\theta) \\
+            y = r\sin(\theta)
+        \end{cases}
+        \implies
+        \begin{cases}
+            u = r^2(\cos^2(\theta) - \sin^2(\theta)) = r^2\cos(2\theta) \\
+            v = r^2 2\sin(\theta)\cos(\theta) = r^2\sin(2\theta)
+        \end{cases}
+    \]
+
+    Sean
+    \[
+        V = \{(x,y) : x > 0, y > 0\}, \quad U = \{(u,v) : v > 0\}
+    \]
+    Entonces $\psi: V \to U$ es biyectiva y existe $\varphi = \psi^{-1}: U \to V$.
+    Además el conjunto transformado es
+
+    \[
+        E = \psi(D) = \{(u,v) \in \mathbb{R}^2 : 1 \leq u \leq 9, 4 \leq v \leq 8\}
+    \]
+
+    \input{TikZ/conj1.tex}
+
+    Sean
+    \[
+        D^{+} = \{(x,y) \in D : x > 0, y > 0\}, \quad D^{-} = \{(x,y) \in D : x < 0, y < 0\}
+    \]
+
+    Entonces
+    \[
+        \int_{D^{+}} (x^2 + y^2) dx dy = \int_{D^{-}} (x^2+y^2) dx dy
+    \]
+
+    Sea entonces el cambio de variable
+    \[
+        \begin{cases}
+            \bar{x} = -x \\
+            \bar{y} = -y
+        \end{cases}
+    \]
+    con el jacobiano igual a 1.
+
+    Entonces
+    \[
+        \int_{D^{-}} (x^2 + y^2) dx dy = \int_{D^{+}} (-x)^2 + (-y)^2 dx dy = \int_{D^{+}} x^2 + y^2 dx dy
+    \]
+
+    Entonces,
+    \[
+        \int_{D} x^2 + y^2 dx dy = 2\int_{D^{+}} x^2 + y^2 dx dy = 2\int_{E}\sqrt{u^2 + v^2} \frac{\partial{(x,y)}}{\partial{(u,v)}} du dv = \int_{E}\sqrt{u^2 + v^2} du dv
+    \]
+
+    Ya que tenemos que
+    \[
+        x^2 + y^2 = r^2 = \sqrt{u^2 + v^2}
+    \]
+
+    Donde además tenemos que:
+    \[
+        \frac{\partial{(u,v)}}{\partial{(x,y)}} =
+        \begin{vmatrix}
+            2x & -2y \\
+            2y & 2x
+        \end{vmatrix} = 4x^2 + 4y^2
+        \implies
+        \frac{\partial{(x,y)}}{\partial{(u,v)}} = \frac{1}{4x^2 + 4y^2} = \frac{1}{4\sqrt{u^2 + v^2}}
+    \]
+
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            % Sombreado leve en todo el primer cuadrante
+            \fill[black,opacity=0.1] (0,0) -- (3,0) -- (3,3) -- (0,3) -- cycle;
+
+            % Ejes
+            \draw[thick,->] (-0.5,0) -- (3,0) node[right] {\small $x$};
+            \draw[thick,->] (0,-0.5) -- (0,3) node[above] {\small $y$};
+
+            % Vector r con "r" más arriba y "P" en la punta
+            \draw[thick,->] (0,0) -- (1.5,0.75) node[right] {\small $P$};
+            \node at (0.85,0.55) {\small $r$};  % "r" más arriba en la flecha
+
+            % Ángulo theta
+            \draw[thick] (0.8,0) arc (0:26.57:0.8);
+            \node at (1.1,0.2) {\small $\theta$};
+        \end{tikzpicture}
+    \end{center}
+
+    Así finalmente la integral da
+    \[
+        \frac{1}{2} \text{area}(E) = \frac{1}{2} \cdot (9-1) \cdot (8-4) = 16
+    \]
+}
+
+\ejemplo{
+Calcúlese el volumen comprendido entre $z = f(x,y)$, $z = g(xy)$ sobre D, con D la proyección de las funciones sobre el plano z. Entonces,
+$$ vol = \int_{D}(f(x,y) - g(x,y))dx dy = \int_ {D} 1 dx dy dz = \int_{D} \left[\int_{z = g(x,y)}^{z = f(x,y)}1 dz\right]dx dy$$
     }
-    
+
     \ejemplo{
-    Calcúlese el volumen comprendido entre $z = f(x,y)$, $z = g(xy)$ sobre D, con D la proyección de las funciones sobre el plano z. Entonces,
-    $$ vol = \int_{D}(f(x,y) - g(x,y))dx dy = \int_ {D} 1 dx dy dz = \int_{D} \left[\int_{z = g(x,y)}^{z = f(x,y)}1 dz\right]dx dy$$
-        }
-    
-        \ejemplo{
-        \underline{Bóveda de Viviani}\\
-        Calcúlese el volumen comprendido entre la esfera $x^2 + y^2 + z^2 = a^2$ y el cilindro $x^2 + y^2 = ay$ con $a > 0$.
-        \vspace{-1.2em}
-    
-        \begin{center}
-            \includegraphics[width=0.4\textwidth]{images/2.png}
-        \end{center}
-    
-        \vspace{-1em}
-    
-        Donde tomando valores en la esfera podemos obtener: $$\begin{cases} x^2 + y^2 - ay = 0 \iff x^2 + (y - \frac{a}{2})^2 = \frac{a^2}{4} \\ x^2 + (y - \frac{a}{2})^2 = x^2 + y^2 + \frac{a^2}{4} - ay = \frac{a^2}{4} \end{cases}$$
-        Si tomamos que $r^2 = x^2 + y^2$ y $ay = ar\sin(\theta)$ entonces,
-        La ecuación de la circunferencia es en coordenadas polares es: $r = a\cos(\theta)$
-    
-    $$vol = 2\int_{D}\sqrt{a^2 - x^2 - y^2} dx dy = 2\int_{\theta = 0}^{\theta = 2\pi}\int_{r = 0}^{r = a\sin(\theta)}\sqrt{a^2 -r^2}r dr d\theta$$
-    $$ = 2\int_{\theta = 0}^{\theta = \pi} \left[-\frac{1}{3}(a^2-r^2)^{\frac{3}{2}}\right]^{r = a\sin(\theta)}_{r = 0} d\theta = \frac{2}{3} \int_{\theta = 0}^{\theta = \pi} a^3 - (a^2 - a^2\sin^2(\theta))^{\frac{3}{2}}d\theta$$
-    $$= \frac{2}{3}\int_{\theta = 0}^{\theta = \pi} a^3 - a^3|\cos^3(\theta)|d\theta = 4 \frac{a^3}{3}\int_{0}^{\theta = \frac{\pi}{2}} 1- \cos^3(\theta)d\theta $$
-    $$= \frac{4 a^3}{3} \left[\theta - \left(\sin(\theta)-\frac{\sin^3(\theta)}{3}\right) \right]_{\theta = 0}^{\theta = \frac{\pi}{2}} =  \frac{4 a^3}{3} \left(\frac{\pi}{2} - \frac{2}{3}\right) $$
-    
-        Todo esto teniendo en cuenta que $(\cos^3(\theta))^{\frac{3}{2}} =
-            |\cos^3(\theta)|$ }
-    
-       
+    \underline{Bóveda de Viviani}\\
+    Calcúlese el volumen comprendido entre la esfera $x^2 + y^2 + z^2 = a^2$ y el cilindro $x^2 + y^2 = ay$ con $a > 0$.
+    \vspace{-1.2em}
+
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{images/2.png}
+    \end{center}
+
+    \vspace{-1em}
+
+    Donde tomando valores en la esfera podemos obtener: $$\begin{cases} x^2 + y^2 - ay = 0 \iff x^2 + (y - \frac{a}{2})^2 = \frac{a^2}{4} \\ x^2 + (y - \frac{a}{2})^2 = x^2 + y^2 + \frac{a^2}{4} - ay = \frac{a^2}{4} \end{cases}$$
+    Si tomamos que $r^2 = x^2 + y^2$ y $ay = ar\sin(\theta)$ entonces,
+    La ecuación de la circunferencia es en coordenadas polares es: $r = a\cos(\theta)$
+
+$$vol = 2\int_{D}\sqrt{a^2 - x^2 - y^2} dx dy = 2\int_{\theta = 0}^{\theta = 2\pi}\int_{r = 0}^{r = a\sin(\theta)}\sqrt{a^2 -r^2}r dr d\theta$$
+$$ = 2\int_{\theta = 0}^{\theta = \pi} \left[-\frac{1}{3}(a^2-r^2)^{\frac{3}{2}}\right]^{r = a\sin(\theta)}_{r = 0} d\theta = \frac{2}{3} \int_{\theta = 0}^{\theta = \pi} a^3 - (a^2 - a^2\sin^2(\theta))^{\frac{3}{2}}d\theta$$
+$$= \frac{2}{3}\int_{\theta = 0}^{\theta = \pi} a^3 - a^3|\cos^3(\theta)|d\theta = 4 \frac{a^3}{3}\int_{0}^{\theta = \frac{\pi}{2}} 1- \cos^3(\theta)d\theta $$
+$$= \frac{4 a^3}{3} \left[\theta - \left(\sin(\theta)-\frac{\sin^3(\theta)}{3}\right) \right]_{\theta = 0}^{\theta = \frac{\pi}{2}} =  \frac{4 a^3}{3} \left(\frac{\pi}{2} - \frac{2}{3}\right) $$
+
+Todo esto teniendo en cuenta que $(\cos^3(\theta))^{\frac{3}{2}} =
+    |\cos^3(\theta)|$ }
+
