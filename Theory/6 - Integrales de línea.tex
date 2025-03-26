@@ -547,14 +547,14 @@ donde $\varphi$ es un potencial de $\vec{F}$.
         \item \textbf{Caso 1:} $\gamma$ es $C^1$ en $[a,b]$\\
               Definimos la función $g: [a,b] \to \mathbb{R}$ de forma que $g(t) = \varphi(\gamma(t))$ y aplicamos la regla de la cadena:
               \[
-              \begin{tikzcd}
-                {[a,b]} \arrow[d, "\gamma"'] \arrow[r, "g"] & \mathbb{R} \\
-                U \arrow[ru, "\varphi"']
-                \end{tikzcd}
-                \]
-                En particular tenemos que $g$ es de clase $C^1$ y además:
+                  \begin{tikzcd}
+                      {[a,b]} \arrow[d, "\gamma"'] \arrow[r, "g"] & \mathbb{R} \\
+                      U \arrow[ru, "\varphi"']
+                  \end{tikzcd}
+              \]
+              En particular tenemos que $g$ es de clase $C^1$ y además:
               \[
-                 g'(t) = (\varphi \circ \gamma)'(t) = D\varphi (\gamma(t)) (\gamma'(t)) = \langle \nabla \varphi (\gamma(t)), \gamma'(t) \rangle = \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle
+                  g'(t) = (\varphi \circ \gamma)'(t) = D\varphi (\gamma(t)) (\gamma'(t)) = \langle \nabla \varphi (\gamma(t)), \gamma'(t) \rangle = \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle
               \]
 
               \[
@@ -581,98 +581,99 @@ donde $\varphi$ es un potencial de $\vec{F}$.
 
 \begin{proof}
     \leavevmode
-\begin{itemize}
-    \item $(1) \implies (2)$: Si $\gamma$ es un camino cerrado, entonces $\gamma(a) = \gamma(b)$ y por la proposición anterior:
-          \[
-              \int_{\gamma} \vec{F} = \varphi(\gamma(b)) - \varphi(\gamma(a)) = \varphi(\gamma(b)) - \varphi(\gamma(b)) = 0
-          \]
-    \item $(2) \implies (3)$: Sean $\gamma_1$ y $\gamma_2$ caminos $C^1$ a trozos con los mismos extremos. Consideramos $\gamma = \gamma_1 + (-\gamma_2)$, que es un camino cerrado. Por hipótesis, $\int_{\gamma} \vec{F} = 0$, y por la proposición anterior:
-          \[
-              0 = \int_{\gamma} \vec{F} = \int_{\gamma_1 + (-\gamma_2)} \vec{F} = \int_{\gamma_1} \vec{F} - \int_{\gamma_2} \vec{F} \implies \int_{\gamma_1} \vec{F} = \int_{\gamma_2} \vec{F}
-          \]
-    \item $(2) \implies (4)$ y $(3) \implies (5)$: trivial
-    \item $(4) \implies (5):$ es análogo a $(2) \implies (3)$.
-    \item $(5) \implies (1):$ Consideramos un punto \(x \in U\) y un vector unitario \(e_i\) en la dirección del eje \(i\)-ésimo. Tomamos un segmento de línea recta \(\gamma\) que va de \(x\) a \(x + h e_i\), donde \(h\) es un número real pequeño.
+    \begin{itemize}
+        \item $(1) \implies (2)$: Si $\gamma$ es un camino cerrado, entonces $\gamma(a) = \gamma(b)$ y por la proposición anterior:
+              \[
+                  \int_{\gamma} \vec{F} = \varphi(\gamma(b)) - \varphi(\gamma(a)) = \varphi(\gamma(b)) - \varphi(\gamma(b)) = 0
+              \]
+        \item $(2) \implies (3)$: Sean $\gamma_1$ y $\gamma_2$ caminos $C^1$ a trozos con los mismos extremos. Consideramos $\gamma = \gamma_1 + (-\gamma_2)$, que es un camino cerrado. Por hipótesis, $\int_{\gamma} \vec{F} = 0$, y por la proposición anterior:
+              \[
+                  0 = \int_{\gamma} \vec{F} = \int_{\gamma_1 + (-\gamma_2)} \vec{F} = \int_{\gamma_1} \vec{F} - \int_{\gamma_2} \vec{F} \implies \int_{\gamma_1} \vec{F} = \int_{\gamma_2} \vec{F}
+              \]
+        \item $(2) \implies (4)$ y $(3) \implies (5)$: trivial
+        \item $(4) \implies (5):$ es análogo a $(2) \implies (3)$.
+        \item $(5) \implies (1):$ Consideramos un punto \(x \in U\) y un vector unitario \(e_i\) en la dirección del eje \(i\)-ésimo. Tomamos un segmento de línea recta \(\gamma\) que va de \(x\) a \(x + h e_i\), donde \(h\) es un número real pequeño.
 
-    La integral de \(\vec{F}\) sobre \(\gamma\) es:
-    \[
-    \int_{\gamma} \vec{F} \cdot d\vec{r} = \varphi(x + h e_i) - \varphi(x)
-    \]
-    
-    Dividiendo ambos lados por \(h\) y tomando el límite cuando \(h \to 0\), obtenemos:
-    \[
-    \lim_{h \to 0} \frac{\varphi(x + h e_i) - \varphi(x)}{h} = \frac{\partial \varphi}{\partial x_i}(x)
-    \]
-    
-    Por otro lado, la integral de \(\vec{F}\) sobre \(\gamma\) también se puede expresar como:
-    \[
-    \int_{\gamma} \vec{F} \cdot d\vec{r} = \int_{0}^{h} \vec{F}(x + t e_i) \cdot e_i \, dt
-    \]
-    
-    Tomando el límite cuando \(h \to 0\), obtenemos:
-    \[
-    \lim_{h \to 0} \frac{1}{h} \int_{0}^{h} \vec{F}(x + t e_i) \cdot e_i \, dt = \vec{F}(x) \cdot e_i = F_i(x)
-    \]
-    
-    Luego
-    \[
-    \frac{\partial \varphi}{\partial x_i}(x) = F_i(x) \implies \nabla \varphi = \vec{F}
-    \]
-\end{itemize}
+              La integral de \(\vec{F}\) sobre \(\gamma\) es:
+              \[
+                  \int_{\gamma} \vec{F} \cdot d\vec{r} = \varphi(x + h e_i) - \varphi(x)
+              \]
+
+              Dividiendo ambos lados por \(h\) y tomando el límite cuando \(h \to 0\),
+              obtenemos:
+              \[
+                  \lim_{h \to 0} \frac{\varphi(x + h e_i) - \varphi(x)}{h} = \frac{\partial \varphi}{\partial x_i}(x)
+              \]
+
+              Por otro lado, la integral de \(\vec{F}\) sobre \(\gamma\) también se puede
+              expresar como:
+              \[
+                  \int_{\gamma} \vec{F} \cdot d\vec{r} = \int_{0}^{h} \vec{F}(x + t e_i) \cdot e_i \, dt
+              \]
+
+              Tomando el límite cuando \(h \to 0\), obtenemos:
+              \[
+                  \lim_{h \to 0} \frac{1}{h} \int_{0}^{h} \vec{F}(x + t e_i) \cdot e_i \, dt = \vec{F}(x) \cdot e_i = F_i(x)
+              \]
+
+              Luego
+              \[
+                  \frac{\partial \varphi}{\partial x_i}(x) = F_i(x) \implies \nabla \varphi = \vec{F}
+              \]
+    \end{itemize}
 \end{proof}
 
 \begin{observación}
-    Un poligonal $\sigma$ de lados paralelos a los ejes es un camino $\sigma = \gamma_1 + \ldots + \gamma_k$ con $\gamma_j$ segmentos de recta paralelos a los ejes coordenados.\\
-    Además en este caso, si fijamos un punto $p \in U$ la función $\varphi: U \to \mathbb{R}$ definida por 
-    \[
-        \varphi(x) = \int_{\gamma_x} \vec{F} = \int_{p}^{x} \vec{F} \quad \text{donde } \gamma_x \text{ es un camino de } p \text{ a } x
-    \]
-    es un potencial de $\vec{F}$ en $U$.
+Un poligonal $\sigma$ de lados paralelos a los ejes es un camino $\sigma = \gamma_1 + \ldots + \gamma_k$ con $\gamma_j$ segmentos de recta paralelos a los ejes coordenados.\\
+Además en este caso, si fijamos un punto $p \in U$ la función $\varphi: U \to \mathbb{R}$ definida por
+\[
+    \varphi(x) = \int_{\gamma_x} \vec{F} = \int_{p}^{x} \vec{F} \quad \text{donde } \gamma_x \text{ es un camino de } p \text{ a } x
+\]
+es un potencial de $\vec{F}$ en $U$.
 \end{observación}
 
-
 \begin{lema}
-Sea el conjunto $U \subset \mathbb{R}^n$ abierto y conexo. Dados los puntos $p, x \in U$, entonces existe $\sigma$ poligonal de lados paralelos a los ejes coordenados en $U$ tal que $\sigma$ une $p$ con $x$.
+    Sea el conjunto $U \subset \mathbb{R}^n$ abierto y conexo. Dados los puntos $p, x \in U$, entonces existe $\sigma$ poligonal de lados paralelos a los ejes coordenados en $U$ tal que $\sigma$ une $p$ con $x$.
 \end{lema}
 
 \begin{proof}
-Sea el conjunto $$A = \{x \in U \mid \text{existe } \sigma \text{ poligonal de lados paralelos a los ejes coordenados que une } p \text{ con } x\}$$
-\begin{itemize}
-    \item $p \in A \neq \emptyset$.
-    \item $A$ es abierto. Si $x \in A$ entonces $x \in U$ abierto, luego $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Además, $B(x, \epsilon) \subset A$. Si $y \in B(x, \epsilon)$ entonces $\exists \sigma_{xy}$ poligonal que une $x$ con $y$ y también existe $\sigma_{x}$ poligonal que une $p$ con $x$. Por lo tanto, $\sigma_{x} + \sigma_{xy}$ es un poligonal que une $p$ con $y$.
-    \item $A$ es cerrado en $U$. $U \setminus A$ es abierto. Si $x \in U \setminus A$ entonces $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Como antes, se tiene que $B(x, \epsilon) \subset U \setminus A$.
-\end{itemize} 
-Por lo tanto, $A$ es abierto y cerrado en $U$ y como $U$ es conexo, $A = U$.\\
-Podemos definir $\varphi(x) = \int_{\sigma_{x}} \vec{F}$ donde $\sigma_{x}$ es un poligonal de $U$ de lados paralelos a los ejes coordenados que une $p$ con $x$.\\
-Veamos que $\varphi$ es un potencial de $\vec{F}$ en $U$, es decir, $\nabla \varphi = \vec{F}$, o que es lo mismo: 
-$$\vec{F} = (F_1, \ldots, F_n) = \left(\frac{\partial \varphi}{\partial x_1}, \ldots, \frac{\partial \varphi}{\partial x_n}\right)$$
-Por tanto nos preguntamos si $\lim_{h \to 0} \frac{\varphi(x + he_i) - \varphi(x)}{h} = F_i(x)$ para $i = 1, \ldots, n$.
-$$ \varphi (x + he_i) - \varphi(x) = \int_{p}^{x + he_i} \vec{F} - \int_{p}^{x} \vec{F} = \int_{x}^{x + he_i} \vec{F}$$
-$$= \int_{0}^{1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt 
-= \int_{0}^{1} \langle \underbrace{\vec{F}(\sigma(t))}_{(F_1, \ldots, F_n)}, 
-h e_i \rangle dt = \int_{0}^{1} h F_(\sigma(t)) dt$$
-donde 
-\[
-\begin{cases}
-\sigma(t) = x + the_i, \quad t \in [0,1] \\
-\sigma(0) = x, \quad \sigma(1) = x + he_i\\
-\sigma'(t) = h e_i
-\end{cases}
-\]
-$$ \frac{\varphi(x+he_i)-\varphi(x)}{h} = \frac{1}{h} \int_{0}^{1} h F_i(x+the_i) dt$$
-Expresando $G(t,h) = F_i(x+the_i)$ en términos de $t$ y $h$, entonces obtenemos que $G$ es continua en $h$ y $t$, por lo tanto, podemos aplicar el teorema de la convergencia dominada de Lebesgue para intercambiar el límite y la integral.
-$$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^{1} F_i(x+the_i) dt = \int_{0}^{1} \lim_{h \to 0} F_i(x+the_i) dt = \int_{0}^{1} F_i(x) dt = F_i(x)$$
+    Sea el conjunto $$A = \{x \in U \mid \text{existe } \sigma \text{ poligonal de lados paralelos a los ejes coordenados que une } p \text{ con } x\}$$
+    \begin{itemize}
+        \item $p \in A \neq \emptyset$.
+        \item $A$ es abierto. Si $x \in A$ entonces $x \in U$ abierto, luego $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Además, $B(x, \epsilon) \subset A$. Si $y \in B(x, \epsilon)$ entonces $\exists \sigma_{xy}$ poligonal que une $x$ con $y$ y también existe $\sigma_{x}$ poligonal que une $p$ con $x$. Por lo tanto, $\sigma_{x} + \sigma_{xy}$ es un poligonal que une $p$ con $y$.
+        \item $A$ es cerrado en $U$. $U \setminus A$ es abierto. Si $x \in U \setminus A$ entonces $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Como antes, se tiene que $B(x, \epsilon) \subset U \setminus A$.
+    \end{itemize}
+    Por lo tanto, $A$ es abierto y cerrado en $U$ y como $U$ es conexo, $A = U$.\\
+    Podemos definir $\varphi(x) = \int_{\sigma_{x}} \vec{F}$ donde $\sigma_{x}$ es un poligonal de $U$ de lados paralelos a los ejes coordenados que une $p$ con $x$.\\
+    Veamos que $\varphi$ es un potencial de $\vec{F}$ en $U$, es decir, $\nabla \varphi = \vec{F}$, o que es lo mismo:
+    $$\vec{F} = (F_1, \ldots, F_n) = \left(\frac{\partial \varphi}{\partial x_1}, \ldots, \frac{\partial \varphi}{\partial x_n}\right)$$
+    Por tanto nos preguntamos si $\lim_{h \to 0} \frac{\varphi(x + he_i) - \varphi(x)}{h} = F_i(x)$ para $i = 1, \ldots, n$.
+    $$ \varphi (x + he_i) - \varphi(x) = \int_{p}^{x + he_i} \vec{F} - \int_{p}^{x} \vec{F} = \int_{x}^{x + he_i} \vec{F}$$
+    $$= \int_{0}^{1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt
+        = \int_{0}^{1} \langle \underbrace{\vec{F}(\sigma(t))}_{(F_1, \ldots, F_n)},
+        h e_i \rangle dt = \int_{0}^{1} h F_(\sigma(t)) dt$$
+    donde
+    \[
+        \begin{cases}
+            \sigma(t) = x + the_i, \quad t \in [0,1]  \\
+            \sigma(0) = x, \quad \sigma(1) = x + he_i \\
+            \sigma'(t) = h e_i
+        \end{cases}
+    \]
+    $$ \frac{\varphi(x+he_i)-\varphi(x)}{h} = \frac{1}{h} \int_{0}^{1} h F_i(x+the_i) dt$$
+    Expresando $G(t,h) = F_i(x+the_i)$ en términos de $t$ y $h$, entonces obtenemos que $G$ es continua en $h$ y $t$, por lo tanto, podemos aplicar el teorema de la convergencia dominada de Lebesgue para intercambiar el límite y la integral.
+    $$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^{1} F_i(x+the_i) dt = \int_{0}^{1} \lim_{h \to 0} F_i(x+the_i) dt = \int_{0}^{1} F_i(x) dt = F_i(x)$$
 \end{proof}
 
 \ejemplo{
     Sea el campo vectorial $\vec{F}: \mathbb{R}^r \to \mathbb{R}^3$ dado por $\vec{F}(x,y,z) = (y, x+z\cos(yz), y\cos(yz))$, veamos si es conservativo.\\
-    Fijamos un punto $p = (0,0,0)$ y definimos $\sigma_{xyz} = \gamma_1 + \gamma_2 + \gamma_3$ donde:      
+    Fijamos un punto $p = (0,0,0)$ y definimos $\sigma_{xyz} = \gamma_1 + \gamma_2 + \gamma_3$ donde:
     \[
-    \begin{cases}
-        \gamma_1(t) = (t, 0, 0) \quad t \in [0,x] \text{ ó } t \in [x,0] \\
-        \gamma_2(t) = (x, t, 0) \quad t \in [0,y] \text{ ó } t \in [y,0] \\
-        \gamma_3(t) = (x, y, t) \quad t \in [0,z] \text{ ó } t \in [z,0] \\
-    \end{cases}
+        \begin{cases}
+            \gamma_1(t) = (t, 0, 0) \quad t \in [0,x] \text{ ó } t \in [x,0] \\
+            \gamma_2(t) = (x, t, 0) \quad t \in [0,y] \text{ ó } t \in [y,0] \\
+            \gamma_3(t) = (x, y, t) \quad t \in [0,z] \text{ ó } t \in [z,0] \\
+        \end{cases}
     \]
     $$ \int_{\gamma_1} \vec{F} = \int_{0}^{x} \langle (0, t, 0), (1, 0, 0) \rangle dt = 0$$
     $$ \int_{\gamma_2} \vec{F} = \int_{0}^{y} \langle (t, x, t), (0, 1, 0) \rangle dt = \int_{0}^{y} x dt = xy$$
@@ -693,11 +694,12 @@ $$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^
             \draw[dashed] (2,0,0) -- (2,0,2); % Linea discontinua
             \fill[red] (0,0,0) circle (1pt) node[black][above left] {$p=(0,0,0)$}; % Punto
             \fill[red] (2,2,2) circle (1pt) node[black][above] {$(x,y,z)$}; % Punto
-        \end{tikzpicture} 
+        \end{tikzpicture}
     \end{center}
 
-    Por lo tanto, $\vec{F}$ es conservativo.\\
-    De forma alternativa se podría haber visto que $\vec{F}$ es un campo conservativo, buscando una funcion $\varphi$ tal que $\vec{F} = \nabla \varphi$, es decir: 
+    Por lo tanto, $\vec{F}$ es conservativo.\\ De forma alternativa se podría haber
+    visto que $\vec{F}$ es un campo conservativo, buscando una funcion $\varphi$
+    tal que $\vec{F} = \nabla \varphi$, es decir:
     \begin{enumerate}
         \item $F_1 = \frac{\partial \varphi}{\partial x} = y \implies \varphi = xy + g(y,z)$
         \item $F_2 = \frac{\partial \varphi}{\partial y} = x + z\cos(yz) \implies \frac{\partial g}{\partial y} = z\cos(yz) \implies g = \sin(yz) + h(z)$
@@ -707,11 +709,11 @@ $$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^
         \item $\varphi = \int \frac{d\varphi}{dx}dx = \int y dx = xy + H(y,z)$ constante con respecto a $x$
         \item $\frac{d\varphi}{dz} = \frac{dH}{dz} = y\cos(yz) \implies H = \int y\cos(yz)dz = \sin(yz) + G(y)$ constante con respecto a $z$
         \item $\frac{d\varphi}{dy} = \frac{d}{dy}(yx + \sin(yz) + G(y)) = x + z\cos(yz) + G'(y) = x + z\cos(yz) \implies G'(y) = 0 \implies G(y) = cte.$
-    \end{enumerate} 
+    \end{enumerate}
 }
 
 \begin{proposición}
-    SEan $U \subset \mathbb{R}^n$ abierto y $\vec{F}: U \to \mathbb{R}^n$ campo conservativo de clase $C^1 \implies$ $$\frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i} \quad \forall i,j = 1, \ldots, n \text{ en } U$$
+SEan $U \subset \mathbb{R}^n$ abierto y $\vec{F}: U \to \mathbb{R}^n$ campo conservativo de clase $C^1 \implies$ $$\frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i} \quad \forall i,j = 1, \ldots, n \text{ en } U$$
 \end{proposición}
 \begin{proof}
     Tomemos $\varphi: U \to \mathbb{R}$ tal que $\frac{\partial\varphi}{dx_i} = F_i \in C^1 \forall i = 1, \ldots, n$. Luego $\varphi$ es de clase $C^2$ y por el teorema de las derivadas cruzadas (Shcwartz) se tiene que:
@@ -724,42 +726,169 @@ $$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^
 \end{corolario}
 \begin{proof}
     $$\begin{cases}
-        F_1 = P \\ F_2 = Q
-    \end{cases}$$
+            F_1 = P \\ F_2 = Q
+        \end{cases}$$
 \end{proof}
 \begin{observación}
-    En general el recíproco no es cierto, depende de la forma del dominio ($U$).
+En general el recíproco no es cierto, depende de la forma del dominio ($U$).
 \end{observación}
 \begin{observación}
-    \underline{Terminología}:
-    \begin{itemize}
-        \item Una forma diferencial de orden 1 en $U$ es una expresión de la forma $\omega = Pdx + Qdy$ con $P, Q$ de clase $C^1$ en $U$. 
-        \item $\omega$ es cerrada si $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ en $U$.
-        \item $\omega$ es exacta si $\exists \varphi \in C^2(U) : \frac{\partial\varphi}{\partial x} = P, \frac{\partial Q}{\partial y} = Q \iff \nabla \varphi = (P, Q)$ en $U$.
-    \end{itemize} 
-    Hemos visto que $\omega$ exacta $\implies$ $\omega$ cerrada.
+\underline{Terminología}:
+\begin{itemize}
+    \item Una forma diferencial de orden 1 en $U$ es una expresión de la forma $\omega =
+              Pdx + Qdy$ con $P, Q$ de clase $C^1$ en $U$.
+    \item $\omega$ es cerrada si $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ en $U$.
+    \item $\omega$ es exacta si $\exists \varphi \in C^2(U) : \frac{\partial\varphi}{\partial x} = P, \frac{\partial Q}{\partial y} = Q \iff \nabla \varphi = (P, Q)$ en $U$.
+\end{itemize}
+Hemos visto que $\omega$ exacta $\implies$ $\omega$ cerrada.
 \end{observación}
 \begin{definición}[Curva de Jordan]
-    Una curva de Jordan $C$ en $\mathbb{R}^2$ es la imagen de un camino cerrado y simple en $\mathbb{R}^2$, es decir, $C = Im(\gamma)$ con $\gamma: [a,b] \to \mathbb{R}^2$ continua, inyectiva en $[a, b)$ y $\gamma(a) = \gamma(b)$.
+Una curva de Jordan $C$ en $\mathbb{R}^2$ es la imagen de un camino cerrado y simple en $\mathbb{R}^2$, es decir, $C = Im(\gamma)$ con $\gamma: [a,b] \to \mathbb{R}^2$ continua, inyectiva en $[a, b)$ y $\gamma(a) = \gamma(b)$.
 \end{definición}
 \begin{observación}
-    Se puede demostrar que $C$ es un homeomorfa a la circunferencia unitaria $S^1$.
+Se puede demostrar que $C$ es un homeomorfa a la circunferencia unitaria $S^1$.
 \end{observación}
 \begin{teorema}[Teorema de la curva de Jordan]
-    Toda curva de Jordan $C$ en $\mathbb{R}^2$ divide al plano en dos regiones  o componentes conexas, una acotada, denominada \underline{parte interior a $C$} y otra no acotada, denominada \underline{parte exterior a $C$}, siendo $C$ la frontera común a ambas regiones. Es decir, 
+    Toda curva de Jordan $C$ en $\mathbb{R}^2$ divide al plano en dos regiones  o componentes conexas, una acotada, denominada \underline{parte interior a $C$} y otra no acotada, denominada \underline{parte exterior a $C$}, siendo $C$ la frontera común a ambas regiones. Es decir,
     $$\mathbb{R}^2 = Int(C) \cup Ext(C) \cup C \text{ con } \begin{cases}
-        Int(C) = \text{abierto conexo acotado} \\ Ext(C) = \text{ abierto conexo no acotado} \\ Fr(Int(C)) = C = Fr(Ext(C))
-    \end{cases} \text{ unión disjunta}$$
+            Int(C) = \text{abierto conexo acotado} \\ Ext(C) = \text{ abierto conexo no acotado} \\ Fr(Int(C)) = C = Fr(Ext(C))
+        \end{cases} \text{ unión disjunta}$$
 \end{teorema}
 \begin{definición}[Conexión simple]
-    Un abierto y conexo en $\mathbb{R}^2$ se dice que es simplemente conexo si $\forall C$ curva de Jordan en $U$, $Int(C) \subset U$. Conceptualmente, ésto se ve como que $U$ tiene un agujero. 
+Un abierto y conexo en $\mathbb{R}^2$ se dice que es simplemente conexo si $\forall C$ curva de Jordan en $U$, $Int(C) \subset U$. Conceptualmente, ésto se ve como que $U$ tiene un agujero.
 \end{definición}
 
 \begin{definición}[Orientación de una curva de Jordan]
-    Sea $C \subset \R^2$ curva de Jordan que además, es de clase $C^1$ a trozos. Se deine la orientación positiva en $C$ y se denota $C^+$ como el sentio de recorrido continuo a las agujas del reloj. \\
-    Conceptualmente, es el sentido de recorrido que deja la parte interior de $C$ a la izquierda.   
+Sea $C \subset \R^2$ curva de Jordan que además, es de clase $C^1$ a trozos. Se deine la orientación positiva en $C$ y se denota $C^+$ como el sentio de recorrido continuo a las agujas del reloj. \\
+Conceptualmente, es el sentido de recorrido que deja la parte interior de $C$ a la izquierda.
 \end{definición}
 
 \begin{teorema}[Teorema de Green]
-    
+    Sean $C$ curva de Jordan regular a trozos con parte interior $D = Int(C)$, $\vec{F} = (P, Q) : U \to \R^2$ campo vectorial de clase $C^1$ definido en un abierto $U \supset \overline{D} = D \cup C$. Entonces:
+    $$\int_{C^+} P \, dx + Q \, dy = \int_{D} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \, dy
+    $$
+    donde $C^+$ representa la curva $C$ con orientación positiva.
 \end{teorema}
+
+\begin{proof}
+    Para el caso de dominios que son a la vez proyectables horizontalmente y verticalmente. Es decir, supongamos que
+    $$\overline{D} = \left\{ (x,y) \in \R^2 \mid a \leq x \leq b, \ f(x) \leq y \leq g(x) \right\}$$
+    donde las funciones $f,g: [a,b] \to \R$ son de clase $C^1$.\\
+    Entonces $C^+ = \gamma_1 + \gamma_2 - \gamma_3 - \gamma_4$ donde
+    $$\begin{cases}
+            \gamma_1(t) = (t, f(t)), \quad t \in [a,b] \quad \gamma_1'(t) = (1, f'(t)) \neq (0,0) \\
+            \gamma_2(t) = (b,t) \quad t \in [c_2, d_2] \quad \gamma_2'(t) = (0,1)                 \\
+            \gamma_3(t) = (t, g(t)) \quad t \in [a,b] \quad \gamma_3'(t) = (1, g'(t)) \neq (0,0)  \\
+            \gamma_4(t) = (a,t) \quad t \in [c_4, d_4] \quad \gamma_4'(t) = (0,1)
+        \end{cases}$$
+
+    Entonces,
+
+    \begin{itemize}
+        \item 
+        \[
+        \int_{C^+} Pdx + Qdy = \int_{C^+} Pdx + \int_{C^+} Qdy 
+        \implies \int_{C^+} Pdx = \int_{\gamma_1+\gamma_2-\gamma_3-\gamma_4} (P,0) 
+        \]
+        \[
+        = \int_{t=a}^{t=b} \left\langle (P(t,f(t)), 0), (1, f'(t)) \right\rangle dt 
+        + \int_{t=c_2}^{t=d_2} \left\langle (P(b,t), 0), (0,1) \right\rangle dt 
+        \]
+        \[
+        - \int_{t=a}^{t=b} \left\langle (P(t,g(t)), 0), (1, g'(t)) \right\rangle dt 
+        - \int_{t=c_4} ^{t=d_4} \left\langle (P(a,t), 0), (0,1) \right\rangle dt
+        \]
+        \[
+        = \int_{t=a}^{t=b} P(t,f(t)) - P(t,g(t)) dt
+        \]
+    
+        \item 
+        \[
+        \int_{D} -\frac{\partial P}{\partial y}dxdy 
+        = -\int_{x=a}^{x=b} \int_{y=f(x)}^{y=g(x)} \frac{\partial P(x,y)}{\partial y} dy \,dx
+        = -\int_{x=a}^{x=b} \left[ P(x,y) \right] _{y=f(x)}^{y=g(x)} dx
+        \]
+        \[
+        = -\int_{x=a}^{x=b} P(x,g(x)) - P(x,f(x)) dx 
+        = \int_{x=a}^{x=b} P(x,f(x)) - P(x,g(x)) dx
+        \]
+    \end{itemize}
+    
+    
+    Usando que $\overline{D}$ es verticalmente proyectable, hemos obtenido que
+    $\int_{C^+} Pdx = -\int_{D} \frac{\partial P}{\partial y}dxdy$.\\ Usando que
+    $\overline{D}$ es horizontalmente proyectable, veamos que $\int_{C^+} Qdy =
+        \int_{D} \frac{\partial Q}{\partial x}dxdy$.\\ Suponemos entonces que
+    $$\overline{D} = \left\{ (x,y) \in \R^2 \mid c \leq y \leq d, \ \varphi(y) \leq x
+        \leq \psi(y) \right\}$$ donde $\varphi, \psi: [c,d] \to \R$ son de clase
+    $C^1$.\\ Entonces $C^+ = \sigma_1 - \sigma_2 - \sigma_3 + \sigma_4$ donde $$
+        \begin{cases}
+            \sigma_1(t) = (\psi(t), t), \quad t \in [c,d] \quad \sigma_1'(t) = (\psi'(t), 1)       \\
+            \sigma_2(t) = (t, d), \quad t \in [a_2, b_2] \quad \sigma_2'(t) = (1, 0)               \\
+            \sigma_3(t) = (\varphi(t), t), \quad t \in [c,d] \quad \sigma_3'(t) = (\varphi'(t), 1) \\
+            \sigma_4(t) = (t, c), \quad t \in [a_4, b_4] \quad \sigma_4'(t) = (1, 0)
+        \end{cases}
+    $$
+
+    \begin{itemize}
+        \item $$\int_{C^+} Qdy = \int_{\sigma_1 - \sigma_2 - \sigma_3 + \sigma_4} (0,Q) $$
+        $$= \int_{t=c}^{t=d} \langle (0,Q(\psi(t),t)), (\psi'(t),1) \rangle dt - \int_{t=a_2}^{t=b_2} \langle (0,Q(t,d)), (1,0) \rangle dt $$
+        $$- \int_{t=c}^{t=d} \langle (0,Q(\varphi(t),t)), (\varphi'(t),1) \rangle dt + \int_{t=a_4}^{t=b_4} \langle (0,Q(t,c)), (1,0) \rangle dt $$
+        $$= \int_{t=c}^{t=d} Q(\psi(t),t) - Q(\varphi(t),t) dt$$
+        \item $$\int_{D} \frac{\partial Q}{\partial x}dxdy = \int_{y=c}^{y=d} \int_{x=\varphi(y)}^{x=\psi(y)} \left( \frac{\partial Q(x,y)}{\partial x} dx \right) dy = \int_{y=c}^{y=d} Q(\psi(y),y) - Q(\varphi(y),y) dy$$
+    \end{itemize}
+
+\end{proof}
+
+\begin{observación}
+$$\int_{D} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dxdy = \int_{\overline{D}} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dxdy$$
+puesto que $C$ tiene área $D$.
+\end{observación}
+
+\ejemplo{
+    Vamos a verificar el Teorema de Green para el campo $\vec{F} = (x^2, xy)$ y la curva de Jordan $C$ dada por el borde del cuadrado $[0,1]^2$.\\
+    $$
+        \begin{cases}
+            P(x,y) = x^2 \\
+            Q(x,y) = xy
+        \end{cases}
+    $$
+
+    $$
+        \begin{cases}
+            \gamma_1(t) =(t,0), \quad t \in [0,1] \quad \gamma_1'(t) = (1,0) \\
+            \gamma_2(t) =(1,t), \quad t \in [0,1] \quad \gamma_2'(t) = (0,1) \\
+            \gamma_3(t) =(t,1), \quad t \in [0,1] \quad \gamma_3'(t) = (1,0) \\
+            \gamma_4(t) =(0,t), \quad t \in [0,1] \quad \gamma_4'(t) = (0,1) \\
+        \end{cases}
+    $$
+
+    \begin{itemize}
+        \item $$\int_{C^+} x^2 dx + xy dy = \int_{\gamma_1 + \gamma_2 + \gamma_3 + \gamma_4} x^2 dx + xy dy$$ 
+        $$= \underbrace{\int_{0}^{1} \langle (t^2, 0), (1,0) \rangle dt}_{\gamma_1} + \underbrace{\int_{0}^{1} \langle (1,t), (0,1) \rangle dt}_{\gamma_2} - \underbrace{\int_{0}^{1} \langle (t^2,t), (1,0) \rangle dt}_{\gamma_3} - \underbrace{\int_{0}^{1} \langle (0,0), (0,1) \rangle dt}_{\gamma_4}$$
+        $$= \int_{t=0}^{t=1} t^2 dt + \int_{t=0}^{t=1} t dt - \int_{t=0}^{t=1} t^2 dt - 0 = \left[ \frac{t^2}{2} \right]_{t=0}^{t=1} = \frac{1}{2}$$
+        \item $$\int_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dx dy = \int_{D} (y-0)dxdy = \int_{x=0}^{x=1} \left( \int_{y=0}^{y=1}ydy \right)dx = \left[ \frac{y^2}{2}\right] _{y=0}^{y=1} = \frac{1}{2}$$
+    \end{itemize}
+
+}
+
+\ejemplo{
+
+    Verificar el teorema de Green para la circunferencia de radio 2 y centro en el
+    origen, el campo $\vec{F} = (x-y, x+y)$ .\\ $$
+        \begin{cases}
+            \gamma(t) = (2\cos(t), 2\sin(t)), \quad t \in [0,2\pi] \quad \gamma(0) = \gamma(2\pi) \text{ para } \gamma(0) \neq \gamma(t) \ \forall t \in (0,2\pi) \\
+            \gamma'(t) = (-2\sin(t), 2\cos(t)) \neq (0,0)
+        \end{cases}
+    $$
+
+    $$\overline{D} = \left\{ (x,y) \mid x^2+y^2 \leq 4 \right\}$$
+
+    \begin{itemize}
+        \item $$\int_{C^+} (x-y)dx + (x+y)dy = \int_{t=0}^{t=2\pi} \langle (2\cos(t) - 2\sin(t), 2\cos(t) + 2\sin(t)), (-2\sin(t), 2\cos(t)) \rangle dt $$
+        $$= \int_{t=0}^{t=2\pi} (-4\cos(t)\sin(t) + 4\sin^2(t) + 4\cos^2(t) -4\sin(t)\cos(t))dt = \int_{t=0}^{t=2\pi} 4 dt = 8\pi$$
+        \item $$\int_{\overline{D}} (1+1) dx dy = 2(\text{área}(\overline{D})) = 2 (\pi 2^2) = 8\pi$$
+    \end{itemize}
+
+}
+

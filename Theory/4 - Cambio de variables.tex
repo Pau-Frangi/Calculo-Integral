@@ -195,7 +195,10 @@
     \begin{itemize}
         \item $\varphi$ es de clase $C^1$, es decir, tiene derivadas continuas en $U$.
         \item $\varphi$ es biyectiva entre $U$ y $V$.
-        \item El determinante del Jacobiano es no nulo: $$ \det(D_{\varphi})(r, \theta) =
+        \item El determinante del Jacobiano es no nulo: $$ \det(D_{\varphi})(r, \theta) = \begin{vmatrix}
+            \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+            \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+        \end{vmatrix} =
                   \begin{vmatrix}
                       \cos\theta & -r\sin\theta \\
                       \sin\theta & r\cos\theta
