@@ -1,1 +1,230 @@
 \section{Teorema de Green}
+\begin{definición}[Curva de Jordan]
+    Una curva de Jordan $C$ en $\mathbb{R}^2$ es la imagen de un camino cerrado y simple en $\mathbb{R}^2$, es decir, $C = Im(\gamma)$ con $\gamma: [a,b] \to \mathbb{R}^2$ continua, inyectiva en $[a, b)$ y $\gamma(a) = \gamma(b)$.
+    \end{definición}
+    \begin{observación}
+    Se puede demostrar que $C$ es un homeomorfa a la circunferencia unitaria $S^1$.
+    \end{observación}
+    \begin{teorema}[Teorema de la curva de Jordan]
+        Toda curva de Jordan $C$ en $\mathbb{R}^2$ divide al plano en dos regiones  o componentes conexas, una acotada, denominada \underline{parte interior a $C$} y otra no acotada, denominada \underline{parte exterior a $C$}, siendo $C$ la frontera común a ambas regiones. Es decir,
+        $$\mathbb{R}^2 = Int(C) \cup Ext(C) \cup C \text{ con } \begin{cases}
+                Int(C) = \text{abierto conexo acotado} \\ Ext(C) = \text{ abierto conexo no acotado} \\ Fr(Int(C)) = C = Fr(Ext(C))
+            \end{cases} \text{ unión disjunta}$$
+    \end{teorema}
+    \begin{definición}[Conexión simple]
+    Un abierto y conexo en $\mathbb{R}^2$ se dice que es simplemente conexo si $\forall C$ curva de Jordan en $U$, $Int(C) \subset U$. Conceptualmente, ésto se ve como que $U$ tiene un agujero.
+    \end{definición}
+    
+    \begin{definición}[Orientación de una curva de Jordan]
+    Sea $C \subset \R^2$ curva de Jordan que además, es de clase $C^1$ a trozos. Se deine la orientación positiva en $C$ y se denota $C^+$ como el sentio de recorrido continuo a las agujas del reloj. \\
+    Conceptualmente, es el sentido de recorrido que deja la parte interior de $C$ a la izquierda.
+    \end{definición}
+    
+    \begin{teorema}[Teorema de Green]
+        Sean $C$ curva de Jordan regular a trozos con parte interior $D = Int(C)$, $\vec{F} = (P, Q) : U \to \R^2$ campo vectorial de clase $C^1$ definido en un abierto $U \supset \overline{D} = D \cup C$. Entonces:
+        $$\int_{C^+} P \, dx + Q \, dy = \int_{D} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \, dy
+        $$
+        donde $C^+$ representa la curva $C$ con orientación positiva.
+    \end{teorema}
+    
+    \begin{proof}
+        Para el caso de dominios que son a la vez proyectables horizontalmente y verticalmente. Es decir, supongamos que
+        $$\overline{D} = \left\{ (x,y) \in \R^2 \mid a \leq x \leq b, \ f(x) \leq y \leq g(x) \right\}$$
+        donde las funciones $f,g: [a,b] \to \R$ son de clase $C^1$.\\
+        Entonces $C^+ = \gamma_1 + \gamma_2 - \gamma_3 - \gamma_4$ donde
+        $$\begin{cases}
+                \gamma_1(t) = (t, f(t)), \quad t \in [a,b] \quad \gamma_1'(t) = (1, f'(t)) \neq (0,0) \\
+                \gamma_2(t) = (b,t) \quad t \in [c_2, d_2] \quad \gamma_2'(t) = (0,1)                 \\
+                \gamma_3(t) = (t, g(t)) \quad t \in [a,b] \quad \gamma_3'(t) = (1, g'(t)) \neq (0,0)  \\
+                \gamma_4(t) = (a,t) \quad t \in [c_4, d_4] \quad \gamma_4'(t) = (0,1)
+            \end{cases}$$
+    
+        Entonces,
+    
+        \begin{itemize}
+            \item 
+            \[
+            \int_{C^+} Pdx + Qdy = \int_{C^+} Pdx + \int_{C^+} Qdy 
+            \implies \int_{C^+} Pdx = \int_{\gamma_1+\gamma_2-\gamma_3-\gamma_4} (P,0) 
+            \]
+            \[
+            = \int_{t=a}^{t=b} \left\langle (P(t,f(t)), 0), (1, f'(t)) \right\rangle dt 
+            + \int_{t=c_2}^{t=d_2} \left\langle (P(b,t), 0), (0,1) \right\rangle dt 
+            \]
+            \[
+            - \int_{t=a}^{t=b} \left\langle (P(t,g(t)), 0), (1, g'(t)) \right\rangle dt 
+            - \int_{t=c_4} ^{t=d_4} \left\langle (P(a,t), 0), (0,1) \right\rangle dt
+            \]
+            \[
+            = \int_{t=a}^{t=b} P(t,f(t)) - P(t,g(t)) dt
+            \]
+        
+            \item 
+            \[
+            \int_{D} -\frac{\partial P}{\partial y}dxdy 
+            = -\int_{x=a}^{x=b} \int_{y=f(x)}^{y=g(x)} \frac{\partial P(x,y)}{\partial y} dy \,dx
+            = -\int_{x=a}^{x=b} \left[ P(x,y) \right] _{y=f(x)}^{y=g(x)} dx
+            \]
+            \[
+            = -\int_{x=a}^{x=b} P(x,g(x)) - P(x,f(x)) dx 
+            = \int_{x=a}^{x=b} P(x,f(x)) - P(x,g(x)) dx
+            \]
+        \end{itemize}
+        
+        
+        Usando que $\overline{D}$ es verticalmente proyectable, hemos obtenido que
+        $\int_{C^+} Pdx = -\int_{D} \frac{\partial P}{\partial y}dxdy$.\\ Usando que
+        $\overline{D}$ es horizontalmente proyectable, veamos que $\int_{C^+} Qdy =
+            \int_{D} \frac{\partial Q}{\partial x}dxdy$.\\ Suponemos entonces que
+        $$\overline{D} = \left\{ (x,y) \in \R^2 \mid c \leq y \leq d, \ \varphi(y) \leq x
+            \leq \psi(y) \right\}$$ donde $\varphi, \psi: [c,d] \to \R$ son de clase
+        $C^1$.\\ Entonces $C^+ = \sigma_1 - \sigma_2 - \sigma_3 + \sigma_4$ donde $$
+            \begin{cases}
+                \sigma_1(t) = (\psi(t), t), \quad t \in [c,d] \quad \sigma_1'(t) = (\psi'(t), 1)       \\
+                \sigma_2(t) = (t, d), \quad t \in [a_2, b_2] \quad \sigma_2'(t) = (1, 0)               \\
+                \sigma_3(t) = (\varphi(t), t), \quad t \in [c,d] \quad \sigma_3'(t) = (\varphi'(t), 1) \\
+                \sigma_4(t) = (t, c), \quad t \in [a_4, b_4] \quad \sigma_4'(t) = (1, 0)
+            \end{cases}
+        $$
+    
+        \begin{itemize}
+            \item $$\int_{C^+} Qdy = \int_{\sigma_1 - \sigma_2 - \sigma_3 + \sigma_4} (0,Q) $$
+            $$= \int_{t=c}^{t=d} \langle (0,Q(\psi(t),t)), (\psi'(t),1) \rangle dt - \int_{t=a_2}^{t=b_2} \langle (0,Q(t,d)), (1,0) \rangle dt $$
+            $$- \int_{t=c}^{t=d} \langle (0,Q(\varphi(t),t)), (\varphi'(t),1) \rangle dt + \int_{t=a_4}^{t=b_4} \langle (0,Q(t,c)), (1,0) \rangle dt $$
+            $$= \int_{t=c}^{t=d} Q(\psi(t),t) - Q(\varphi(t),t) dt$$
+            \item $$\int_{D} \frac{\partial Q}{\partial x}dxdy = \int_{y=c}^{y=d} \int_{x=\varphi(y)}^{x=\psi(y)} \left( \frac{\partial Q(x,y)}{\partial x} dx \right) dy = \int_{y=c}^{y=d} Q(\psi(y),y) - Q(\varphi(y),y) dy$$
+        \end{itemize}
+    
+    \end{proof}
+    
+    \begin{observación}
+    $$\int_{D} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dxdy = \int_{\overline{D}} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dxdy$$
+    puesto que $C$ tiene área $D$.
+    \end{observación}
+    
+    \ejemplo{
+        Vamos a verificar el Teorema de Green para el campo $\vec{F} = (x^2, xy)$ y la curva de Jordan $C$ dada por el borde del cuadrado $[0,1]^2$.\\
+        $$
+            \begin{cases}
+                P(x,y) = x^2 \\
+                Q(x,y) = xy
+            \end{cases}
+        $$
+    
+        $$
+            \begin{cases}
+                \gamma_1(t) =(t,0), \quad t \in [0,1] \quad \gamma_1'(t) = (1,0) \\
+                \gamma_2(t) =(1,t), \quad t \in [0,1] \quad \gamma_2'(t) = (0,1) \\
+                \gamma_3(t) =(t,1), \quad t \in [0,1] \quad \gamma_3'(t) = (1,0) \\
+                \gamma_4(t) =(0,t), \quad t \in [0,1] \quad \gamma_4'(t) = (0,1) \\
+            \end{cases}
+        $$
+    
+        \begin{itemize}
+            \item $$\int_{C^+} x^2 dx + xy dy = \int_{\gamma_1 + \gamma_2 + \gamma_3 + \gamma_4} x^2 dx + xy dy$$ 
+            $$= \underbrace{\int_{0}^{1} \langle (t^2, 0), (1,0) \rangle dt}_{\gamma_1} + \underbrace{\int_{0}^{1} \langle (1,t), (0,1) \rangle dt}_{\gamma_2} - \underbrace{\int_{0}^{1} \langle (t^2,t), (1,0) \rangle dt}_{\gamma_3} - \underbrace{\int_{0}^{1} \langle (0,0), (0,1) \rangle dt}_{\gamma_4}$$
+            $$= \int_{t=0}^{t=1} t^2 dt + \int_{t=0}^{t=1} t dt - \int_{t=0}^{t=1} t^2 dt - 0 = \left[ \frac{t^2}{2} \right]_{t=0}^{t=1} = \frac{1}{2}$$
+            \item $$\int_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dx dy = \int_{D} (y-0)dxdy = \int_{x=0}^{x=1} \left( \int_{y=0}^{y=1}ydy \right)dx = \left[ \frac{y^2}{2}\right] _{y=0}^{y=1} = \frac{1}{2}$$
+        \end{itemize}
+    
+    }
+    
+    \ejemplo{
+    
+        Verificar el teorema de Green para la circunferencia de radio 2 y centro en el
+        origen, el campo $\vec{F} = (x-y, x+y)$ .\\ $$
+            \begin{cases}
+                \gamma(t) = (2\cos(t), 2\sin(t)), \quad t \in [0,2\pi] \quad \gamma(0) = \gamma(2\pi) \text{ para } \gamma(0) \neq \gamma(t) \ \forall t \in (0,2\pi) \\
+                \gamma'(t) = (-2\sin(t), 2\cos(t)) \neq (0,0)
+            \end{cases}
+        $$
+    
+        $$\overline{D} = \left\{ (x,y) \mid x^2+y^2 \leq 4 \right\}$$
+    
+        \begin{itemize}
+            \item $$\int_{C^+} (x-y)dx + (x+y)dy = \int_{t=0}^{t=2\pi} \langle (2\cos(t) - 2\sin(t), 2\cos(t) + 2\sin(t)), (-2\sin(t), 2\cos(t)) \rangle dt $$
+            $$= \int_{t=0}^{t=2\pi} (-4\cos(t)\sin(t) + 4\sin^2(t) + 4\cos^2(t) -4\sin(t)\cos(t))dt = \int_{t=0}^{t=2\pi} 4 dt = 8\pi$$
+            \item $$\int_{\overline{D}} (1+1) dx dy = 2(\text{área}(\overline{D})) = 2 (\pi 2^2) = 8\pi$$
+        \end{itemize}
+    
+}
+
+\ejemplo{
+    Sea el campo vectorial $F(x, y) = (x^2 +y^2, -3xy + xy^3 + y^2)$ sobre la curva definida por el cuadrado $[0, 1]^2$.
+    Veamos dos maneras de calcular la integral de camino dada por $\int_{\gamma} F \cdot dr$.
+    \begin{enumerate}
+        \item Podemos describir la curva como producto de una concatenación de curvas: $\gamma = \gamma _1 \times \gamma _2 \times \gamma _3 \times \gamma _4$ donde:
+        $$\begin{cases}
+            \gamma_1 \equiv (4t, 0) :  t \in [0, \frac{1}{4}) \\
+            \gamma_2 \equiv (1, 4t - 1) : t \in [\frac{1}{4}, \frac{2}{4}) \\
+            \gamma_3 \equiv (3 - 4t, 1) : t \in [\frac{2}{4}, \frac{3}{4}) \\
+            \gamma_4 \equiv (0, 4 - 4t) : t \in [\frac{3}{4}, 1]
+        \end{cases} \implies$$
+        $$\int_{\gamma} F = \sum_{k = 1}^{4} \int_{\frac{k-1}{4}}^{\frac{k}{4}} \langle F(\gamma_k(t)), \gamma_k'(t) \rangle dt = \sum_{k = 1}^{4} \int_{\frac{k-1}{4}}^{\frac{k}{4}} \langle F(\gamma_k(t)), \gamma_k'(t) \rangle dt = $$
+
+$$
+= \int_{0}^{\frac{1}{4}} \langle (4t)^2 + 0, -3 \cdot (4t) \cdot 0 + 4t \cdot 0^3 + 0 \rangle, (4,0) \rangle dt +
+$$
+
+$$
++ \int_{\frac{1}{4}}^{\frac{2}{4}} \langle (t^2 + (4t-1)^2, -3(4t-1) + (4t-1)^3 + (4t-1)^2) \rangle, (0,4) \rangle dt +
+$$
+
+$$
++ \int_{\frac{2}{4}}^{\frac{3}{4}} \langle (3-4t)^2 - 1^2, -3(3-4t) + (3-4t) + 1) \rangle, (-4,0) \rangle dt +
+$$
+
+$$
++ \int_{\frac{3}{4}}^{1} \langle (4-4t)^2, (4-4t)^2 \rangle, (0,-4) \rangle dt
+$$
+Y resolveriamos las integrales polinómicas de forma usual. 
+\item Otra forma de resolverlo es aplicando el teorema de Green: \\
+Para ello veamos que el camino definido anteriormente sea una Curva de Jordan $$\begin{cases} 
+    \text{Simple: } \forall t_1, t_2 \in (a,b) : t1_ \neq t_2 \implies \gamma(t_1) \neq \gamma(t_2) \\
+    \text{Cerrada: } \gamma(0) = \gamma(1) \\
+    \text{Regular: } ||\gamma'(t)|| \neq 0 \ \forall t \in [0,1]
+\end{cases} \implies \text{ es una curva de Jordan}$$
+Entonces tenemos que: 
+$$\frac{\partial Q}{\partial x} =   -3y + y^3 \quad \frac{\partial P}{\partial y} = 3y^2 \implies$$
+$$\int_{\gamma} F = \int_0^1 \left(\int_{0}^{1} -3y^2 +y^3 -3y^2 dx \right)dy = \int_0^1 \left( \int_0^1 -3y^2 + y^3 - 3y^2 \, dx \right) dy = $$ $$= \int_{0}^{1} -3y^2 + y^3 - 3y^2 \, dx = \left[\frac{-3y^2}{2} + \frac{y^4}{4} + \frac{-3y^3}{3}\right]^1_0 = -\frac{3}{2} + \frac{1}{4} - 1 = -\frac{9}{4}$$
+\end{enumerate}
+}
+
+\ejemplo{
+    Sea el campo vectorial $F(x,y) = \left(\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right)$ y el camino dado por $\gamma(t) = (8 + 3\cos(2\pi t), 6 +3\sin(2\pi t))$ con $t \in [0,1]$. \\
+    Veamos cómo lo haríamos a través de la definición: 
+$$\int_{\gamma} F = \int_{0}^{1} \langle F(\gamma(t)), \gamma'(t) \rangle dt =$$  
+$$ = \int_{0}^{1} \left\langle \left(\frac{-6 - 3\sin(2\pi t)}{200 + 48\cos(2\pi t) + 36\sin(2\pi t)}, \frac{8 + 3\cos(2\pi t)}{48\cos(2\pi t) + 36\sin(2\pi t) + 99}\right), \left(-6\sin(2\pi t), 6\cos(2\pi t)\right) \right\rangle dt =$$  
+$$ = \int_{0}^{1} \frac{18 + 36\pi\sin(2\pi t) + 48\pi\cos(2\pi t)}{48\cos(2\pi t) + 36\sin(2\pi t) + 99} \, dt = \ldots = 0.$$
+
+    \begin{observación}
+        La integral anterior se resolvería haciendo uso del cambio de variable $u = tg(\frac{t}{2})$, el cual suele usarse para intgrales de la forma: 
+        $$\int \frac{P(\sin(t), \cos(t))}{Q(\sin(t), \cos(t))}dt$$
+    \end{observación}
+    Haciendo uso del Teorema de Green, y verificando en primer lugar que se cumple que $\gamma$ es una Curva de Jordan: 
+    $$\begin{cases}
+        \gamma(t) \text{ está orientada positivamente} \\
+        \gamma(0) = \gamma(1) = (11, 6) \\
+        ||\gamma'(t)|| \neq 0 \ \forall t \in [0,1] \\
+        \begin{cases}
+            8 + 3\cos(2\pi t) = 8 + 3\cos(2\pi t') \\
+            6 + 3\sin(2\pi t) = 6 + 3\sin(2\pi t')
+        \end{cases} \iff t = 0, t' = 1 \implies \gamma \text{ es simple}
+    \end{cases}$$
+    $F$ es de clase $C^1$ en $\mathbb{R}^2 \setminus \{(0,0)\}$, por lo que podemos aplicar el Teorema de Green:
+    $$\frac{\partial Q}{\partial x} = \frac{x^2 + y^2 - 2x^2}{(x^2 + y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2}$$
+    $$\frac{\partial P}{\partial y} = \frac{-x^2 - y^2 + 2y^2}{(x^2 
+     y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2}$$
+    $$\implies \int \int_{int(\gamma)} 0 dx dy = 0$$ 
+}
+
+\ejemplo{
+    Sea el campo vectorial $F(x,y) = \left(\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right)$ y el camino dado por $\gamma(t) = (\epsilon\cos(2\pi t), \epsilon\sin(2\pi t))$ con $t \in [0,1]$ y $\epsilon > 0$. \\
+    Este caso es un ejemplo de un campo vectorial y un camino en el que no es posible hacer uso del Teorema de Green ya que el origen es un punto de discontinuidad y por tanto $F$ no es de clase $C^1$. \\
+    No obstante si se puede calcular a través de la definición:
+    $$\int_{\gamma} F = \int_{0}^{1} \langle F(\gamma(t)), \gamma'(t) \rangle dt = \int_{0}^{1} \left\langle \left(\frac{-\epsilon\sin(2\pi t)}{\epsilon^2}, \frac{\epsilon\cos(2\pi t)}{\epsilon^2}\right), \left(-2\pi\epsilon\sin(2\pi t), 2\pi\epsilon\cos(2\pi t)\right) \right\rangle dt =$$ $$ = \int_{0}^{1} 2\pi dt = 2\pi$$
+}
+
+\ejemplo{
+    Sea $\gamma$-camino simple, cerrado, regular y orientada positivamente con 2 cortes en cada eje y tal que $(0, 0) \in int(\gamma)$
+}
