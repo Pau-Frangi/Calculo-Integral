@@ -477,9 +477,27 @@ INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\cleveref\cleveref.s
 INPUT .\main.aux
 INPUT .\main.aux
 INPUT main.aux
+INPUT .\TikZ\Parab.aux
+INPUT .\TikZ\Parab.aux
+INPUT TikZ\Parab.aux
+INPUT .\TikZ\DuoConj.aux
+INPUT .\TikZ\DuoConj.aux
+INPUT TikZ\DuoConj.aux
+INPUT .\TikZ\DuoTriang.aux
+INPUT .\TikZ\DuoTriang.aux
+INPUT TikZ\DuoTriang.aux
+INPUT .\TikZ\Rec1.aux
+INPUT .\TikZ\Rec1.aux
+INPUT TikZ\Rec1.aux
 INPUT .\TikZ\CamVec.aux
 INPUT .\TikZ\CamVec.aux
 INPUT TikZ\CamVec.aux
+INPUT .\TikZ\SemiCirc.aux
+INPUT .\TikZ\SemiCirc.aux
+INPUT TikZ\SemiCirc.aux
+INPUT .\TikZ\cam1.aux
+INPUT .\TikZ\cam1.aux
+INPUT TikZ\cam1.aux
 OUTPUT main.aux
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -624,11 +642,21 @@ INPUT .\Theory\3 - Teorema de Fubini.tex
 INPUT .\Theory\3 - Teorema de Fubini.tex
 INPUT .\Theory\3 - Teorema de Fubini.tex
 INPUT Theory\3 - Teorema de Fubini.tex
+INPUT .\TikZ\Parab.tex
+OUTPUT TikZ\Parab.aux
+INPUT .\TikZ\Parab.tex
+INPUT .\TikZ\Parab.tex
+INPUT TikZ\Parab.tex
 INPUT .\Theory\4 - Cambio de variables.tex
 INPUT .\Theory\4 - Cambio de variables.tex
 INPUT .\Theory\4 - Cambio de variables.tex
 INPUT .\Theory\4 - Cambio de variables.tex
 INPUT Theory\4 - Cambio de variables.tex
+INPUT .\TikZ\DuoConj.tex
+OUTPUT TikZ\DuoConj.aux
+INPUT .\TikZ\DuoConj.tex
+INPUT .\TikZ\DuoConj.tex
+INPUT TikZ\DuoConj.tex
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\esint\esint10.tfm
@@ -641,6 +669,11 @@ INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs7.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha7.tfm
+INPUT .\TikZ\DuoTriang.tex
+OUTPUT TikZ\DuoTriang.aux
+INPUT .\TikZ\DuoTriang.tex
+INPUT .\TikZ\DuoTriang.tex
+INPUT TikZ\DuoTriang.tex
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
 INPUT .\TikZ\PolarCoord.tex
 INPUT .\TikZ\PolarCoord.tex
@@ -659,6 +692,11 @@ INPUT .\images\Parabs.png
 INPUT .\images\Parabs.png
 INPUT .\images\Parabs.png
 INPUT .\images\Parabs.png
+INPUT .\TikZ\Rec1.tex
+OUTPUT TikZ\Rec1.aux
+INPUT .\TikZ\Rec1.tex
+INPUT .\TikZ\Rec1.tex
+INPUT TikZ\Rec1.tex
 INPUT .\TikZ\conj1.tex
 INPUT .\TikZ\conj1.tex
 INPUT TikZ\conj1.tex
@@ -684,6 +722,16 @@ OUTPUT TikZ\CamVec.aux
 INPUT .\TikZ\CamVec.tex
 INPUT .\TikZ\CamVec.tex
 INPUT TikZ\CamVec.tex
+INPUT .\TikZ\SemiCirc.tex
+OUTPUT TikZ\SemiCirc.aux
+INPUT .\TikZ\SemiCirc.tex
+INPUT .\TikZ\SemiCirc.tex
+INPUT TikZ\SemiCirc.tex
+INPUT .\TikZ\cam1.tex
+OUTPUT TikZ\cam1.aux
+INPUT .\TikZ\cam1.tex
+INPUT .\TikZ\cam1.tex
+INPUT TikZ\cam1.tex
 INPUT .\Theory\7 - Teorema de Green.tex
 INPUT .\Theory\7 - Teorema de Green.tex
 INPUT .\Theory\7 - Teorema de Green.tex
@@ -706,9 +754,27 @@ INPUT .\Theory\Appendix.tex
 INPUT .\Theory\Appendix.tex
 INPUT Theory\Appendix.tex
 INPUT main.aux
+INPUT .\TikZ\Parab.aux
+INPUT .\TikZ\Parab.aux
+INPUT TikZ\Parab.aux
+INPUT .\TikZ\DuoConj.aux
+INPUT .\TikZ\DuoConj.aux
+INPUT TikZ\DuoConj.aux
+INPUT .\TikZ\DuoTriang.aux
+INPUT .\TikZ\DuoTriang.aux
+INPUT TikZ\DuoTriang.aux
+INPUT .\TikZ\Rec1.aux
+INPUT .\TikZ\Rec1.aux
+INPUT TikZ\Rec1.aux
 INPUT .\TikZ\CamVec.aux
 INPUT .\TikZ\CamVec.aux
 INPUT TikZ\CamVec.aux
+INPUT .\TikZ\SemiCirc.aux
+INPUT .\TikZ\SemiCirc.aux
+INPUT TikZ\SemiCirc.aux
+INPUT .\TikZ\cam1.aux
+INPUT .\TikZ\cam1.aux
+INPUT TikZ\cam1.aux
 INPUT .\main.out
 INPUT .\main.out
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi480\esint10.pk

@@ -9,70 +9,7 @@ donde $\varphi, \psi : [c,d] \to \mathbb{R}$ son funciones continuas con $\varph
 En este caso si $f: E \to \mathbb{R}$ que es integrable en $E$:
 $$\int_{E_1}h(x,y)dxdy = \int_{x = a}^{x = b}\left(\int_{f(x)}^{g(x)}h(x,y)dy\right)dx$$
 $$\int_{E_2}h(x,y)dxdy = \int_{y = c}^{y = d}\left(\int_{\varphi(y)}^{\psi(y)}h(x,y)dx\right)dy$$
-
-\begin{center}
-    \begin{minipage}{0.45\textwidth}
-        \begin{tikzpicture}[scale=1.5]
-            % Ejes
-            \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-            \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
-
-            % Curvas más variadas
-            \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) node[right] {\small $y = f(x)$}; % Ajuste aquí
-            \draw[thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x}, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) node[right] {\small $y = g(x)$};
-
-            % Líneas verticales en x=a y x=b
-            \draw[dashed] (0.5,0.7) -- (0.5,2.4);
-            \draw[dashed] (2.5,1.1) -- (2.5,2.1);
-
-            % Etiquetas a y b
-            \node[below] at (0.5,0) {\small $a$};
-            \node[below] at (2.5,0) {\small $b$};
-
-            % Región sombreada
-            \begin{scope}
-                \clip (0.5,0.7) -- plot[domain=0.5:2.5, smooth] (\x, {2.5 - 0.3*cos(3*\x r) + 0.2*sin(2*\x r)}) -- (2.5,1.1) -- plot[domain=2.5:0.5, smooth] (\x, {1 + 0.4*sin(3*\x r) + 0.1*cos(2*\x r)}) -- cycle; % Ajuste aquí
-                \fill[gray!30] (0,0) rectangle (3,3);
-            \end{scope}
-
-            % Etiqueta de la región
-            \node at (1.5,1.5) {\small $E_1$};
-
-        \end{tikzpicture}
-    \end{minipage}
-    \hspace{0.05\textwidth} % Espacio entre las dos figuras
-    \begin{minipage}{0.45\textwidth}
-
-        \begin{tikzpicture}[scale=1.5]
-            % Ejes de coordenadas con una separación más pequeña
-            \draw[->] (-0.5,0) -- (3,0) node[right] {\small $x$};
-            \draw[->] (0,-0.5) -- (0,3) node[above] {\small $y$};
-
-            \node[left] at (-0.1,0.5) {\small $c$};  % Etiqueta en y = 0.5
-            \node[left] at (-0.1,2.5) {\small $d$};  % Etiqueta en y = 2.5
-
-            % Mover la figura ligeramente a la derecha
-            \begin{scope}[shift={(1,0)}]  % Ahora solo 1 unidad a la derecha
-                \draw[thick] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5)
-                node[above] {\small $x = \varphi(y)$};
-
-                \draw[thick] (2,0.5) .. controls (2.5,1.2) and (2.5,1.8) .. (2,2.5)
-                node[above] {\small $x = \psi(y)$};
-
-                % Líneas horizontales
-                \draw[dashed] (0,0.5) -- (2,0.5);
-                \draw[dashed] (0,2.5) -- (2,2.5);
-
-                % Región sombreada
-                \fill[gray!30] (0,0.5) .. controls (0.5,1.2) and (0.5,1.8) .. (0,2.5) --
-                (2,2.5) .. controls (2.5,1.8) and (2.5,1.2) .. (2,0.5) -- cycle;
-
-                \node at (1.25,1.5) {\small $E_2$};
-            \end{scope}
-        \end{tikzpicture}
-
-    \end{minipage}
-\end{center}
+\include{TikZ/DuoConj.tex}
 \end{definición}
 
 \begin{observación}
@@ -118,45 +55,7 @@ $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
     Sea $\int_{E} e^{\frac{x-y}{x+y}}dxdy$ donde $E = $ tríangulo de vértices $(0,0), (2,0)$ y $(0,2)$.\\
     Si tomamos el cambio de variable: \\ $$\varphi^{-1} \begin{cases} u = x-y \\ v = x+y \end{cases} \implies \varphi \begin{cases} x = \frac{u+v}{2} \\ y = \frac{v - u}{2} \end{cases} \implies f(x,y) = f(u,v) = e^{\frac{u}{v}}$$\\
     Si tomamos la representación gráfica del cambio de variable obtenemos que:
-    \begin{center}
-        \begin{minipage}{0.45\textwidth}
-            \begin{tikzpicture}[scale=1.5]
-                % Ejes coordenados
-                \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$}; % Dibuja el eje x con una flecha en el extremo derecho
-                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$}; % Dibuja el eje y con una flecha en el extremo superior
-
-                % Triángulo original en xy
-                \draw[thick] (0,0) -- (2,0) -- (0,2) -- cycle; % Dibuja el triángulo con vértices en (0,0), (2,0) y (0,2)
-
-                % Etiquetas de los vértices
-                \node[below] at (0,0) {$(0,0)$}; % Etiqueta el vértice (0,0)
-                \node[below] at (2,0) {$(2,0)$}; % Etiqueta el vértice (2,0)
-                \node[left] at (0,2) {$(0,2)$}; % Etiqueta el vértice (0,2)
-
-                % Área sombreada
-                \fill[blue!20,opacity=0.5] (0,0) -- (2,0) -- (0,2) -- cycle; % Rellena el triángulo con un color azul claro y opacidad del 50%
-            \end{tikzpicture}
-        \end{minipage}
-        \hspace{0.0000001\textwidth} % Ajusta este valor para cambiar la separación entre las dos minipages
-        \begin{minipage}{0.45\textwidth}
-            \begin{tikzpicture}[scale=1.5]
-                % Ejes coordenados
-                \draw[->] (-2,0) -- (2,0) node[right] {$u$};
-                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$v$};
-
-                % Triángulo
-                \draw[thick] (-2,2) -- (2,2) -- (0,0) -- cycle;
-
-                % Etiquetas de los vértices
-                \node[left] at (-2,2) {\footnotesize (-2,2)};
-                \node[right] at (2,2) {\footnotesize (2,2)};
-                \node[below] at (0,0) {\footnotesize (0,0)};
-
-                \fill[red!20,opacity=0.5] (0,0) -- (2,2) -- (-2,2) -- cycle; % Rellena el triángulo transformado con un color rojo claro y opacidad del 50%
-            \end{tikzpicture}
-        \end{minipage}
-    \end{center}
-
+    \include{TikZ/DuoTriang.tex}
     Si tomamos $y = 0 \implies \varphi^{-1} \begin{cases} u = x \\ v = x \end{cases}$ y también tomamos $x = 0 \implies \begin{cases} u = -y \\ v = y \end{cases}$\\
     en tenemos que $|det(D\varphi)| = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} = \frac{1}{2}$\\
     $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$
@@ -605,15 +504,15 @@ $$ dA = a b r \, dr \, d\theta. $$
     \textbf{Cálculo del área de la elipse:}
     La integral de área en coordenadas elípticas se expresa como:
     $$
-        \text{Área}(E) = \int_{\theta = 0}^{2\pi} \int_{r = 0}^{1} ab r \, dr \, d\theta.
+        \text{Área}(E) = \int_{\theta = 0}^{\theta = 2\pi} \int_{r = 0}^{r=1} ab r \, dr \, d\theta.
     $$
     Resolviendo la integral en $r$:
     $$
-        \int_{0}^{1} ab r \, dr = ab \left[\frac{r^2}{2} \right]_{0}^{1} = \frac{ab}{2}.
+        \int_{r=0}^{r=1} ab r \, dr = ab \left[\frac{r^2}{2} \right]_{r=0}^{r=1} = \frac{ab}{2}.
     $$
     Evaluando la integral en $\theta$:
     $$
-        \int_{0}^{2\pi} d\theta = 2\pi.
+        \int_{\theta = 0}^{\theta = 2\pi} d\theta = 2\pi.
     $$
     Por lo tanto, el área de la elipse es:
     $$
@@ -664,24 +563,7 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
     Calcula el área del recinto delimitado por las rectas $\begin{cases} x + y = a \\ x + y = b \\ 2x - 3y = c \\ 2x - 3y = d \end{cases}$
     Supongamos que $a < b, c < d$.\\
     \vspace{-1.5em}
-    \begin{center}
-        \begin{tikzpicture}[scale=0.7]
-            % Ejes
-            \draw[thick,->] (-2,0) -- (4,0) node[right] {\small $x$};
-            \draw[thick,->] (0,-3) -- (0,4) node[above] {\small $y$};
-
-            % Conjunto de rectas paralelas
-            \draw[thick] (-2,0) -- (1,3) node[right] {\small $2x - 3y = d$};
-            \draw[thick] (-1,-2) -- (3,2) node[right] {\small $2x - 3y = c$};
-
-            \draw[thick] (-1,4) -- (4,-1) node[right] {\small $x + 4y = b$};
-            \draw[thick] (-1,2) -- (3,-2) node[right] {\small $x + 4y = a$};
-
-            % Región sombreada
-            \fill[pattern=north east lines, pattern color=black, opacity=0.5]
-            (0.5,2.5) -- (2,1) -- (1,0) -- (-0.5,1.5) -- cycle;
-        \end{tikzpicture}
-    \end{center}
+    \include{TikZ/Rec1.tex}
     Para ello tomemos el cambio de variable: $\varphi^{-1} = \psi = \begin{cases} u = x + y \\ v = 2x -3y \end{cases} $\\
     \[area(D) = \int_{D = \varphi(E)}1 dx dy = \int_{E}1 \left| \frac{\partial(x,y)}{\partial (u,v)} \right| du dv\]
     Donde
@@ -703,7 +585,7 @@ $$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^
 
     Para ello consideremos el cambio de variable ("hiperbólico"):
     \[
-        \psi = \begin{cases}
+        \psi(x,y) = \begin{cases}
             u = x^2 - y^2 \\
             v = 2xy
         \end{cases}
