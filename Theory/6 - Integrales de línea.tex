@@ -313,7 +313,7 @@ entonces:
     = \int_a^b \left[ F_1(\gamma(t)) x_1'(t) + \cdots + F_n(\gamma(t)) x_n'(t) \right] dt = \int_\gamma F_1 \, dx_1 + \cdots + F_n \, dx_n
 \]
 donde $dx_i = x_i'(t) dt$, para $i = 1, \ldots, n$ y $\vec{F} = (F_1, \ldots,
-    F_n)$.
+    F_n)$.\\
 
 \begin{teorema}
     Sean $\gamma : [a, b] \to \mathbb{R}^n$ y $\sigma : [c, d] \to \mathbb{R}^n$ caminos $\mathcal{C}^1$ a trozos y equivalentes, y sea $\vec{F} : \operatorname{Im}(\gamma) = \operatorname{Im}(\sigma) \to \mathbb{R}^n$ un campo vectorial continuo. Entonces:
@@ -436,14 +436,43 @@ Diremos que una función \( \gamma: [a,b] \to \mathbb{R}^n \) es un \textbf{cami
     Sea \( C \subset \mathbb{R}^n \) una curva simple y regular y sean \( \gamma \) y \( \sigma \) parametrizaciones simples y regulares de \( C \). Entonces, \( \gamma \) y \( \sigma \) son equivalentes.
 \end{teorema}
 
+\begin{proof}
+    A continuación viene la demostración del teorema anterior: \\
+    Sean $\sigma: [c,d] \to Im(\sigma)$ y $\gamma: [a,b] \to Im(\gamma)$ tales que $Im(\sigma) = C = Im(\gamma)$.
+    Dado que $\sigma$ y $\gamma$ son homeomorfismos sobre $C$ entonces $\exists h: [c,d] \to [a,b]$ homeomorfismo $C^1$ tal que $h = \gamma^{-1} \circ \sigma$.
+    Entonces falta demostrar que $h$ es de clase $C^1$ con $h' \neq 0$ en $[c,d]$
+    Sea $s_0 \subset [c,d]$ y denotaremos $x_0 = \sigma(s_0)$
+    \begin{itemize}
+        \item     Consideramos primero el caso de que $s_0 \in (c,d)$ y sea $t_0 \in (a, b)$ tal
+              que $\gamma(t_0) = x_0$: Sabemos que $$\gamma'(t_0) = (\gamma_1'(t_0), \ldots,
+                  \gamma_n'(t_0)) \neq \vec{0}$$ Supongamos que $\gamma_1'(t_0) \neq 0$ entonces
+              definamos la función $H: (a, b) \times \mathbb{R}^{n-1} \to \mathbb{R}^{n}$ tal que
+               $$H(t, y_2, \ldots, y_n) = (\gamma_1(t), \gamma_2(t) + y_2, \ldots,
+                  \gamma_n(t) + y_n) \text{ luego } H(t_0, 0, \ldots, 0) = (\gamma_1(t), \ldots,
+                  \gamma_n(t)) = \gamma(t)$$ $$DH(t, 0 \ldots 0) = \begin{pmatrix}
+                      \gamma_1'(t) & 0      & \ldots & 0      \\
+                      \gamma_2'(t) & 1      & \ldots & 0      \\
+                      \vdots       & \vdots & \ddots & \vdots \\
+                      \gamma_n'(t) & 0      & \ldots & 1
+                  \end{pmatrix} \implies det(DH(t, 0 \ldots 0)) = \gamma_1'(t) \neq 0$$
+              Entonces por el Teorema de la Función Inversa $\exists U^{(t_0, 0, \ldots 0)} \subset (a, b)$ y $\exists V^{x_0}$ tal que $H: U^{(t_0, 0, \ldots 0)} \to V^{x_0}$ es un difeomorfismo de clase $C^1$. Definimos $F: V^{x_0} \to \mathbb{R}$ tal que $F(x) = \pi_1(H^{-1}(x)) \in (a,b)$ donde $\pi_1$ es la proyección en la primera coordenada. \\
+              $$F(\gamma(t)) = \pi_1(H^{-1}(\gamma(t))) = \pi_1(H^{-1} \circ H(t, 0, \ldots, 0)) = \pi_1(t, 0, \ldots, 0) = t$$
+              Si $t = h(s)$ entonces $F(\gamma(h(s))) = F(\sigma(s))$ luego $h$ es de clase $C^1$ alrededor de $s_0$. Además, $\sigma'(s_0) = (\gamma \circ h)'(s_0) = \gamma(t_0) \circ h'(s_0) \implies h'(s_0) \neq 0$ \\
+        \item Para los exteriores de $c$ y $d$ se usa que: $\sigma: [c,d] \to \mathbb{R}^n$
+              es de clase $C^1$ entonces $\exists \bar{\sigma}: (c - \epsilon, d + \epsilon)
+                  \to \mathbb{R}^n$ extensión de clase $C^1$ y además $\bar{\sigma}' \neq 0$ en
+              $(c - \epsilon, d + \epsilon)$
+    \end{itemize}
+\end{proof}
+
 \ejemplo{
-    Un segimento en $\mathbb{R}^n$: DAdos $p \neq q$ en $\mathbb{R}^n$, el segmento $[p,q]$ se define como:
+    Un segmento en $\mathbb{R}^n$: Dados $p \neq q$ en $\mathbb{R}^n$, el segmento $[p,q]$ se define como:
     $$[p,q] = \{(1 - t)p + t1  0 \leq t \leq 1\} = C \text{ es una curva simple regular}$$
-    $$C = Im(\gamma) \text{ donde } \gamma:[0,1] \to [p,q] \text{con } \gamma(t) = (1-t)p + tq = q +t(p-q)$$
+    $$C = Im(\gamma) \text{ donde } \gamma:[0,1] \to [p,q] \text{ con } \gamma(t) = (1-t)p + tq = q +t(p-q)$$
     Tenemos que $\gamma$ es biyectiva y $\gamma'(t) = p-q \neq 0$ $\forall t \in [0,1]$
 }
 \ejemplo{
-Una gráfica en $\mathbb{R}^n$: Sea $g: [a, b] \to \mathbb{R}$ de clase $C^1$. La gráfica $G_g = \{(t, g(t) : a \leq t \leq b)\}$ es una curva simple regualr en $\mathbb{R}^2$ con $G_g = Im(\gamma)$ donde $\gamma:[a,b] \to G_g$ es de clase $C^1$ y biyectiva con $\gamma(t) = (t, g(t))$ y $\gamma'(t) = (1, g'(t)) \neq \vec{0}$ $\forall t \in [a,b]$
+Una gráfica en $\mathbb{R}^n$: Sea $g: [a, b] \to \mathbb{R}$ de clase $C^1$. La gráfica $G_g = \{(t, g(t) : a \leq t \leq b)\}$ es una curva simple regular en $\mathbb{R}^2$ con $G_g = Im(\gamma)$ donde $\gamma:[a,b] \to G_g$ es de clase $C^1$ y biyectiva con $\gamma(t) = (t, g(t))$ y $\gamma'(t) = (1, g'(t)) \neq \vec{0}$ $\forall t \in [a,b]$
 }
 
 \begin{observación}
@@ -454,35 +483,7 @@ $\forall k \in \N$, denotemos $(t_k)_{k \in \N} = (\gamma^{-1}(x_k)) \subset [a,
 Luego $x_0 = \gamma(t_0) \iff t_0 = \gamma^{-1}(x_0)$. Pero $t_{k_j} = \gamma^{-1}(x_{k_j})$ satisface que $||t_{k_j} - t_0|| \geq \epsilon \iff ||\gamma^{-1}(x_{k_j}) - \gamma^{-1}(x_0)|| \geq \epsilon$ lo cual es una contradicción.
 \end{observación}
 
-\begin{proof}
-    A continuación viene la demostración del teorema anterior: \\
-    Sean $\sigma: [c,d] \to Im(\sigma)$ y $\gamma: [a,b] \to Im(\gamma)$ tales que $Im(\sigma) = C = Im(\gamma)$.
-    Dado que $\sigma$ y $\gamma$ son homeomorfismos sobre $C$ entonces $\exists h: [c,d] \to [a,b]$ homeomorfismo $C^1$ tal que $h = \gamma^{-1} \circ \sigma$.
-    Entonces falta demostrar que $h$ es de clase $C^1$ con $h' \neq 0$ en $[c,d]$
-    Sea $s_0 \subset [c,d]$ y denotaremos $x_0 = \sigma(s_0)$
-    \begin{itemize}
-        \item     Consideramos primero el caso de que $s_0 \in (c,d)$ y sea $t_0 \in (a, b)$ tal
-              que $\gamma(t_0) = x_0$: Sabemos que $gamma'(t_0) = (\gamma_1'(t_0), \ldots,
-                  \gamma_n'(t_0)) \neq \vec{0}$ Supongamos que $\gamma_1'(t_0) \neq 0$ entonces
-              definamos la función $H: (a, b) \times \mathbb{R}^{n-1} \to \mathbb{R}^{n}
-                  \implies H(t, y_2, \ldots, y_n) = (\gamma_1(t), \gamma_2(t) + y_2, \ldots,
-                  \gamma_n(t) + y_n) \text{ y } H(t_0, 0, \ldots, 0) = (\gamma_1(t), \ldots,
-                  \gamma_n(t)) = \gamma(t)$ \\ $$DH(t, 0 \ldots 0) = \begin{pmatrix}
-                      \gamma_1'(t) & 0      & \ldots & 0      \\
-                      \gamma_2'(t) & 1      & \ldots & 0      \\
-                      \vdots       & \vdots & \ddots & \vdots \\
-                      \gamma_n'(t) & 0      & \ldots & 1
-                  \end{pmatrix} \implies det(DH(t, 0 \ldots 0)) = \gamma_1'(t) \neq 0$$
-              Entonces por el Teorema de la Función Inversa $\exists U^{(t_0, 0, \ldots 0)} \subset (a, b)$ y $\exists V^{x_0}$ tal que $H: U^{(t_0, 0, \ldots 0)} \to V^{x_0}$ es un difeomorfismo de clase $C^1$. Definimos $F: V^{x_0} \to \mathbb{R}$ tal que $F(x) = \pi_1(H^{-1}(x)) \in (a,b)$ donde $\pi_1$ es la proyección en la primera coordenada. \\
-              $$F(\gamma(t)) = \pi_1(H^{-1}(\gamma(t))) = \pi_1(H^{-1} \circ H(t, 0, \ldots, 0)) = \pi_1(t, 0, \ldots, 0) = t$$
-              Si $t = h(s)$ entonces $F(\gamma(h(s))) = F(\sigma(s))$ luego $h$ es de clase $C^1$ alrededeor de $s_0$. Además, $\sigma'(s_0) = (\gamma \circ h)'(s_0) = \gamma(t_0) \circ h'(s_0) \implies h'(s_0) \neq 0$ \\
-        \item Para los exteriores de $c$ y $d$ se usa que: $\sigma: [c,d] \to \mathbb{R}^n$
-              es de clase $C^1$ entonces $\exists \bar{\sigma}: (c - \epsilon, d + \epsilon)
-                  \to \mathbb{R}^n$ extensión de clase $C^1$ y además $\bar{\sigma}' \neq 0$ en
-              $(c - \epsilon, d + \epsilon)$
-    \end{itemize}
-\end{proof}
-\begin{definición}
+\begin{definición} [Integral de una Función a lo largo de una Curva]
 Sea $C \subset \mathbb{R}^n$ curva simple regular entonces;
 \begin{enumerate}
     \item Si $f: C \to \mathbb{R}$ es continua, se define $\int_{C} f = \int_{\gamma} f$
@@ -498,7 +499,7 @@ Sea $C \subset \mathbb{R}^n$ curva simple regular entonces;
 Si cambiamos de orientación: $\int_{C^-} \vec{F} = -\int_{C} \vec{F}$
 \end{observación}
 
-\begin{definición}
+\begin{definición} [Curva Simple Regular a Trozos]
 Diremos que $C \subset \R^n $ es una curva regular simple a trozos si $C = Im(\gamma)$ siendo $\gamma$ camino $C^1$ a trozos con $\gamma = \gamma_1 + \ldots + \gamma_k$ y cada $\gamma_j$ es simple y regular $\forall j = 1, \ldots, k$\\
 En este caso si $C_j = Im(\gamma_j) \forall j = 1, \ldots, k$ entonces denotaremos $C = C_1 + \ldots + C_k$ y definimos para $f: C \to \R$ continua: $\int_{C} f = \sum_{j=1}^{k} \int_{C_j} f$
 \end{definición}
@@ -513,7 +514,7 @@ Si $C = C_1 + \ldots + C_k$ tienen orientaciones coherentes (el extremo de $C_j$
 
 \subsection{Campos Conservativos}
 
-\begin{definición}
+\begin{definición} [Campo Conservativo]
 Sea un conjunto $U  \subset \mathbb{R}^n$ abierto. Un campo vectorial-$C^1$ continuo $\vec{F}: U \to \mathbb{R}^n$ se dice que es conservativo (ó campo gradiente) si $\exists \varphi: U \to \mathbb{R}$ de clase $C^1$ tal que $\vec{F} = \nabla \varphi \iff \vec{F} = (F_1, \ldots, F_n)$ donde $F_i = \frac{\partial \varphi}{\partial x_i} \quad \forall i = 1, \ldots, n$.
 Se dice entonces que la función $\varphi$ es un potencial de $\vec{F}$.
 \end{definición}

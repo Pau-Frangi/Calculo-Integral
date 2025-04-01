@@ -180,7 +180,7 @@ $$
 Y resolveriamos las integrales polinómicas de forma usual. 
 \item Otra forma de resolverlo es aplicando el teorema de Green: \\
 Para ello veamos que el camino definido anteriormente sea una Curva de Jordan $$\begin{cases} 
-    \text{Simple: } \forall t_1, t_2 \in (a,b) : t1_ \neq t_2 \implies \gamma(t_1) \neq \gamma(t_2) \\
+    \text{Simple: } \forall t_1, t_2 \in (a,b) : t1 \neq t_2 \implies \gamma(t_1) \neq \gamma(t_2) \\
     \text{Cerrada: } \gamma(0) = \gamma(1) \\
     \text{Regular: } ||\gamma'(t)|| \neq 0 \ \forall t \in [0,1]
 \end{cases} \implies \text{ es una curva de Jordan}$$
@@ -191,7 +191,7 @@ $$\int_{\gamma} F = \int_0^1 \left(\int_{0}^{1} -3y^2 +y^3 -3y^2 dx \right)dy = 
 }
 
 \ejemplo{
-    Sea el campo vectorial $F(x,y) = \left(\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right)$ y el camino dado por $\gamma(t) = (8 + 3\cos(2\pi t), 6 +3\sin(2\pi t))$ con $t \in [0,1]$. \\
+    Sea el campo vectorial $F(x,y) = \left(\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right)$ y el camino dado por: $$\gamma(t) = (8 + 3\cos(2\pi t), 6 +3\sin(2\pi t))$$ con $t \in [0,1]$. \\
     Veamos cómo lo haríamos a través de la definición: 
 $$\int_{\gamma} F = \int_{0}^{1} \langle F(\gamma(t)), \gamma'(t) \rangle dt =$$  
 $$ = \int_{0}^{1} \left\langle \left(\frac{-6 - 3\sin(2\pi t)}{200 + 48\cos(2\pi t) + 36\sin(2\pi t)}, \frac{8 + 3\cos(2\pi t)}{48\cos(2\pi t) + 36\sin(2\pi t) + 99}\right), \left(-6\sin(2\pi t), 6\cos(2\pi t)\right) \right\rangle dt =$$  
@@ -205,7 +205,7 @@ $$ = \int_{0}^{1} \frac{18 + 36\pi\sin(2\pi t) + 48\pi\cos(2\pi t)}{48\cos(2\pi 
     $$\begin{cases}
         \gamma(t) \text{ está orientada positivamente} \\
         \gamma(0) = \gamma(1) = (11, 6) \\
-        ||\gamma'(t)|| \neq 0 \ \forall t \in [0,1] \\
+        \lVert\gamma'(t)\rVert \neq 0 \ \forall t \in [0,1] \\
         \begin{cases}
             8 + 3\cos(2\pi t) = 8 + 3\cos(2\pi t') \\
             6 + 3\sin(2\pi t) = 6 + 3\sin(2\pi t')
@@ -228,3 +228,6 @@ $$ = \int_{0}^{1} \frac{18 + 36\pi\sin(2\pi t) + 48\pi\cos(2\pi t)}{48\cos(2\pi 
 \ejemplo{
     Sea $\gamma$-camino simple, cerrado, regular y orientada positivamente con 2 cortes en cada eje y tal que $(0, 0) \in int(\gamma)$
 }
+
+
+
