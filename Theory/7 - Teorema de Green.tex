@@ -228,3 +228,64 @@ $$ = \int_{0}^{1} \frac{18 + 36\pi\sin(2\pi t) + 48\pi\cos(2\pi t)}{48\cos(2\pi 
 \ejemplo{
     Sea $\gamma$-camino simple, cerrado, regular y orientada positivamente con 2 cortes en cada eje y tal que $(0, 0) \in int(\gamma)$
 }
+
+\begin{corolario}
+    Sea $U \subset \mathbb{R}^2$ abierto y simplemente conexo y sea $\vec{F} = (P, Q): U \to \mathbb{R}^2$ un campo vectorial de clase $C^1$.\\
+    Son equivalentes:\\
+    \begin{enumerate}
+        \item $\vec{F}$ es conservativo en $U$.
+        \item $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$ en $U$.
+    \end{enumerate}
+    Con otra terminologia encontramos:
+    \begin{enumerate}
+        \item $Pdx + Qdy$ es "exacta", es decir $\exists \phi$ tal que $\nabla \phi = (P,Q)$.
+        \item $Pdx + Qdy = 0$ es "cerrada".
+    \end{enumerate}
+\end{corolario}
+
+\begin{proof}
+    Demostremos el corolario:\\
+    \begin{enumerate}
+        \item Veamos $1 \implies 2$:\\
+        Es cierto siempre que si $(P,Q) = \nabla \phi$ con $\phi \in C^2(U)$ $\implies$ $\frac{\partial Q}{\partial x} = \frac{\partial^2 \phi}{\partial x \partial y} = \frac{\partial^2 \phi}{\partial y \partial x} = \frac{\partial P}{\partial y}$\\
+        \item Veamos $2 \implies 1$:\\
+        Sea $\sigma$ poligonal cerrada en $U$ de lados paralelos a los ejes, veamos que $\int_{\sigma} \vec{F} = 0$\\
+        Entonces $\sigma = \sigma_1 + \sigma_2 + \cdots + \sigma_m$ donde cada $\sigma_j$ tiene una imagen $C_j = Im(\sigma_j)$ una curva de Jordan poligonal.\\
+        $$\int_{\sigma} \vec{F} = \sum_{j=1}^{m} \int_{\sigma_j} \vec{F} = \sum_{j=1}^{m} \int_{\left(\partial D_j \right)^+} Pdx + Qdy = \sum_{j=1}^{m} \int_{D_j} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dxdy = 0$$ \\
+        Usando que $\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 0$ en $U$ y el Teorema de Green.\\
+    \end{enumerate}
+\end{proof}
+
+\ejemplo{
+    El resultado anterior puede fallar si $U$ no es simplemente conexo.\\
+    Sean $U = \mathbb{R}^2 \setminus \{(0,0)\}$ y $\vec{F}:U \to \mathbb{R}^2$ dado por $\vec{F}(x,y) = \vec{F} (P,Q) \left(\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right)$ que es de clase $C^1$ en $U$.\\
+    Tenemos que $\frac{\partial Q}{\partial x} = \frac{x^2 + y^2 - 2x^2}{(x^2 + y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2}$ y $\frac{\partial P}{\partial y} = \frac{-(x^2 + y^2) + 2y^2}{(x^2 + y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2}$\\
+    Pero $(P,Q)$ no es conservativo:\\
+    Podemos tomar: $\gamma_R(t) = (R\cos(t), R\sin(t))$ con $t \in [0,2\pi]$ un camino cerrado en $U$\\
+    Calculemos ahora:\\
+    $$\int_{\gamma_R} \vec{F} = \int_{0}^{2\pi} \langle \vec{F}(\gamma_R(t)), \gamma_R'(t) \rangle dt = \int_{0}^{2\pi} \left\langle \left(\frac{-R\sin(t)}{R^2}, \frac{R\cos(t)}{R^2}\right), (-R\sin(t), R\cos(t)) \right\rangle dt =$$\\
+    $$= \int_{0}^{2\pi} \sin^2(t) + \cos^2(t) dt = \int_{0}^{2\pi} 1 dt = 2\pi \neq 0$$\\
+    Por lo que $\vec{F}$ no es conservativo.\\
+
+    Ahora intentemos buscar un potencial $\phi$ tal que:\\
+    $$\begin{cases}
+        \frac{\partial \phi}{\partial x} = P = \frac{-y}{x^2 + y^2} \\
+        \frac{\partial \phi}{\partial y} = Q = \frac{x}{x^2 + y^2}
+    \end{cases}$$\\
+    Lo cual implica:\\
+    $$\phi = \int \frac{-y}{x^2 + y^2} dx = \int \frac{\frac{1}{y}dx}{1+\frac{x}{y}^2} = -arctan\left(\frac{x}{y}\right)$$\\
+    Ademas $$\frac{\partial}{\partial y} \left(-arctan\left(\frac{x}{y}\right)\right) = \frac{-\frac{x}{y^2}}{1+\left(\frac{x}{y}\right)^2}  = \frac{x}{x^2 + y^2}$$\\
+    Por lo que $\phi$ es un potencial de $F$ en $W = \left\{ (x,y): y \neq 0 \right\}$
+}
+
+\begin{teorema}[Teorema de Green general (dominios multiplemente conexos)]
+    Sean $C_0, C_1, \ldots, C_m$ curvas de Jordan regulares a trozos en $\mathbb{R}^2$ tales que:\\
+    \begin{enumerate}
+        \item $C_i \subset int(C_0) = \mathring{C_0}$, $\forall i = 1, \ldots, m$.
+        \item $C_i \subset ext(C_j)$, $\forall i, j \in \left\{1, \cdots m\right\}$ con $i \neq j$.
+    \end{enumerate}
+    Sean $D=int(C_0) \cap ext(C_1) \cup \cdots \cup ext(C_m)$ y $\vec{F} = (P,Q)$ campo vectorial de clase $C^1$ en un abierto que contiene a $\overline{D}$.\\
+    Entonces:
+    $$\int_{\left(\partial D\right)^+} Pdx + Qdy = \int_{D} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dxdy$$\\
+    Donde $\left(\partial D\right)^+ = C_0^+ - \sum_{i=1}^{m} C_i^+$\\
+\end{teorema}
