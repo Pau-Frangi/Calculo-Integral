@@ -1,83 +1,79 @@
 \section{Superficies paramétricas}
 
-\begin{definición}
-    Una superficie parametrica en $\mathbb{R}^3$  es $\phi: U \to \mathbb{R}^3$ de clase $C^1$, definida en un abierto $U \subset \mathbb{R}^2$.\\
-    Diremos que $\phi$ es una parametrización de otra superficie.\\
-    Ademas diremos que la parametrización $\phi$ es regular si $ \left\{ \frac{\partial \phi}{\partial u}, \frac{\partial \phi}{\partial v} \right\}$ son linealmente independientes en todo punto de $U$.\\
-    Equivalentemente, cuando el vector normal asociado a $\phi$ no es nulo:\\
-    $$ \vec{N}_\phi = \frac{\partial \phi}{\partial u} \times \frac{\partial \phi}{\partial v} \neq 0 $$
-    En este caso, el plano tangente a la superficie en $\phi(u_0, v_0)$ tiene como ecuaciones:\\
-    $$
+\begin{definición} [Superficie Paramétrica]
+Una  parametrización de una superficie paramétrica $S$ en $\mathbb{R}^3$ es una aplicación $\varphi: U \to \mathbb{R}^3$ de clase $C^1$ definida en un abierto conexo $U \subset \mathbb{R}^2$ tal que:
+$$ Im(\varphi) = \{ \varphi(u,v) \in \mathbb{R}^3 : (u,v) \in U \} = S $$
+Diremos que la parametrización $\varphi$ es regular cuando la pareja de vectores $\left\{\frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v}\right\}$ es linealmente independiente en todo punto de $U$. Equivalentemente, cuando el vector normal asociado a $\varphi$ es no nulo en todo punto de $U$:
+$$ \vec{N}_{\varphi} = \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} \neq \vec{0} $$
+En este caso, el plano tangente a la superficie en el punto $\varphi(u_0,v_0)$ tiene como ecuaciones paramétricas:
+$$
     \begin{cases}
-        x = \phi_1(u_0, v_0) + \lambda \frac{\partial \phi_1}{\partial u}(u_0, v_0) + \mu \frac{\partial \phi_1}{\partial v}(u_0, v_0) \\
-        y = \phi_2(u_0, v_0) + \lambda \frac{\partial \phi_2}{\partial u}(u_0, v_0) + \mu \frac{\partial \phi_2}{\partial v}(u_0, v_0) \\
-        z = \phi_3(u_0, v_0) + \lambda \frac{\partial \phi_3}{\partial u}(u_0, v_0) + \mu \frac{\partial \phi_3}{\partial v}(u_0, v_0)
-    \end{cases}
-    $$
+        x = \varphi_1(u_0,v_0) + \lambda \frac{\partial \varphi_1}{\partial u}(u_0,v_0) + \mu \frac{\partial \varphi_1}{\partial v}(u_0,v_0) \\
+        y = \varphi_2(u_0,v_0) + \lambda \frac{\partial \varphi_2}{\partial u}(u_0,v_0) + \mu \frac{\partial \varphi_2}{\partial v}(u_0,v_0) \\
+        z = \varphi_3(u_0,v_0) + \lambda \frac{\partial \varphi_3}{\partial u}(u_0,v_0) + \mu \frac{\partial \varphi_3}{\partial v}(u_0,v_0) \\
+    \end{cases} \qquad \lambda, \mu \in \mathbb{R}
+$$
 \end{definición}
 
 \ejemplo{
-    Sea la superficie $z=x^2+y^2$.\\
-    Sea la parametrización natural $\varphi: \mathbb{R}^2 \to \mathbb{R}^3$ dada por $\varphi(x,y)=(x,y,x^2+y^2)$.\\
-    Entonces el vector normal asociado a $\varphi$ es:
-    $$ 
-    \vec{N}_\varphi = 
-    \begin{vmatrix}
-        \vec{e_1} & \vec{e_2} & \vec{e_3} \\
-        \frac{\partial \varphi_1}{\partial x} & \frac{\partial \varphi_2}{\partial x} & \frac{\partial \varphi_3}{\partial x} \\
-        \frac{\partial \varphi_1}{\partial y} & \frac{\partial \varphi_2}{\partial y} & \frac{\partial \varphi_3}{\partial y} \\
-    \end{vmatrix}
-    =
-    \begin{vmatrix}
-        \vec{e_1} & \vec{e_2} & \vec{e_3} \\
-        1 & 0 & 2x \\
-        0 & 1 & 2y \\
-    \end{vmatrix}
-    = \left( -2x, -2y, 1 \right) \neq \left( 0, 0, 0 \right)
-    $$ 
+    Dada la superficie $z=x^2+y^2$, podemos parametrizarla con $\varphi:\mathbb{R}^2 \to \mathbb{R}^3$ dada por $\varphi(x,y) = (x,y,x^2+y^2)$. Calculemos el vector normal:
+    $$ \vec{N}_{\varphi} = \frac{\partial \varphi}{\partial x} \times \frac{\partial \varphi}{\partial y} =  \begin{vmatrix}
+            \vec{e}_1                             & \vec{e}_2                             & \vec{e}_3                             \\
+            \frac{\partial \varphi_1}{\partial x} & \frac{\partial \varphi_2}{\partial x} & \frac{\partial \varphi_3}{\partial x} \\
+            \frac{\partial \varphi_1}{\partial y} & \frac{\partial \varphi_2}{\partial y} & \frac{\partial \varphi_3}{\partial y} \\
+        \end{vmatrix} = \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1         & 0         & 2x        \\
+            0         & 1         & 2y        \\
+        \end{vmatrix} = \vec{e}_1 - 2x\vec{e}_3 + 2y\vec{e}_2 \neq (0,0,0)
+    $$}
 
-    Asi el vector normal asociado en $(0,0)$ es $\vec{N}_\varphi(0,0)=(0,0,1)$.
+\ejemplo{
+    \underline{Superficies explícitas:} Sean $U \subset \mathbb{R}^2$ abierto conexo y $f: U \to \mathbb{R}$ de clase $C^1$. Entonces la gráfica de $f$ es una superficie regular con parametrización $\varphi: U \to \mathbb{R}^3$ dada por $\varphi(x,y) = (x,y,f(x,y))$.\\
+    Veamos que $\vec{N}_{\varphi} \neq (0,0,0)$:
+    $$ \vec{N}_\varphi = \frac{\partial \varphi}{\partial x} \times \frac{\partial \varphi}{\partial y} = \begin{vmatrix}
+            \vec{e}_1                             & \vec{e}_2                             & \vec{e}_3                             \\
+            \frac{\partial \varphi_1}{\partial x} & \frac{\partial \varphi_2}{\partial x} & \frac{\partial \varphi_3}{\partial x} \\
+            \frac{\partial \varphi_1}{\partial y} & \frac{\partial \varphi_2}{\partial y} & \frac{\partial \varphi_3}{\partial y} \\
+        \end{vmatrix} = \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3                     \\
+            1         & 0         & \frac{\partial f}{\partial x} \\
+            0         & 1         & \frac{\partial f}{\partial y} \\
+        \end{vmatrix} = \vec{e}_1 - \frac{\partial f}{\partial x}\vec{e}_3 + \frac{\partial f}{\partial y}\vec{e}_2 \neq (0,0,0)
+    $$
+    $$ Im(\varphi) = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \in U, z = f(x,y)\} $$
 }
 
 \ejemplo{
-    Superficies explicitas:\\
-    Sean $U \subset \mathbb{R}^2$ y $f: U \to \mathbb{R}$ de clase $C^1$.\\
-    Entonces la grafica de $f$ es la una superficie regular con parametrización:\\
-    $$ \varphi: U \to \mathbb{R}^3, \quad \varphi(x,y)=(x,y,f(x,y)) $$\\
-    Ademas:\\
-    $$ \frac{\partial \varphi}{\partial x} \times \frac{\partial \varphi}{\partial y} = 
-    \begin{vmatrix}
-        \vec{e_1} & \vec{e_2} & \vec{e_3} \\
-        1 & 0 & \frac{\partial f}{\partial x} \\
-        0 & 1 & \frac{\partial f}{\partial y} \\
-    \end{vmatrix}
-    = \left( -\frac{\partial f}{\partial x}, -\frac{\partial f}{\partial y}, 1 \right) \neq (0,0,0) $$\\
-    Por lo tanto, la grafica de $f$ es una superficie regular.\\
+    Dado el cilindro de ecuaciones $x^2 + y^2 = 1, \ 0 < z < 1$, buscamos una parametrización de la superficie.\\
+    Tomando la siguiente parametrización:
+    $$
+        \begin{cases}
+            x = \cos(\theta) \\
+            y = \sin(\theta) \\
+            z = z
+        \end{cases} \qquad \theta \in \mathbb{R}, \quad z \in (0,1)
+    $$
+    entonces vemos que $\underbrace{x^2 + y^2}_{1} = r^2 \implies r = 1$.\\
+    Por tanto, obtenemos que nuestra parametrización es:
+    $$ \varphi : \mathbb{R} \times (0,1) \to \mathbb{R}^3 \quad \varphi(\theta,z) = (\cos(\theta),\sin(\theta),z) $$
+    Calculemos el vector normal:
+    $$ \vec{N}_{\varphi} = \begin{vmatrix}
+            \vec{e}_1                                  & \vec{e}_2                                  & \vec{e}_3                                  \\
+            \frac{\partial \varphi_1}{\partial \theta} & \frac{\partial \varphi_2}{\partial \theta} & \frac{\partial \varphi_3}{\partial \theta} \\
+            \frac{\partial \varphi_1}{\partial z}      & \frac{\partial \varphi_2}{\partial z}      & \frac{\partial \varphi_3}{\partial z}      \\
+        \end{vmatrix} = \begin{vmatrix}
+            \vec{e}_1     & \vec{e}_2    & \vec{e}_3 \\
+            -\sin(\theta) & \cos(\theta) & 0         \\
+            0             & 0            & 1         \\
+        \end{vmatrix} = (\cos(\theta),\sin(\theta),0) \neq (0,0,0)
+    $$
 }
 
 \ejemplo{
-    Tengamos el cilindro: $$ x^2+y^2=1, \quad 0 < z < 1 $$\\
-    Tenemos ahora:\\
-    $$ \begin{cases}
-        x = r\cos(\theta) \\
-        y = r\sin(\theta) \\
-        z = z \\
-    \end{cases}
-    \quad \text{con} \quad 0 < z < 1, \quad \theta \in \mathbb{R}$$\\
-    Tenemos que $x^2+y^2=r^2=1 \implies r=1$.\\
-    Tomemos ahora:\\
-    $$\varphi:U=\mathbb{R} \times (0,1) \to \mathbb{R}^3, \quad \varphi(\theta,z)=(\cos(\theta),\sin(\theta),z)$$\\
-    Entonces el vector normal asociado a $\varphi$ es:
-    $$ \vec{N}_\varphi =
-    \begin{vmatrix}
-        \vec{e_1} & \vec{e_2} & \vec{e_3} \\
-        -\sin(\theta) & \cos(\theta) & 0 \\
-        0 & 0 & 1 \\
-    \end{vmatrix}
-    = \left( \cos(\theta), \sin(\theta), 0 \right)$$\\ 
-}
-
-\ejemplo{
-    Sea $U = \left\{ (u,v): 1 < \sqrt{u^2+v^2} < 2 \right\}$ y la parametrización:
-    $$ \varphi: U \to \mathbb{R}^3, \quad \varphi(u,v) = \left( \frac{u}{\sqrt{u^2+v^2}}, \frac{v}{\sqrt{u^2+v^2}}, \sqrt{u^2 + v^2} - 1 \right) $$\\
+    Tomando el cilindro $x^2 + y^2 = 1, \ 0 < z < 1$ del ejemplo anterior, podemos parametrizarlo de otra forma.\\
+    Consideramos el siguiente conjunto:
+    $$ U = \{ (u,v) : 1 < \sqrt{u^2 + v^2} < 2, \quad 0 < v < 2\pi \} $$
+    entonces definimos nuestra parametrización $\varphi: U \to \mathbb{R}^3$ sobre este conjunto tal que
+    $$\varphi(u,v) = \left(\frac{u}{\sqrt{u^2 + v^2}}, \frac{v}{\sqrt{u^2 + v^2}}, \sqrt{u^2 + v^2}-1\right) $$
 }
