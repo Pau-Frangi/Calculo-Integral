@@ -286,9 +286,44 @@ Entonces $\varphi$ es un potencial para $\vec{F}$ en $W = \{ (x,y) \mid y \neq 0
         \item $C_j \subset Int(C_0) \ \forall j = 1, \ldots, m$
         \item $C_i \subset Ext(C_j) \ \forall i, j = 1, \ldots, m$ con $i \neq j$
     \end{enumerate}
-    Sean $D = Int(C_0) \cap Ext(C_1) \cup \ldots \cup Ext(C_m)$ y $\vec{F} = (P, Q) : U \to \mathbb{R}^2$ campo vectorial de clase $C^1$ definido en un abierto $U \supset \overline{D} = D \cup C_0 \cup C_1 \cup \ldots \cup C_m$. Entonces:
+    Sean $D = Int(C_0) \cap \left( Ext(C_1) \cup \ldots \cup Ext(C_m) \right)$ y $\vec{F} = (P, Q) : U \to \mathbb{R}^2$ campo vectorial de clase $C^1$ definido en un abierto $U \supset \overline{D} = D \cup C_0 \cup C_1 \cup \ldots \cup C_m$. Entonces:
     $$\int_{(\partial D)^+} Pdx + Qdy = \int_{D} \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx dy$$
     donde $(\partial D)^+ = C_0^+ - \sum_{j=1}^{m} C_j^+$.
-    
 \end{teorema}
 
+\begin{definición}[Divergencia de un campo vectorial]
+    Sean $U \subset \mathbb{R^2}$ abierto y $\vec{F}=(F_1, F_2) : U \to \mathbb{R}^2$ un campo vectorial de clase $C^1$.\\
+    Se define la divergencia de $\vec{F}$ como:\\
+    $$ div(\vec{F}) = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y}$$
+\end{definición}
+
+\begin{observación}
+    Sea $\vec{U}=(U_1, U_2) \neq (0,0)$ y tomemos dos vectores ortogonales:\\
+    $ \begin{cases}
+        \vec{v} = (u_2, -u_1) \text{ que se obtiene girando "a la derecha" } \\
+        \vec{w} = (-u_2, u_1) \text{ que se obtiene girando "a la izquierda" }
+    \end{cases}$
+\end{observación}
+
+\begin{definición}[Vector normal unitario exterior]
+    Sea $C \subset \mathbb{R}^2$ curva de Jordan regular a trozos con $D=int(C)$.\\
+    Sea ademas $\gamma: [a,b] \to \mathbb{R}^2$ una parametrización regular a trozos de $C$ que induce la orientación positiva $C^+$.\\
+    Para cada $t_0 \in [a,b]$ excepto una cantidad finita de ellos, consideramos: $\gamma'(t_0) = \left( \gamma'_1(t_0), \gamma'_2(t_0) \right)$\\
+    Se define entonces el vector normal unitario exterior en $\gamma(t_0)$ como:
+    $$\vec{n}(\gamma(t_0)) = \frac{ \left( \gamma'_2(t_0), -\gamma'_1(t_0) \right)}{||\gamma'(t_0)||}$$
+\end{definición}
+
+\begin{teorema}[Teorema de la divergencia en $\mathbb{R}^2$]
+    Sea $C$ una curva de Jordan regular a trozos en $\mathbb{R}^2$ y $D = Int(C)$ su parte interior.\\
+    Sea ademas $\vec{F} = (F_1, F_2) : U \to \mathbb{R}^2$ un campo vectorial de clase $C^1$ definido en un abierto $U \supset \overline{D} = D \cup C$. Entonces:
+    $$\int_D div(\vec{F}) = \int_{C^+} \langle \vec{F}, \vec{n} \rangle$$
+\end{teorema}
+
+\begin{proof}
+    Consideremos el campo $\vec{G} = (-F_2, F_1)$ campo al que aplicaremos el Teorema de Green, entonces:\\
+    $$\int_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) = \int_{C^+} Pdx + Qdy$$\\
+    $$ \int_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) = \int_D \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} = \int_D div(\vec{F})$$\\
+    $$\int_{C^+} \langle \vec{F}, \vec{n} \rangle_{\text{campo escalar}} = \int_{a}^{b} \langle \vec{F}(\gamma(t)), \vec{n}(\gamma(t)) \rangle ||\gamma'(t)|| dt = \int_{a}^{b} \langle \left( F_1(\gamma(t)), F_2(\gamma(t)) \right), \left( \gamma'_2(t), -\gamma'_1(t) \right) \rangle dt =$$\\
+    $$ = \int_{a}^{b} -F_2(\gamma(t)) \cdot \gamma'_1(t) + F_1(\gamma(t)) \cdot \gamma'_2(t) dt = \int_{C^+} Pdx + Qdy$$\\
+    Usando $\gamma:[a,b] \to \mathbb{R}^2$ como parametrización de $C^+$.
+\end{proof}
