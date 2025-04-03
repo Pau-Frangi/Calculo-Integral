@@ -78,105 +78,164 @@ $$
     $$\varphi(u,v) = \left(\frac{u}{\sqrt{u^2 + v^2}}, \frac{v}{\sqrt{u^2 + v^2}}, \sqrt{u^2 + v^2}-1\right) $$
 }
 
-\begin{definición}[Equivalencia de parametrizaciones]
-    Dieremos que dos parametrizaciones $\varphi: U \to \mathbb{R}^3$ y $\psi: V \to \mathbb{R}^3$ son equivalentes si existe una aplicación $h: V \to U$ difeomorfismo de clase $C^1$ tal que $\psi = \varphi \circ h$.\\
+\begin{definición} [Superficies Equivalentes] Diremos que dos superficies paramétricas \( \varphi: U \to \mathbb{R}^3 \) y \( \psi: V \to \mathbb{R}^3 \), definidas respectivamente sobre los conjuntos abiertos conexos \( U, V \subset \mathbb{R}^2 \), son equivalentes si existe una aplicación biyectiva \( h: V \to U \) de clase \( C^1 \) (es decir, un difeomorfismo) tal que: \[ \psi = \varphi \circ h. \]
 \end{definición}
 
 \begin{observación}
-    \begin{enumerate}
-        \item En este caso, $\varphi(U) = \psi(V)$.
-        \item En la definicion se pide que $U$ y $V$ sean conexos. Como $\forall(s,t) \in V$, $Dh(s,t): \mathbb{R}^2 \to \mathbb{R}^2$ es un isomorfismo lineal, sabemos que $det(Dh(s,t)) \neq 0$. Por conexión $det(Dh(s,t))$ conserva el signo en $V$.
-    \end{enumerate}
+\vspace{-2.5em}
+\begin{enumerate}
+    \item En este caso $\varphi(U) = \psi(V)$.
+    \item En la definición se pide que los conjuntos $U$ y $V$ sean conexos. Como
+          $\forall (s,t) \in V$, $D_h(s,t) : \mathbb{R}^2 \to \mathbb{R}^2$ es un
+          isomorfismo lineal, sabemos que $det(D_h(s,t)) \neq 0$. Por conexión,
+          $det(D_h(s,t))$ conserva el signo en todo $V$.
+\end{enumerate}
 \end{observación}
 
-\begin{definición}[Conservación de la orientación]
-    \begin{enumerate}
-        \item Se dice que h conserva la orientacion si $det(Dh(s,t)) > 0, \quad \forall (s,t) \in V$. \\
-        Es decir, si $\varphi$ y $\psi$ tienen la misma orientacion.
-        \item Se dice que h invierte la orientacion si $det(Dh(s,t)) < 0, \quad \forall (s,t) \in V$. \\
-        Es decir, si $\varphi$ y $\psi$ tienen orientacion opuesta.
-    \end{enumerate}
+\begin{definición} [Conservación de la Orientación]
+\vspace{-2.5em}
+\begin{enumerate}
+    \item Se dice que $h$ conserva la orientación si $det(D_h(s,t)) > 0$ para todo $(s,t)
+              \in V$, es decir las funciones $\varphi$ y $\psi$ tienen la misma orientación.
+    \item Se dice que $h$ cambia la orientación si $det(D_h(s,t)) < 0$ para todo $(s,t)
+              \in V$, es decir las funciones $\varphi$ y $\psi$ tienen orientaciones
+          opuestas.
+\end{enumerate}
 \end{definición}
 
 \begin{lema}
-    En el caso anterior se tiene que:
-    $$\frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} (s,t) = det(Dh(s,t)) \cdot \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (h(s,t))$$\\
-    Equivalentemente:
-    $$ \vec{N}_{\psi}(s,t) = det(Dh(s,t)) \cdot \vec{N}_{\varphi}(h(s,t)) $$\\  
+    Sean \( \varphi: U \to \mathbb{R}^3 \) y \( \psi: V \to \mathbb{R}^3 \) dos parametrizaciones equivalentes de una superficie \( S \). Entonces, para todo \( (s,t) \in V \), se cumple que:
+    \[
+        \frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} = det(D_h(s,t)) \cdot \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (h(s,t))
+    \]
+    Equivalentemente,
+    \[
+        \vec{N}_{\psi} (s,t) = det(D_h(s,t)) \cdot \vec{N}_{\varphi}(h(s,t))
+    \]
 \end{lema}
 
 \begin{proof}
-    Ejercicio, como consecuencia dela regla de la cadena: $D\psi(s,t) = D\varphi(h(s,t)) \cdot Dh(s,t)$\\
+    Aplicando la regla de la cadena a \(\psi = \varphi \circ h\), obtenemos la siguiente relación entre las matrices jacobianas:
+    \[
+        D_\psi(s,t) = D_\varphi(h(s,t)) \cdot D_h(s,t).
+    \]
+    En términos de las derivadas parciales, esto se traduce en:
+    \[
+        \frac{\partial \psi}{\partial s} = \frac{\partial \varphi}{\partial u} \frac{\partial h_1}{\partial s} + \frac{\partial \varphi}{\partial v} \frac{\partial h_2}{\partial s}, \quad \frac{\partial \psi}{\partial t} = \frac{\partial \varphi}{\partial u} \frac{\partial h_1}{\partial t} + \frac{\partial \varphi}{\partial v} \frac{\partial h_2}{\partial t},
+    \]
+    donde \(h(s,t) = (h_1(s,t), h_2(s,t))\).
+
+    Podemos escribir estas ecuaciones en forma matricial como:
+    \[
+        \left( \frac{\partial \psi}{\partial s}, \frac{\partial \psi}{\partial t} \right) = \left( \frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v} \right) \cdot D_h(s,t),
+    \]
+    donde \(D_h(s,t)\) es la matriz jacobiana de \(h\):
+    \[
+        D_h(s,t) = \begin{pmatrix}
+            \frac{\partial h_1}{\partial s} & \frac{\partial h_1}{\partial t} \\
+            \frac{\partial h_2}{\partial s} & \frac{\partial h_2}{\partial t}
+        \end{pmatrix}.
+    \]
+
+    Ahora, consideremos el producto vectorial de las derivadas parciales de
+    \(\psi\):
+    \[
+        \frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t}.
+    \]
+    Utilizando las expresiones anteriores, tenemos:
+    \[
+        \frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} = \left( \frac{\partial \varphi}{\partial u} \frac{\partial h_1}{\partial s} + \frac{\partial \varphi}{\partial v} \frac{\partial h_2}{\partial s} \right) \times \left( \frac{\partial \varphi}{\partial u} \frac{\partial h_1}{\partial t} + \frac{\partial \varphi}{\partial v} \frac{\partial h_2}{\partial t} \right).
+    \]
+    Expandiendo el producto vectorial y usando que \(\frac{\partial
+        \varphi}{\partial u} \times \frac{\partial \varphi}{\partial u} = 0\) y
+    \(\frac{\partial \varphi}{\partial v} \times \frac{\partial \varphi}{\partial
+        v} = 0\), obtenemos:
+    \[
+        \frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} = \left( \frac{\partial h_1}{\partial s} \frac{\partial h_2}{\partial t} - \frac{\partial h_1}{\partial t} \frac{\partial h_2}{\partial s} \right) \left( \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} \right).
+    \]
+    Notamos que el término entre paréntesis a la derecha es el determinante de la
+    matriz jacobiana \(D_h(s,t)\):
+    \[
+        \det(D_h(s,t)) = \frac{\partial h_1}{\partial s} \frac{\partial h_2}{\partial t} - \frac{\partial h_1}{\partial t} \frac{\partial h_2}{\partial s}.
+    \]
+    Por lo tanto, hemos demostrado que:
+    \[
+        \frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} = \det(D_h(s,t)) \cdot \left( \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} \right)(h(s,t)).
+    \]
+    Equivalentemente, para los vectores normales unitarios:
+    \[
+        \vec{N}_{\psi}(s,t) = \det(D_h(s,t)) \cdot \vec{N}_{\varphi}(h(s,t)),
+    \]
+    donde \(\vec{N}_{\psi}\) y \(\vec{N}_{\varphi}\) son los vectores normales
+    unitarios asociados a las parametrizaciones \(\psi\) y \(\varphi\),
+    respectivamente.
 \end{proof}
 
-\begin{definición}[Vectores normales asociados]
-    Asociados a $\varphi$ y $\psi$ obtenemos los vectores normales asociados:
-    $$ \vec{n}_{\varphi} = \frac{\vec{N}_{\varphi}}{||\vec{N}_{\varphi}||} \qquad \vec{n}_{\psi} = \frac{\vec{N}_{\psi}}{||\vec{N}_{\psi}||} $$
-    Entonces:
-    \begin{itemize}
-        \item   $\varphi$ y $\psi$ tienen la misma orientacion $\Leftrightarrow$ $\vec{n}_{\psi}(s,t) = \vec{n}_{\varphi}(h(s,t))$\\
-    \end{itemize}
-    O analogamente:
-    \begin{itemize}
-        \item   $\varphi$ y $\psi$ tienen orientacion opuesta $\Leftrightarrow \vec{n}_{\psi}(s,t) = -\vec{n}_{\varphi}(h(s,t))$\\
-    \end{itemize}
+\begin{definición} [Orientación de una Superficie]
+Asociadas a las parametrizaciones $\varphi$ y $\psi$ obtenemos lso vectores normales unitarios
+$$ \vec{n}_{\varphi} = \frac{\vec{N}_{\varphi}}{||\vec{N}_{\varphi}||} \quad \text{y} \quad \vec{n}_{\psi} = \frac{\vec{N}_{\psi}}{||\vec{N}_{\psi}||} $$
+Entonces diremos que $\varphi$ y $\psi$ tienen la misma orientación si:
+$$ \vec{n}_{\psi} (s,t) = \vec{n}_{\varphi}(h(s,t)) \text{  o  } \vec{n}_{\psi} (s,t) = -\vec{n}_{\varphi}(h(s,t)) $$
 \end{definición}
 
-\begin{definición}[Superficies como conjuntos]
-    \begin{enumerate}
-        \item Diremos que $S \subset \mathbb{R}^3$ es una superficie simple regular si: $S = \varphi(\overline{D})$, donde $D=int(C)$ con $C \subset \mathbb{R}^2$ curva de Jordan regular a trozos y $\varphi: U \to \mathbb{R}^3$ es una parametrización $C^1$, que es inyectiva y regular en $\overline{D}$.
-        \item[1'] En el caso anterior, se dice que la curva $\varphi(C)$ es el borde de $S$. Asi $\Gamma = \varphi(C)$ es una curva cerrada y regular a trozos en $\mathbb{R}^3$.
-        \item Diremos que $S \subset \mathbb{R}^3$ es una superficie casi simple regular si $S=\varphi(\overline{D})$, donde $D=int(C)$ con $C \subset \mathbb{R}^2$ curva de Jordan regular a trozos y $\varphi: U \to \mathbb{R}^3$ es una parametrización $C^1$, que es inyectiva y regular en $D$.
-    \end{enumerate}
+\subsection{Superficies como Conjuntos}
+
+\begin{definición} [Superficie Simple Regular]
+Diremos que $S \subset \mathbb{R}^3$ es una superficie simple regular si $S = \varphi (\overline{D})$ donde $\overline{D} = Int(C)$ siendo $C \subset \mathbb{R}^2$ una curva de Jordan regular a trozos, y $\varphi: U \to \mathbb{R}^3$ una parametrización de clase $C^1$ inyectiva y regular en $\overline{D}$.\\
+En este caso, se dice que la curva $\varphi(C)$ es el borde de $S$. Así, $\gamma = \varphi(C)$ es una curva cerrada y regular a trozos en $\mathbb{R}^3$.
 \end{definición}
 
-\begin{definición}[Area de una superficie]
-    En los casos anteriores definimos:
-    \begin{enumerate}
-        \item El area de $S$ es: 
-        $$ a(S) = \int_D ||\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}|| dudv $$
-        En la cercania de un punto $(u_0,v_0)$ ocurre que $\varphi \approx D_\varphi (u_0,v_0)$
-        \item Si $f: S \to \mathbb{R}$ es una función continua, entonces la integral de superficie de $f$ sobre $S$ es:
-        $$ \int_S f = \int_D f(\varphi(u,v)) ||\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}|| dudv $$
-    \end{enumerate}
+\begin{definición} [Superficie Casi-Simple Regular]
+Diremos que $S \subset \mathbb{R}^3$ es una superficie casi-simple regular si $S = \varphi (\overline{D})$ donde $\overline{D} = Int(C)$ siendo $C \subset \mathbb{R}^2$ una curva de Jordan regular a trozos, y $\varphi: U \to \mathbb{R}^3$ una parametrización de clase $C^1$ inyectiva y regular en $D$.
+\end{definición}
+
+\begin{definición}
+Dada una superficie $S$ en $\mathbb{R}^3$ simple regular o casi-simple regular, y una parametrización $\varphi: U \to \mathbb{R}^3$ de clase $C^1$ de $S$, definimos:
+\vspace{-0.5em}
+\begin{enumerate}
+    \item El área de la superficie $S$ como: $$ a(S) = \int_{D} \left\lVert
+              \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}
+              \right\rVert dudv $$
+    \item  Si $f: S \to \mathbb{R}$ es una función continua, entonces la integral de
+          superficie de $f$ sobre $S$ es: $$ \int_{S} f dS = \int_{D} f(\varphi(u,v))
+              \left\lVert \frac{\partial \varphi}{\partial u} \times \frac{\partial
+                  \varphi}{\partial v} \right\rVert dudv $$
+\end{enumerate}
 \end{definición}
 
 \ejemplo{
-    Calculemos el area de $S = \{(x,y,z): x^2 + y^2 = z^2, \quad 1 \leq z \leq 2\}$.\\
-    Usaremos el cambio a cordenadas cilindricas:
-    $$ \begin{cases}
-            x = r\cos(\theta) \\
-            y = r\sin(\theta) \\
-            z = z
-        \end{cases} \implies
-        \begin{cases}
-            1 \leq r \leq 2 \\
-            0 \leq \theta < 2\pi \\
-            r^2 = z^2 \implies r = z
-        \end{cases} \implies
-        \begin{cases}
-            x = z\cos(\theta) \\
-            y = z\sin(\theta) \\
-            z = z
-        \end{cases}
-    $$
-
-    Entonces tenemos: $\overline{D}=[0,2\pi] \times [1,2]$, y $S=\varphi(\overline{D}$.\\
-    Ahora tenemos el vector normal:
-    $$ \vec{N}_{\varphi} = \begin{vmatrix}
-            \vec{e}_1      & \vec{e}_2     & \vec{e}_3 \\
-            -z\sin(\theta) & z\cos(\theta) & 0         \\
-            \cos(\theta)   & \sin(\theta)  & 1         \\
-        \end{vmatrix} = (z\cos(\theta), z\sin(\theta), -z)$$
-    Cuyo modulo es: 
-    $$ ||\vec{N}_{\varphi}||^2 = z^2\cos^2(\theta) + z^2\sin^2(\theta) + z^2 = 2z^2 \implies ||\vec{N}_{\varphi}|| = \sqrt{2}z \neq 0, \quad \forall (\theta,z) \in D$$
-    Ademas $\varphi$ es inyectiva y regular en $D$ (aunque no lo es en $\overline{D}$).\\
-    Por tanto, el area de $S$ es:
-    $$ a(S) = \int_D ||\vec{N}_{\varphi}|| = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=1}^{z=2} \sqrt{2}z dz d\theta = \sqrt{2}\cdot2\pi \left[ \frac{z^2}{2} \right]_{1}^{2} = \sqrt{2}2\pi (4-1) = 3\sqrt{2}\pi $$
+Consideramos la superficie $S$ de $\mathbb{R}^3$ resultante de acotar un cono por dos planos paralelos al plano $XY$, y dada por las ecuaciones:
+$$S = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z^2, \ 1 < z < 2\}$$
+Calculemos el área de la superficie $S$:\\
+$$
+    \begin{cases}
+        x = r \cos(\theta) \\
+        y = r \sin(\theta) \\
+        z = r
+    \end{cases} \qquad r^2 = x^2 + y^2 = z^2 \implies r = z \qquad \varphi(\theta,z) = \begin{cases}
+        x = z \cos(\theta) \\
+        y = z \sin(\theta) \\
+        z = z
+    \end{cases}
+$$
+$$\overline{D} =[0,2\pi] \times [1,2] \qquad S = \varphi(D)$$
+$$ \vec{N}_\varphi = \begin{vmatrix}
+        \vec{e}_1      & \vec{e}_2     & \vec{e}_3 \\
+        -z\sin(\theta) & z\cos(\theta) & 0         \\
+        \cos(\theta)   & \sin(\theta)  & 1
+    \end{vmatrix} = (z\cos(\theta), z\sin(\theta), -z)
+$$
+$$ \lVert \vec{N}_\varphi \rVert^2 = z^2\cos^2(\theta) + z^2\sin^2(\theta) + (-z)^2 = 2z^2 \implies \lVert \vec{N}_\varphi \rVert = z\sqrt{2} \neq 0 \quad \forall (0,z) \in D $$
+Entonces $\varphi$ es inyectiva y regular en $D$ (aunque no en $\overline{D}$), luego $S$ es una superficie casi-simple regular.\\
+Por último, el área de la superficie $S$ es:
+$$ a(S) = \int_{D} \lVert \vec{N}_\varphi \rVert dudv = \int_{\theta = 0}^{\theta = 2\pi} \int_{z = 1}^{z = 2} z\sqrt{2} dz d\theta = \int_{\theta = 0}^{\theta = 2\pi} \left[ \frac{z^2}{2}\sqrt{2} \right]_{1}^{2} d\theta $$
+$$= \int_{\theta = 0}^{\theta = 2\pi} \left( \frac{4}{2}\sqrt{2} - \frac{1}{2}\sqrt{2} \right) d\theta = \int_{\theta = 0}^{\theta = 2\pi} \frac{3}{2}\sqrt{2} d\theta = \frac{3}{2}\sqrt{2} \cdot 2\pi = 3\pi\sqrt{2}$$
 }
 
 \ejemplo{
-    Sea $f(x,y,z) = x^2 + y^2 + z^2$ y $S$ del ejercicio anterior:
-    $$ \int_S f = \int_D f(\varphi(\theta,z)) ||\vec{N}_{\varphi}(\theta,z)|| d\theta dz = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=1}^{z=2} 2z^2 \cdot \sqrt{2}z dz d\theta = 15\sqrt{2}\pi $$
-    Ademas: $\int_S fdA = \int_S fdS$
+    Dada la función $f(x,y,z) = x^2 + y^2 + z^2$, calculemos la integral de superficie de $f$ sobre la superficie $S$ dada por la sección de cono $x^2 + y^2 = z^2, \ 1 < z < 2$ del ejemplo anterior.\\
+    Entonces, la integral de superficie de $f$ sobre $S$ es:
+    $$ \int_{S} f dS = \int_{D} f(\varphi(\theta,z)) \lVert \vec{N}_\varphi \rVert d\theta dz = \int_{\theta = 0}^{\theta = 2\pi} \int_{z = 1}^{z = 2} 2z^2 \cdot z\sqrt{2} dz d\theta = \int_0^{2\pi} \frac{2\sqrt{2}}{4} \left[ z^4 \right]_1^2 \, d\theta $$
+    $$= \int_0^{2\pi} \frac{2\sqrt{2}}{4} (16 - 1) \, d\theta = \int_0^{2\pi} \frac{30\sqrt{2}}{4} \, d\theta = \int_0^{2\pi} \frac{15\sqrt{2}}{2} \, d\theta = \frac{15\sqrt{2}}{2} \cdot (2\pi) = 15\pi\sqrt{2}$$
+    Observemos que $\int_{S} f dA = \int_{S} f dS$.
 }
