@@ -77,3 +77,106 @@ $$
     entonces definimos nuestra parametrización $\varphi: U \to \mathbb{R}^3$ sobre este conjunto tal que
     $$\varphi(u,v) = \left(\frac{u}{\sqrt{u^2 + v^2}}, \frac{v}{\sqrt{u^2 + v^2}}, \sqrt{u^2 + v^2}-1\right) $$
 }
+
+\begin{definición}[Equivalencia de parametrizaciones]
+    Dieremos que dos parametrizaciones $\varphi: U \to \mathbb{R}^3$ y $\psi: V \to \mathbb{R}^3$ son equivalentes si existe una aplicación $h: V \to U$ difeomorfismo de clase $C^1$ tal que $\psi = \varphi \circ h$.\\
+\end{definición}
+
+\begin{observación}
+    \begin{enumerate}
+        \item En este caso, $\varphi(U) = \psi(V)$.
+        \item En la definicion se pide que $U$ y $V$ sean conexos. Como $\forall(s,t) \in V$, $Dh(s,t): \mathbb{R}^2 \to \mathbb{R}^2$ es un isomorfismo lineal, sabemos que $det(Dh(s,t)) \neq 0$. Por conexión $det(Dh(s,t))$ conserva el signo en $V$.
+    \end{enumerate}
+\end{observación}
+
+\begin{definición}[Conservación de la orientación]
+    \begin{enumerate}
+        \item Se dice que h conserva la orientacion si $det(Dh(s,t)) > 0, \quad \forall (s,t) \in V$. \\
+        Es decir, si $\varphi$ y $\psi$ tienen la misma orientacion.
+        \item Se dice que h invierte la orientacion si $det(Dh(s,t)) < 0, \quad \forall (s,t) \in V$. \\
+        Es decir, si $\varphi$ y $\psi$ tienen orientacion opuesta.
+    \end{enumerate}
+\end{definición}
+
+\begin{lema}
+    En el caso anterior se tiene que:
+    $$\frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} (s,t) = det(Dh(s,t)) \cdot \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (h(s,t))$$\\
+    Equivalentemente:
+    $$ \vec{N}_{\psi}(s,t) = det(Dh(s,t)) \cdot \vec{N}_{\varphi}(h(s,t)) $$\\  
+\end{lema}
+
+\begin{proof}
+    Ejercicio, como consecuencia dela regla de la cadena: $D\psi(s,t) = D\varphi(h(s,t)) \cdot Dh(s,t)$\\
+\end{proof}
+
+\begin{definición}[Vectores normales asociados]
+    Asociados a $\varphi$ y $\psi$ obtenemos los vectores normales asociados:
+    $$ \vec{n}_{\varphi} = \frac{\vec{N}_{\varphi}}{||\vec{N}_{\varphi}||} \qquad \vec{n}_{\psi} = \frac{\vec{N}_{\psi}}{||\vec{N}_{\psi}||} $$
+    Entonces:
+    \begin{itemize}
+        \item   $\varphi$ y $\psi$ tienen la misma orientacion $\Leftrightarrow$ $\vec{n}_{\psi}(s,t) = \vec{n}_{\varphi}(h(s,t))$\\
+    \end{itemize}
+    O analogamente:
+    \begin{itemize}
+        \item   $\varphi$ y $\psi$ tienen orientacion opuesta $\Leftrightarrow \vec{n}_{\psi}(s,t) = -\vec{n}_{\varphi}(h(s,t))$\\
+    \end{itemize}
+\end{definición}
+
+\begin{definición}[Superficies como conjuntos]
+    \begin{enumerate}
+        \item Diremos que $S \subset \mathbb{R}^3$ es una superficie simple regular si: $S = \varphi(\overline{D})$, donde $D=int(C)$ con $C \subset \mathbb{R}^2$ curva de Jordan regular a trozos y $\varphi: U \to \mathbb{R}^3$ es una parametrización $C^1$, que es inyectiva y regular en $\overline{D}$.
+        \item[1'] En el caso anterior, se dice que la curva $\varphi(C)$ es el borde de $S$. Asi $\Gamma = \varphi(C)$ es una curva cerrada y regular a trozos en $\mathbb{R}^3$.
+        \item Diremos que $S \subset \mathbb{R}^3$ es una superficie casi simple regular si $S=\varphi(\overline{D})$, donde $D=int(C)$ con $C \subset \mathbb{R}^2$ curva de Jordan regular a trozos y $\varphi: U \to \mathbb{R}^3$ es una parametrización $C^1$, que es inyectiva y regular en $D$.
+    \end{enumerate}
+\end{definición}
+
+\begin{definición}[Area de una superficie]
+    En los casos anteriores definimos:
+    \begin{enumerate}
+        \item El area de $S$ es: 
+        $$ a(S) = \int_D ||\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}|| dudv $$
+        En la cercania de un punto $(u_0,v_0)$ ocurre que $\varphi \approx D_\varphi (u_0,v_0)$
+        \item Si $f: S \to \mathbb{R}$ es una función continua, entonces la integral de superficie de $f$ sobre $S$ es:
+        $$ \int_S f = \int_D f(\varphi(u,v)) ||\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}|| dudv $$
+    \end{enumerate}
+\end{definición}
+
+\ejemplo{
+    Calculemos el area de $S = \{(x,y,z): x^2 + y^2 = z^2, \quad 1 \leq z \leq 2\}$.\\
+    Usaremos el cambio a cordenadas cilindricas:
+    $$ \begin{cases}
+            x = r\cos(\theta) \\
+            y = r\sin(\theta) \\
+            z = z
+        \end{cases} \implies
+        \begin{cases}
+            1 \leq r \leq 2 \\
+            0 \leq \theta < 2\pi \\
+            r^2 = z^2 \implies r = z
+        \end{cases} \implies
+        \begin{cases}
+            x = z\cos(\theta) \\
+            y = z\sin(\theta) \\
+            z = z
+        \end{cases}
+    $$
+
+    Entonces tenemos: $\overline{D}=[0,2\pi] \times [1,2]$, y $S=\varphi(\overline{D}$.\\
+    Ahora tenemos el vector normal:
+    $$ \vec{N}_{\varphi} = \begin{vmatrix}
+            \vec{e}_1      & \vec{e}_2     & \vec{e}_3 \\
+            -z\sin(\theta) & z\cos(\theta) & 0         \\
+            \cos(\theta)   & \sin(\theta)  & 1         \\
+        \end{vmatrix} = (z\cos(\theta), z\sin(\theta), -z)$$
+    Cuyo modulo es: 
+    $$ ||\vec{N}_{\varphi}||^2 = z^2\cos^2(\theta) + z^2\sin^2(\theta) + z^2 = 2z^2 \implies ||\vec{N}_{\varphi}|| = \sqrt{2}z \neq 0, \quad \forall (\theta,z) \in D$$
+    Ademas $\varphi$ es inyectiva y regular en $D$ (aunque no lo es en $\overline{D}$).\\
+    Por tanto, el area de $S$ es:
+    $$ a(S) = \int_D ||\vec{N}_{\varphi}|| = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=1}^{z=2} \sqrt{2}z dz d\theta = \sqrt{2}\cdot2\pi \left[ \frac{z^2}{2} \right]_{1}^{2} = \sqrt{2}2\pi (4-1) = 3\sqrt{2}\pi $$
+}
+
+\ejemplo{
+    Sea $f(x,y,z) = x^2 + y^2 + z^2$ y $S$ del ejercicio anterior:
+    $$ \int_S f = \int_D f(\varphi(\theta,z)) ||\vec{N}_{\varphi}(\theta,z)|| d\theta dz = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=1}^{z=2} 2z^2 \cdot \sqrt{2}z dz d\theta = 15\sqrt{2}\pi $$
+    Ademas: $\int_S fdA = \int_S fdS$
+}
