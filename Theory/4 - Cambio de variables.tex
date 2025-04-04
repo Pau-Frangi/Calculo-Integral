@@ -61,6 +61,9 @@ $$\int_{\varphi(A)}f(x)dx = \int_{A}(f \circ \varphi(u))|\det(D\varphi)|du$$
     $$\int_{E}f(x,y)dxdy = \int_D e^{\frac{u}{v}} |det(D\varphi)du dv = \int_D \frac{1}{2} e^{\frac{u}{v}}du dv = \frac{1}{2} \int_{v = 0}^{v = 2}\left(\int_{u = -v}^{u = v}e^{\frac{u}{v}}du\right)dv$$
     $$  = \frac{1}{2} \int_{v = 0}^{v = 2}\left[v e^{\frac{u}{v}}\right] _{u = -v}^{u = v} dv = \frac{1}{2} \int_{v = 0}^{v =2}v(e-\frac{1}{e})dv = \frac{1}{2}(e-e^{-1}) \left[\frac{v^2}{2}\right]_{v = 0}^{v=2} = e - e^{-1}$$
 }
+
+\subsection{Coordenadas Polares}
+
 \begin{definición}[Coordenadas polares]
 En el plano bidimensional $\mathbb{R}^2$, las \textbf{coordenadas polares} $(r, \theta)$ están definidas en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
 
@@ -256,6 +259,8 @@ $$
     $$
 }
 
+\subsection{Coordenadas Cilíndricas}
+
 \begin{definición}[Coordenadas cilíndricas]
 En el espacio tridimensional, las \textbf{coordenadas cilíndricas} $(r, \theta, z)$ están definidas en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
 
@@ -401,6 +406,8 @@ Luego, la integral es:
 \]
 }
 
+\subsection{Coordenadas Esféricas}
+
 \begin{definición}[Coordenadas esféricas]
 En el espacio tridimensional, las coordenadas esféricas $(r, \theta, \phi)$ se definen en términos de las coordenadas cartesianas $(x, y, z)$ mediante la transformación:\\
 
@@ -445,6 +452,8 @@ $$
 \ejemplo{
     $B_r = \{(x,y,z) : x^2 + y^2 + z^2 \leq R^2\} \implies$ \\ $$vol(B_r) = \int_{B_r}1dxdydz = \int_{0}^{2\pi}\left(\int_{0}^{\pi}\left(\int_{0}^{R}r^2\sin(\phi)dr\right)d\phi\right)d\theta = \frac{4}{3}\pi R^3$$
 }
+
+\subsection{Coordenadas Elípticas}
 
 \begin{definición}[Coordenadas elípticas]
 En el plano, las coordenadas elípticas $(r, \theta)$ se definen en términos de las coordenadas cartesianas $(x, y)$ mediante la transformación:
@@ -554,8 +563,8 @@ $$\varphi = \begin{cases} x_1 = x_1(u_1, \ldots, u_n) \\ \vdots \\ x_n = x_n(u_1
 Entonces:
 $$det(D_{\varphi}) = \frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}} = \begin{vmatrix} \frac{\partial{x_1}}{\partial{u_1}} & \cdots & \frac{\partial{x_1}}{\partial{u_n}} \\ \vdots & \ddots & \vdots \\ \frac{\partial{x_n}}{\partial{u_1}} & \cdots & \frac{\partial{x_n}}{\partial{u_n}} \end{vmatrix}$$
 Entonces el Teorema de Cambio de Variable queda como:
-$$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\det(D_{\varphi})|du_1 \cdots du_n =$$ $$
-    = \int_{E = \varphi^-1(D)} f(x_1(u), \ldots, x_n(u))|\frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}}|du_1 \cdots du_n$$
+$$\int_{D = \varphi(E)} f(x_1, \ldots, x_n)dx_1 \cdots dx_n = \int_{E = \varphi^{-1}(D)} f(x_1(u), \ldots, x_n(u))|\det(D_{\varphi})|du_1 \cdots du_n$$ $$
+    = \int_{E = \varphi^{-1}(D)} f(x_1(u), \ldots, x_n(u))|\frac{\partial{(x_1, \ldots, x_n)}}{\partial{(u_1, \ldots, u_n)}}|du_1 \cdots du_n$$
 \end{observación}
 
 \ejemplo{
