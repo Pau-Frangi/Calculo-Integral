@@ -10,8 +10,8 @@ $$\gamma'(t) = (\gamma_1'(t), \ldots, \gamma_n'(t)) \text{ si } \gamma = (\gamma
 
 \begin{definición}[Longitud de un Camino]
 Sea $\gamma: [a,b] \to \R^n$ un camino en $\R^n$. Sea $\sigma = \{a = t_1 < t_2 < \ldots < t_n = b\}$ partición de $[a,b]$. Definimos $$\Sigma(\gamma, \sigma) = \sum_{i = 1}^{n} \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert $$
-Definimos entones la longitud de $\gamma$ como: $$L(\gamma) = \sup\{\Sigma(\gamma, \sigma) \ | \  \sigma \text{ es una partición de } [a, b]\} \in [0, + \infty]$$
-Decimos que $\gamma$ es \textbf{rectificable} si $L(\gamma) < + \infty$.
+Definimos entones la longitud de $\gamma$ como: $$l(\gamma) = \sup\{\Sigma(\gamma, \sigma) \ | \  \sigma \text{ es una partición de } [a, b]\} \in [0, + \infty]$$
+Decimos que $\gamma$ es \textbf{rectificable} si $l(\gamma) < + \infty$.
 \end{definición}
 
 \begin{observación}
@@ -47,6 +47,7 @@ Para la demostración del teorema anterior, veamos un lema previo:
     $$ \lVert \int_{a}^{b} \gamma(t)dt \rVert  \leq \int_{a}^{b} \lVert \gamma(t) \rVert dt$$
     donde:
     $$\int_{a}^{b} \gamma(t)dt = \left(\int_{a}^{b} \gamma_1(t)dt, \ldots, \int_{a}^{b} \gamma_n(t)dt \right)\in \mathbb{R}^n$$
+    \label{normaIntegrales}
 \end{lema}
 \begin{proof}
     Hagamos una distinción de casos:
@@ -80,21 +81,26 @@ Para la demostración del teorema anterior, veamos un lema previo:
                   t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$ con $t_i - t_{i-1} <
                   \delta \quad \forall i = 1, \ldots, n$\ $$\int_{t_{i-1}}^{t_i} \lVert
                   \gamma'(t) \rVert dt \leq \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) \rVert +
-                  \epsilon dt = \lVert \gamma(t_i) \rVert \cdot (t_i - t_{i -1}) + \epsilon(t_i -
-                  t_{i-1})$$ $$= \lVert \int_{t_{i-1}}^{t_i}\gamma'(t)dt \rVert + \epsilon(t_i -
-                  t_{i-1}) = \lVert (\gamma_1'(t_i), \ldots, \gamma_n'(t_i)) \rVert \cdot (t_i -
-                  t_{i-1}) + \epsilon(t_i - t_{i-1})$$ $$ \leq \int_{t_{i -1}}^{t_i}(\gamma'(t_i)
-                  - \gamma'(t)dt)dt +\int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt +
-                  \epsilon(t_i - t_{i-1})$$ $$ \leq \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) -
-                  \gamma'(t) \rVert dt + \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt +
-                  \epsilon(t_i - t_{i-1}) \leq 2\epsilon(t_i - t_{i-1}) + \int_{t_{i-1}}^{t_i}
-                  \lVert \gamma'(t) \rVert dt$$ $$ = 2\epsilon(t_i - t_{i-1})\cdot \lVert
-                  \gamma(t_i) - \gamma(t_{i-1}) \rVert $$ Luego, $$\int_{a}^{b} \lVert \gamma'(t)
+                  \epsilon dt = \lVert \gamma'(t_i) \rVert \cdot (t_i - t_{i -1}) + \epsilon(t_i -
+                  t_{i-1})$$ 
+                  Usando que para un vector $u \in \mathbb{R}^n$ y un escalar $c \in \mathbb{R}$ se cumple que $\lVert cu \rVert = |c| \cdot \lVert u \rVert$ entonces tenemos que:
+                  $$= \lVert \gamma'(t_i) (t_i - t_{i-1}) \rVert + \epsilon(t_i - t_{i-1}) = \lVert \int_{t_{i-1}}^{t_i} \gamma'(t_i)dt \rVert + \epsilon(t_i - t_{i-1})$$
+                  $$ = \lVert \int_{t_{i -1}}^{t_i}(\gamma'(t_i)
+                  - \gamma'(t))dt +\int_{t_{i-1}}^{t_i} \gamma'(t)dt \rVert +
+                  \epsilon(t_i - t_{i-1}) $$
+                  Aplicando la desigualdad triangular:
+                  $$\leq \lVert \int_{t_{i-1}}^{t_i}(\gamma'(t_i) - \gamma'(t))dt \rVert + \lVert \int_{t_{i-1}}^{t_i} \gamma'(t)dt \rVert + \epsilon(t_i - t_{i-1})$$
+                  Por el \cref{normaIntegrales} se sigue que:
+                  $$ \leq \int_{t_{i-1}}^{t_i} \underbrace{\lVert \gamma'(t_i) -
+                  \gamma'(t) \rVert}_{< \epsilon} dt + \lVert \int_{t_{i-1}}^{t_i} \gamma'(t)  dt \rVert +
+                  \epsilon(t_i - t_{i-1}) \leq 2\epsilon(t_i - t_{i-1}) + \lVert \int_{t_{i-1}}^{t_i}
+                   \gamma'(t)  dt \rVert$$ $$ = 2\epsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert$$
+                  Luego, $$\int_{a}^{b} \lVert \gamma'(t)
                   \rVert dt = \sum_{i = 1}^n \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt
                   \leq \sum_{i = 1}^{n}2\epsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) -
-                  \gamma(t_{i-1}) \rVert = 2\epsilon(b-a) + \Sigma(\gamma, \mathcal{P}) \leq
-                  2\epsilon(b-a) + l(\gamma)$$ Todo esto está sacado del libro de Facenda,
-              Fremiche.
+                  \gamma(t_{i-1}) \rVert $$
+                  $$= 2\epsilon(b-a) + \Sigma(\gamma, \mathcal{P}) \leq
+                  2\epsilon(b-a) + l(\gamma)$$ 
     \end{enumerate}
 \end{proof}
 
