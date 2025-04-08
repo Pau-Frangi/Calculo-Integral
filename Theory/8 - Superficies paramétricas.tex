@@ -239,3 +239,72 @@ $$= \int_{\theta = 0}^{\theta = 2\pi} \left( \frac{4}{2}\sqrt{2} - \frac{1}{2}\s
     $$= \int_0^{2\pi} \frac{2\sqrt{2}}{4} (16 - 1) \, d\theta = \int_0^{2\pi} \frac{30\sqrt{2}}{4} \, d\theta = \int_0^{2\pi} \frac{15\sqrt{2}}{2} \, d\theta = \frac{15\sqrt{2}}{2} \cdot (2\pi) = 15\pi\sqrt{2}$$
     Observemos que $\int_{S} f dA = \int_{S} f dS$.
 }
+
+\ejemplo{
+    Area de una esfera en $\mathbb{R}^3$:\\
+    $$ S_R = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 + z^2 = R^2\} \quad R>0$$
+    Sea:
+    $$ \varphi \begin{cases}
+        x = R \cos(\theta) \sin(\psi) \\
+        y = R \sin(\theta) \sin(\psi) \\
+        z = R \cos(\psi)
+    \end{cases} 
+    \qquad 
+    \left( \begin{matrix}
+        0 \leq \theta \leq 2\pi \\
+        0 \leq \psi \leq \pi 
+    \end{matrix} \right)
+    \equiv \overline{D}$$
+    Ahora calculemos $\vec{N}_\varphi$:
+    $$ \vec{N}_\varphi = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        -R\sin(\theta)\sin(\psi) & R\cos(\theta)\sin(\psi) & 0 \\
+        R\cos(\theta)\cos(\psi) & R\sin(\theta)\cos(\psi) & -R\sin(\psi)
+    \end{vmatrix}
+    =$$
+    $$\left( -R^2\cos(\theta)\sin^2(\psi), -R^2\sin(\theta)\sin^2(\psi), -R^2cos(\psi)\sin(\psi) \right)$$
+    Ahora deducimos:
+    $$ \lVert \vec{N}_\varphi \rVert^2 = R^4 \sin^4(\psi) + R^4 \cos^2(\psi)\sin^2(\psi) = R^4 \sin^2(\psi)\\
+    \implies \lVert \vec{N}_\varphi \rVert = R^2 \sin(\psi)$$ 
+    Finalmente calculemos el area:
+    $$area(S_R) = \int_{D} \lVert \vec{N}_\varphi \rVert = \int_{\theta = 0}^{\theta = 2\pi} \int_{\psi = 0}^{\psi = \pi} R^2 \sin(\psi) R^2 \sin(\psi) d\psi d\theta = 2\pi R^2 \left[ -\cos(\psi) \right]_{\psi = 0}^{\psi = \pi} = 4\pi R^2$$
+}
+
+\begin{definición}[Superficies Regulares a trozos (suma de superficies)]
+    Sean $S_1, S_2 \subset \mathbb{R}^3$ dos superficies simples regulares. Se dice que $S$ es la suma de $S_1$ y $S_2$ y denotamos $S = S_1 + S_2$ cuando:\\
+    \begin{enumerate}
+        \item $S = S_1 \cup S_2$.
+        \item $S_1 \cap S_2 = \partial S_1 \cap \partial S_2$.
+    \end{enumerate}
+    En este caso se define el borde de $S$ como
+    $$ \partial S = \overline{ \left( \partial S_1 \cup \partial S_2 \right) \setminus \left(\partial S_1 \cap \partial S_2 \right) } $$
+    Si $\partial S = \emptyset$ se dice que $S$  no tiene botde y es cerrada.\\
+
+    Analogamente podemos definir la suma de superficies $S_1 + S_2 + \ldots + S_k$ siendo cada $S_i \quad i \in [1,k]$ una superficie simple regular.\\
+\end{definición}
+
+\ejemplo{
+    Superficie del cubo
+    $$ S = S_1 + S_2 + S_3 + S_4 + S_5 + S_6, \qquad \partial S = \emptyset $$
+    \begin{tikzpicture}[scale=1.5]
+        % Caras visibles
+        \draw[shade] (1,0,0) -- (1,1,0) -- (1,1,1) -- (1,0,1) -- cycle;
+        \draw[shade] (0,1,0) -- (0,1,1) -- (1,1,1) -- (1,1,0) -- cycle;
+        \draw[shade] (0,0,1) -- (1,0,1) -- (1,1,1) -- (0,1,1) -- cycle;
+        % Lineas traseras
+        \draw[dashed] (0,0,0) -- (1,0,0);
+        \draw[dashed] (0,0,0) -- (0,1,0);
+        \draw[dashed] (0,0,0) -- (0,0,1);
+    \end{tikzpicture}
+}
+
+\ejemplo{
+    \begin{tikzpicture}[scale=0.5]
+        % Cilindro
+        \draw[thick] (0,0) ellipse (1 and 0.3);
+        \draw[thick] (-1,0) -- (-1,-3);
+        \draw[thick] (1,0) -- (1,-3);
+        \draw[thick] (-1,-3) arc (180:360:1 and 0.3);
+        \draw[dashed] (1,-3) arc (0:180:1 and 0.3);
+    \end{tikzpicture}
+}
