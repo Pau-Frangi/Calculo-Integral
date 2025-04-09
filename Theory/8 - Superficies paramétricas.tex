@@ -312,7 +312,10 @@ siendo cada $S_i$ una superficie simple regular.\\
         \end{cases}
     $$
 }
-\begin{tikzpicture}[scale=1.5]
+
+\begin{comment}
+    CUBO
+    \begin{tikzpicture}[scale=1.5]
     % Caras visibles
     \draw[shade] (1,0,0) -- (1,1,0) -- (1,1,1) -- (1,0,1) -- cycle;
     \draw[shade] (0,1,0) -- (0,1,1) -- (1,1,1) -- (1,1,0) -- cycle;
@@ -323,6 +326,7 @@ siendo cada $S_i$ una superficie simple regular.\\
     \draw[dashed] (0,0,0) -- (0,0,1);
 \end{tikzpicture}
 
+CILINDRO
 \begin{tikzpicture}[scale=0.5]
     % Cilindro
     \draw[thick] (0,0) ellipse (1 and 0.3);
@@ -331,3 +335,61 @@ siendo cada $S_i$ una superficie simple regular.\\
     \draw[thick] (-1,-3) arc (180:360:1 and 0.3);
     \draw[dashed] (1,-3) arc (0:180:1 and 0.3);
 \end{tikzpicture}
+\end{comment}
+
+\begin{definición}[Orientación de una superficie]
+    Sea $S\subset \mathbb{R}^3$ una superficie simple regular. Una funcion continua $\vec{n}: S \to \mathbb{R}^3$ se denomina como normal unitaria si $\forall p\in S: \quad \vec{n}(p) \in \underbrace{T_p(s)}_{\text{Plano tangente a S en p}}$ y $||\vec{n}(p)|| = 1$.\\  
+    Una superficie simple regular orientada en $(S,\vec{n})$ donde $S$ es una superficie simple regular y $\vec{n}$ es una normal unitaria.
+\end{definición}
+
+\begin{observación}
+    Una superficie simple regular $S$ admite dos orientaciones:\\
+    Sea $\varphi: \overline{D} \to S$ una parametrización simple regular de $S$ (segun la definicion de $S$).\\
+    Consideremos ahora:
+    $$\vec{n}_\varphi= \frac{\vec{N}_\varphi}{||\vec{N}_\varphi||} = \frac{\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}}{||\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}||}$$
+    Entonces $\vec{n}=\vec{n}_\varphi \circ \varphi^{-1}:S \to \mathbb{R}^3$  es una normal unitaria en $S$, puesto que $\varphi: \overline{D} \to S$ es un homomorfismo.\\
+    Tambien podemos tomar $-\vec{n}:S \to \mathbb{R}^3$ como otra normal unitaria en $S$.\\
+    Sean $\vec{n_1}, \vec{n_2}:S \to \mathbb{R}^3$ dos normales unitarias en $S$. Entonces $h:S \to \mathbb{R}^3$, definida por $h(p)=\langle \vec{n_1}(p),\vec{n_2}(p) \rangle$, es una función continua en $S$ y ademas $||h(p)||=1 \quad \forall p \in S$.\\
+    Como $S$ es conexa, obtenemos que $h(p) \equiv 1$ o bien $h(p) \equiv -1, \quad \forall p \in S$.\\
+    Luego $\vec{n_1}=\vec{n_2}$ o $\vec{n_1}=-\vec{n_2}$.\\
+    \[ \overline{D} \to_{\varphi} S \to_{\vec{n}} \mathbb{R}^3 \leftarrow_{\vec{n}_\varphi} \overline{D} \]
+\end{observación}
+
+\begin{definición}[Integral en una superficie simple, regular y orientada]
+    Sean $(S,\vec{n})$ superficie simple regular orientada y $\vec{F}:S \to \mathbb{R}^3$ un campo vectorial continuo, definimos:
+    $$\int_{(S,\vec{n})} \vec{F} = \int_{S} \langle \vec{F},\vec{n} \rangle$$
+\end{definición}
+
+\begin{observación}
+    $\langle \vec{F},\vec{n} \rangle$ es un campo escalar en $S$.\\
+    Si $\varphi: \overline{D} \to S$ es una parametrización simple regular de $S$ tal que $\vec{n}_\varphi = \vec{n} \circ \varphi$ entonces:
+    $$\int_{(S,\vec{n})} \vec{F} = \int_{S} \langle \vec{F},\vec{n} \rangle = \int_{D} \langle \vec{F}(\varphi(u,v)),\vec{n}_\varphi(u,v) \rangle \lVert \vec{N}_\varphi(u,v) \rVert dudv = \int_{D} \langle \vec{F}(\varphi(u,v)),\vec{N}_\varphi(u,v) \rangle dudv$$ 
+\end{observación}
+
+\ejemplo{
+    Sea $S= \{(x,y,z) \in \mathbb{R}^3 : z=x^2+y^2 \leq 1\}$ orientada con la normal "exterior".\\
+    Sea ademas $\vec{F}(x,y,z) = (xz, yz, 0)$.
+    Y sea entonces $\overline{D} = \{(x,y) \in \mathbb{R}^2 : x^2+y^2 \leq 1\}$ con $\partial D = C = \{(x,y) \in \mathbb{R}^2 : x^2+y^2 = 1\}$.\\
+    Entonces podemos tomar $\varphi: \overline{D} \to S, \quad \varphi(x,y) = (x,y,x^2+y^2)$, y nos preguntamos ¿$\vec{n}_\varphi$ induce $\vec{b}$?\\
+    Tenemos entonces $\partial S = \varphi(\partial D) = \{ (x,y,z) \in \mathbb{R}^3 x^2+y^2=1=z \}$, y ahora calculamos:
+    $$\vec{N}_\varphi = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1         & 0         & 2x         \\
+        0         & 1         & 2y         \\
+    \end{vmatrix} = (-2x, -2y, 1)$$
+    Trasello tenemos que $\vec{N}_\varphi (0,0) = (0,0,1)$ apunta hacia "arriba", y $\varphi(0,0) = (0,0,0)$, hacia "debajo", por lo que $\vec{n}_\varphi$ es opuesta a $\vec{n}$.\\
+    Asi:
+    $$-\int_D \langle (x(x^2+y^2), y(x^2+y^2), 0), (-2x,-2y,1) \rangle dxdy = + \int_D 2x^2(x^2+y^2) + 2y^2(x^2+y^2) dxdy =$$
+    $$ 2 \int_D (x^2+y^2)^2 dxdy = \frac{2\pi}{3}$$
+}
+
+\begin{definición}[Orientacion inducida en el borde]
+    Sea $(S,\vec{n})$ una superficie simple regular orientada y sea $\varphi: \overline{D} \to S$ una parametrización simple regular de $S$ que induce a la orientacion $\vec{n}$, es decir, $\vec{n}_\varphi = \vec{n} \circ \varphi$.\\
+    Consideremos $\partial S = \varphi(\partial D)$, entonces la orientacion en $\partial S$ inducida por $\vec{n}$ es el sentido de recorrido que se obtiene componendo con $\varphi$ cuando $\partial D$ se recorre en el sentido positivo.\\
+\end{definición}
+
+\begin{observación}
+    Si $\gamma:[a,b] \to \partial D$ recorre $\partial D$ en el sentido positivo $\implies \quad \varphi \circ \gamma:[a,b] \to \partial S$ recorre $\partial S$ con la orientacion inducida por $\vec{n}$.\\
+    Es decir, $\partial S$ se recorre de manera que el "sacacorchos" avanza en la direccion de $\vec{n}$.\\
+    Equivalentemente, $\partial S$ se recorre dejando la superficie de $S$ "a la izquierda" si la normal $\vec{n}$ representa la vertical.
+\end{observación}
