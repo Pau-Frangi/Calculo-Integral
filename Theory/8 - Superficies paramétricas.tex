@@ -447,3 +447,115 @@ entonces \( \partial S \) se recorre dejando la superficie \( S \) a la
 izquierda, lo que coincide con la orientación inducida por \( \vec{n} \).
 \end{observación}
 
+\begin{definición}[Orientaciones compatibles]
+    Sean $(S_1, \vec{n}_1)$ y $(S_2, \vec{n}_2)$ dos superficies simples regulares, tales que $S=S_1 + S_2$.\\
+    Se dice que $\vec{n}_1$ y $\vec{n}_2$ son compatibles si inducen orientaciones opuestas en $\partial S_1 \cap \partial S_2$.\\
+    En este caso, se dice que $\vec{n} = (\vec{n}_1, \vec{n}_2)$ es una orientación en $\partial S$ que se llama \textbf{orientación inducida} por $\vec{n}_1$ y $\vec{n}_2$.\\
+    Se dice que $S=S_1 + S_2$ es una superficie orientable si $S_1$ y $S_2$ admiten orientaciones compatibles.\\
+    Analogamente, de manera recursiva, si $S = S_1 + \ldots + S_k$ donde $(S_1, \vec{n}_1), \ldots, (S_k, \vec{n}_k)$ son superficies orientadas, se define $(\vec{n}_1, \ldots, \vec{n}_k)$ como compatible si las orientaciones inducidas por $(\vec{n}_1, \ldots, \vec{n}_{k-1})$ en $S_1 + \ldots + S_{k-1}$ y $\vec{n}_k$ en $S_k$ son opuestas en $\partial (S_1 + \ldots + S_{k-1}) \cap \partial S_k$.
+\end{definición}
+
+\ejemplo{
+    Tengamos un cilindro sin tapas, con orientacion "exterior", y sea:
+    $$S= \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1; \quad 0 \leq z \leq 1\}$$
+    \begin{tikzpicture}
+        % Dibujar el cilindro
+        \draw[thick] (0,0) ellipse (1 and 0.3); % Elipse superior
+        \draw[thick] (-1,0) -- (-1,-3); % Línea izquierda
+        \draw[thick] (1,0) -- (1,-3); % Línea derecha
+        \draw[thick] (-1,-3) arc (180:360:1 and 0.3); % Elipse inferior (visible)
+        \draw[dashed] (1,-3) arc (0:180:1 and 0.3); % Elipse inferior (oculta)
+    
+        % Flecha izquierda con nombre
+        \draw[->, thick, red] (-1,-1.5) -- (-2,-1.5) node[midway, below] {n1};
+    
+        % Flecha derecha con nombre
+        \draw[->, thick, blue] (1,-1.5) -- (2,-1.5) node[midway, below] {n2};
+    \end{tikzpicture}\\
+    Asi $S_1 + S_2 = S_0$, ademas $\vec{n}_1$ y $\vec{n}_2$ son compatibles en $\partial S_1 \cap \partial S_2$.
+    Ademas si tomamos $C_0$ y $C_1$ como las tapas, con caminos:
+    $$\gamma_0 (t) = (\cos(t), \sin(t), 0), \quad 0 \leq t \leq 2\pi \quad +$$
+    $$\gamma_1 (t) = (\cos(t), \sin(t), 1), \quad 0 \leq t \leq 2\pi$$
+    Tenemos que $\partial S_0 = C_0^+ \cup C_1^-$.
+}
+
+\ejemplo{
+    Ciliendro con la tapa de "abajo".\\
+    Tenemos que $S = (S_1 + S_2) + S_3 = S_0 + S_3$, donde:
+    $$S_3 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1; \quad z = 0\}$$
+    Considerando $\vec{n}_3$ normal hacia abajo en $S_3$, obtenemos que $\vec{n}_3$ induce en $\partial S_3 = C_0$ la orientacion opuesta a la de $S_0$, luego no son compatibles.\\
+}
+
+\ejemplo{
+    Sean las superficies no medibles:\\
+    \textbf{Banda de Moevius}:
+    % Primer dibujo
+\begin{tikzpicture}
+    \draw[thick] (0,0) rectangle (2,1);
+    \draw[thick, ->] (0,0) -- (0, 0.5);
+    \draw[thick, ->] (2,1) -- (2, 0.5);
+\end{tikzpicture}
+
+
+\textbf{Banda de Klein}:
+\begin{tikzpicture}
+    \draw[thick] (0,0) rectangle (2,1);
+    \draw[thick, ->] (0,0) -- (0, 0.5);
+    \draw[thick, ->] (2,1) -- (2, 0.5);
+    \draw[thick, ->] (0,0) -- (1,0);
+    \draw[thick, ->] (2,1) -- (1,1);
+\end{tikzpicture}
+
+}
+
+\begin{definición}[Integral de Superficie a Trozos]
+    Sea $(S, \vec{n})$ una superficie regular a trozos orientada, es decir, $S= S_1 + \ldots + S_k$ donde $(S_1, \vec{n}_1), \ldots, (S_k, \vec{n}_k)$ son superficies simples regulares orientadas y $(\vec{n}_1, \ldots, \vec{n}_k)$ son orientaciones compatibles.\\
+    Sea $\vec{F}:S \to \mathbb{R}^3$ un campo vectorial continuo, definimos la siguiente integral de superficie:
+    $$\int_{(S, \vec{n})} \vec{F} = \sum_{i=1}^{k} \int_{(S_i, \vec{n}_i)} \vec{F}$$
+\end{definición}
+
+\ejemplo{
+    Sea $S=S_1 + S_2$ y $\vec{F}(x,y,z) = (xz,yz,0)$, con
+    $$S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z; \quad 0 \leq z \leq 1\}$$
+    $$S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1; \quad z = 1\}$$
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={45}{30}, % Ángulo de vista 3D
+            axis lines=center,
+            xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+            domain=0:2*pi, % Dominio para el ángulo theta
+            samples=50, % Número de muestras para suavizar la superficie
+            samples y=20, % Resolución radial
+            zmax=4, % Máximo valor de z
+            colormap/cool, % Colores para la superficie
+        ]
+            % Superficie z = r^2 (base circular)
+            \addplot3[surf, opacity=0.7] (
+                {cos(deg(x)) * y}, % x = r * cos(theta)
+                {sin(deg(x)) * y}, % y = r * sin(theta)
+                {y^2} % z = r^2
+            );
+        \end{axis}
+    \end{tikzpicture}
+    Con $S_1$ la parabola y $S_2$ la tapa.\\
+    En $C_1= \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1; \quad z = 1\}$, se ubducen orientaciones opuestas.\\
+    Podemos tomar la siguiente parametrización:
+    $$\varphi_1: \begin{cases}
+        x = x \\
+        y = y \\
+        z = x^2 + y^2
+    \end{cases}
+    \implies \overline{D}=\{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1\}$$
+    $$\vec{N}_{\varphi_1} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1         & 0         & 2x        \\
+        0         & 1         & 2y        \\
+    \end{vmatrix} = (-2x, -2y, 1)$$
+    Asi finalmente tenemos la integral:
+    $$\int_{(S, \vec{n})} \vec{F} = -\int_D \langle \vec{F} \circ \varphi_1, \vec{N}_{\varphi_1} \rangle = -\int_D \langle (x(x^2+y^2), y(x^2+y^2), 0), (-2x, -2y, 1) \rangle =$$
+    $$ = 2\int_D (x^2+y^2)^2 dxdy = 2\int_{\theta = 0}^{\theta = 2\pi} \int_{r = 0}^{r = 1} r^4 \cdot r dr d\theta = 4\pi \left[ \frac{r^6}{6} \right]_0^1 = \frac{2\pi}{3}$$
+    Y la de $S_2$:
+    $$ \int_{(S_2, \vec{n}_2)} \vec{F} = -\int_D \langle \vec{F} \circ \varphi_2, \vec{N}_{\varphi_2} \rangle = -\int_D \langle (x,y,0), (0,0,1) \rangle = 0$$
+    Y finalmente en $S_1 + S_2 = S$:
+    $$\int_{(S, \vec{n})} \vec{F} = \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F} = -\frac{2\pi}{3} + 0 = -\frac{2\pi}{3}$$   
+}
