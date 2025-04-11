@@ -206,8 +206,11 @@ Dada una superficie $S$ en $\mathbb{R}^3$ simple regular o casi-simple regular, 
 \end{definición}
 
 \ejemplo{
-Consideramos la superficie $S$ de $\mathbb{R}^3$ resultante de acotar un cono por dos planos paralelos al plano $XY$, y dada por las ecuaciones:
+Consideramos la superficie $S$ de $\mathbb{R}^3$ resultante de acotar un cono por los planos $z = 1$ y $z = 2$.
 $$S = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z^2, \ 1 < z < 2\}$$
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{images/cono1.png}
+\end{center}
 Calculemos el área de la superficie $S$:\\
 $$
     \begin{cases}
@@ -365,6 +368,16 @@ campo normal:
 \[
     \vec{N}_{\varphi} = \frac{\frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}}{\left\| \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} \right\|}.
 \]
+\[
+    \begin{tikzcd}
+        {\overline{D}} \arrow[d, "\vec{n}_\varphi" left]
+        \arrow[r, bend left=10, "\varphi"]
+        & \operatorname{S}
+        \arrow[dl, "\vec{n}"]
+        \arrow[l, bend left=10, "\varphi^{-1}"] \\
+        {\mathbb{R}^3}
+    \end{tikzcd}
+\]
 Entonces, la función \( \vec{n} = \vec{N}_{\varphi} \circ \varphi^{-1} \)
 define una normal unitaria en \( S \), ya que \( \varphi : \overline{D} \to S
 \) es un homeomorfismo.
@@ -446,4 +459,202 @@ De manera equivalente, si \( \vec{n} \) representa la vertical en el espacio,
 entonces \( \partial S \) se recorre dejando la superficie \( S \) a la
 izquierda, lo que coincide con la orientación inducida por \( \vec{n} \).
 \end{observación}
+
+\ejemplo{
+Dada la superficie $S = \{(x,y,z) \in \mathbb{R}^3 : z = x^2 + y^2 \leq 1\}$ del ejemplo anterior, orientada con la normal exterior, y una parametrización $\varphi : \overline{D} \to S$ dada por $\varphi(x,y) = (x,-y,x^2 + y^2)$, donde $D = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1\}$, veamos que $\vec{n}_\varphi = \vec{n}$.\\
+$$ \vec{N}_\varphi = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1         & 0         & 2x        \\
+        0         & -1        & 2y        \\
+    \end{vmatrix} = (-2x, -2y, -1)$$
+Haciendo la evaluación $\vec{N}_\varphi (0,0) = (0,0,-1)$, vemos que la normal de $\varphi$ en el punto $(0,0)$ tiene el mismo sentido que $\vec{n}$, es decir, $\vec{n}_\varphi = \vec{n}$, luego $\varphi$ preserva la orientación de $S$.\\
+Ahora consideremos una parametrización $\gamma$ de \( C = \partial D = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\}\) en sentido positivo (antihorario en el plano \( xy \)), definida por:
+\[
+    \gamma : [0,2\pi] \to \partial D \qquad \gamma(t) = (\cos t, \sin t), \quad t \in [0, 2\pi].
+\]
+Fijémonos que la curva definida por $\gamma$ es una curva de Jordan-$C^1$ que
+deja el interior de $\partial D$ a la izquierda y el exterior a la derecha, es
+decir, es positiva.\\ Componiendo con la transformación \( \varphi \),
+obtenemos la curva proyectada en \( S \):
+\[
+    \varphi \circ \gamma : [0,2\pi] \to \partial S \qquad (\varphi \circ \gamma) (t) = (\cos t, -\sin t, \cos^2 t + \sin^2 t) = (\cos t, -\sin t, 1)
+\]
+que tiene sentido horario en el plano \( xy \), tal y como se indica en la
+figura
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{images/borde1.png}
+\end{center}
+En efecto, vemos que la orientación inducida por \( \vec{n} \) en \( \partial S \) es la que se obtiene por el recorrido $\varphi \circ \gamma$, al ser composición de una parametrización que preserva la orientación de \( S \) y otra que recorre \( \partial D \) en sentido positivo.\\
+Además, observamos que se cumple la regla del sacacorchos, pues si giramos el sacacorchos en el sentido del recorrido de \( \partial S \), este se desplaza hacia abajo, es decir, en la dirección de \( \vec{n} \).\\
+Nótese que tomando el vector normal $\vec{n} = (0,0,-1)$ como referencia de eje vertical, al recorrer $\partial S$ con $\varphi \circ \gamma$, la superficie \( S \) queda a la izquierda.
+}
+
+\begin{definición} [Orientación Compatible]
+Sean \( (S_1, \vec{n}_1) \) y \( (S_2, \vec{n}_2) \) dos superficies simples y regulares de manera que \( S = S_1 + S_2 \), entonces se dice que $\vec{n}_1$ y $\vec{n}_2$ son compatibles si inducen orientaciones opuestas en $\partial S_1 \cap \partial S_2$.\\
+En este caso, se dice que $\vec{n} = (\vec{n}_1, \vec{n}_2)$ establece una orientación en $\partial S$ que se llama orientación inducida por $(\vec{n}_1, \vec{n}_2)$.\\
+Se dice que $S = S_1 + S_2$ es orientable si $S_1$ y $S_2$ admiten orientaciones compatibles.\
+Análogamente, de manera recursiva, si $S = S_1 + S_2 + \ldots + S_k$ donde $(S_i, \vec{n}_i)$ son superficies orientadas, se define $(\vec{n}_1, \ldots, \vec{n}_k)$ como compatible si las orientaciones inducidas por $(\vec{n}_1, \ldots, \vec{n}_{k-1})$ en $S_1 + S_2 + \ldots + S_{k-1}$ y $\vec{n}_k$ en $S_k$ son opuestas en $\partial (S_1 + S_2 + \ldots + S_{k-1}) \cap \partial S_k$.
+\end{definición}
+
+\ejemplo{
+    Consideremos el cilindro $(S,\vec{n}) = (S_1,\vec{n}_1) + (S_2,\vec{n}_2)$ sin tapas con la orientación exterior.
+    $$ S = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z \in [0,1] \} $$
+    donde
+    $$ S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ 0 \leq y, \ z \in [0,1] \}$$
+    $$S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ y \leq 0, \ z \in [0,1] \} $$
+    La representación gráfica de $S$ es la siguiente:
+    \begin{center}
+        \includegraphics[width=0.65\linewidth]{images/cilindrocompuesto.png}
+    \end{center}
+    donde $C_0 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z = 0\}$ y $C_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z = 1\}$ son las tapas del cilindro. En particular tenemos que $\partial S = C_0 \cup C_1$.\\
+    Veamos que $\vec{n}_1$ y $\vec{n}_2$ son compatibles y que, por tanto, $S$ es orientable siendo $\vec{n} = (\vec{n}_1, \vec{n}_2)$ la orientación inducida en $S$.\\
+    Para ello, veamos las orientaciones que inducen $\vec{n}_1$ y $\vec{n}_2$ en $\partial S_1$ y $\partial S_2$ respectivamente. En efecto, por la regla del sacacorchos, las orientaciones inducidas serán las descritas por las siguientes figuras:
+    \begin{center}
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/half1.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/half2.png}
+        \end{minipage}
+    \end{center}
+    Además en la intersección de los bordes $\partial S_1 \cap \partial S_2$ (parte naranja de la primera figura), las orientaciones inducidas son opuestas, luego $\vec{n}_1$ y $\vec{n}_2$ son compatibles, es decir, $S$ es orientable.\\
+    Teniendo en cuenta la orientación inducida en el borde de $S_1$ y $S_2$, consideramos dos parametrizaciones $\gamma_0$ y $\gamma_1$ de $C_0$ y $C_1$ respectivamente:
+    $$
+        \begin{cases}
+            \gamma_0(t) = (\cos(t), \sin(t), 0) \quad 0 \leq t \leq 2\pi  \\
+            \gamma_1(t) = (-\cos(t), \sin(t), 1) \quad 0 \leq t \leq 2\pi \\
+        \end{cases}
+    $$
+    donde $\gamma_1$ recorre negativamente $C_1$ y $\gamma_0$ positivamente $C_0$, luego $\partial S = C_0^+ \cup C_1^-$.
+
+}
+
+\ejemplo{
+    Consideramos ahora el cilindro del ejemplo anterior pero con la tapa de abajo:
+    $$ S = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z \in [0,1] \} $$
+    $$ S = \underbrace{S_1 + S_3}_{S_0} + S_3 \text{ donde } S_3 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \ z = 0 \} $$
+    \begin{center}
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/cilindro3.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/tapa1.png}
+        \end{minipage}
+    \end{center}
+    Consideramos $\vec{n}_3$ normal hacia abajo en $S_3$ y obtenemos que $\vec{n}_3$ induce en $\partial S_3 = C_0$ la orientación opuesta a la de $S_0$, luego son compatibles. Lo mismo podemos hacer con la tapa de arriba, y así obtenemos el cilindro completo, que es orientable con $\partial S = \emptyset$.
+}
+
+\textbf{Superficies no orientables:}
+\begin{multicols}{3}  % Start a 3-column environment
+    \begin{enumerate}
+        \item Banda de Moebius
+              \begin{center}
+                  \includegraphics[width=0.7\linewidth]{images/moebius.png}
+              \end{center}
+
+        \item Plano proyectivo
+              \begin{center}
+                  \includegraphics[width=1\linewidth]{images/SelfIntersectingDisk.png}
+              \end{center}
+        \item Botella de Klein
+              \begin{center}
+                  \includegraphics[width=0.3\linewidth]{images/Klein.png}
+              \end{center}
+    \end{enumerate}
+\end{multicols}
+
+\begin{definición} [Integral de Superficie Orientada Regular a Trozos]
+Sea $(S, \vec{n})$ una superficie simple, regular a trozos y orientada, es decir, $S = S_1 + S_2 + \ldots + S_k$ donde $(S_i, \vec{n}_i)$ son superficies simples , regulares y orientadas para $i = 1, \ldots, k$, con $(\vec{n}_1, \ldots, \vec{n}_k)$ orientaciones compatibles.\\
+Sea $\vec{F} : S \to \mathbb{R}^3$ un campo vectorial continuo. Se define entonces
+$$ \int_{(S, \vec{n})} \vec{F} = \sum_{i=1}^{k} \int_{(S_i, \vec{n}_i)} \vec{F} $$
+\end{definición}
+
+\ejemplo{
+    Sea \( S = S_1 \cup S_2 \), donde:
+    \[
+        S_1 = \left\{ (x, y, z) \in \mathbb{R}^3 \mid x^2 + y^2 = z,\ z \in [0,1] \right\}, \quad
+        S_2 = \left\{ (x, y, z) \in \mathbb{R}^3 \mid x^2 + y^2 \leq 1,\ z = 1 \right\}
+    \]
+    y sea \( \vec{n} \) el campo normal exterior. Consideramos el campo vectorial
+    \( \vec{F}(x, y, z) = (xz,\ yz,\ 0) \), y queremos calcular la integral de \(
+    \vec{F} \) sobre la superficie \( S \):
+    \[
+        \int_S \vec{F} \cdot \vec{n}
+    \]
+    Aplicando la regla del sacacorchos (regla de la mano derecha), observamos que
+    las superficies orientadas \( (S_1, \vec{n}_1) \) y \( (S_2, \vec{n}_2) \)
+    inducen sobre la curva
+    \[
+        C = \partial S_1 \cap \partial S_2 = \left\{ (x, y, z) \in \mathbb{R}^3 \mid x^2 + y^2 = 1,\ z = 1 \right\}
+    \]
+    orientaciones opuestas.
+
+    \begin{center}
+        \includegraphics[width=0.65\linewidth]{images/borde2.png}
+    \end{center}
+    Por la definición anterior de la integral de superficie orientada, tenemos que
+    \[
+        \int_{(S, \vec{n})} \vec{F} = \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F}
+    \]
+    Comenzamos definiendo el dominio para las parametrizaciones de $S_1$ y $S_2$:
+    \[
+        \overline{D} = \{(x,y) \in \mathbb{R}^2 \mid x^2 + y^2 \leq 1\}
+    \]
+    La parametrización de $S_1$ es:
+    \[
+        \varphi_1 : \overline{D} \to S_1, \quad \varphi_1(x,y) = (x, y, x^2 + y^2)
+    \]
+    Calculamos la normal:
+    \[
+        \vec{N}_{\varphi_1} =
+        \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1         & 0         & 2x        \\
+            0         & 1         & 2y
+        \end{vmatrix}
+        = (-2x, -2y, 1)
+    \]
+    Evaluando la función $\varphi_1$ en el origen obtenemos que $\varphi_1(0,0) =
+        (0,0,1)$ que apunta hacia arriba, es decir, en sentido opuesto al vector normal
+    $\vec{n}_1 = (0,0,-1)$, luego $\vec{n}_1 = -\vec{N}_{\varphi_1}$.\\ Calculamos
+    la integral del campo vectorial sobre la superficie $(S_1, \vec{n}_1)$:
+    \[
+        \int_{(S, \vec{n}_1)} \vec{F} = \int_{D} \langle \vec{F}(\varphi_1(x,y)), \vec{N}_{\varphi_1}(x,y) \rangle dx dy = -\int_{D} \langle (x(x^2+y^2), y(x^2+y^2), 0), (-2x, -2y, 1) \rangle dx dy
+    \]
+    \[
+        = 2\int_{\theta = 0}^{\theta=2\pi} \int_{r=0}^{r=1} r^4 \cdot r \, dr \, d\theta = 4\pi \left[ \frac{r^6}{6} \right]_{r=0}^{r=1} = \frac{4\pi}{6} = \frac{2\pi}{3}
+    \]
+    Para la parametrización de $S_2$ tenemos:
+    \[
+        \varphi_2 : \overline{D} \to S_2, \quad \varphi_2(x,y) = (x, y, 1)
+    \]
+    Calculamos la normal:
+    \[
+        \vec{N}_{\varphi_2} =
+        \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1         & 0         & 0         \\
+            0         & 1         & 0
+        \end{vmatrix}
+        = (0, 0, 1)
+    \]
+    Al igual que antes, evaluando la función $\varphi_2$ en el origen obtenemos que
+    $\varphi_2(0,0) = (0,0,1)$ que apunta hacia arriba, es decir, en el mismo
+    sentido que el vector normal $\vec{n}_2 = (0,0,1)$, luego $\vec{n}_2 =
+        \vec{N}_{\varphi_2}$.\\ Procedemos a calcular la integral del campo vectorial
+    sobre la superficie $(S_2, \vec{n}_2)$:
+    \[
+        \int_{(S, \vec{n}_2)} \vec{F} = \int_{D} \langle \vec{F}(\varphi_2(x,y)), \vec{N}_{\varphi_2}(x,y) \rangle dx dy = \int_{D} \langle (x,y,0), (0,0,1) \rangle dx dy = \int_{D} 0 \, dx dy = 0
+    \]
+    Por lo tanto, la integral de superficie de $\vec{F}$ sobre $S$ es:
+    \[
+        \int_{(S, \vec{n})} \vec{F} = \frac{2\pi}{3} + 0 = \frac{2\pi}{3}
+    \]
+}
 
