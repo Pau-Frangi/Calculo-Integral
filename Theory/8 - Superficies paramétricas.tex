@@ -658,3 +658,118 @@ $$ \int_{(S, \vec{n})} \vec{F} = \sum_{i=1}^{k} \int_{(S_i, \vec{n}_i)} \vec{F} 
     \]
 }
 
+
+\ejemplo{
+    Sea la superficie $S = S_1 \cup S_2$, donde:
+    $$
+        S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z^2, \ z \in [1,2] \}
+        \qquad
+        S_2 = \{(x,y,z) \in \mathbb{R}^3 : z = 2, \ x^2 + y^2 \leq 4 \}
+    $$
+    y el campo vectorial $\vec{F}(x,y,z) = (x, y, -z)$. Queremos calcular $\int_{(S, \vec{n})} \vec{F}$, donde $\vec{n}$ es la normal exterior.
+    \begin{center}
+        \includegraphics[width=0.65\linewidth]{images/ej3.png}
+    \end{center}    
+    Observemos que $(S_1, \vec{n}_1)$ y $(S_2, \vec{n}_2)$ tienen orientaciones compatibles, con lo cual $(S, \vec{n})$ está bien orientada.\\
+    $$ \int_{(S, \vec{n})} \vec{F} = \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F} $$
+    Comenzamos parametrizando la superficie $S_1$:
+    $$ \varphi_1(r,\theta) = \begin{cases}
+        x = r \cos(\theta) \\
+        y = r \sin(\theta) \\
+        z = r
+    \end{cases} \qquad \text{donde } 1 \leq r \leq 2, \ 0 \leq \theta < 2\pi $$
+    $$ \vec{N}_{\varphi_1} =
+        \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            -z \sin(\theta) & z \cos(\theta) & 0 \\
+            \cos(\theta) & \sin(\theta) & 1
+        \end{vmatrix} = (z \cos(\theta), z \sin(\theta), -z) < 0$$
+    Teniendo en cuenta la geometría de la figura y que el vector $\vec{N}_{\varphi_1}$ apunta hacia abajo, entonces es exterior a $S$, luego los vectores $\vec{n}_1$ y $\vec{N}_{\varphi_1}$ son compatibles.\\
+    Sea el conjunto $D = \{(r,\theta) \in \mathbb{R}^2 : 1 \leq r \leq 2, \ 0 \leq \theta < 2\pi\}$, entonces la integral de $\vec{F}$ sobre $S_1$ es:
+    $$ \int_{(S_1, \vec{n}_1)} \vec{F} = \int_{D} \langle \vec{N}_{\varphi_1}, \vec{F} \circ \varphi_1 \rangle = \int_{z=0}^{z=2} \int_{\theta = 0}^{\theta = 2\pi} \langle (z \cos(\theta), z \sin(\theta), -z), (z \cos(\theta), z \sin(\theta), -z) \rangle d\theta dz$$
+    $$ = \int_{z=1}^{z=2} \int_{\theta = 0}^{\theta = 2\pi} z^2 + z^2 d\theta dz = 2 \pi \int_{z=1}^{z=2} 2z^2 dz = 4 \pi \left[ \frac{z^3}{3} \right]_{z=1}^{z=2} = 4 \pi \left( \frac{8}{3} - \frac{1}{3} \right) = 4 \pi \cdot \frac{7}{3} = \frac{28\pi}{3}$$
+    Ahora consideramos la parametrización de $S_2$:
+    $$ \varphi_2 (x,y) = \begin{cases}
+        x = x\\
+        y = y\\
+        z = 2
+        \end{cases}$$
+    $$ \vec{N}_{\varphi_2} =
+        \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1 & 0 & 0 \\
+            0 & 1 & 0
+        \end{vmatrix} = (0, 0, 1)$$
+    La normal $\vec{N}_{\varphi_2}$ apunta hacia arriba, es decir, hacia el exterior de $S$, luego $\vec{n}_2$ y $\vec{N}_{\varphi_2}$ son compatibles.\\
+    Consideramos el conjunto $E = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 4\}$, entonces la integral de $\vec{F}$ sobre $S_2$ es:
+    $$ \int_{(S_2, \vec{n}_2)} \vec{F} = \int_{E} \langle \vec{N}_{\varphi_2}, \vec{F} \circ \varphi_2 \rangle = \int_{x=0}^{x=2} \int_{y=0}^{y=2\pi} \langle (0, 0, 1), (x, y, -z) \rangle dy dx$$
+    $$ = \int_{x=0}^{x=2} \int_{y=0}^{y=2\pi} -z dy dx = -2\pi \int_{x=0}^{x=2} 2 dx = -4\pi \left[ x \right]_{x=0}^{x=2} = -4\pi (2-0) = -8\pi$$
+    Finalmente, la integral de $\vec{F}$ sobre $S$ es:
+    $$ \int_{(S, \vec{n})} \vec{F} = \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F} = \frac{28\pi}{3} - 8\pi = \frac{28\pi}{3} - \frac{24\pi}{3} = \frac{4\pi}{3} $$
+    
+}
+
+
+\begin{proposición}
+    Sea $D = Int(C)$ la parte interior de una curva de Jordan $C$ en $\mathbb{R}^2$ y sea $f : U \to \mathbb{R}$ una función de clase $C^1$ definida en un abierto $U \supset \overline{D}$. Consideramos la superficie $S = G_f$.\\
+    Para cada (x,y) en $D$, sea $\theta(x,y)$ el ángulo que forma el vector normal $\vec{n}(x,y)$ a la superficie $S$ en el punto $(x,y,f(x,y))$ con el vector vertical $\vec{e}_3 = (0,0,1)$. Entonces se tiene que:
+    $$ a(S) = \int_{D} \frac{dxdy}{\cos(\theta(x,y))}$$
+\end{proposición}
+
+\begin{proof}
+    Consideramos la parametrización $\varphi : D \to S$ de $S$ dada por:
+    $$ \varphi(x,y) = \begin{cases}
+        x = x \\
+        y = y \\
+        z = f(x,y)  
+    \end{cases} \qquad \text{donde } (x,y) \in D$$
+    Entonces, la normal a la superficie $S$ es:
+    $$ \vec{N}_\varphi = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1         & 0         & \frac{\partial f}{\partial x} \\
+        0         & 1         & \frac{\partial f}{\partial y} \\
+    \end{vmatrix} = \left( -\frac{\partial f}{\partial x}, -\frac{\partial f}{\partial y}, 1 \right)$$
+    Haciendo el producto escalar con el vector vertical $\vec{e}_3$:
+    $$ \langle \vec{N}_\varphi, \vec{e}_3 \rangle = \left( -\frac{\partial f}{\partial x}, -\frac{\partial f}{\partial y}, 1 \right) \cdot (0,0,1) = 1$$
+    $$ \langle \vec{N}_\varphi, \vec{e}_3 \rangle = ||\vec{N}_\varphi|| \cdot ||\vec{e}_3|| \cdot \cos(\theta(x,y)) = ||\vec{N}_\varphi|| \cdot 1 \cdot \cos(\theta(x,y)) \implies \lVert \vec{N}_\varphi \rVert = \frac{1}{\cos(\theta(x,y))}$$
+    $$a(S) = \int_{D} \lVert \vec{N}_\varphi \rVert dxdy = \int_{D} \frac{1}{\cos(\theta(x,y))} dxdy$$
+\end{proof}
+
+\begin{observación}
+    Si $S$ está contenida en un plado cuyo vector normal es $\vec{n}$, entonces tenemos que $\theta(x,y)$ es el ángulo entre $\vec{n}$ y el vector vertical $\vec{e}_3$ para cada $(x,y) \in D$.\\
+    En este caso, la integral de superficie se puede expresar como:
+    $$ a(S) = \int_{D} \frac{dxdy}{\cos(\theta(x,y))} = \frac{1}{\cos(\theta(x,y))} area(D)$$
+\end{observación}
+
+\ejemplo{
+    Sean los vectores $\vec{u}, \vec{v} \in \mathbb{R}^3$ no nulos, y sea $S$ el paralepípedo definido por los vectores $\vec{u}$ y $\vec{v}$. Entonces el área de la superficie $S$ es:
+    $$ a(S) = \lVert \vec{u} \times \vec{v} \rVert = \lVert \vec{u} \rVert \cdot \lVert \vec{v} \rVert \cdot \sin(\theta) $$
+    donde $\theta$ es el ángulo entre los vectores $\vec{u}$ y $\vec{v}$.\\
+    En efecto, si consideramos la parametrización $\varphi : D \to \mathbb{R}^3$ de $S$ dada por:
+    $$ \varphi (\lambda, \mu) = \lambda \vec{u} + \mu \vec{v} \qquad D = \{(\lambda, \mu) \in \mathbb{R}^2 : 0 \leq \lambda, \mu \leq 1\}$$
+    entonces tenemos que
+    $$ \varphi(\lambda, \mu) = \begin{cases}
+        x = \lambda u_1 + \mu v_1 \\
+        y = \lambda u_2 + \mu v_2 \\
+        z = \lambda u_3 + \mu v_3
+    \end{cases}$$
+    Calculamos la normal:
+    $$ \vec{N}_\varphi =
+        \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            u_1 & u_2 & u_3 \\
+            v_1 & v_2 & v_3
+        \end{vmatrix} = \vec{u} \times \vec{v}$$
+    entonces el área de la superficie $S$ es:
+    $$ a(S) = \int_{D} \lVert \vec{N}_\varphi \rVert dxdy = \int_{0}^{1} \int_{0}^{1} \lVert \vec{u} \times \vec{v} \rVert d\lambda d\mu = \lVert \vec{u} \times \vec{v} \rVert \int_{0}^{1} d\lambda \int_{0}^{1} d\mu = \lVert \vec{u} \times \vec{v} \rVert$$
+}
+
+
+\begin{observación}
+    En $\mathbb{R}^3$, el volumen del paralepípedo definido por los vectores $\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^3$ es el producto mixto:
+    $$ V = \langle \vec{u} \times \vec{v}, \vec{w} \rangle = \begin{vmatrix}
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3 \\
+        w_1 & w_2 & w_3
+    \end{vmatrix}$$
+\end{observación}
