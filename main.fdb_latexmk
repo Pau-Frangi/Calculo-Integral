@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1745324730.21314 "c:/Users/Diego/OneDrive - Universidad Complutense de Madrid (UCM)/DIEGO UCM/CI/APUNTES LATEX/Calculo-Integral/main.tex" "main.pdf" "main" 1745324738.20174 0
+["pdflatex"] 1745324779.53078 "c:/Users/Diego/OneDrive - Universidad Complutense de Madrid (UCM)/DIEGO UCM/CI/APUNTES LATEX/Calculo-Integral/main.tex" "main.pdf" "main" 1745324788.07779 0
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1744110255 81245 e934491651270ee8e50db9289c70f8a4 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi657/esint10.pk" 1740147390 13616 f0f665367f61e8a95cbd1608021270f1 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha10.tfm" 1740147381 1372 84a1ef28ab0d13263326e8d7d854aaa0 ""
@@ -331,7 +331,7 @@
   "Preamble/Diagonal Matrix Command.tex" 1743507148 994 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1745321557 11802 7b985509a41c58d7faab4233c415f58f ""
   "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1743507148 63 bd2d127c33e8b32d732f96edbac5f3dd ""
-  "Theory/8 - Superficies paramétricas.tex" 1745324729 45186 22219117832c9e6ecf76d4ce99342222 ""
+  "Theory/8 - Superficies paramétricas.tex" 1745324769 45300 3846f672f7f4662e856d51132558697e ""
   "Theory/9 - Integrales de superficie.tex" 1743507148 34 52b570430f6f0c7fe18ab525f18be7d8 ""
   "Theory/Appendix.tex" 1743507148 25 2612fd1c6688150b58ce028dd5948ccb ""
   "Theory/Theory.tex" 1745321619 757 7b016b965bcb42fb910d9d620f009fc9 ""
@@ -347,10 +347,10 @@
   "images/half2.png" 1745321557 224257 7546b54e9a4602a7082cd971f6ec84ad ""
   "images/moebius.png" 1745321557 30165 3cef3923d90e4a58e5d3e2f8ebed9a9d ""
   "images/tapa1.png" 1745321557 249016 ee068a5d2566dee78eb3c27c80771b23 ""
-  "main.aux" 1745324737 6523 d759cae2077aaedf0d5661b6fd567c88 "pdflatex"
-  "main.out" 1745324737 1361 a97549ebf14a6c964985f713511bbaa3 "pdflatex"
+  "main.aux" 1745324787 6766 e453a598d66ccabd80f052b16599f46c "pdflatex"
+  "main.out" 1745324787 1361 a97549ebf14a6c964985f713511bbaa3 "pdflatex"
   "main.tex" 1743507149 842 663b855e7028e6591b632a81a2e917fa ""
-  "main.toc" 1745324737 649 fe1e34e56a7097daf16b75178bd97e3b "pdflatex"
+  "main.toc" 1745324787 649 3e718bcd6e522255afb9b9abdeba8305 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
