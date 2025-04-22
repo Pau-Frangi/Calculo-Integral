@@ -226,17 +226,16 @@ Si $\gamma$ y $\sigma$ son equivalentes $\implies Im(\gamma)=Im(\sigma)$
                   \gamma'(h(s)) \rVert h'(s) = \lVert \gamma'(h(s)) h'(s) \rVert$\\
               $$\int_{s=c}^{s=d} f(\sigma(s)) \lVert \gamma'(h(s)) \rVert h'(s)ds =
                   \int_{s=c}^{s=d} f(\sigma(s)) \lVert \underbrace{\gamma'(h(s))
-                      h'(s)}_{\sigma'(s)} \rVert ds = \int_{c}^{d} f(\sigma(s)) \lVert \sigma'(s)
+                      h'(s)}_{\sigma'(s)} \rVert ds = \int_{t=c}^{t=d} f(\sigma(s)) \lVert \sigma'(s)
                   \rVert ds = \int_{\sigma} f$$
         \item Caso 2: $h$ es decreciente $(h'<0)$\\ Haciendo el mismo cambio de variable que
-              en el apartado anterior, $t=h(s)$ y $dt=h'(s)ds$ obtenemos: $$ \int_{\gamma} f=
-                  \int_{t=a}^{t=b} f(\gamma(t)) \lVert (\gamma'(t)) \rVert
+              en el apartado anterior, $t=h(s)$ y $dt=h'(s)ds$ obtenemos: $$ \int_{\gamma} f = \int_{t=a}^{t=b} f(\gamma(t)) \lVert (\gamma'(t)) \rVert
                   dt=\int_{s=d}^{s=c}f(\underbrace{\gamma(h(s))}_{\sigma(s)}) \lVert
                   \gamma'(h(s)) \rVert h'(s)ds$$ Por ser $h$ decreciente, entonces se tiene que
               $h'(s) < 0$, luego $\lVert \gamma'(h(s)) \rVert h'(s) = -\lVert \gamma'(h(s))
                   h'(s) \rVert$\\ $$\int_{s=d}^{s=c} f(\sigma(s)) \lVert \gamma'(h(s)) \rVert
                   h'(s)ds = -\int_{s=d}^{s=c} f(\sigma(s)) \lVert \underbrace{\gamma'(h(s))
-                      h'(s)}_{\sigma'(s)} \rVert ds = \int_{c}^{d} f(\sigma(s)) \lVert \sigma'(s)
+                      h'(s)}_{\sigma'(s)} \rVert ds = \int_{t=c}^{t=d} f(\sigma(s)) \lVert \sigma'(s)
                   \rVert ds = \int_{\sigma} f$$
     \end{enumerate}
 \end{proof}
@@ -246,7 +245,7 @@ Si $\gamma$ y $\sigma$ son equivalentes $\implies Im(\gamma)=Im(\sigma)$
 \end{corolario}
 
 \begin{proof}
-    $$l(\gamma) =\int_{\gamma}1=\int_{a}^{b} \lVert \gamma'(t) \rVert dt=\int_{\sigma}1=l(\sigma)$$
+    $$l(\gamma) =\int_{\gamma}1=\int_{t=a}^{t=b} \lVert \gamma'(t) \rVert dt=\int_{\sigma}1=l(\sigma)$$
 \end{proof}
 
 \begin{definición} [Camino Inverso]
@@ -301,7 +300,7 @@ Entonces, calcular la integral de \(f\) a lo largo de \(\gamma\).
 \]
 
 \[
-    \int_{\gamma} f = \int_0^{2\pi} \left( \cos^2(t) + \sin^2(t) + t^2 \right) \sqrt{2} \, dt = \int_0^{2\pi} (1 + t^2) \sqrt{2} \, dt = \left[ t + \frac{t^3}{3} \right]_0^{2\pi} \sqrt{2} = \left( 2\pi + \frac{8\pi^3}{3} \right) \sqrt{2}
+    \int_{\gamma} f = \int_{t=0}^{t=2\pi} \left( \cos^2(t) + \sin^2(t) + t^2 \right) \sqrt{2} \, dt = \int_{t=0}^{t=2\pi} (1 + t^2) \sqrt{2} \, dt = \left[ t + \frac{t^3}{3} \right]_{t=0}^{t=2\pi} \sqrt{2} = \left( 2\pi + \frac{8\pi^3}{3} \right) \sqrt{2}
 \]
 
 }
@@ -568,7 +567,7 @@ donde $\varphi$ es un potencial de $\vec{F}$.
               \]
 
               \[
-                  \int_{\gamma} \vec{F} = \int_{a}^{b} \langle \vec{F} (\gamma(t)), \gamma'(t) \rangle dt = \int_{a}^{b} g'(t) dt \overset{\text{TFC}}{=} g(b) - g(a) = \varphi (\gamma(b)) - \varphi (\gamma(a))
+                  \int_{\gamma} \vec{F} = \int_{t=a}^{t=b} \langle \vec{F} (\gamma(t)), \gamma'(t) \rangle dt = \int_{t=a}^{t=b} g'(t) dt \overset{\text{TFC}}{=} g(b) - g(a) = \varphi (\gamma(b)) - \varphi (\gamma(a))
               \]
 
         \item \textbf{Caso 2:} \(\gamma\) es \(C^1\) a trozos
@@ -618,12 +617,12 @@ donde $\varphi$ es un potencial de $\vec{F}$.
               Por otro lado, la integral de \(\vec{F}\) sobre \(\gamma\) también se puede
               expresar como:
               \[
-                  \int_{\gamma} \vec{F} = \int_{0}^{h} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt = \int_{0}^{h} \langle \vec{F}(x + t \vec{e}_i), \vec{e}_i \rangle dt = \int_{0}^{h} F_i(x + t \vec{e}_i) \, dt
+                  \int_{\gamma} \vec{F} = \int_{t=0}^{t=h} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt = \int_{t=0}^{t=h} \langle \vec{F}(x + t \vec{e}_i), \vec{e}_i \rangle dt = \int_{t=0}^{t=h} F_i(x + t \vec{e}_i) \, dt
                 \]
 
               Tomando el límite cuando \(h \to 0\), obtenemos:
               \[
-                  \lim_{h \to 0} \frac{1}{h} \int_{0}^{h} \vec{F}_i(x + t \vec{e}_i) \, dt = \lim_{h \to 0} \frac{1}{h} \varphi(x + h \vec{e}_i) - \varphi(x) = \lim_{h \to 0} \frac{\varphi(x + h \vec{e}_i) - \varphi(x)}{h}
+                  \lim_{h \to 0} \frac{1}{h} \int_{t=0}^{t=h} \vec{F}_i(x + t \vec{e}_i) \, dt = \lim_{h \to 0} \frac{1}{h} \varphi(x + h \vec{e}_i) - \varphi(x) = \lim_{h \to 0} \frac{\varphi(x + h \vec{e}_i) - \varphi(x)}{h}
                 \]
 
               Luego
@@ -657,22 +656,22 @@ es un potencial de $\vec{F}$ en $U$.
     Podemos definir $\varphi(x) = \int_{\sigma_{x}} \vec{F}$ donde $\sigma_{x}$ es un poligonal de $U$ de lados paralelos a los ejes coordenados que une $p$ con $x$.\\
     Veamos que $\varphi$ es un potencial de $\vec{F}$ en $U$, es decir, $\nabla \varphi = \vec{F}$, o que es lo mismo:
     $$\vec{F} = (F_1, \ldots, F_n) = \left(\frac{\partial \varphi}{\partial x_1}, \ldots, \frac{\partial \varphi}{\partial x_n}\right)$$
-    Por tanto nos preguntamos si $\lim_{h \to 0} \frac{\varphi(x + he_i) - \varphi(x)}{h} = F_i(x)$ para $i = 1, \ldots, n$.
-    $$ \varphi (x + he_i) - \varphi(x) = \int_{p}^{x + he_i} \vec{F} - \int_{p}^{x} \vec{F} = \int_{x}^{x + he_i} \vec{F}$$
-    $$= \int_{0}^{1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt
-        = \int_{0}^{1} \langle \underbrace{\vec{F}(\sigma(t))}_{(F_1, \ldots, F_n)},
-        h e_i \rangle dt = \int_{0}^{1} h F_(\sigma(t)) dt$$
+    Por tanto nos preguntamos si $\lim_{h \to 0} \frac{\varphi(x + h\vec{e}_i) - \varphi(x)}{h} = F_i(x)$ para $i = 1, \ldots, n$.
+    $$ \varphi (x + h\vec{e}_i) - \varphi(x) = \int_{p}^{x + h\vec{e}_i} \vec{F} - \int_{p}^{x} \vec{F} = \int_{x}^{x + h\vec{e}_i} \vec{F}$$
+    $$= \int_{t=0}^{t=1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt
+        = \int_{t=0}^{t=1} \langle \underbrace{\vec{F}(\sigma(t))}_{(F_1, \ldots, F_n)},
+        h \vec{e}_i \rangle dt = \int_{t=0}^{t=1} h F_(\sigma(t)) dt$$
     donde
     \[
         \begin{cases}
-            \sigma(t) = x + the_i, \quad t \in [0,1]  \\
-            \sigma(0) = x, \quad \sigma(1) = x + he_i \\
-            \sigma'(t) = h e_i
+            \sigma(t) = x + th\vec{e}_i, \quad t \in [0,1]  \\
+            \sigma(0) = x, \quad \sigma(1) = x + h\vec{e}_i \\
+            \sigma'(t) = h \vec{e}_i
         \end{cases}
     \]
-    $$ \frac{\varphi(x+he_i)-\varphi(x)}{h} = \frac{1}{h} \int_{0}^{1} h F_i(x+the_i) dt$$
-    Expresando $G(t,h) = F_i(x+the_i)$ en términos de $t$ y $h$, entonces obtenemos que $G$ es continua en $h$ y $t$, por lo tanto, podemos aplicar el teorema de la convergencia dominada de Lebesgue para intercambiar el límite y la integral.
-    $$\lim_{h \to 0} \frac{\varphi(x+he_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{0}^{1} F_i(x+the_i) dt = \int_{0}^{1} \lim_{h \to 0} F_i(x+the_i) dt = \int_{0}^{1} F_i(x) dt = F_i(x)$$
+    $$ \frac{\varphi(x+h\vec{e}_i)-\varphi(x)}{h} = \frac{1}{h} \int_{t=0}^{t=1} h F_i(x+th\vec{e}_i) dt$$
+    Expresando $G(t,h) = F_i(x+th\vec{e}_i)$ en términos de $t$ y $h$, entonces obtenemos que $G$ es continua en $h$ y $t$, por lo tanto, podemos aplicar el teorema de la convergencia dominada de Lebesgue para intercambiar el límite y la integral.
+    $$\lim_{h \to 0} \frac{\varphi(x+h\vec{e}_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{t=0}^{t=1} F_i(x+th\vec{e}_i) dt = \int_{t=0}^{t=1} \lim_{h \to 0} F_i(x+th\vec{e}_i) dt = \int_{t=0}^{t=1} F_i(x) dt = F_i(x)$$
 \end{proof}
 
 \ejemplo{
@@ -685,9 +684,9 @@ es un potencial de $\vec{F}$ en $U$.
             \gamma_3(t) = (x, y, t) \quad t \in [0,z] \text{ ó } t \in [z,0] \\
         \end{cases}
     \]
-    $$ \int_{\gamma_1} \vec{F} = \int_{0}^{x} \langle (0, t, 0), (1, 0, 0) \rangle dt = 0$$
-    $$ \int_{\gamma_2} \vec{F} = \int_{0}^{y} \langle (t, x, t), (0, 1, 0) \rangle dt = \int_{0}^{y} x dt = xy$$
-    $$ \int_{\gamma_3} \vec{F} = \int_{0}^{z} \langle (y, x+t\cos(yt), y\cos(yt)), (0, 0, 1) \rangle dt = \int_{0}^{z} y \cos(yt) dt = \left[ \sin(yt) \right] _{0}^{z} = \sin(yz)$$
+    $$ \int_{\gamma_1} \vec{F} = \int_{t=0}^{t=x} \langle (0, t, 0), (1, 0, 0) \rangle dt = 0$$
+    $$ \int_{\gamma_2} \vec{F} = \int_{t=0}^{t=y} \langle (t, x, t), (0, 1, 0) \rangle dt = \int_{t=0}^{t=y} x dt = xy$$
+    $$ \int_{\gamma_3} \vec{F} = \int_{t=0}^{t=z} \langle (y, x+t\cos(yt), y\cos(yt)), (0, 0, 1) \rangle dt = \int_{t=0}^{t=z} y \cos(yt) dt = \left[ \sin(yt) \right] _{t=0}^{t=z} = \sin(yz)$$
     Luego $\varphi(x,y,z) = \int_{\gamma_1} \vec{F} + \int_{\gamma_2} \vec{F} + \int_{\gamma_3} \vec{F} = xy + \sin(yz)$.\\
     En efecto, para confirmar que $\vec{F}$ es conservativo, debemos verificar que $\nabla \varphi = \vec{F}$.
     $$\nabla \varphi = \left(\frac{\partial \varphi}{\partial x}, \frac{\partial \varphi}{\partial y}, \frac{\partial \varphi}{\partial z}\right) = (y, x+z\cos(yz), y\cos(yz)) = \vec{F}$$
@@ -709,24 +708,23 @@ es un potencial de $\vec{F}$ en $U$.
 }
 
 \begin{proposición}
-Sean $U \subset \mathbb{R}^n$ abierto y $\vec{F}: U \to \mathbb{R}^n$ campo conservativo de clase $C^1 \implies$ $$\frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i} \quad \forall i,j = 1, \ldots, n \text{ en } U$$
+Sean $U \subset \mathbb{R}^n$ abierto y $\vec{F}: U \to \mathbb{R}^n$ campo conservativo de clase $C^1$ entonces se cumple que: 
+$$\frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i} \quad \forall i,j = 1, \ldots, n \text{ en } U$$
 \end{proposición}
 \begin{proof}
-    Tomemos $\varphi: U \to \mathbb{R}$ tal que $\frac{\partial\varphi}{dx_i} = F_i \in C^1 \forall i = 1, \ldots, n$. Luego $\varphi$ es de clase $C^2$ y por el teorema de las derivadas cruzadas (Shcwartz) se tiene que:
-    $$\frac{\partial}{\partial x_i}(F_j) = \frac{\partial^2 \varphi}{\partial x_i \partial x_j} = \frac{\partial^2 \varphi}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j}(F_i)$$
+    Tomemos $\varphi: U \to \mathbb{R}$ tal que $\frac{\partial\varphi}{dx_i} = F_i \in C^1 \ \forall i = 1, \ldots, n$. Luego $\varphi$ es de clase $C^2$ y por el teorema de las derivadas cruzadas (Schwartz) se tiene que:
+    $$\frac{\partial F_j}{\partial x_i} = \frac{\partial}{\partial x_i}\left(\frac{\partial \varphi}{\partial x_j}\right) = \underbrace{\frac{\partial^2 \varphi}{\partial x_i \partial x_j} = \frac{\partial^2 \varphi}{\partial x_j \partial x_i}}_{Schwartz} = \frac{\partial}{\partial x_j}\left(\frac{\partial \varphi}{\partial x_i}\right) = \frac{\partial F_i}{\partial x_j}$$
 \end{proof}
 \begin{corolario}
     Sean $U \subset \mathbb{R}^2$ abierto y $\vec{F} = (P, Q): U \to \mathbb{R}^2$ campo vectorial de clase $C^1$, entonces, si $\vec{F}$ es campo conservativo, se tiene que:
     $$\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \text{ en } U$$
-    (Si $(P, Q) = \nabla \varphi \implies \frac{\partial P}{\partial y} = \frac{\partial^2 \varphi}{\partial y \partial x} = \frac{\partial^2 \varphi}{\partial x \partial y} = \frac{\partial Q}{\partial x}$ en U)
 \end{corolario}
 \begin{proof}
-    $$\begin{cases}
-            F_1 = P \\ F_2 = Q
-        \end{cases}$$
+    Puesto que $\vec{F}$ es conservativo, y $\vec{F} = (P, Q) = (F_1, F_2)$, entonces por la proposición anterior se cumple que:
+    $$\frac{\partial P}{\partial y} = \frac{\partial F_1}{\partial x_2} = \frac{\partial F_2}{\partial x_1} = \frac{\partial Q}{\partial x}$$ 
 \end{proof}
 \begin{observación}
-En general el recíproco no es cierto, depende de la forma del dominio ($U$).
+En general el recíproco no es cierto, depende de la forma del dominio $U$.
 \end{observación}
 \begin{observación}
 \underline{Terminología}:
