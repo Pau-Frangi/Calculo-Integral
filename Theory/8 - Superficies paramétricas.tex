@@ -658,3 +658,121 @@ $$ \int_{(S, \vec{n})} \vec{F} = \sum_{i=1}^{k} \int_{(S_i, \vec{n}_i)} \vec{F} 
     \]
 }
 
+\ejemplo{
+    Sea $S = S_1 \cup S_2$ donde:
+    $$ S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z^2, \quad 1 \leq z \leq 2\} $$
+    $$ S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 4, \quad z = 2\} $$
+    Ademas sea $\vec{F} (x,y,z) = (x,y,-z)$ un campo vectorial continuo.\\
+    Calculemos $\int_{S, \vec{n}} \vec{F}$ donde $\vec{n}$ es la normal exterior.\\
+    Tenemos que $(S_1, \vec{n}_1)$ apunta al exterior y $(S_2, \vec{n}_2)$ apunta hacia arriba.\\
+    Como $(S_1, \vec{n}_1)$ y $(S_2, \vec{n}_2)$ inducen orientaciones compatibles, $(S, \vec{n})$ esta bien orientada.\\
+    Sea $\partial S_1 = C_1^+ \cup C_2^-$, son compatibles porque sobre $C_2 = \partial S_1 \cap \partial S_2$ las orientaciones son opuestas.\\
+    Entonces:
+    $$ \int_{(S, \vec{n})} \vec{F} = \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F} $$
+    $$ S_1 \rightarrow \varphi_1
+    \begin{cases}
+        x = z \cos(\theta) \\
+        y = z \sin(\theta) \\
+        z = z
+    \end{cases}
+    \quad
+    \left( \begin{array}{c}
+        \theta \in [0, 2\pi] \\
+        z \in [1, 2]
+    \end{array} \right)
+    \equiv D$$
+    Y así:
+    $$ \vec{N}_{\varphi_1} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        -z \sin(\theta) & z \cos(\theta) & 0 \\
+        \cos(\theta) & \sin(\theta) & 1
+    \end{vmatrix}
+    = (z \cos(\theta), z \sin(\theta), -z) \sim (x,y, <0)$$
+    Como $z<0$ tenemos que se apunta hacia abajo, al exterior, y hacia afuera, exterior tambien, asi son compatibles.
+    $$ \int_{(S_1, \vec{n}_1)} \vec{F} = \int_D \langle \vec{N}_{\varphi_1}, \vec{F} \circ \varphi_1 \rangle = \int_{z=1}^{z=2} \int_{\theta = 0}^{\theta = 2\pi} \langle (z \cos(\theta), z \sin(\theta), -z), (z \cos(\theta), z \sin(\theta), -z) \rangle d\theta dz=$$
+    $$ = \int_{z=1}^{z=2} \int_{\theta = 0}^{\theta = 2\pi} z^2 + z^2 d\theta dz = 2\pi \int_{z=1}^{z=2} 2z^2 dz = 4\pi \left[ \frac{z^3}{3} \right]_{z=1}^{z=2} = 4\pi \cdot \frac{7}{3} = \frac{28\pi}{3}$$
+
+    Pasando a $S_2$:
+    $$ S_2 \rightarrow \varphi_2
+    \begin{cases}
+        x = x \\
+        y = y \\
+        z = 2
+    \end{cases}
+    \quad
+    \left(x,y\right) \in \left\{ x^2 + y^2 \leq 4 \right\} \equiv E_\text{r=2}$$
+    Y así:
+    $$ \vec{N}_{\varphi_2} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+    \end{vmatrix} =
+    (0,0,1)$$
+    Que va en direccion hacia arriba exterior.
+    $$ \int_{(S_2, \vec{n}_2)} \vec{F} = \int_E \langle \vec{N}_{\varphi_2}, \vec{F} \circ \varphi_2 \rangle = \int_E \langle (0,0,1), (x,y,-2) \rangle dx dy =$$
+    $$= -2\int_E 1 dx dy = -2 \cdot \text{Area}(E) = -2 \cdot \pi (2^2) = -8\pi$$
+}
+
+\ejemplo{
+    Area de la sombra:
+    Sea $D=int(C)$ el interior de una curva de Jordan $C$, y $f:U \to \mathbb{R}^3$ de clase $C^1$ y en un abierto $U \supset \overline{D}$.\\
+    Consideramos ahora la superficie $S=G_f$, entonces para cada $(x,y) \in D$ sea $\theta(x,y)$ el ángulo que forman el vector normal $\vec{n}(x,y)$ a la superficie $S$ en el punto $(x,y,f(x,y))$ y el vector $\vec{e}_3=(0,0,1)$, entonces:
+    $$ a(S) = \int_{D} \frac{dxdy}{\cos(\theta(x,y))} $$
+}
+
+\begin{proof}
+    $$ S \rightarrow \varphi
+    \begin{cases}
+        x = x \\
+        y = y \\
+        z = f(x,y)
+    \end{cases}
+    \quad
+    \left(x,y\right) \in D$$
+    Ademas:
+    $$ \vec{N}_{\varphi} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1 & 0 & \frac{\partial f}{\partial x} \\
+        0 & 1 & \frac{\partial f}{\partial y} \\
+    \end{vmatrix} = \left( -\frac{\partial f}{\partial x}, -\frac{\partial f}{\partial y}, 1 \right) \cdot (0,0,1) = \vec{e}_3$$
+    Entonces:
+    $$ \langle \vec{N}_{\varphi}, \vec{e}_3 \rangle = ||\vec{N}_{\varphi}|| \cdot 1 \cdot \cos(\theta(x,y)) \implies ||\vec{N}_{\varphi}|| = \frac{1}{\cos(\theta(x,y))}$$
+    Y por tanto tenemos el area:
+    $$ a(S) = \int_{D} ||\vec{N}_{\varphi}|| = \int_D \frac{1}{\cos(\theta(x,y))} dx dy$$
+    Como consecuencia, si $S$ esta contenida en un plano cuyo vector normal es $\vec{n}$, tenemos que $\theta(x,y)$ es el angulo que forma $\vec{n}$ con $\vec{e}_3$, $\forall (x,y) \in D$, y por tanto:
+    $$ a(S) = \int_{D} \frac{1}{\cos(\theta)} dx dy = \frac{1}{\cos(\theta)} \cdot \text{Area}(D)$$
+
+\end{proof}
+
+\ejemplo{
+    Sean $\vec{u}, \vec{v} \in \mathbb{R}^3$ dos vectores no nulos, y sea $S$ el paralelogramo que generan $\vec{u}$ y $\vec{v}$, entonces el área de $S$ es:
+    $$ a(S) = \lVert \vec{u} \times \vec{v} \rVert = \lVert \vec{u} \rVert \cdot \lVert \vec{v} \rVert \cdot \sin(\theta) $$
+    Donde $\theta$ es el ángulo que forman $\vec{u}$ y $\vec{v}$.\\
+    Conociendo la parametrizacion de $S$:
+    $$ \varphi(\lambda, \mu) = \lambda \vec{u} + \mu \vec{v}, \quad 0 \leq \lambda, \mu \leq 1 $$
+    Y por tanto $D$ es:
+    $$ D = \left[0,1\right]_\lambda \times \left[0,1\right]_\mu \to \mathbb{R}^3 \quad
+    \begin{cases}
+        x = \lambda \cdot u_1 + \mu \cdot v_1 \\
+        y = \lambda \cdot u_2 + \mu \cdot v_2 \\
+        z = \lambda \cdot u_3 + \mu \cdot v_3
+    \end{cases}$$
+    Con:
+    $$ \vec{N}_{\varphi} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3 \\
+    \end{vmatrix} = \vec{u} \times \vec{v}$$
+    Y por tanto el area resulta ser:
+    $$ a(S) = \int_{D} \lVert \vec{N}_{\varphi} \rVert = \int_{0}^{1} \int_{0}^{1} \lVert \vec{u} \times \vec{v} \rVert d\lambda d\mu = \lVert \vec{u} \times \vec{v} \rVert \cdot \text{area}(D)$$
+
+
+}
+
+\begin{observación}
+    Sean $\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^3$. EL volumen.
+\end{observación}
