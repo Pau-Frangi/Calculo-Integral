@@ -1,1 +1,133 @@
 \section{Teorema de Stokes. Teorema de la divergencia de Gauss}
+
+
+\subsection{Teorema de Stokes}
+
+\begin{definición} [Rotacional]
+    Sean $A \subset \mathbb{R}^3$ un conjunto abierto y $\vec{F} : A \to \mathbb{R}^3$ un campo vectorial de clase $C^1$. Se define el rotacional de $\vec{F} = (F_1,F_2,F_3)$ como:
+    $$ rot(\vec{F}) = \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        F_1 & F_2 & F_3
+        \end{vmatrix} = \left( \frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z}, \frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x}, \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right)
+    $$
+\end{definición}
+
+\begin{observación}
+    En este caso, $rot(\vec{F})$ es un campo vectorial continuo definido en $A$.
+\end{observación}
+
+\ejemplo{
+    Sea $(P,Q) : U \to \mathbb{R}^2$ un campo vectorial de clase $C^1$ definido en un abierto $U \subset \mathbb{R}^2$. Consideramos $A = U \times \mathbb{R}$ y el campo vectorial $\vec{F} = (P,Q,0)$. Entonces el rotacional de $\vec{F}$ es:
+    $$ \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        P & Q & 0
+    \end{vmatrix} = \left( 0, 0, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \qquad \text{"la derivación del toerema de Green"}$$
+}
+
+\begin{teorema} [Teorema de Stokes]
+    Sea $(S, \vec{n})$ una superficie orientada y regular a trozos, y sea $\vec{F}$ un campo vectorial de clase $C^1$ definido en un abierto $U \supset S$. Entonces se cumple la siguiente igualdad:
+    $$ \int_{(S, \vec{n})} rot(\vec{F}) = \int_{\partial S} \vec{F} $$
+    donde $\partial S$ tiene la orientación inducida por $\vec{n}$.
+\end{teorema}
+
+\ejemplo{
+    Sea la superficie $S = \{(x,y,z) \in \mathbb{R}^3 : z = x^2 + y^2 \leq 4\}$ con la norma exterior $\vec{n}$ y el campo vectorial $\vec{F} = (yz, -xz, z)$. Verificamos el teorema de Stokes.\\
+    Tenemos que $\partial S = \{(x,y,z) \in \mathbb{R}^3 : z = x^2 + y^2 = 4\}$, que es una circunferencia de radio $2$ en el plano $z=4$. Fijémonos que $\vec{n}$ induce la orientación negativa en la curva $C^- = \partial S$.
+    \begin{center}
+        \includegraphics[width=0.65\linewidth]{images/ej4.png}
+    \end{center}   
+    El rotacional de $\vec{F}$ es:
+    $$ rot(\vec{F}) = \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        yz & -xz & z
+    \end{vmatrix} = \left( x, y, -2z \right)$$
+    Consideramos la parametrización natural $\varphi : D \to S$ de $S$ dada por:
+    $$ \varphi(x,y) = \begin{cases}
+        x = x \\
+        y = y \\
+        z = x^2 + y^2
+    \end{cases} \qquad \text{donde } D = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 4\}$$
+    Entonces la normal a la superficie $S$ es:
+    $$ \vec{N}_\varphi =
+        \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1         & 0         & 2x        \\
+            0         & 1         & 2y
+        \end{vmatrix} = (-2x, -2y, 1)$$
+    La normal $\vec{N}_\varphi$ apunta hacia arriba en el punto $(0,0,0)$, luego tenemos una normal interior.
+    \begin{itemize}
+        \item Calculamos el rotacional de $\vec{F}$ en $S$ por medio de la parametrización $\varphi$:
+        $$\int_{(S, \vec{n})} rot(\vec{F}) = -\int_{D} \langle \vec{N}_\varphi, rot(\vec{F}) \circ \varphi(x,y) \rangle dx dy = -\int_{D} \langle (-2x, -2y, 1), (x,y,-2(x^2+y^2) \rangle dx dy$$
+        $$ = \int_{D} 2x^2 + 2y^2 + 2x^2 + 2y^2 dx dy = \int_{D} 4(x^2+y^2) dx dy = 4 \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=2} r^2 \cdot r \, dr \, d\theta$$ 
+        $$= 4 \cdot 2\pi \left[ \frac{r^4}{4} \right]_{r=0}^{r=2} = 4 \cdot 2\pi \cdot 4 = 32\pi$$
+        \item Consideramos la parametrización positiva $\gamma$ de la curva $\partial S$ dada por:
+        $$ \gamma(t) = \begin{cases}
+            x = 2 \cos(t) \\
+            y = 2 \sin(t) \\
+            z = 4
+        \end{cases} \qquad \text{donde } t \in [0,2\pi]$$
+        y calculamos la integral de línea del campo $\vec{F}$ sobre la curva $\partial S$:
+        $$\int_{\partial S} \vec{F} = \int_{C^-} \vec{F} = -\int_{\gamma} \vec{F} = -\int_{t=0}^{t=2\pi} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt $$
+        $$= -\int_{t=0}^{t=2\pi} \langle (8 \sin(t), -8 \cos(t), 4), (-2 \sin(t), 2 \cos(t), 0) \rangle dt$$
+        $$= \int_{t=0}^{t=2\pi} 16 dt = 16 \left[ t \right]_{t=0}^{t=2\pi} = 16(2\pi - 0) = 32\pi$$
+    \end{itemize}
+    En efecto, vemos que las integrales coinciden de acorde al teorema de Stokes.
+}
+
+\ejemplo{
+    Sea $S = S_1 \cup S_2$, donde:
+    $$
+        S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z \in [0,2] \}
+        \qquad
+        S_2 = \{(x,y,z) \in \mathbb{R}^3 : z = 2, \ x^2 + y^2 \leq 1 \}
+    $$
+    con la norma exterior $\vec{n}$ y el campo vectorial $\vec{F}(x,y,z) = (y,x,z)$. 
+    El borde de $S$ es:
+    $$ \partial S = C_0^+ = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z = 0 \}$$
+    \begin{center}
+        \includegraphics[width=0.65\linewidth]{images/ej5.png}
+    \end{center} 
+    Calculamos el rotacional del campo $\vec{F}$:
+    $$ rot(\vec{F}) = \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        y & x & z
+    \end{vmatrix} = \left( 0, 0, 1 - 1 \right) = (0,0,0)$$
+    Consideramos la parametrización $\gamma$ de la curva $C_0$ dada por:
+    $$ \gamma(t) = \begin{cases}
+        x = \cos(t) \\
+        y = \sin(t) \\
+        z = 0
+    \end{cases} \qquad \text{donde } t \in [0,2\pi]$$
+    que tiene orientacion positiva. Además, $\gamma'(t) = (-\sin(t), \cos(t), 0)$.
+    \begin{itemize}
+        \item Calculamos la integral del campo $rot(\vec{F})$ sobre la superficie $S$:
+        $$\int_{(S, \vec{n})} rot(\vec{F}) = \int_{(S_1, \vec{n}_1)} \vec{0} = 0$$
+        \item Hacemos la integral de línea del campo $\vec{F}$ sobre la curva $C_0^+$:
+        $$\int_{\partial S} \vec{F} = \int_{C_0^+} \vec{F} = \int_{t=0}^{t=2\pi} \langle (\sin(t), \cos(t), 0), (-\sin(t), \cos(t), 0) \rangle dt$$
+        $$= \int_{t=0}^{t=2\pi} \cos^2(t) - \sin^2(t) dt = \int_{t=0}^{t=2\pi} \cos(2t) dt = \left[ \frac{\sin(2t)}{2} \right]_{t=0}^{t=2\pi} = 0$$
+    \end{itemize}
+    Vemos que el teorema de Stokes se cumple, ya que las integrales son iguales.
+}
+
+\ejemplo{
+    Consideramos el campo vectorial $\vec{F} = (yz, -xz, z)$. Veamos el rotacional de $\vec{F}$:
+    $$ rot(\vec{F}) = \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        yz & -xz & z
+    \end{vmatrix} = \left( x, y, -2z \right)$$
+    Supongamos que tenemos una superficie $S$ cualesquiera cuyo borde $\partial S$ sea la curva $C_0^+$ del ejemplo anterior. Entonces tenemos que:
+    $$ \int_{(S, \vec{n})} rot(\vec{F}) = \int_{C_0^+} \vec{F} = \int_{C_0^+} \vec{F} = \int_{t=0}^{t=2\pi} \langle (0,0,0), (-\sin(t), \cos(t), 0) \rangle dt = 0$$
+}
+
+\begin{observación}
+    Si $S$ es una superficie cerrada, es decir, $\partial S = \emptyset$, entonces se tiene que:
+    $$ \int_{(S, \vec{n})} rot(\vec{F}) = \int_{\partial S} \vec{F} = 0$$
+\end{observación}
+
+
+

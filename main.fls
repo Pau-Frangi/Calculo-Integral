@@ -597,6 +597,11 @@ INPUT Theory\8 - Superficies paramétricas.tex
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti8.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
+INPUT .\Theory\9 - Integrales de superficie.tex
+INPUT .\Theory\9 - Integrales de superficie.tex
+INPUT .\Theory\9 - Integrales de superficie.tex
+INPUT .\Theory\9 - Integrales de superficie.tex
+INPUT Theory\9 - Integrales de superficie.tex
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT .\images\cono1.png
@@ -684,7 +689,24 @@ INPUT .\images\ej3.png
 INPUT .\images\ej3.png
 INPUT .\images\ej3.png
 INPUT .\images\ej3.png
+INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
+INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
+INPUT Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
+INPUT .\images\ej4.png
+INPUT .\images\ej4.png
+INPUT .\images\ej4.png
+INPUT .\images\ej4.png
+INPUT .\images\ej4.png
+INPUT .\images\ej4.png
+INPUT .\images\ej4.png
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
+INPUT .\images\ej5.png
+INPUT .\images\ej5.png
+INPUT .\images\ej5.png
+INPUT .\images\ej5.png
+INPUT .\images\ej5.png
+INPUT .\images\ej5.png
+INPUT .\images\ej5.png
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
