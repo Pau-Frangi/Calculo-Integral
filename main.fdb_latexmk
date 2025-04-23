@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1745332835.61574 "c:/Users/paufr/OneDrive/Escritorio/Calculo-Integral/main.tex" "main.pdf" "main" 1745332853.07276 0
+["pdflatex"] 1745405176.71421 "c:/Users/paufr/OneDrive/Escritorio/Calculo-Integral/main.tex" "main.pdf" "main" 1745405184.58451 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1743090313 98131 e7cab088e33b68d95298c74a2242b25c ""
+  "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi657/esint10.pk" 1739867973 13616 eb2ce24607ec8c3cff6f3f728e8586a8 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha10.tfm" 1737830961 1372 84a1ef28ab0d13263326e8d7d854aaa0 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha12.tfm" 1737830854 1380 ceb7b5923e3abb0aafa2e35608b22d77 ""
@@ -11,6 +12,7 @@
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1741369001 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1741369002 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/paufr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741028520 12015782 ce078ee952a290613d3e6d59cebf7afe ""
+  "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1095.tfm" 993062508 1460 8005ce585ff351dff78998923504da5e ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1234365220 996 a18840b13b499c08ac2de96a99eda4bc ""
@@ -330,7 +332,7 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1742918866 994 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1744363445 11802 7b985509a41c58d7faab4233c415f58f ""
-  "Theory/8 - Superficies paramétricas.tex" 1745332801 46876 1d2f7c228b67c7bb6dd9c5231e1342e5 ""
+  "Theory/8 - Superficies paramétricas.tex" 1745405168 53349 c1f7761a286cc82b91e44ffbfadbfce6 ""
   "Theory/Theory.tex" 1745332821 759 7b7fd7cc0495ebf2fd46119088bda429 ""
   "c:/Users/paufr/OneDrive/Escritorio/Calculo-Integral/main.tex" 1743088192 842 663b855e7028e6591b632a81a2e917fa ""
   "images/Klein.png" 1744286813 79054 c41296fed1211205343dafc9e3ef3d88 ""
@@ -345,10 +347,10 @@
   "images/half2.png" 1744368070 224257 7546b54e9a4602a7082cd971f6ec84ad ""
   "images/moebius.png" 1744286548 30165 3cef3923d90e4a58e5d3e2f8ebed9a9d ""
   "images/tapa1.png" 1744366950 249016 ee068a5d2566dee78eb3c27c80771b23 ""
-  "main.aux" 1745332852 6915 6d31ba59ffbae444244801fec5f5a554 "pdflatex"
-  "main.out" 1745332852 774 486f2fa5ef02525f616c9cd5b0635106 "pdflatex"
+  "main.aux" 1745405183 8055 605f3fa54f0766fe12a37f21a6e2592c "pdflatex"
+  "main.out" 1745405183 922 8ad4140e0360399c75563505be60c986 "pdflatex"
   "main.tex" 1743088192 842 663b855e7028e6591b632a81a2e917fa ""
-  "main.toc" 1745332852 392 583188f53dea5fd3012d3adc30f6bf38 "pdflatex"
+  "main.toc" 1745405183 476 929cd014a87dd22645e4f71e751ff7db "pdflatex"
   (generated)
   "main.aux"
   "main.log"

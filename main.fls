@@ -684,9 +684,12 @@ INPUT .\images\ej3.png
 INPUT .\images\ej3.png
 INPUT .\images\ej3.png
 INPUT .\images\ej3.png
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi657\esint10.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi657\esint10.pk
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
