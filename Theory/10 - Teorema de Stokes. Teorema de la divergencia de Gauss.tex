@@ -129,5 +129,96 @@
     $$ \int_{(S, \vec{n})} rot(\vec{F}) = \int_{\partial S} \vec{F} = 0$$
 \end{observación}
 
+\subsection{Geometria del Rotacional}
 
+\ejemplo{
+    Sea $\vec{F: U \to \mathbb{R}^2}$ el campo de velocidades de un fluido en $\mathbb{R}^2$. Las trayectorias son curvas $\gamma: I \to U$ con $\gamma'(t) = \vec{F}(\gamma(t))$.
+}
 
+\ejemplo{
+    Sean $U \subset \mathbb{R}^3$ abierto y $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$.\\
+    Consideremos $p \in U$ y $r > 0$, siendo $D_r$ el circulo de centro $p$ y radio $r$, con frontera $C_r = \partial D_r$.\\
+    Sea $\vec{u}$ un vector unitario de $\mathbb{R}^3$ perpendicular al plano que contiene a $D_r$, entonces:
+    $$ \langle rot(\vec{F}) (p), \vec{u} \rangle = \lim_{r \to 0} \frac{1}{\pi r^2} \int_{C_r^+} \vec{F} $$
+    Donde $C_r^+$ denota a $C_r$ conla orientacion comparativa a la de $\vec{u}$, y donde esta igualdad representa la "circulacion por unidad de área" del campo $\vec{F}$.   
+}
+
+\begin{proof}
+    $$ \int_{C_r^+} \vec{F} = \int_{(D_r, \vec{n})} rot\vec{F} = \int_{D_r} \langle \vec{F}, \vec{u} \rangle = \int_{D_r} \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle + \langle rot\vec{F} (p), \vec{u} \rangle$$
+    De donde pasamos a:
+    $$ \int_{D_r} \langle rot\vec{F} (p), \vec{u} \rangle_{\text{constante}} = \langle rot\vec{F} (p), \vec{u} \rangle \cdot \text{área}(D_r)$$
+    Entonces:
+    $$ \forall \epsilon > 0, \quad \exists \delta > 0: \quad 0 < r < \delta \implies \lVert rot\vec{F} (x,y,z) - rot\vec{F} (p) \rVert < \epsilon \quad \forall (x,y,z) \in D_r \implies $$
+    $$ \implies \left| \int_{D_r} \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle \right| \leq \int_{D_r} \left| \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle \right| \leq \int_{D_r} \lVert rot\vec{F} - rot\vec{F} (p) \rVert \leq \epsilon \cdot \text{área}(D_r)$$
+    Luego:
+    $$ \left| \frac{1}{\text{área}(D_r)} \int_{C_r^+} \vec{F} - \langle rot\vec{F} (p), \vec{u} \rangle \right| < \epsilon \quad \forall 0 < r < \delta$$
+\end{proof}
+
+\begin{definición}
+    Sean $A \subset \mathbb{R}^3$ un conjunto abierto y $\vec{F} : A \to \mathbb{R}^3$ un campo vectorial de clase $C^1$. Se dice que $\vec{F}$ es irrotacional en $A$ si $rot(\vec{F}) \equiv 0$ en $A$.
+\end{definición}
+
+\begin{lema}
+    Si $\vec{F}$ es un campo de clase $C^1$, y es conservativo en $A$ $\implies$ es irrotacional en $A$.
+\end{lema}
+
+\begin{proof}
+    Sea $\varphi: A \to \mathbb{R}$ una función tal que $\vec{F} = \nabla \varphi$, es decir, $\vec{F} = \left( \frac{\partial \varphi}{\partial x}, \frac{\partial \varphi}{\partial y}, \frac{\partial \varphi}{\partial z} \right)$, entonces $\varphi$ es de clase $C^2$ en $A$ y, aplicando el teorema de Schwarz, tenemos que:
+    $$ rot(\vec{F}) = \nabla \times \nabla \varphi = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        \frac{\partial \varphi}{\partial x} & \frac{\partial \varphi}{\partial y} & \frac{\partial \varphi}{\partial z}
+    \end{vmatrix} = \left( \frac{\partial^2 \varphi}{\partial y \partial z} - \frac{\partial^2 \varphi}{\partial z \partial y}, \frac{\partial^2 \varphi}{\partial z \partial x} - \frac{\partial^2 \varphi}{\partial x \partial z}, \frac{\partial^2 \varphi}{\partial x \partial y} - \frac{\partial^2 \varphi}{\partial y \partial x} \right) = (0,0,0)$$
+\end{proof}
+
+\begin{teorema}
+    Sea $U \subset \mathbb{R}^3$ un abierto conexo, y sea $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$. Entonces son equivalentes las siguientes afirmaciones:
+    \begin{enumerate}
+        \item $\vec{F}$ es conservativo en $U$.
+        \item $\int_\sigma \vec{F} = 0$, $\forall \sigma$ camino triangular en $U$.
+        \item $\vec{F}$ es irrotacional en $U$, es decir, $rot(\vec{F}) \equiv 0$ en $U$.
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof}
+    Veamos las implicaciones:\\
+    \begin{enumerate}
+        \item[$1 \implies 2$] Ya esta probado por la caracterizacion de los campos conservativos.
+        \item[$2 \implies 1$] Fijemos un $p \in U$, para cada $x \in U$ definamos $\varphi(x) = \int_{[p,x]} \vec{F}$.\\
+        Veamos que $\varphi$ es un potencial para $\vec{F}$: $\forall i \in \left\{1, \cdots , n \right\}$, para ello veamos si $F_i = \frac{\partial \varphi}{\partial x_i}$.\\
+        $$ \lim_{h \to 0} \frac{1}{h} \left( \int_{[p, x+h \vec{e}_i]} - \int_{[p,x]} \vec{F} \right) = \lim_{h \to 0} \frac{1}{h} \left( \varphi (x+he_i) - \varphi(x) \right)$$
+        Tenemos que por $2$ si consideramos el triangulo $T$ de veritices $p$, $x$ y $x+h \vec{e}_i$, tenemos que:
+        $$ \int_{[p,x] + [x,x+h \vec{e}_i] + [x+h \vec{e}_i,p]} \vec{F} = 0 \implies
+        \int_{[p,x+h \vec{e}_i]} \vec{F} - \int_{[p,x]} \vec{F} = \int_{[x,x+h \vec{e}_i]} \vec{F}$$
+        Luego:
+        $$ \frac{1}{h} \int_{[x,x+h \vec{e}_i]} \vec{F} = \frac{1}{h} \int_{t=0}^{t=1} \langle \vec{F}(x + t h \vec{e}_i), h \vec{e}_i \rangle dt = \frac{1}{h} \cdot h \int_{t=0}^{t=1} F_i (x + t h \vec{e}_i) dt \to F_i$$
+        Asi tenemos que $1 \iff 2$.
+        \item[$1 \implies 3$] Se demuestra con el lema anterior.
+        \item[$3 \implies 2$] Sea $T \subset U$ un triángulo, y sea $ \sigma = \partial T$:
+        \item[] $$ \int_\sigma \vec{F} = \int_{(T, \vec{n})} rot(\vec{F}) = 0$$
+    \end{enumerate}
+\end{proof}
+
+\ejemplo{
+    Es importante que $U$ sea convexo:\\
+    Seam $U = \{(x,y,z) \in \mathbb{R}^3 : x+y \neq 0 \}$ y $\vec{F}: U \to \mathbb{R}^3$ el campo vectorial dado por:
+    $$ \vec{F}(x,y,z) = \left( \frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}, 0 \right) = \left(P,Q,0\right)$$
+    Asi tenemos el siguiente rotacional
+    $$ rot(\vec{F}) = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        P & Q & 0
+    \end{vmatrix} = \left(0, 0, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) = (0,0,0)$$
+    El campo $\vec{F}$ es por tanto irrotacional en $U$, pero $\vec{F}$ no es conservativo:
+    $$ \gamma(t) = (\cos(t), \sin(t), 0), \quad t \in [0,2\pi] \implies \int_\gamma \vec{F} = \int_{t=0}^{t=2\pi} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt = $$
+    $$ = \int_{t=0}^{t=2\pi} \langle \left( \frac{-\sin(t)}{1}, \frac{\cos(t)}{1}, 0 \right), (-\sin(t), \cos(t), 0) \rangle dt = \int_{t=0}^{t=2\pi} 1 dt = 2\pi \neq 0$$
+    Demostrando así que $\vec{F}$ no es conservativo.
+}
+
+\ejemplo{
+    Sea el ejercicio de Nash:\\
+    Encontar $X \subset \mathbb{R}^3$ tal que si denotamos:\\
+    $$ V = \{ \vec{F}: \mathbb{R}^3 \setminus X \to \mathbb{R}^3 \text{Campo c^1 tal que} \quad rot(\vec{F}) = 0 \}$$
+    $$ W = \{ \vec{F}: \mathbb{R}^3 \setminus X \to \mathbb{R}^3 \text{Campo c^1 tal que} \quad \vec{F}= \nabla g \text{ para algun g} \}$$
+    Obteniendo que $dim(V/W)=8$ 
+}
