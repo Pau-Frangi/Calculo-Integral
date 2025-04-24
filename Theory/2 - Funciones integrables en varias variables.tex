@@ -143,8 +143,8 @@ Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son eq
 \begin{proof}
     \leavevmode
     \begin{itemize}
-        \item $(1 \implies 2): E^c$ es medible y $\{x \in E : f(x) > \alpha\}$ es medible $\implies$ $\{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible.
-        \item $(2 \implies 1): \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
+        \item $(1) \implies (2): E^c$ es medible y $\{x \in E : f(x) > \alpha\}$ es medible $\implies$ $\{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible.
+        \item $(2) \implies (1): \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
     \end{itemize}
 \end{proof}
 \begin{definición}[Función Simple\label{Funcion Simple}]
@@ -511,39 +511,43 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
 \begin{proof}
     \leavevmode
     \begin{enumerate}
-        \item[\textbf{(1)}] Dado que $f = f^+ - f^-$ y $g = g^+ - g*- \implies f + g = f^+ + g^+ - (f^- + g^-)$, con ambas partes $\geq 0$. Entones,
+        \item Dado que $f = f^+ - f^-$ y $g = g^+ - g*- \implies f + g = f^+ + g^+ - (f^- + g^-)$, con ambas partes $\geq 0$. Entones,
               por el lema de la integral de funciones no negativas,
               $$ \int_E (f+g) = \int_E f^+ + \int_E g^+ - \int_E f^- - \int_E g^-. $$
               Reagrupando términos,
               $$ \int_E (f+g) = \int_E f + \int_E g. $$
 
-        \item[\textbf{(2)}]
-              Si $ c > 0 $. Como $ c f = cf^+ - c f^- \implies$,
+        \item Si $ c > 0 $. Como $ c f = cf^+ - c f^- \implies$,
               $$ \int_E c f = \int_E (c f)^+ - \int_E (c f)^- = c \int_E f^+ - c \int_E f^- = c \int_E f. $$
               Si $ c < 0 $, usando $ c f = cf^+-cf*- = (-c)f^+ - (-c)f^-$. Entones aplicamos el apartado anterior y obtenemos que:
               $$ \int_E c f = c \int_E f. $$
 
-        \item[\textbf{(3)}] Como $g - f \geq 0$ en casi todo punto de $E$, se cumple que: $(g-f)\cdot\chi_{E} \geq 0$ en casi todo punto de $\mathbb{R}^n \implies$
+        \item Como $g - f \geq 0$ en casi todo punto de $E$, se cumple que: $(g-f)\cdot\chi_{E} \geq 0$ en casi todo punto de $\mathbb{R}^n \implies$
               $$ \int_E (g - f) \geq 0. $$
               Aplicando la linealidad de la integral,
               $$ \int_E g - \int_E f \geq 0, $$
               lo cual implica que
               $$ \int_E f \leq \int_E g. $$
 
-        \item[\textbf{(4)}] Se tiene que $|f| = f^+ + f^-$. Usando la linealidad de la integral,
+        \item Se tiene que $|f| = f^+ + f^-$. Usando la linealidad de la integral,
               $$ |\int_E f| = |\int_E f^+ + \int_E f^-. |$$
               Como $f = f^+ - f^-$, aplicamos la desigualdad triangular:
               $$ \left| \int_E f \right| = \left| \int_E f^+ - \int_E f^- \right| \leq \int_E f^+ + \int_E f^- = \int_E |f|. $$
 
-        \item[\textbf{(5)}] Como $f = g$ en casi todo punto de $E \implies$  $f^+ = g^+ \quad f^- = g^-$ en casi todo punto de $E$ por lo que sólo queda aplicar el apartado anterior.
+        \item Como $f = g$ en casi todo punto de $E \implies$  $f^+ = g^+ \quad f^- = g^-$ en casi todo punto de $E$ por lo que sólo queda aplicar el apartado anterior.
               $$ \int_E f = \int_E g $$
 
-        \item[\textbf{(6)}] $|f|\cdot\chi_{E} \geq 0$ en casi todo punto de $\mathbb{R}^n \implies \int_{E}|f| = \int_{\mathbb{R}^n}|f\cdot\chi_{E}| = 0 \implies$
+        \item $|f|\cdot\chi_{E} \geq 0$ en casi todo punto de $\mathbb{R}^n \implies \int_{E}|f| = \int_{\mathbb{R}^n}|f\cdot\chi_{E}| = 0 \implies$
               $$ |\int_{E}f| \leq \int_{E}|f| = 0$$
 
-        \item[\textbf{(7)}] No se qué hace la demostracion
-        \item[\textbf{(8)}]
-              Sea
+        \item Por definición, sabemos que la función $f$ es integrable en $E$ si
+              $$ \int_E  < +\infty \iff \int_{E} |f| < +\infty$$
+        Sea $A \subset E$ el conjunto de puntos de $E$ donde $|f| = \infty$. Entonces tenemos que
+        $$
+            \int_E |f| = \int_{E \setminus A} |f| + \int_A |f| < +\infty \implies \int_{A} |f| < +\infty \implies m(A) = 0.
+        $$
+        Por lo tanto, $|f| < \infty$ en casi todo punto de $E$.
+        \item Sea
               $$ A = \{ x \in E : |f(x)| > 0 \}. $$
               Definimos los conjuntos
               $$ A_k = \{ x \in E : |f(x)| > \frac{1}{k} \}, \quad \forall k \in \mathbb{N}, $$
@@ -553,7 +557,7 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
               Ahora, evaluamos la medida de $ A_k $ utilizando la integral: $$ m(A_k) =
                   \int_{A_k} 1 \leq \int_{A_k} k \cdot |f| = k \int_{A_k} |f| \leq \int_{A_k} |f|
                   \leq \int_E |f|$$ Tomando el límite cuando $ k \to \infty $ (y de la
-              subaditvidad) se concluye que $$ m(A) = \lim_{k \to \infty} m(A_k) = 0. $$
+              subaditividad) se concluye que $$ m(A) = \lim_{k \to \infty} m(A_k) = 0. $$
     \end{enumerate}
 \end{proof}
 \begin{teorema} [Convergencia Dominada\label{Convergencia Dominada}]
@@ -804,8 +808,8 @@ no es integrable-Riemann en $[0, 1]$. Pero $f = 0$ en casi todo punto $\implies
 (Hoja 3. Ej: 6.a)
 Calculemos
 \[ F(t) = \int_{0}^{+\infty} \frac{\sin(tx)}{x} e^{-x} \,dx, \quad \forall t \in \mathbb{R} \]
-derivando con respecto al parámetro \( t \). Para ello, aplicamos el **Teorema
-de Leibniz**:
+derivando con respecto al parámetro \( t \). Para ello, aplicamos el Teorema
+de Leibniz:
 
 Sea \( E \subset \mathbb{R}^n \) medible y \( (a,b) \subset \mathbb{R} \), con
 \( f: E \times (a,b) \to \mathbb{R} \) tal que:
