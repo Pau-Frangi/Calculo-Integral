@@ -181,27 +181,28 @@
 \end{teorema}
 
 \begin{proof}
-    Veamos las implicaciones:\\
-    \begin{enumerate}
-        \item[$1 \implies 2$] Ya esta probado por la caracterizacion de los campos conservativos.
-        \item[$2 \implies 1$] Fijemos un $p \in U$, para cada $x \in U$ definamos $\varphi(x) = \int_{[p,x]} \vec{F}$.\\
-        Veamos que $\varphi$ es un potencial para $\vec{F}$: $\forall i \in \left\{1, \cdots , n \right\}$, para ello veamos si $F_i = \frac{\partial \varphi}{\partial x_i}$.\\
-        $$ \lim_{h \to 0} \frac{1}{h} \left( \int_{[p, x+h \vec{e}_i]} - \int_{[p,x]} \vec{F} \right) = \lim_{h \to 0} \frac{1}{h} \left( \varphi (x+he_i) - \varphi(x) \right)$$
-        Tenemos que por $2$ si consideramos el triangulo $T$ de veritices $p$, $x$ y $x+h \vec{e}_i$, tenemos que:
-        $$ \int_{[p,x] + [x,x+h \vec{e}_i] + [x+h \vec{e}_i,p]} \vec{F} = 0 \implies
-        \int_{[p,x+h \vec{e}_i]} \vec{F} - \int_{[p,x]} \vec{F} = \int_{[x,x+h \vec{e}_i]} \vec{F}$$
-        Luego:
-        $$ \frac{1}{h} \int_{[x,x+h \vec{e}_i]} \vec{F} = \frac{1}{h} \int_{t=0}^{t=1} \langle \vec{F}(x + t h \vec{e}_i), h \vec{e}_i \rangle dt = \frac{1}{h} \cdot h \int_{t=0}^{t=1} F_i (x + t h \vec{e}_i) dt \to F_i$$
-        Asi tenemos que $1 \iff 2$.
-        \item[$1 \implies 3$] Se demuestra con el lema anterior.
-        \item[$3 \implies 2$] Sea $T \subset U$ un triángulo, y sea $ \sigma = \partial T$:
+    \leavevmode
+    \begin{itemize}
+        \item (1) $\implies$ (2): Ya esta probado por la caracterizacion de los campos conservativos.
+        \item (2) $\implies$ (1): Fijamos un punto $P \in U$ y consideramos para cada $x \in U$ la función
+        $$ \varphi(x) = \int_{[P,x]} \vec{F}$$
+        Veamos que $\varphi$ es un potencial de $\vec{F}$. Para ellos, veamos que $F_i = \frac{\partial \varphi}{\partial x_i} \ \forall i = 1,2,3$.
+        $$ \lim_{h \to 0} \frac{1}{h} \left(\underbrace{\int_{[P,x + h\vec{e}_i]} \vec{F}}_{\varphi(x+h\vec{e}_i)} - \underbrace{\int_{[P,x]} \vec{F}}_{\varphi(x)} \right) = \lim_{h \to 0} \frac{1}{h} \left( \varphi(x + h\vec{e}_i) - \varphi(x) \right)$$
+        Por (2), tenemos que el triangulo T de vértices $P$, $x$ y $x + h\vec{e}_i$ es tal que 
+        $$\int_{[P,x] + [x,x + h\vec{e}_i] + [x + h\vec{e}_i,P]} \vec{F} = 0$$
+        Luego se sigue entonces que: 
+        $$ \int_{[P,x + h\vec{e}_i]} \vec{F} - \int_{[P,x]} \vec{F} = \int_{[x,x + h\vec{e}_i]} \vec{F}$$
+        por tanto 
+        $$\frac{1}{h} \int_{[x,x + h\vec{e}_i]} \vec{F} = \frac{1}{h} \int_{t =0}^{t=1} \langle \vec{F}(x + t h \vec{e}_i), h \vec{e}_i \rangle dt = \int_{t=0}^{t=1} \vec{F}_i(x + t h \vec{e}_i)dt \xrightarrow{h \to 0} \vec{F}_i(x)$$
+        donde $\gamma(t) = x + t h \vec{e}_i$ con $t \in [0,1]$. Así obtenemos que $(1) \iff (2)$.
+        \item $(3) \implies (2)$: Sea $T \subset U$ un triángulo, y sea $ \sigma = \partial T$:
         \item[] $$ \int_\sigma \vec{F} = \int_{(T, \vec{n})} rot(\vec{F}) = 0$$
-    \end{enumerate}
+    \end{itemize}
 \end{proof}
 
 \ejemplo{
     Es importante que $U$ sea convexo:\\
-    Seam $U = \{(x,y,z) \in \mathbb{R}^3 : x+y \neq 0 \}$ y $\vec{F}: U \to \mathbb{R}^3$ el campo vectorial dado por:
+    Seam $U = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \neq (0,0) \}$ y $\vec{F}: U \to \mathbb{R}^3$ el campo vectorial dado por:
     $$ \vec{F}(x,y,z) = \left( \frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}, 0 \right) = \left(P,Q,0\right)$$
     Asi tenemos el siguiente rotacional
     $$ rot(\vec{F}) = \begin{vmatrix}
@@ -209,16 +210,16 @@
         \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
         P & Q & 0
     \end{vmatrix} = \left(0, 0, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) = (0,0,0)$$
-    El campo $\vec{F}$ es por tanto irrotacional en $U$, pero $\vec{F}$ no es conservativo:
-    $$ \gamma(t) = (\cos(t), \sin(t), 0), \quad t \in [0,2\pi] \implies \int_\gamma \vec{F} = \int_{t=0}^{t=2\pi} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt = $$
+    El campo $\vec{F}$ es por tanto irrotacional en $U$, pero $\vec{F}$ no es conservativo. Consideremos la curva cerrada $\gamma$ dada por:
+    $$ \gamma(t) = (\cos(t), \sin(t), 0), \quad t \in [0,2\pi] \implies \int_\gamma \vec{F} = \int_{t=0}^{t=2\pi} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt $$
     $$ = \int_{t=0}^{t=2\pi} \langle \left( \frac{-\sin(t)}{1}, \frac{\cos(t)}{1}, 0 \right), (-\sin(t), \cos(t), 0) \rangle dt = \int_{t=0}^{t=2\pi} 1 dt = 2\pi \neq 0$$
     Demostrando así que $\vec{F}$ no es conservativo.
 }
 
 \ejemplo{
-    Sea el ejercicio de Nash:\\
-    Encontar $X \subset \mathbb{R}^3$ tal que si denotamos:\\
-    $$ V = \{ \vec{F}: \mathbb{R}^3 \setminus X \to \mathbb{R}^3 \text{Campo c^1 tal que} \quad rot(\vec{F}) = 0 \}$$
-    $$ W = \{ \vec{F}: \mathbb{R}^3 \setminus X \to \mathbb{R}^3 \text{Campo c^1 tal que} \quad \vec{F}= \nabla g \text{ para algun g} \}$$
-    Obteniendo que $dim(V/W)=8$ 
+    \underline{El ejercicio de Nash}:\\
+    Encontrar $X \subset \mathbb{R}^3$ tal que si denotamos por 
+    $$V = \{ \vec{F}: \mathbb{R}^3  \setminus X \to \mathbb{R}^3  \text{ campo } C^1 \mid rot(\vec{F}) = \vec{0} \}$$
+    $$W = \{\vec{F}: \mathbb{R}^3  \setminus X \to \mathbb{R}^3  \text{ campo }C^1 \mid \vec{F} = \nabla g \text{ para algún } g \}$$
+    obtengamos que $dim(V \setminus W) = 8$.
 }
