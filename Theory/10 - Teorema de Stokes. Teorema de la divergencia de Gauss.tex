@@ -223,3 +223,109 @@
     $$W = \{\vec{F}: \mathbb{R}^3  \setminus X \to \mathbb{R}^3  \text{ campo }C^1 \mid \vec{F} = \nabla g \text{ para algún } g \}$$
     obtengamos que $dim(V \setminus W) = 8$.
 }
+
+\begin{observación}[Divergencia de un campo vectorial en $\mathbb{R}^3$]
+    Sean $U \subset \mathbb{R}^3$ un abierto y $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$. Se define la divergencia de $\vec{F}$ como:
+    $$ div(\vec{F}) = \langle \nabla, \vec{F} \rangle = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}$$
+\end{observación}
+
+\begin{teorema}[Teorema de la divergencia de Gauss]
+    Sea $A \subset \mathbb{R}^3$ un conjunto abierto y actotado, denotamos $V=\overline{A}$.\\
+    Supongamos ahora que $\partial V = \partial A = S$ es una superficie cerrada, simple-regular a trozos, orientada con la normal $\vec{n}$ exterior a $V$.\\
+    Sea ahora $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$ definido en un abierto $U \supset V$. Entonces, si denotamos $S = \partial V$, se cumple la siguiente igualdad:
+    \[ \int_V div(\vec{F}) = \int_{(S, \vec{n})} \vec{F} = \int_{\partial V} \vec{F}\]
+\end{teorema}
+
+\begin{observación}
+    Aqui $\partial V = S = Fr(V)$ es la frontera topológica de $V$.
+\end{observación}
+
+\ejemplo{
+    Verifiquemos el teorema para el siguiente cilindro:
+    $$ V = \left\{ (x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \quad 0 \leq z \leq 2 \right\}$$
+    $$ \vec{F}(x,y,z) = (xy^2,x^2y,z)$$
+    Tenemos que $\partial V = S_0 \cup S_1 \cup S_2$, donde:
+    \begin{enumerate}
+        \item[$S_0$:] La base inferior del cilindro
+        $$S_0 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \quad z = 0\}$$
+        \item[$S_1$:] La superficie exterior del cilindro
+        $$S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \quad 0 \leq z \leq 2 \}$$
+        \item[$S_2$:] La base superior del cilindro
+        $$S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \quad z = 2\}$$
+    \end{enumerate}
+    Ahora tenemos que la divergencia es:
+    $$div \vec{F} = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z} = \frac{\partial (xy^2)}{\partial x} + \frac{\partial (x^2y)}{\partial y} + \frac{\partial z}{\partial z} = y^2 + 2xy + 1$$
+    Entonces podemos empezar a integrar
+    $$\int_V div \vec{F} = \int_V (y^2 + 2xy + 1) dx dy dz =_{\text{cambiando a cilindricas}} \int_{z=0}^{z=2} \int_{\theta =0}^{\theta=2\pi} \int_{r=0}^{r=1} r \cdot \left(r^2+1\right) dr d\theta dz=$$
+    $$=4\pi \int_{r=0}^{r=1} r^3 + r dr=4\pi \left[ \frac{r^4}{4} + \frac{r^2}{2} \right]_{r=0}^{r=1} = 3\pi$$
+    Ahora aplicando el teorema de la divergencia de Gauss:
+    $$\int_{(\partial V, \vec{n})} \vec{F} = \int_{(S_0, \vec{n})} \vec{F} + \int_{(S_1, \vec{n})} \vec{F} + \int_{(S_2, \vec{n})} \vec{F}$$
+    Para $S_1$:
+    $$ S_1 \to \varphi \begin{cases}
+        x = \cos(\theta) \\
+        y = \sin(\theta) \\
+        z = z
+    \end{cases} \qquad
+    \begin{matrix}
+        0 \leq \theta \leq 2\pi \\
+        0 \leq z \leq 2
+    \end{matrix} \equiv D$$
+    Donde la normal es:
+    $$ \vec{N}_{\varphi_1} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        -\sin(\theta) & \cos(\theta) & 0 \\
+        0 & 0 & 1
+    \end{vmatrix} = (\cos(\theta), \sin(\theta), 0)$$
+    Ahora entoces la integral de la superficie $S_1$ es, como tenemos orientacion positiva:
+    %$$ \int_{(S_1, \vec{n})} \vec{F} = \int_{D} \langle \vec{F} \circ \varphi_1, \vec{N}_\varphi_1 \rangle = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=0}^{z=2} = \pi$$
+    Para $S_0$:
+    $$ S_0 \to \varphi \begin{cases}
+        x = x \\
+        y = y \\
+        z = 0 
+    \end{cases} \qquad
+    \begin{matrix}
+        x^2 + y^2 \leq 1 \\
+        z = 0
+    \end{matrix} \equiv E$$
+    Donde la normal es:
+    $$ \vec{N}_{\varphi_0} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0
+    \end{vmatrix} = (0,0,1)$$
+    Y asi la integrl sale, como tenemos orientacion negativa:
+    $$ \int_{(S_0, \vec{n})} \vec{F} = - \int_E \langle \vec{F} \circ \varphi_0, \vec{N}_{\varphi_0} \rangle = -\int_{x^2 + y^2 \leq 1} \langle (xy^2,x^2y,0), (0,0,1) \rangle dx dy = 0$$
+}
+
+\begin{proof}[Demostracion del teorema de la divergencia de Gauss para dominios proyectables]
+    Supongamos que $V$ es $z$-proyectable, es decir:
+    $$ V = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \in \overline{D}, \quad z \in [h(x,y), g(x,y)]\}$$
+    Siendo $\overline{D} = D \cup C$ como en el teorema de GReen, y $h,g : \overline{D} \to \mathbb{R}$ funciones de clase $C^1$ tales que, entonces:
+    $$ \int_V div(\vec{F}) = \int_V \frac{\partial}{\partial x} F_1 + \int_V \frac{\partial}{\partial y} F_2 + \int_V \frac{\partial}{\partial z} F_3$$
+    Veamos, para $F_3$ que:
+    $$ \int_{\partial V} \vec{F} = \int_{\partial V} (F_1, 0, 0) + \int_{\partial V} (0, F_2, 0) + \int_{(\partial V, \vec{n})} (0, 0, F_3)$$
+    Siendo estas dos ultimas integrales iguales, es decir $\int_{(\partial V, \vec{n})} (0, 0, F_3) = \int_V \frac{\partial}{\partial z} F_3$.\\
+    Tenemos que $\partial V = S_g \cup S_h \cup S_0$, entonces las normales son:
+    $$ \vec{N}_{g} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1 & 0 & \frac{\partial g}{\partial x} \\
+        0 & 1 & \frac{\partial g}{\partial y}
+    \end{vmatrix} = \left( -\frac{\partial g}{\partial x}, -\frac{\partial g}{\partial y}, 1 \right)$$
+    Siendo esta una normal exterior, al ser $g(x,y)$ la parte superior de la superficie, y tener esta normal una componente positiva en $z$.
+    $$ \vec{N}_{h} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1 & 0 & \frac{\partial h}{\partial x} \\
+        0 & 1 & \frac{\partial h}{\partial y}
+    \end{vmatrix} = \left( -\frac{\partial h}{\partial x}, -\frac{\partial h}{\partial y}, 1 \right)$$
+    Siendo esta una normal interior, al ser $h(x,y)$ la parte inferior de la superficie, y tener esta normal una componente positiva en $z$.\\
+    En $S_0$ la normal es $\vec{n}=(n1,n2,0)$ perpendicular a $(0,0,1)$, y su integral vale:
+    $$ \int_{(S_0, \vec{n})} (0,0,F_3) = \int_{(S_0, \vec{n})} \langle (0,0,F_3), (n1,n2,0) \rangle = 0$$
+    Asi juntando todo:
+    $$ \int_{(\partial V, \vec{n})} (0,0,F_3) = \int_{\overline{D} }$$
+        
+\end{proof}
