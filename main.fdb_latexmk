@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1745830872.30498 "c:/Users/paufr/OneDrive/Escritorio/Calculo-Integral/main.tex" "main.pdf" "main" 1745830875.82087 0
+["pdflatex"] 1746615121.41886 "c:/Users/paufr/OneDrive/Escritorio/Calculo-Integral/main.tex" "main.pdf" "main" 1746615125.99022 0
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1743090313 98131 e7cab088e33b68d95298c74a2242b25c ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1737830965 12668 44c2b6835b068e2daf954ff2dc327054 ""
   "C:/Users/paufr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi657/esint10.pk" 1739867973 13616 eb2ce24607ec8c3cff6f3f728e8586a8 ""
@@ -42,6 +42,8 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy9.tfm" 1136765053 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti12.tfm" 1136765053 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
+  "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti7.tfm" 1136765053 1492 86331993fe614793f5e7e755835c31c5 ""
+  "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti8.tfm" 1136765053 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/esint/esint10.tfm" 1136768653 364 55557743e6c24ee44e49bc5e8dbbe3cd ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
@@ -328,15 +330,16 @@
   "C:/Users/paufr/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Diagonal Matrix Command.tex" 1742918866 994 86797f6883aa9637224e9e09b84c6f7c ""
   "Preamble/Preamble.tex" 1744363445 11802 7b985509a41c58d7faab4233c415f58f ""
-  "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1745830871 14800 b2e3b03a0063a0693c0358f340ad415e ""
-  "Theory/Theory.tex" 1745829379 729 bbd56bab10475402f2c0783e3dfaaf29 ""
+  "Theory/10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex" 1746615119 28803 b5682a36872638f046da23210be0bad6 ""
+  "Theory/Theory.tex" 1746612261 729 bbd56bab10475402f2c0783e3dfaaf29 ""
   "c:/Users/paufr/OneDrive/Escritorio/Calculo-Integral/main.tex" 1743088192 842 663b855e7028e6591b632a81a2e917fa ""
   "images/ej4.png" 1745409532 399743 8debb3051d20788094b8d4a8da2d7175 ""
   "images/ej5.png" 1745425197 294046 af2b9d9c3416c1ec861f69178357341d ""
-  "main.aux" 1745830875 2398 282b33b871d80361bbc0b4ce538ed42a "pdflatex"
-  "main.out" 1745830875 663 00d7055f57f8af88bc15b3789aa0f365 "pdflatex"
+  "images/ej6.png" 1746039014 670786 e7429b37eb6207794aa7e64becdb5536 ""
+  "main.aux" 1746615125 4396 77f22f964ef6ac7759c228fceda77bc1 "pdflatex"
+  "main.out" 1746615125 663 00d7055f57f8af88bc15b3789aa0f365 "pdflatex"
   "main.tex" 1743088192 842 663b855e7028e6591b632a81a2e917fa ""
-  "main.toc" 1745830875 312 4c88e210c8291e7520995e76a6f9f33c "pdflatex"
+  "main.toc" 1746615125 312 4c88e210c8291e7520995e76a6f9f33c "pdflatex"
   (generated)
   "main.aux"
   "main.log"

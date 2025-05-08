@@ -223,3 +223,199 @@
     $$W = \{\vec{F}: \mathbb{R}^3  \setminus X \to \mathbb{R}^3  \text{ campo }C^1 \mid \vec{F} = \nabla g \text{ para algún } g \}$$
     obtengamos que $dim(V \setminus W) = 8$.
 }
+
+Sean $U \subset \mathbb{R}^3$ un abierto y $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$. Recordamos que se definía la divergencia de $\vec{F}$ como:
+$$ div(\vec{F}) = \nabla \cdot \vec{F} = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z} \quad \text{ donde } \quad \vec{F} = (F_1,F_2,F_3)$$
+
+
+\begin{teorema} [Teorema de la Divergencia de Gauss]
+    Sea $A \subset \mathbb{R}^3$ un conjunto abierto y acotado, y denotamos el sólido $V = \overline{A}$. Supongamos que $\partial V = S$ es una superficie cerrada, simple, regular-a-trozos y orientada con la normal exterior $\vec{n}$ a $V$.\\
+    Sea $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$, definido en un conjunto abierto $U \supset V$. Entonces se cumple la siguiente igualdad:
+    $$ \int_{V} div(\vec{F}) = \int_{(S, \vec{n})} \vec{F} = \int_{(\partial V, \vec{n})} \vec{F}$$
+\end{teorema}
+
+
+\begin{proof}
+    \underline{\text{Para dominios proyectables:}}\\
+    Supongamos que $V$ es z-proyectable, es decir, $V = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \in D, h(x,y) \leq z \leq g(x,y) \}$, donde $\overline{D} = D \cup C$ como en el teorema de Green, y $h,g : \overline{D} \to \mathbb{R}$ son funciones de clase $C^1$.
+    $$\int_{V} div(\vec{F}) = \int_{V} \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}$$
+    siendo $\vec{F} = (F_1,F_2,F_3)$.
+    Veamos que 
+    $$\int_{V} div(\vec{F}) = \int_{\partial V} \vec{F} = \int_{\partial V} (F_1,0,0) + \int_{\partial V} (0,F_2,0) + \int_{\partial V} (0,0,F_3)$$
+    Para ellos probaremos que $\int_{V} \frac{\partial F_3}{\partial z} = \int_{\partial V} (0,0,F_3)$. Suponiendo que $V$ es además x-proyectable e y-proyectable, obtendremos los resultados análogos para las integrales de $F_1$ y $F_2$.\\
+    $$\partial V = S_0 \cup S_g \cup S_h \quad \text{donde se definen las siguientes superficies:}$$
+    $$S_0 = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \in \partial D, h(x,y) \leq z \leq g(x,y) \}$$
+    $$S_g = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \in D, z = g(x,y)\}$$
+    $$S_h = \{(x,y,z) \in \mathbb{R}^3 : (x,y) \in D, z = h(x,y)\}$$
+    Considerando las parametrizaciones naturales $\varphi_g$ y $\varphi_h$ de $S_g$ y $S_h$, respectivamente, tenemos que:
+    $$\varphi_g(x,y) = \begin{cases}
+        x = x \\
+        y = y \\
+        z = g(x,y)
+    \end{cases} \qquad \varphi_h(x,y) = \begin{cases}
+        x = x \\
+        y = y \\
+        z = h(x,y)
+    \end{cases}$$
+    Entonces la normal a la superficie $S_g$ es:
+    $$\vec{N}_g = \frac{\partial \varphi_g}{\partial x} \times \frac{\partial \varphi_g}{\partial y} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1         & 0         & \frac{\partial g}{\partial x} \\
+        0         & 1         & \frac{\partial g}{\partial y}
+    \end{vmatrix} = \left( -\frac{\partial g}{\partial x}, -\frac{\partial g}{\partial y}, 1 \right)$$
+    que es la norma exterior, pues $\vec{N}_g$ apunta hacia arriba y la superficie $S_g$ es la parte superior de $V$. Por tanto, la orientación es positiva.\\
+    En el caso de $S_h$, tenemos que la normal es:
+    $$\vec{N}_h = \frac{\partial \varphi_h}{\partial x} \times \frac{\partial \varphi_h}{\partial y} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1         & 0         & \frac{\partial h}{\partial x} \\
+        0         & 1         & \frac{\partial h}{\partial y}
+    \end{vmatrix} = \left( -\frac{\partial h}{\partial x}, -\frac{\partial h}{\partial y}, 1 \right)$$
+    que es la norma interior, pues $\vec{N}_h$ apunta hacia arriba también, pero al ser $S_h$ la parte inferior de $V$, el vector es interior. Por tanto, la orientación es negativa.\\
+    En $S_0$, el vector normal $\vec{n}_0 = (n_1,n_2,0)$ es perpendicular al vector $(0,0,1)$, y por tanto se tiene que:
+    $$\int_{(S_0, \vec{n}_0)} (0,0,F_3) = \int_{S_0} \langle (0,0,F_3), (n_1,n_2,0) \rangle = \int_{S_0} 0 = 0$$
+    $$\int_{(\partial V, \vec{n}_0)} (0,0,F_3) = \underbrace{\int_{(S_0, \vec{n}_0)} (0,0,F_3)}_{0} + \int_{(S_g, \vec{n}_g)} (0,0,F_3) + \int_{(S_h, \vec{n}_h)} (0,0,F_3)$$
+    $$= \int_{\overline{D}} \vec{F}_3(x,y,g(x,y)) - \vec{F}_3(x,y,h(x,y))dxdy$$
+    por el teorema de Fubini tenemos 
+    $$ = \int_{D} \left[ F_3(x,y,z) \right]_{z=h(x,y)}^{z=g(x,y)} dx dy =\int_{V} \frac{\partial F_3}{\partial z} dz dy dx$$
+\end{proof}
+
+\begin{observación}
+    Aquí, $\partial V = S = Fr(V)$ es la frontera topológica de $V$.
+\end{observación}
+
+\ejemplo{
+    Verficar el teorema para el siguiente dominio:
+    $$ V = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \ z \in [0,2] \}$$
+    y el campo vectorial $\vec{F}(x,y,z) = (xy^2, x^2y, z)$.
+    Entonces vemos que la frontera de $V$ viene dada por $\partial V = S_0 \cup S_1 \cup S_2$, donde:
+    $$ S_0 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \ z = 0 \}$$
+    $$ S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1, \ z \in [0,2] \}$$
+    $$ S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 \leq 1, \ z = 2 \}$$
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{images/ej6.png}
+    \end{center} 
+    Entonce se tiene que $div(\vec{F}) = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z} = y^2 + x^2 + 1$.
+    \begin{itemize}
+        \item $$\int_{V} div(\vec{F}) = \int_{V} (y^2 + x^2 + 1) dx dy dz = \int_{z=0}^{z=2} \int_{\theta =0}^{\theta=2\pi} \int_{r=0}^{r=1} r(r^2+1)dr d\theta dz$$
+        $$= 4 \pi \int_{r=0}^{r=1} r^3+rdr = 4 \pi \left[ \frac{r^4}{4} + \frac{r^2}{2} \right]_{r=0}^{r=1} = 4\pi \left( \frac{1}{4} + \frac{1}{2} \right) = 4\pi \cdot \frac{3}{4} = 3\pi$$
+        \item $$\int_{(\partial V, \vec{n})} \vec{F} = \int_{(S_0, \vec{n}_0)} \vec{F} + \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F}$$
+        $$S_1 \rightarrow \varphi_1(x,y) = \begin{cases}
+            x = \cos(\theta) \\
+            y = \sin(\theta) \\
+            z = z
+        \end{cases} \qquad \text{donde } \theta \in [0,2\pi], z \in [0,2]$$
+        siendo $D = \{ (\theta,z) \in \mathbb{R}^2 : \theta \in [0,2\pi], z \in [0,2] \}$.
+        Entonces:
+        $$\vec{N}_{\varphi_1} = \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            -\sin(\theta) & \cos(\theta) & 0 \\
+            0 & 0 & 1
+        \end{vmatrix} = (\cos(\theta), \sin(\theta), 0)$$
+        que es una orientacion positiva, luego se tiene que
+        $$\int_{(S_1, \vec{n}_1)} \vec{F} = \int_{D} \langle \vec{F}(\varphi_1(x,y)), \vec{N}_{\varphi_1} \rangle dx dy = \int_{\theta =0}^{\theta=2\pi} \int_{z=0}^{z=2} \langle (\cos(\theta) \sin^2(\theta), \cos^2(\theta) \sin(\theta), z), (\cos(\theta), \sin(\theta), 0) \rangle dz d\theta$$
+        $$= \int_{\theta =0}^{\theta=2\pi} \int_{z=0}^{z=2} 2 \cos^2(\theta) \sin^2(\theta)dz d\theta = 4 \int_{\theta =0}^{\theta=2\pi} \cos^2(\theta) (1-\cos^2(\theta)) d\theta = \pi$$
+        $$S_0 \rightarrow \varphi_0(x,y) = \begin{cases}
+            x = x \\
+            y = y \\
+            z = 0
+        \end{cases} \qquad \text{donde } x^2 + y^2 \leq 1$$
+        siendo $E = \{ (x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \}$.
+        Entonces:
+        $$\vec{N}_{\varphi_0} = \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1 & 0 & 0 \\
+            0 & 1 & 0
+        \end{vmatrix} = (0,0,1)$$
+        que es una orientacion negativa, luego se tiene que
+        $$\int_{(S_0, \vec{n}_0)} \vec{F} = -\int_{E} \langle \vec{F}(\varphi_0(x,y)), \vec{N}_{\varphi_0} \rangle dx dy = -\int_{E} \langle (xy^2, x^2y, 0), (0,0,1) \rangle dx dy = 0$$
+        $$S_2 \rightarrow \varphi_2(x,y) = \begin{cases}
+            x = x \\
+            y = y \\
+            z = 2
+        \end{cases} \qquad \text{donde } x^2 + y^2 \leq 1$$
+        siendo $E = \{ (x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \}$.
+        Entonces:
+        $$\vec{N}_{\varphi_2} = \begin{vmatrix}
+            \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+            1 & 0 & 0 \\
+            0 & 1 & 0
+        \end{vmatrix} = (0,0,1)$$
+        que es una orientacion positiva, luego se tiene que
+        $$\int_{(S_2, \vec{n}_2)} \vec{F} = \int_{E} \langle \vec{F}(\varphi_2(x,y)), \vec{N}_{\varphi_2} \rangle dx dy = \int_{E} \langle (xy^2, x^2y, 2), (0,0,1) \rangle dx dy$$ 
+        $$= 2 \int_{E} dx dy = 2area(E) = 2 \cdot \pi$$
+        \item Entonces, sumando las integrales:
+        $$\int_{(S_0, \vec{n}_0)} \vec{F} + \int_{(S_1, \vec{n}_1)} \vec{F} + \int_{(S_2, \vec{n}_2)} \vec{F} = 0 + \pi + 2\pi = 3\pi$$
+        Vemos que las integrales coinciden, por lo que se cumple el teorema de la divergencia de Gauss.
+    \end{itemize}
+}
+
+\begin{teorema} [Teorema de la Divergencia de Gauss]
+    Sea $V \subset \mathbb{R}^3$ un sólido cuya frontera $S = \partial V$ es una superficie simple regular a trozos, que está orientada con la normal exterior $\vec{n}$ a $V$.\\
+    Sea $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$, definido en un conjunto abierto $U \supset V \cup S$. Entonces se cumple la siguiente igualdad:
+    $$ \int_{V} div(\vec{F}) = \int_{(S, \vec{n})} \vec{F}$$
+\end{teorema}
+
+\underline{Geometría de la Divergencia:}\\
+\begin{corolario}
+    En las condiciones anteriores, para cada $p \in U$ sea $B_r(p)$ la bola de radio $r$ centrada en $p$ y denotamos $S_r(p) = \partial B_r(p)$ la esfera correspondiente orientada con la normal exterior $\vec{n}$ a $B_r(p)$. En este caso, se cumple que:
+    $$ div(\vec{F})(p) = \lim_{r \to 0} \frac{1}{m(B_r(p))} \int_{(S_r(p), \vec{n})} \vec{F}$$ 
+\end{corolario}
+
+\begin{proof}
+    Denotamos $f = div(\vec{F}) : U \to \mathbb{R}$ que es una función continua en $U$.\\
+    Entonces $\forall \epsilon > 0$, $\exists \delta > 0$ tal que si $0 < r < \delta$ se cumple que:
+    $$ \left| f(x) - f(p) \right| < \epsilon \quad \forall x \in B_r(p)$$
+    Entonces, por el teorema de la divergencia de Gauss, tenemos que:
+    $$ \left| f(p) - \frac{1}{m(B_r(p))} \int_{(S_r(p), \vec{n})} \vec{F} \right| = \left| f(p) - \frac{1}{m(B_r(p))} \int_{(S_r(p), \vec{n})} f(x) \right|$$
+    $$ = \left| \frac{1}{m(B_r(p))} \left( \int_{B_r(p)} f(p) - \int_{(S_r(p), \vec{n})} f(x) \right) \right|$$
+    $$ \leq \frac{1}{m(B_r(p))} \left| \int_{B_r(p)} \left| f(p) - f(x) \right| \right| \leq \frac{1}{m(B_r(p))} m(B_r(p)) \cdot \epsilon = \epsilon$$
+\end{proof}
+
+\begin{observación}
+    Si $div(\vec{F})(p) = 0$ para todo $p \in U$, entonces se dice que $\vec{F}$ es incompresible en $U$.
+\end{observación}
+
+\begin{observación}
+    Sea $\vec{F} : U \to \mathbb{R}^3$ un campo vectorial de clase $C^1$. Entonces se cumple que:
+    $$ div(rot(\vec{F})) \equiv 0 \quad \text{en } U$$
+\end{observación}
+
+\begin{proof}
+    $$ rot(\vec{F}) = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        F_1 & F_2 & F_3
+    \end{vmatrix} = \left( \frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z}, \frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x}, \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right)$$
+    $$ div(rot(\vec{F})) = \frac{\partial^2 F_3}{\partial x \partial y} - \frac{\partial^2 F_2}{\partial x \partial z} + \frac{\partial^2 F_1}{\partial y \partial z} - \frac{\partial^2 F_3}{\partial y \partial x} + \frac{\partial^2 F_2}{\partial z \partial x} - \frac{\partial^2 F_1}{\partial z \partial y} \equiv 0$$
+    por ser $\vec{F}$ de clase $C^2$.
+\end{proof}
+
+\begin{observación}
+    Si $\varphi : U \to \mathbb{R}$ es una función de clase $C^2$, entonces se cumple que:
+    $$ rot(\nabla \varphi) \equiv 0 \quad \text{en } U$$
+\end{observación}
+
+\begin{observación}
+    Si $\varphi : U \to \mathbb{R}$ es una función de clase $C^2$, entonces se cumple que:
+    $$ div(\nabla \varphi) = div\left(\frac{\partial \varphi}{\partial x}, \frac{\partial \varphi}{\partial y}, \frac{\partial \varphi}{\partial z}\right) = \frac{\partial^2 \varphi}{\partial x^2} + \frac{\partial^2 \varphi}{\partial y^2} + \frac{\partial^2 \varphi}{\partial z^2} = \Delta \varphi$$
+    que es el operador Laplaciano.
+\end{observación}
+
+\ejemplo{
+    Dada la función $f(x,y,z) = x^2 + 2xy + z^2 -3x + 1$ y el campo vectorial $\vec{F} = (e^{-xy}, z \sin(y), x^2-z^2+y^2)$ y el sólido 
+    $$V = \{(x,y,z) \in \mathbb{R}^3 : 0 \leq z \leq 3-x^2-y^2, \ x^2 + y^2 + z^2 \geq 4z - 3 \}$$
+    Queremos calcular $$\int_{\partial V} \nabla f+rot(\vec{F})$$
+    De la ecuación $x^2 + y^2 + z^2 \geq 4z - 3$ analizamos el borde $x^2 + y^2 + (z-2)^2 = 1$.
+    $$ V = S_0 \cup S_1 \cup S_2$$
+    $$\int_{\partial V} \vec{G} = \int_{V} div(\vec{G}) \text{ donde } \vec{G} = \nabla f + rot(\vec{F})$$
+    $$div(\vec{G}) = div(\nabla f) + div(rot(\vec{F})) = \Delta f + 0 = \Delta f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} = 2 + 0 + 2 = 4$$
+    Luego 
+    $$\int_{\partial V} \vec{G} = \int_{V} div(\vec{G}) = \int_{V} 4 = 4 \cdot vol(V)$$
+    $$ vol(V) = vol(V_1) - vol(V_2)$$
+    donde $V_1$ es el volumen del paraboloide y $V_2$ es el volumen de la esfera.\\
+    $$V_1 = \{ (x,y,z) \in \mathbb{R}^3 : z \leq 3-x^2-y^2, \ 0 \leq z \leq 2 \}$$
+    $$vol(V_1) = \int_{\theta = 0}^{\theta = 2\pi} \int_{z = 0}^{z=2} \int_{r=0}^{r=\sqrt{3-z}} r dr dz d\theta = 2\pi \int_{z=0}^{z=2} \left[ \frac{r^2}{2} \right]_{r=0}^{r=\sqrt{3-z}} dz = 2\pi \int_{z=0}^{z=2} \frac{3-z}{2} dz$$
+    $$= \pi \left[ 3z - \frac{z^2}{2} \right]_{z=0}^{z=2} = \pi \left( 6 - 2 \right) = 4\pi$$
+    $$vol(V_2) = \frac{1}{2} \cdot \frac{4}{3} \pi r^3 = \frac{1}{2} \cdot \frac{4}{3} \pi (1)^3 = \frac{2\pi}{3}$$
+    $$\int_{\partial V} \vec{G} = 4 \cdot (vol(V_1) - vol(V_2)) = 4 \left(4\pi - \frac{2\pi}{3} \right)$$
+}
