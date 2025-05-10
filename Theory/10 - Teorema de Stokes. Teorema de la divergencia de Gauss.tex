@@ -329,3 +329,136 @@
     $$ \int_{(\partial V, \vec{n})} (0,0,F_3) = \int_{\overline{D} }$$
         
 \end{proof}
+
+\ejemplo{
+    Hoja 6, Ejercicio 9\\
+    Sean:
+    $$ V = \{(x,y,z) \in \mathbb{R}^3 : 0 \leq z \leq 1 - x^2 - y^2; \quad x \geq 0, \ y \geq 0\}$$
+    $$ S = \{(x,y,z) \in \mathbb{R}^3 : z = 1 - x^2 - y^2; \quad x \geq 0, \ y \geq 0, \ z \geq 0\}$$
+    $$C = \partial S$$
+    Calculemos primero el area de $S$:
+    $$ S \rightarrow \varphi \begin{cases}
+        x = x \\
+        y = y \\
+        z = 1 - x^2 - y^2
+    \end{cases} \qquad (x,y) \in D \equiv \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1, \quad x \geq 0, y \geq 0\}$$
+    Por tanto, la normal es:
+    $$ \vec{N}_\varphi =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        1 & 0 & -2x \\
+        0 & 1 & -2y
+    \end{vmatrix} = (2x, 2y, 1)$$
+    Cuyo modulo vale:
+    $$ \lVert \vec{N}_\varphi \rVert = \sqrt{(2x)^2 + (2y)^2 + 1^2} = \sqrt{4x^2+4y^2 + 1}$$
+    Asi el area de $S$ es:
+    $$ \text{área}(S) = \int_{D} \lVert \vec{N}_\varphi \rVert dx dy = \int_{D} \sqrt{4x^2 + 4y^2 + 1} dx dy = \int_{\theta = 0}^{\theta = \frac{\pi}{2}} \frac{1}{8} \int_{r=0}^{r=1} 8r \sqrt{4r^2 + 1} dr d\theta =$$
+    $$= \frac{\pi}{2} \frac{1}{8} \frac{2}{3} \left[ (4r^2 + 1)^{\frac{3}{2}} \right]_{r=0}^{r=1} = \frac{\pi}{24} \left( 5^{\frac{3}{2}} - 1 \right) = \frac{\pi}{24} \left( 5\sqrt{5} - 1 \right)$$
+    Ahora calculemos el volumen de $V$, pasando a coordenadas cilindricas:
+    $$ V \rightarrow \varphi \begin{cases}
+        x = r \cos(\theta) \\
+        y = r \sin(\theta) \\
+        z = z
+    \end{cases} \qquad V \equiv \{(r,\theta,z) \in \mathbb{R}^3 : 0 \leq z \leq 1 - r^2; \quad 0 \leq r \leq 1; \quad 0 \leq \theta \leq \frac{\pi}{2}\}, \qquad J=r$$
+    $$ \text{vol}(V) = \int_{V} 1 dx dy dz = \int_{\theta = 0}^{\theta = \frac{\pi}{2}} \int_{r=0}^{r=1} \int_{z=0}^{z=1 - r^2} r dz dr d\theta = \frac{\pi}{2} \int_{r=0}^{r=1} r(1 - r^2) dr = \frac{\pi}{8}$$
+    De otra forma, reordenando las integrales:
+    $$ \text{vol}(V) = \int_{z=0}^{z=1} \int_{\theta = 0}^{\theta = \frac{\pi}{2}} \int_{r=0}^{r=\sqrt{1 - z}} r dr d\theta dz = \frac{\pi}{8}$$
+    Ahora definamos el siguiente campo vectorial:
+    $$ \vec{F}(x,y,z) = (1-2z,0,2y)$$
+    Y entonces calculemos la integral en el borde de $S$, el cual es:
+    $$ \partial S = C_0 + C_1 + C_2$$
+    Vamos a aplicar el teorema de Stokes, por lo que tenemos que calcular el rotacional de $\vec{F}$:
+    $$ rot(\vec{F}) = \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        1 - 2z & 0 & 2y
+    \end{vmatrix} = \left( 2, -2, 0 \right)$$
+    Notese que el campo es constante, y que la normal que obtubimos antes es exterior, por lo que podemos tomar $\partial S$ en sentido antihorario.\\
+    Entonces calculemos la integral de $\vec{F}$ el borde $\partial S$:
+    $$ \int_{\partial S} \vec{F} = \int_{(S, \vec{n})} rot(\vec{F}) = \int_{(S, \vec{n})} \langle rot(\vec{F}), \vec{N}_\varphi \rangle = \int_{D} \langle (2, -2, 0), (2x, 2y, 1) \rangle dx dy = \int_{D} (4x - 4y) dx dy=$$
+    $$= \int_{\theta = 0}^{\theta = \frac{\pi}{2}} \int_{r=0}^{r=1} r^2 (4 \cos(\theta) - 4 \sin(\theta)) dr d\theta = \left( \int_{\theta = 0}^{\theta = \frac{\pi}{2}} \cos(\theta) - \sin(\theta) d\theta \right) \cdot \left( \int_{r=0}^{r=1} 4r^2 dr \right) =$$
+    $$= \left[ \sin(\theta) + \cos(\theta) \right]_{\theta = 0}^{\theta = \frac{\pi}{2}} \cdot \left[ \frac{4r^3}{3} \right]_{r=0}^{r=1} = 0$$
+}
+
+\ejemplo{
+    Hoja 6, Ejercicio 10\\
+    Sean las siguientes superficies, y el siguiente campo vectorial:
+    $$ S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z^2; \quad 1 \leq z \leq 2\}$$
+    $$ S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 4; \quad 2 \leq z \leq 3\}$$
+    $$ S = S_1 \cup S_2 = S_1 + S_2$$
+    $$ \vec{F}(x,y,z) = (y,-x,x+y+z)$$
+    $$ S_1 \cap S_2 = \partial S_1 \cap \partial S_2$$
+    Primero calculemos las parametrizaciones de las superficies, comprobemos que inducen orientaciones compatibles, y calculemos la orientacion en el borde:
+    $$ S_1 \to \varphi_1 \begin{cases}
+        x = z \cos(\theta) \\
+        y = z \sin(\theta) \\
+        z = z
+    \end{cases} \qquad 
+    \left(
+        \begin{array}{ccc}
+            1 \leq z \leq 2 \\
+            0 \leq \theta \leq 2\pi
+        \end{array}
+    \right)
+    \equiv D$$
+    Donde su normal es:
+    $$ \vec{N}_{\varphi_1} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        -z \sin(\theta) & z \cos(\theta) & 0 \\
+        \cos(\theta) & \sin(\theta) & 1
+        \end{vmatrix} = \left( z \cos(\theta), z \sin(\theta), -z \right)$$
+    Siendo esta una normal exterior, al ser $z$ negativo, y $x,y$ iguales a los del propio punto, por lo que el vector va hacia afuera.\\
+    Ahora vayamos a $S_2$:
+    $$ S_2 \to \varphi_2 \begin{cases}
+        x = 2 \cos(\theta) \\
+        y = 2 \sin(\theta) \\
+        z = z
+    \end{cases} \qquad
+    \left(
+        \begin{array}{ccc}
+            2 \leq z \leq 3 \\
+            0 \leq \theta \leq 2\pi
+        \end{array}
+    \right)
+    \equiv E$$
+    Donde su normal es:
+    $$ \vec{N}_{\varphi_2} =
+    \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        -2\sin(\theta) & 2\cos(\theta) & 0 \\
+        0 & 0 & 1
+    \end{vmatrix} = \left( 2\cos(\theta), 2\sin(\theta), 0 \right)$$
+    Siendo esta una normal exterior, como se aprecia ya que $x,y$ mantienen el mismo signo que el punto, y $z$ es $0$.\\
+    Por tanto son compatibles.\\
+    Notese que el cilindro $S_2$ induce en $\partial S_1 \cap \partial S_2$ una horientacion antihoraria, y el cono $S_1$ induce una orientacion horaria, es decir, inducen orientaciones opuestas, lo cual confirma que son compatibles.\\
+    Tenemos ahora que el borde se descompone en $\partial S = C_1^+ \cup C_3^-$, donde $C_1^+$ es la parte inferior del cono, y $C_3^+$ es la parte superior del cilindro, con orientaciones antihoraria y horaria respectivamente.\\
+    Ahora calculemos el rotacional de $\vec{F}$:
+    $$ rot(\vec{F}) = \nabla \times \vec{F} = \begin{vmatrix}
+        \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        y & -x & x + y + z
+    \end{vmatrix} = \left( 1, -1, -2 \right)$$
+    Por loq que la integral de $rot(\vec{F})$ en la superficie $S$ es:
+    $$ \int_{(S, \vec{n})} rot(\vec{F})$$
+    Separemos la integral en dos partes en $S_1$ y $S_2$:
+    $$ \int_{(S_1, \vec{n})} rot(\vec{F}) = \int_{(D, \vec{N}_{\varphi_1})} \langle rot(\vec{F}) \circ \varphi_1, \vec{N}_{\varphi_1} \rangle = \int_{D} \langle (1,-1,-2), (z\cos(\theta), z\sin(\theta), -z) \rangle =$$
+    $$ = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=1}^{z=2} z(\cos(\theta) - \sin(\theta) + 2) dz d\theta = 6\pi$$
+    $$ \int_{(S_2, \vec{n})} rot(\vec{F}) = \int_{(E, \vec{N}_{\varphi_2})} \langle rot(\vec{F}) \circ \varphi_2, \vec{N}_{\varphi_2} \rangle = \int_{E} \langle (1,-1,-2), (2\cos(\theta), 2\sin(\theta), 0) \rangle =$$
+    $$ = \int_{\theta = 0}^{\theta = 2\pi} \int_{z=2}^{z=3} (2\cos(\theta) - 2\sin(\theta)) dz d\theta = 0$$
+    Asi finalmente tenemos que:
+    $$ \int_{(S, \vec{n})} rot(\vec{F}) = \int_{(S_1, \vec{n})} rot(\vec{F}) + \int_{(S_2, \vec{n})} rot(\vec{F}) = 6\pi + 0 = 6\pi$$
+    Finalmente calculemos la integral usando el teorema de Stokes:
+    $$ \int_{(S, \vec{n})} rot(\vec{F}) = \int_{\partial S} \vec{F} $$
+    Para ello parametricemos los caminos, con las siguientes funciones:
+    $$ C_1^+ \to \gamma_1(t) = \left( \cos(t), \sin(t), 1 \right), \qquad t \in [0,2\pi] \implies \gamma_1'(t) = (-\sin(t), \cos(t), 0)$$
+    $$ C_3^+ \to \gamma_3(t) = \left( 2\cos(t), 2\sin(t), 3 \right), \qquad t \in [0,2\pi] \implies \gamma_3'(t) = (-2\sin(t), 2\cos(t), 0)$$
+    Notese que hemos parametrizado $C_3$ en sentido positivo, es decir, en sentido antihorario, cuando en $\partial S$ es en sentido horario, por lo que la integral de $C_3$ es negativa.\\
+    Ahora si calculemos ambas integrales:
+    $$ \int_{C_1^+} \vec{F} = \int_{t=0}^{t=2\pi} \langle \vec{F}(\gamma_1(t)), \gamma_1'(t) \rangle dt = \int_{t=0}^{t=2\pi} \langle (\sin(t), -\cos(t), 1 + \sin(t) + \cos(t)), (-\sin(t), \cos(t), 0) \rangle dt =$$
+    $$ = \int_{t=0}^{t=2\pi} -\sin^2(t) - \cos^2(t) = -2\pi$$
+    $$ \int_{C_3^+} \vec{F} = \int_{t=0}^{t=2\pi} \langle \vec{F}(\gamma_3(t)), \gamma_3'(t) \rangle dt = \int_{t=0}^{t=2\pi} \langle (2\sin(t), -2\cos(t), 3 + 2\sin(t) + 2\cos(t)), (-2\sin(t), 2\cos(t), 0) \rangle dt =$$
+    $$ = \int_{t=0}^{t=2\pi} -4\sin^2(t) - 4\cos^2(t) = -4\int_{t=0}^{t=2\pi} \sin^2(t) + \cos^2(t) dt = -8\pi$$
+    Y asi finalmente tenemos que, como hemos calculado la integral de $C_3^+$ que es opuesta a la de $C_3^-$, la cual es la que nos interesa:
+    $$ \int_{\partial S} \vec{F} = \int_{C_1^+} \vec{F} - \int_{C_3^+} \vec{F} = -2\pi - (- 8\pi) = 6\pi$$
+}
