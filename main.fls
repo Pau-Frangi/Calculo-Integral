@@ -488,12 +488,6 @@ INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstop
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
-INPUT .\main.out
-INPUT .\main.out
-INPUT main.out
-INPUT main.out
-INPUT .\main.out
-INPUT .\main.out
 OUTPUT main.out
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
@@ -562,9 +556,18 @@ INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha5.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT .\main.toc
-INPUT .\main.toc
-INPUT main.toc
+OUTPUT main.toc
+INPUT .\Theory\Theory.tex
+INPUT .\Theory\Theory.tex
+INPUT .\Theory\Theory.tex
+INPUT .\Theory\Theory.tex
+INPUT Theory\Theory.tex
+INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
+INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
+INPUT Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -583,18 +586,6 @@ INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha8.tfm
-OUTPUT main.toc
-INPUT .\Theory\Theory.tex
-INPUT .\Theory\Theory.tex
-INPUT .\Theory\Theory.tex
-INPUT .\Theory\Theory.tex
-INPUT Theory\Theory.tex
-INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
-INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
-INPUT Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT .\images\ej4.png
 INPUT .\images\ej4.png
 INPUT .\images\ej4.png
