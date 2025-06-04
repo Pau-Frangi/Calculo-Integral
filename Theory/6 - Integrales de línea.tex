@@ -75,34 +75,34 @@ Para la demostración del teorema anterior, veamos un lema previo:
               tomando el supremo de todas las particiones, obtenemos que $l(\gamma) \leq
                   \int_{a}^{b} \lVert \gamma'(t) \rVert dt$
         \item Como $t \to \lVert \gamma'(t) \rVert $ es continua en casi todo $[a,
-                          b]$-compacto, luego es uniformemente continua en $[a, b]$.\\ Dado $\epsilon >
+                          b]$-compacto, luego es uniformemente continua en $[a, b]$.\\ Dado $\varepsilon >
                   0, \exists \delta > 0$ tal que si $t,s \in [a, b]$ y $|t-s| < \delta \implies
-                  \lVert \gamma'(t) - \gamma'(s) \rVert < \epsilon$\\ Sea $\mathcal{P} = \{a =
+                  \lVert \gamma'(t) - \gamma'(s) \rVert < \varepsilon$\\ Sea $\mathcal{P} = \{a =
                   t_0 < t_1 < \ldots < t_n = b\}$ partición de $[a, b]$ con $t_i - t_{i-1} <
                   \delta \quad \forall i = 1, \ldots, n$\ $$\int_{t_{i-1}}^{t_i} \lVert
                   \gamma'(t) \rVert dt = \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) - \gamma'(t_i) +
                   \gamma'(t_i) \rVert dt \leq \int_{t_{i-1}}^{t_i} \underbrace{\lVert \gamma'(t)
-                      - \gamma'(t_i) \rVert}_{< \epsilon} dt + \lVert \gamma'(t_i) \rVert dt$$ $$\leq
-                  \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) \rVert + \epsilon dt = \lVert
-                  \gamma'(t_i) \rVert \cdot (t_i - t_{i -1}) + \epsilon(t_i - t_{i-1})$$ Usando
+                      - \gamma'(t_i) \rVert}_{< \varepsilon} dt + \lVert \gamma'(t_i) \rVert dt$$ $$\leq
+                  \int_{t_{i-1}}^{t_i} \lVert \gamma'(t_i) \rVert + \varepsilon dt = \lVert
+                  \gamma'(t_i) \rVert \cdot (t_i - t_{i -1}) + \varepsilon(t_i - t_{i-1})$$ Usando
               que para un vector $u \in \mathbb{R}^n$ y un escalar $c \in \mathbb{R}$ se
               cumple que $\lVert cu \rVert = |c| \cdot \lVert u \rVert$ entonces tenemos que:
-              $$= \lVert \gamma'(t_i) (t_i - t_{i-1}) \rVert + \epsilon(t_i - t_{i-1}) =
-                  \lVert \int_{t_{i-1}}^{t_i} \gamma'(t_i)dt \rVert + \epsilon(t_i - t_{i-1})$$
+              $$= \lVert \gamma'(t_i) (t_i - t_{i-1}) \rVert + \varepsilon(t_i - t_{i-1}) =
+                  \lVert \int_{t_{i-1}}^{t_i} \gamma'(t_i)dt \rVert + \varepsilon(t_i - t_{i-1})$$
               $$ = \lVert \int_{t_{i -1}}^{t_i}(\gamma'(t_i) - \gamma'(t))dt
-                  +\int_{t_{i-1}}^{t_i} \gamma'(t)dt \rVert + \epsilon(t_i - t_{i-1}) $$
+                  +\int_{t_{i-1}}^{t_i} \gamma'(t)dt \rVert + \varepsilon(t_i - t_{i-1}) $$
               Aplicando la desigualdad triangular: $$\leq \lVert
                   \int_{t_{i-1}}^{t_i}(\gamma'(t_i) - \gamma'(t))dt \rVert + \lVert
-                  \int_{t_{i-1}}^{t_i} \gamma'(t)dt \rVert + \epsilon(t_i - t_{i-1})$$ Por el
+                  \int_{t_{i-1}}^{t_i} \gamma'(t)dt \rVert + \varepsilon(t_i - t_{i-1})$$ Por el
               \cref{normaIntegrales} se sigue que: $$ \leq \int_{t_{i-1}}^{t_i}
-                  \underbrace{\lVert \gamma'(t_i) - \gamma'(t) \rVert}_{< \epsilon} dt + \lVert
-                  \int_{t_{i-1}}^{t_i} \gamma'(t) dt \rVert + \epsilon(t_i - t_{i-1}) \leq
-                  2\epsilon(t_i - t_{i-1}) + \lVert \int_{t_{i-1}}^{t_i} \gamma'(t) dt \rVert$$
-              $$ = 2\epsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert$$
+                  \underbrace{\lVert \gamma'(t_i) - \gamma'(t) \rVert}_{< \varepsilon} dt + \lVert
+                  \int_{t_{i-1}}^{t_i} \gamma'(t) dt \rVert + \varepsilon(t_i - t_{i-1}) \leq
+                  2\varepsilon(t_i - t_{i-1}) + \lVert \int_{t_{i-1}}^{t_i} \gamma'(t) dt \rVert$$
+              $$ = 2\varepsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert$$
               Luego, $$\int_{a}^{b} \lVert \gamma'(t) \rVert dt = \sum_{i = 1}^n
                   \int_{t_{i-1}}^{t_i} \lVert \gamma'(t) \rVert dt \leq \sum_{i =
-                      1}^{n}2\epsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert $$
-              $$= 2\epsilon(b-a) + \Sigma(\gamma, \mathcal{P}) \leq 2\epsilon(b-a) +
+                      1}^{n}2\varepsilon(t_i - t_{i-1}) + \lVert \gamma(t_i) - \gamma(t_{i-1}) \rVert $$
+              $$= 2\varepsilon(b-a) + \Sigma(\gamma, \mathcal{P}) \leq 2\varepsilon(b-a) +
                   l(\gamma)$$
     \end{enumerate}
 \end{proof}
@@ -326,17 +326,38 @@ El producto escalar $\langle \vec{F}(\gamma(t)), \gamma'(t) \rangle$ representa 
 \textbf{Notación:}\\
 Si
 \[
-    \gamma(t) = (x_1(t), \ldots, x_n(t)) \quad \text{y} \quad \gamma'(t) = (x_1'(t), \ldots, x_n'(t))
+    \gamma(t) = (\gamma_1(t), \ldots, \gamma_n(t)) \quad \text{y} \quad \gamma'(t) = (\gamma_1'(t), \ldots, \gamma_n'(t))
 \]
 entonces:
 \[
-    \int_\gamma \vec{F} = \int_a^b \langle \vec{F}(x_1(t), \ldots, x_n(t)), (x_1'(t), \ldots, x_n'(t)) \rangle dt
+    \int_\gamma \vec{F} = \int_a^b \langle \vec{F}(\gamma_1(t), \ldots, \gamma_n(t)), (\gamma_1'(t), \ldots, \gamma_n'(t)) \rangle dt
 \]
 \[
-    = \int_a^b \left[ F_1(\gamma(t)) x_1'(t) + \cdots + F_n(\gamma(t)) x_n'(t) \right] dt = \int_\gamma F_1 \, dx_1 + \cdots + F_n \, dx_n
+    = \int_a^b \left[ F_1(\gamma(t)) \gamma_1'(t) + \cdots + F_n(\gamma(t)) \gamma_n'(t) \right] dt = \int_\gamma F_1 \, dx_1 + \cdots + F_n \, dx_n
 \]
-donde $dx_i = x_i'(t) dt$, para $i = 1, \ldots, n$ y $\vec{F} = (F_1, \ldots,
-    F_n)$.\\
+donde $dx_i = \gamma_i'(t) dt$, para $i = 1, \ldots, n$ y $\vec{F} = (F_1, \ldots,
+    F_n)$.
+
+\medskip
+
+Fijémonos que $F_i$ son funciones escalares para todo $i = 1, \ldots, n$, por lo que no debe confundirse la notación 
+\[
+    \int_\gamma F_i \, dx_i
+\]
+con la integral de una función escalar sobre un camino, que se denota como
+\[
+    \int_\gamma f \, ds.
+\]
+Esta distinción es clave: la expresión $\int_\gamma F_i \, dx_i$ representa la contribución del campo vectorial $\vec{F}$ en la dirección del eje $x_i$ a lo largo del camino $\gamma$, y equivale a
+\[
+    \int_a^b F_i(\gamma(t)) \, \gamma_i'(t) \, dt.
+\]
+En cambio, la integral $\int_\gamma f \, ds$ se refiere a la integral escalar de una función $f : \mathbb{R}^n \to \mathbb{R}$ con respecto a la longitud de arco, y se define como
+\[
+    \int_\gamma f \, ds := \int_a^b f(\gamma(t)) \, \lVert \gamma'(t) \rVert \, dt.
+\]
+Ambas integrales involucran funciones escalares, pero su interpretación y significado geométrico son distintos: una está relacionada con trabajo realizado por un campo vectorial, y la otra con la acumulación de una magnitud escalar a lo largo de un camino.
+    
 
 \begin{teorema}
     Sean $\gamma : [a, b] \to \mathbb{R}^n$ y $\sigma : [c, d] \to \mathbb{R}^n$ caminos $\mathcal{C}^1$ a trozos y equivalentes, y sea $\vec{F} : \operatorname{Im}(\gamma) = \operatorname{Im}(\sigma) \to \mathbb{R}^n$ un campo vectorial continuo. Entonces:
@@ -414,7 +435,7 @@ Diremos que una función \( \gamma: [a,b] \to \mathbb{R}^n \) es un \textbf{cami
 \begin{itemize}
     \item \( \gamma \) es continua.
     \item \( \gamma \) es inyectiva (simple).
-    \item \( \gamma \) es de clase \( C^1 \) en \( [a,b] \) y cumple que \( \gamma'(t) \neq 0 \) para todo \( t \in [a,b] \).
+    \item \( \gamma \) es de clase \( C^1 \) en \( [a,b] \) y cumple que \( \gamma'(t) \neq 0 \) para todo \( t \in [a,b] \) (regular).
 \end{itemize}
 \end{definición}
 
@@ -479,9 +500,9 @@ Diremos que una función \( \gamma: [a,b] \to \mathbb{R}^n \) es un \textbf{cami
               $$F(\gamma(t)) = \pi_1(H^{-1}(\gamma(t))) = \pi_1(H^{-1} \circ H(t, 0, \ldots, 0)) = \pi_1(t, 0, \ldots, 0) = t$$
               Si $t = h(s)$ entonces $F(\gamma(h(s))) = F(\sigma(s))$ luego $h$ es de clase $C^1$ alrededor de $s_0$. Además, $\sigma'(s_0) = (\gamma \circ h)'(s_0) = \gamma(t_0) \circ h'(s_0) \implies h'(s_0) \neq 0$ \\
         \item Para los exteriores de $c$ y $d$ se usa que: $\sigma: [c,d] \to \mathbb{R}^n$
-              es de clase $C^1$ entonces $\exists \bar{\sigma}: (c - \epsilon, d + \epsilon)
+              es de clase $C^1$ entonces $\exists \bar{\sigma}: (c - \varepsilon, d + \varepsilon)
                   \to \mathbb{R}^n$ extensión de clase $C^1$ y además $\bar{\sigma}' \neq 0$ en
-              $(c - \epsilon, d + \epsilon)$
+              $(c - \varepsilon, d + \varepsilon)$
     \end{itemize}
 \end{proof}
 
@@ -498,9 +519,9 @@ Una gráfica en $\mathbb{R}^n$: Sea $g: [a, b] \to \mathbb{R}$ de clase $C^1$. L
 \begin{observación}
 Si $\gamma: [a,b] \to \mathbb{R}^n$ es una curva simple regular, entones $\gamma$ es un homeomorfismo sobre su imagen, i.e. $\gamma: [a, b] \to C = Im(\gamma)$ es un homeomorfismo. \\
 Falta demostrar que $\gamma^{-1}: C \to [a,b]$ es continua.\\
-Si no fuera así: Sea $x_0 \in C$ tal que $\gamma^{-1}$ no es continua en $x_0$ entonces $\exists \epsilon > 0$ tal que $\forall \delta = \frac{1}{k} > 0, \exists x_k \in C$ con $ ||x_k - x_0|| \leq \frac{1}{k}$ pero $||\gamma^{-1}(x_k) - \gamma^{-1}(x_0)|| > \epsilon$ \\
+Si no fuera así: Sea $x_0 \in C$ tal que $\gamma^{-1}$ no es continua en $x_0$ entonces $\exists \varepsilon > 0$ tal que $\forall \delta = \frac{1}{k} > 0, \exists x_k \in C$ con $ ||x_k - x_0|| \leq \frac{1}{k}$ pero $||\gamma^{-1}(x_k) - \gamma^{-1}(x_0)|| > \varepsilon$ \\
 $\forall k \in \N$, denotemos $(t_k)_{k \in \N} = (\gamma^{-1}(x_k)) \subset [a,b]$-compacto $\implies \exists (t_{k_j}) \to t_0 \in [a,b]$ y como $\gamma$ es continua $\implies \gamma(t_{k_j}) \to \gamma(t_0) \equiv (x_{k_j}) \to x_0$ \\
-Luego $x_0 = \gamma(t_0) \iff t_0 = \gamma^{-1}(x_0)$. Pero $t_{k_j} = \gamma^{-1}(x_{k_j})$ satisface que $||t_{k_j} - t_0|| \geq \epsilon \iff ||\gamma^{-1}(x_{k_j}) - \gamma^{-1}(x_0)|| \geq \epsilon$ lo cual es una contradicción.
+Luego $x_0 = \gamma(t_0) \iff t_0 = \gamma^{-1}(x_0)$. Pero $t_{k_j} = \gamma^{-1}(x_{k_j})$ satisface que $||t_{k_j} - t_0|| \geq \varepsilon \iff ||\gamma^{-1}(x_{k_j}) - \gamma^{-1}(x_0)|| \geq \varepsilon$ lo cual es una contradicción.
 \end{observación}
 
 \begin{definición} [Integral de una Función a lo largo de una Curva]
@@ -576,6 +597,32 @@ donde $\varphi$ es un potencial de $\vec{F}$.
     \end{enumerate}
 \end{proof}
 
+\begin{lema}
+    Sea el conjunto \( U \subset \mathbb{R}^n \) abierto y conexo. Dados los puntos \( p, x \in U \), entonces existe una poligonal \( \sigma \) de lados paralelos a los ejes coordenados contenida en \( U \), tal que \( \sigma \) une \( p \) con \( x \).
+    \label{lema:poligonal}
+\end{lema}
+
+\begin{proof}
+    Sea el conjunto
+    \[
+    A = \left\{ x \in U \,\middle|\, \text{existe una poligonal } \sigma \subset U \text{ de lados paralelos a los ejes coordenados que une } p \text{ con } x \right\}.
+    \]
+    Demostraremos que \( A = U \), lo que implica la afirmación del lema.
+
+    \begin{itemize}
+        \item Primero, observamos que \( p \in A \), ya que el camino constante \( \sigma(t) = p \) es una poligonal trivial que une \( p \) consigo mismo. Por lo tanto, \( A \neq \emptyset \).
+        
+        \item Veamos que \( A \) es abierto en \( U \). Sea \( x \in A \). Como \( U \) es abierto, existe \( \varepsilon > 0 \) tal que la bola abierta \( B(x, \varepsilon) \subset U \). Sea \( y \in B(x, \varepsilon) \), por la regularidad de la forma de \(B(x, \varepsilon)\), podemos construir una poligonal \( \sigma_{xy} \) de lados paralelos a los ejes coordenados que una \( x \) con \( y \) y esté contenida en \( B(x, \varepsilon) \subset U \). Como por hipótesis existe una poligonal \( \sigma_{x} \) que une \( p \) con \( x \), concatenando \( \sigma_{x} \) con \( \sigma_{xy} \) obtenemos una poligonal que une \( p \) con \( y \), toda contenida en \( U \), y con lados paralelos a los ejes coordenados. Por lo tanto, \( y \in A \), lo que implica que \( B(x, \varepsilon) \subset A \). Así, \( A \) es abierto en \( U \).
+
+        \item Ahora veamos que \( A \) es cerrado en \( U \), es decir, que \( U \setminus A \) es abierto. Sea \( x \in U \setminus A \). Como \( U \) es abierto, existe \( \varepsilon > 0 \) tal que \( B(x, \varepsilon) \subset U \). Supongamos que existe \( y \in B(x, \varepsilon) \cap A \). Entonces existe una poligonal \( \sigma_{py} \) que une \( p \) con \( y \), y como \( y \in B(x, \varepsilon) \), se puede construir una poligonal \( \sigma_{yx} \) dentro de \( B(x, \varepsilon) \subset U \) que une \( y \) con \( x \). La concatenación de estas dos poligonales daría una poligonal que une \( p \) con \( x \), lo cual contradice que \( x \in U \setminus A \). Por lo tanto, \( B(x, \varepsilon) \subset U \setminus A \), lo que prueba que \( U \setminus A \) es abierto. Así, \( A \) es cerrado en \( U \).
+    \end{itemize}
+
+    Como \( A \) es abierto y cerrado en \( U \), y \( U \) es conexo, se sigue que \( A = U \).
+
+    Por lo tanto, para cualquier \( x \in U \), existe una poligonal de lados paralelos a los ejes coordenados contenida en \( U \) que une \( p \) con \( x \).
+\end{proof}
+
+
 \begin{teorema} [Caracterización de los Campos Conservativos]
     Sea el conjunto $U \subset \mathbb{R}^n$ abierto y conexo, y $\vec{F}: U \to \mathbb{R}^n$ un campo vectorial continuo, entonces son equivalentes:
     \begin{enumerate}
@@ -599,36 +646,54 @@ donde $\varphi$ es un potencial de $\vec{F}$.
               \[
                   0 = \int_{\gamma} \vec{F} = \int_{\gamma_1 + (-\gamma_2)} \vec{F} = \int_{\gamma_1} \vec{F} - \int_{\gamma_2} \vec{F} \implies \int_{\gamma_1} \vec{F} = \int_{\gamma_2} \vec{F}
               \]
+        \item $(3) \implies (2):$ Sea $\gamma : [a,b] \to U$ un camino cerrado de clase $C^1$ a trozos. Dado un punto $c \in (a,b)$, consideramos los caminos $\gamma_1 = \gamma |_{[a,c]}$ y $\gamma_2 = \gamma |_{[c,b]}$. Luego tenemos que $\gamma_1$ y $-\gamma_2$ son caminos $C^1$ a trozos con los mismos extremos, y por hipótesis:
+            \[
+                \int_{\gamma_1} \vec{F} = \int_{-\gamma_2} \vec{F} \iff \int_{\gamma_1} \vec{F} - \int_{-\gamma_2} \vec{F} = 0
+            \]
+            Luego teniendo en cuenta que $\gamma = \gamma_1 + \gamma_2$ se sigue que:
+            \[
+                \int_{\gamma} \vec{F} = \int_{\gamma_1} \vec{F} + \int_{\gamma_2} \vec{F} = \int_{\gamma_1} \vec{F} - \int_{-\gamma_2} \vec{F} = 0
+            \]
         \item $(2) \implies (4)$ y $(3) \implies (5)$: trivial
         \item $(4) \implies (5):$ es análogo a $(2) \implies (3)$.
-        \item $(5) \implies (1):$ Consideramos un punto \(x \in U\) y un vector unitario \(\vec{e}_i\) en la dirección del eje \(i\)-ésimo. Tomamos un segmento de línea recta \(\gamma\) que va de \(x\) a \(x + h \vec{e}_i\), donde \(h\) es un número real pequeño.
+        \item $(5) \implies (1):$ Fijado un punto $p \in U$, para cada $x \in U$ definimos la función \(\varphi : U \to \mathbb{R}\) como:
 
-              La integral de \(\vec{F}\) sobre \(\gamma\) es:
-              \[
-                  \int_{\gamma} \vec{F} = \varphi(x + h \vec{e}_i) - \varphi(x)
-              \]
+        \[
+        \varphi(x) = \int_{\sigma_{p,x}} \vec{F}
+        \]
+        
+        donde \(\sigma_{p,x}\) es una poligonal de lados paralelos a los ejes coordenados que conecta \(p\) con \(x\). Dicho poligonal siempre existe $\forall p, x \in U$ por el \cref{lema:poligonal}.
+        
+        Por la hipótesis (5), esta integral no depende del camino poligonal elegido, sino únicamente de los extremos. Por tanto, \(\varphi(x)\) está bien definida.
 
-              Dividiendo ambos lados por \(h\) y tomando el límite cuando \(h \to 0\),
-              obtenemos:
-              \[
-                  \lim_{h \to 0} \frac{\varphi(x + h \vec{e}_i) - \varphi(x)}{h} = \frac{\partial \varphi}{\partial x_i}(x)
-              \]
+        Queremos demostrar que \(\varphi\) es un potencial de \(\vec{F}\), es decir, que \(\nabla \varphi = \vec{F}\).
 
-              Por otro lado, la integral de \(\vec{F}\) sobre \(\gamma\) también se puede
-              expresar como:
-              \[
-                  \int_{\gamma} \vec{F} = \int_{t=0}^{t=h} \langle \vec{F}(\gamma(t)), \gamma'(t) \rangle dt = \int_{t=0}^{t=h} \langle \vec{F}(x + t \vec{e}_i), \vec{e}_i \rangle dt = \int_{t=0}^{t=h} F_i(x + t \vec{e}_i) \, dt
-                \]
+        Para ello, consideramos un punto \(x \in U\) y un vector unitario \(\vec{e}_i\) en la dirección del eje \(i\)-ésimo. Suponemos que el segmento de recta desde \(x\) a \(x + h \vec{e}_i\) está contenido en \(U\), lo cual es posible si se escoge $h$ suficientemente pequeño ya que \(U\) es abierto y conexo.
 
-              Tomando el límite cuando \(h \to 0\), obtenemos:
-              \[
-                  \lim_{h \to 0} \frac{1}{h} \int_{t=0}^{t=h} \vec{F}_i(x + t \vec{e}_i) \, dt = \lim_{h \to 0} \frac{1}{h} \varphi(x + h \vec{e}_i) - \varphi(x) = \lim_{h \to 0} \frac{\varphi(x + h \vec{e}_i) - \varphi(x)}{h}
-                \]
+        Entonces:
+        \[
+            \varphi(x + h \vec{e}_i) - \varphi(x) = \int_{\sigma_{p,x+h\vec{e}_i}} \vec{F} - \int_{\sigma_{p,x}} \vec{F} = \int_{\sigma_{x,x+h\vec{e}_i}} \vec{F}
+        \]
 
-              Luego
-              \[
-                  \frac{\partial \varphi}{\partial x_i}(x) = F_i(x) \implies \nabla \varphi = \vec{F}
-              \]
+        \[
+            = \int_{t=0}^{t=1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt
+            = \int_{t=0}^{t=1} \langle \vec{F}(\sigma(t)), h \vec{e}_i \rangle dt
+            = h \int_{t=0}^{t=1} F_i(\sigma(t)) dt
+        \]
+        donde \(\sigma(t) = x + t h \vec{e}_i\), $t \in [0,1]$ es un camino poligonal de lados paralelos a los ejes coordenados que conecta \(x\) con \(x + h \vec{e}_i\).
+        Por lo tanto, tenemos:
+        \[
+            \frac{\varphi(x + h \vec{e}_i) - \varphi(x)}{h} = \int_{t=0}^{t=1} F_i(\sigma(t)) dt
+        \]
+        Tomando el límite cuando \(h \to 0\), obtenemos:
+        \[
+            \lim_{h \to 0} \frac{\varphi(x + h \vec{e}_i) - \varphi(x)}{h} = \lim_{h \to 0} \int_{t=0}^{t=1} F_i(\sigma(t)) dt = \int_{t=0}^{t=1} \lim_{h \to 0} F_i(\sigma(t)) dt
+        \]
+        \[
+            = \int_{t=0}^{t=1} \lim_{h \to 0} F_i(x + t h \vec{e}_i) dt = \int_{t=0}^{t=1} F_i(x) dt = F_i(x) \implies \frac{\partial \varphi}{\partial x_i} = F_i(x)
+        \]
+        donde hemos utilizado el Teorema de la convergencia dominada para intercambiar límite e integral al ser $\vec{F}_i$ continua.\\
+        Por lo tanto, hemos demostrado que \(\nabla \varphi = \vec{F}\) en \(U\), lo que implica que \(\vec{F}\) es conservativo.
     \end{itemize}
 \end{proof}
 
@@ -640,39 +705,6 @@ Además en este caso, si fijamos un punto $p \in U$ la función $\varphi: U \to 
 \]
 es un potencial de $\vec{F}$ en $U$.
 \end{observación}
-
-\begin{lema}
-    Sea el conjunto $U \subset \mathbb{R}^n$ abierto y conexo. Dados los puntos $p, x \in U$, entonces existe $\sigma$ poligonal de lados paralelos a los ejes coordenados en $U$ tal que $\sigma$ une $p$ con $x$.
-\end{lema}
-
-\begin{proof}
-    Sea el conjunto $$A = \{x \in U \mid \text{existe } \sigma \text{ poligonal de lados paralelos a los ejes coordenados que une } p \text{ con } x\}$$
-    \begin{itemize}
-        \item $p \in A \neq \emptyset$.
-        \item $A$ es abierto. Si $x \in A$ entonces $x \in U$ abierto, luego $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Además, $B(x, \epsilon) \subset A$. Si $y \in B(x, \epsilon)$ entonces $\exists \sigma_{xy}$ poligonal que une $x$ con $y$ y también existe $\sigma_{x}$ poligonal que une $p$ con $x$. Por lo tanto, $\sigma_{x} + \sigma_{xy}$ es un poligonal que une $p$ con $y$.
-        \item $A$ es cerrado en $U$. $U \setminus A$ es abierto. Si $x \in U \setminus A$ entonces $\exists \epsilon > 0$ tal que $B(x, \epsilon) \subset U$. Como antes, se tiene que $B(x, \epsilon) \subset U \setminus A$.
-    \end{itemize}
-    Por lo tanto, $A$ es abierto y cerrado en $U$ y como $U$ es conexo, $A = U$.\\
-    Podemos definir $\varphi(x) = \int_{\sigma_{x}} \vec{F}$ donde $\sigma_{x}$ es un poligonal de $U$ de lados paralelos a los ejes coordenados que une $p$ con $x$.\\
-    Veamos que $\varphi$ es un potencial de $\vec{F}$ en $U$, es decir, $\nabla \varphi = \vec{F}$, o que es lo mismo:
-    $$\vec{F} = (F_1, \ldots, F_n) = \left(\frac{\partial \varphi}{\partial x_1}, \ldots, \frac{\partial \varphi}{\partial x_n}\right)$$
-    Por tanto nos preguntamos si $\lim_{h \to 0} \frac{\varphi(x + h\vec{e}_i) - \varphi(x)}{h} = F_i(x)$ para $i = 1, \ldots, n$.
-    $$ \varphi (x + h\vec{e}_i) - \varphi(x) = \int_{p}^{x + h\vec{e}_i} \vec{F} - \int_{p}^{x} \vec{F} = \int_{x}^{x + h\vec{e}_i} \vec{F}$$
-    $$= \int_{t=0}^{t=1} \langle \vec{F}(\sigma(t)), \sigma'(t) \rangle dt
-        = \int_{t=0}^{t=1} \langle \underbrace{\vec{F}(\sigma(t))}_{(F_1, \ldots, F_n)},
-        h \vec{e}_i \rangle dt = \int_{t=0}^{t=1} h F_(\sigma(t)) dt$$
-    donde
-    \[
-        \begin{cases}
-            \sigma(t) = x + th\vec{e}_i, \quad t \in [0,1]  \\
-            \sigma(0) = x, \quad \sigma(1) = x + h\vec{e}_i \\
-            \sigma'(t) = h \vec{e}_i
-        \end{cases}
-    \]
-    $$ \frac{\varphi(x+h\vec{e}_i)-\varphi(x)}{h} = \frac{1}{h} \int_{t=0}^{t=1} h F_i(x+th\vec{e}_i) dt$$
-    Expresando $G(t,h) = F_i(x+th\vec{e}_i)$ en términos de $t$ y $h$, entonces obtenemos que $G$ es continua en $h$ y $t$, por lo tanto, podemos aplicar el teorema de la convergencia dominada de Lebesgue para intercambiar el límite y la integral.
-    $$\lim_{h \to 0} \frac{\varphi(x+h\vec{e}_i)-\varphi(x)}{h} = \lim_{h \to 0} \int_{t=0}^{t=1} F_i(x+th\vec{e}_i) dt = \int_{t=0}^{t=1} \lim_{h \to 0} F_i(x+th\vec{e}_i) dt = \int_{t=0}^{t=1} F_i(x) dt = F_i(x)$$
-\end{proof}
 
 \ejemplo{
     Sea el campo vectorial $\vec{F}: \mathbb{R}^r \to \mathbb{R}^3$ dado por $\vec{F}(x,y,z) = (y, x+z\cos(yz), y\cos(yz))$, veamos si es conservativo.\\

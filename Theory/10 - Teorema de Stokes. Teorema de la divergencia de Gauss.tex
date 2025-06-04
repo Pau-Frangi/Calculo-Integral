@@ -148,10 +148,10 @@
     De donde pasamos a:
     $$ \int_{D_r} \langle rot\vec{F} (p), \vec{u} \rangle_{\text{constante}} = \langle rot\vec{F} (p), \vec{u} \rangle \cdot \text{área}(D_r)$$
     Entonces:
-    $$ \forall \epsilon > 0, \quad \exists \delta > 0: \quad 0 < r < \delta \implies \lVert rot\vec{F} (x,y,z) - rot\vec{F} (p) \rVert < \epsilon \quad \forall (x,y,z) \in D_r \implies $$
-    $$ \implies \left| \int_{D_r} \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle \right| \leq \int_{D_r} \left| \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle \right| \leq \int_{D_r} \lVert rot\vec{F} - rot\vec{F} (p) \rVert \leq \epsilon \cdot \text{área}(D_r)$$
+    $$ \forall \varepsilon > 0, \quad \exists \delta > 0: \quad 0 < r < \delta \implies \lVert rot\vec{F} (x,y,z) - rot\vec{F} (p) \rVert < \varepsilon \quad \forall (x,y,z) \in D_r \implies $$
+    $$ \implies \left| \int_{D_r} \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle \right| \leq \int_{D_r} \left| \langle rot\vec{F} - rot\vec{F} (p), \vec{u} \rangle \right| \leq \int_{D_r} \lVert rot\vec{F} - rot\vec{F} (p) \rVert \leq \varepsilon \cdot \text{área}(D_r)$$
     Luego:
-    $$ \left| \frac{1}{\text{área}(D_r)} \int_{C_r^+} \vec{F} - \langle rot\vec{F} (p), \vec{u} \rangle \right| < \epsilon \quad \forall 0 < r < \delta$$
+    $$ \left| \frac{1}{\text{área}(D_r)} \int_{C_r^+} \vec{F} - \langle rot\vec{F} (p), \vec{u} \rangle \right| < \varepsilon \quad \forall 0 < r < \delta$$
 \end{proof}
 
 \begin{definición}
@@ -364,12 +364,12 @@ $$ div(\vec{F}) = \nabla \cdot \vec{F} = \frac{\partial F_1}{\partial x} + \frac
 
 \begin{proof}
     Denotamos $f = div(\vec{F}) : U \to \mathbb{R}$ que es una función continua en $U$.\\
-    Entonces $\forall \epsilon > 0$, $\exists \delta > 0$ tal que si $0 < r < \delta$ se cumple que:
-    $$ \left| f(x) - f(p) \right| < \epsilon \quad \forall x \in B_r(p)$$
+    Entonces $\forall \varepsilon > 0$, $\exists \delta > 0$ tal que si $0 < r < \delta$ se cumple que:
+    $$ \left| f(x) - f(p) \right| < \varepsilon \quad \forall x \in B_r(p)$$
     Entonces, por el teorema de la divergencia de Gauss, tenemos que:
     $$ \left| f(p) - \frac{1}{m(B_r(p))} \int_{(S_r(p), \vec{n})} \vec{F} \right| = \left| f(p) - \frac{1}{m(B_r(p))} \int_{(S_r(p), \vec{n})} f(x) \right|$$
     $$ = \left| \frac{1}{m(B_r(p))} \left( \int_{B_r(p)} f(p) - \int_{(S_r(p), \vec{n})} f(x) \right) \right|$$
-    $$ \leq \frac{1}{m(B_r(p))} \left| \int_{B_r(p)} \left| f(p) - f(x) \right| \right| \leq \frac{1}{m(B_r(p))} m(B_r(p)) \cdot \epsilon = \epsilon$$
+    $$ \leq \frac{1}{m(B_r(p))} \left| \int_{B_r(p)} \left| f(p) - f(x) \right| \right| \leq \frac{1}{m(B_r(p))} m(B_r(p)) \cdot \varepsilon = \varepsilon$$
 \end{proof}
 
 \begin{observación}
@@ -476,11 +476,13 @@ $$ div(\vec{F}) = \nabla \cdot \vec{F} = \frac{\partial F_1}{\partial x} + \frac
     Sean las siguientes superficies, y el siguiente campo vectorial:
     $$ S_1 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = z^2; \quad 1 \leq z \leq 2\}$$
     $$ S_2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 4; \quad 2 \leq z \leq 3\}$$
-    $$ S = S_1 \cup S_2 = S_1 + S_2$$
+    $$ S = S_1 \cup S_2 \qquad S_1 \cap S_2 = \partial S_1 \cap \partial S_2 = C_2 \qquad \partial S = \partial S_1 \triangle \partial S_2 = C_1 \cup C_3$$
     $$ \vec{F}(x,y,z) = (y,-x,x+y+z)$$
-    $$ S_1 \cap S_2 = \partial S_1 \cap \partial S_2$$
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/ej7.png}
+    \end{center} 
     Primero calculemos las parametrizaciones de las superficies, comprobemos que inducen orientaciones compatibles, y calculemos la orientacion en el borde:
-    $$ S_1 \to \varphi_1 \begin{cases}
+    $$ S_1 \to \varphi_1(\theta,z) = \begin{cases}
         x = z \cos(\theta) \\
         y = z \sin(\theta) \\
         z = z
@@ -493,7 +495,7 @@ $$ div(\vec{F}) = \nabla \cdot \vec{F} = \frac{\partial F_1}{\partial x} + \frac
     \right)
     \equiv D$$
     Donde su normal es:
-    $$ \vec{N}_{\varphi_1} =
+    $$ \vec{N}_{\varphi_1} = \frac{\partial \varphi_1}{\partial \theta} \times \frac{\partial \varphi_1}{\partial z} =
     \begin{vmatrix}
         \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
         -z \sin(\theta) & z \cos(\theta) & 0 \\
@@ -501,7 +503,7 @@ $$ div(\vec{F}) = \nabla \cdot \vec{F} = \frac{\partial F_1}{\partial x} + \frac
         \end{vmatrix} = \left( z \cos(\theta), z \sin(\theta), -z \right)$$
     Siendo esta una normal exterior, al ser $z$ negativo, y $x,y$ iguales a los del propio punto, por lo que el vector va hacia afuera.\\
     Ahora vayamos a $S_2$:
-    $$ S_2 \to \varphi_2 \begin{cases}
+    $$ S_2 \to \varphi_2(\theta,z) = \begin{cases}
         x = 2 \cos(\theta) \\
         y = 2 \sin(\theta) \\
         z = z
@@ -514,7 +516,7 @@ $$ div(\vec{F}) = \nabla \cdot \vec{F} = \frac{\partial F_1}{\partial x} + \frac
     \right)
     \equiv E$$
     Donde su normal es:
-    $$ \vec{N}_{\varphi_2} =
+    $$ \vec{N}_{\varphi_2} = \frac{\partial \varphi_2}{\partial \theta} \times \frac{\partial \varphi_2}{\partial z} = 
     \begin{vmatrix}
         \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\
         -2\sin(\theta) & 2\cos(\theta) & 0 \\

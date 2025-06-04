@@ -257,6 +257,14 @@ el Teorema de Tonelli.
         \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^n}F = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f_x) = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}f(x,y)dy)dx = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dx)dy$
     \end{enumerate}
     Análogamente se darían los casos tomando $\mathbb{R}^k$ en lugar de $\mathbb{R}^n$.
+    \vspace{-0.5em}
+    \begin{enumerate}
+        \item Para casi todo $y \in \mathbb{R}^k \ f_y: \mathbb{R}^n \to [-\infty,
+                      +\infty]$ es integrable en $\mathbb{R}^n$
+        \item La función $G: \mathbb{R}^k \to [-\infty, +\infty]$ definida por: $G(y) =
+                  \int_{\mathbb{R}^n}f_y$ es integrable en $\mathbb{R}^k$
+        \item $\int_{\mathbb{R}^{n+k}}f = \int_{\mathbb{R}^k}G = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f_y) = \int_{\mathbb{R}^k}(\int_{\mathbb{R}^n}f(x,y)dx)dy = \int_{\mathbb{R}^{n+k}}f(x,y)dydx$
+    \end{enumerate}
 \end{teorema}
 \begin{proof}
     Recordemos que $\begin{cases} f = f^+ -f^- \\ f_x = f_x^+ - f_x^- \end{cases}$

@@ -2,7 +2,7 @@
 
 \subsection{Medibilidad de Funciones}
 
-\begin{definición}[Espacio Medible\label{Espacio medible}]
+\begin{definición}[Espacio medible\label{Espacio medible}]
 Un espacio medible es un par $(X, \Sigma)$ donde $X$ es un conjunto y $\Sigma$ es una $\sigma$-álgebra de subconjuntos de $X$.
 \end{definición}
 Vamos a considerar los siguientes espacios medibles:
@@ -12,7 +12,7 @@ Vamos a considerar los siguientes espacios medibles:
     \item $(X, \Sigma) = (A, B|_A)$, donde $A \subset \rn$ es un conjunto boreliano y $B|_A$ es la familia de subconjuntos borelianos de $A$.
 \end{itemize}
 
-\begin{definición}[Función Medible\label{Función medible}]
+\begin{definición}[Función medible\label{Función medible}]
 Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$ es medible si para todo $\alpha \in \mathbb{R}$, el conjunto $\{x \in X : f(x) < \alpha\}$ es un conjunto medible.
 \end{definición}
 
@@ -32,78 +32,275 @@ Sea $(X, \Sigma)$ un espacio medible. Una función $f: X \to [-\infty, +\infty]$
         \item Para todo $G \subset \mathbb{R}$ abierto, los conjuntos $f^{-1}(G)$, $\{x \in X
                   : f(x) = +\infty\}$ y $\{x \in X : f(x) = -\infty\}$ son conjuntos medibles.
     \end{enumerate}
+    \label{prop:MedibilidadFunciones}
 }
 
 \begin{proof}
-    Teniendo en cuenta que $X \setminus \{x \in X : f(x) < \alpha\} = \{x \in X : f(x) \geq \alpha\}$ dado que las $\sigma$-álgebras son cerradas bajo complementarios, obtenemos que $(1) \iff (2) $ y $(3) \iff (4)$.\\
-    Veamos ahora la relación $(1) \iff (4)$:
-    \vspace{-0.5em}
+    Recordemos que, por definición, $f$ es medible si para todo $a \in \mathbb{R}$ el conjunto $\{x \in X : f(x) < a\}$ es medible.
+
+    Observemos que:
+    \[
+        \{x \in X : f(x) \geq \alpha\} = X \setminus \{x \in X : f(x) < \alpha\}.
+    \]
+    Dado que $\Sigma$ es una $\sigma$-álgebra cerrada bajo complementarios, tenemos
+    que:
+    \[
+        (1) \iff (2).
+    \]
+    De manera análoga:
+    \[
+        \{x \in X : f(x) > \alpha\} = \bigcup_{k=1}^{\infty} \{x \in X : f(x) \geq \alpha + \tfrac{1}{k}\},
+    \]
+    y
+    \[
+        \{x \in X : f(x) \leq \alpha\} = X \setminus \{x \in X : f(x) > \alpha\}.
+    \]
+    Por lo tanto:
+    \[
+        (3) \iff (2) \quad \text{y} \quad (4) \iff (3).
+    \]
+    De este modo, resulta que:
+    \[
+        (1) \iff (2) \iff (3) \iff (4).
+    \]
+
+    Veamos más explícitamente las implicaciones clave:
+
     \begin{itemize}
-        \item $(1) \implies (4)$: Podemos tomar el conjunto $\{x \in X : f(x) \leq \alpha\} = \bigcap_{k = 1}^{\infty}{\{x \in X : f(x) < \alpha + \frac{1}{k}\}}$ que es una intersección numerable de conjuntos medibles por (1). Por tanto al tomar el limite cuando $k \to \infty$ obtenemos que $\{x \in X : f(x) \leq \alpha\}$ es medible.
-        \item $(4) \implies (1)$: Equivalentemente al apartado anterior podemos obtener que el conjunto $\{x \in X : f(x) < \alpha\}$ = $\bigcup_{k = 1}^{\infty}{\{x \in X : f(x) \leq \alpha - \frac{1}{k}\}}$ es medible por (4). Por tanto, también al tomar el límite cuando $k \to \infty$ obtenemos que $\{x \in X : f(x) < \alpha\}$ es medible.
+        \item $(1) \implies (4)$:
+              Para cualquier $\alpha \in \mathbb{R}$,
+              \[
+                  \{x \in X : f(x) \leq \alpha\} = \bigcap_{k=1}^{\infty} \{x \in X : f(x) < \alpha + \tfrac{1}{k}\}.
+              \]
+              Cada conjunto de la intersección es medible por la definición de medibilidad de
+              $f$. Así, la intersección numerable de conjuntos medibles es medible.
+
+        \item $(4) \implies (1)$:
+              Análogamente, para cualquier $\alpha \in \mathbb{R}$,
+              \[
+                  \{x \in X : f(x) < \alpha\} = \bigcup_{k=1}^{\infty} \{x \in X : f(x) \leq \alpha - \tfrac{1}{k}\}.
+              \]
+              Cada conjunto en la unión es medible por (4). Por tanto, la unión numerable es
+              medible, y $f$ es medible.
     \end{itemize}
-    De forma análoga a esta equivalencia podemos obtener que $(2) \iff (3)$. Y también las equivalencias de $(5) \iff (6)$ son inmediatas, pues podemos tomar los conjuntos acotados ${x \in X : \alpha \leq f(x) < \beta} = {x \in X : f(x) \geq \alpha} \cap {x \in X : f(x) < \beta}$ los cuales son conjuntos medibles por los apartados anteriores. De forma similar podemos obtener que el conjunto ${x \in X : f(x) = +\infty} = \bigcap_{k = 1}^{\infty}{\{x \in X : f(x) > k\}}$ es medible por los apartados anteriores. De forma análoga se demuestra el caso de (6).
-    Por último veamos la equivalencia de $(6) \iff (7)$:
-    \begin{enumerate}
-        \item $(7) \implies (6)$: Dado un conjunto abierto $G \subset \mathbb{R}$ podemos tomarlo como $G = (\alpha, \beta)$ para ciertos $\alpha, \beta \in \mathbb{R}$. Por tanto, el conjunto $f^{-1}(G) = \{x \in X : f(x) \in G\} = \{x \in X : \alpha < f(x) < \beta\}$  y asimismo, los conjuntos $\{x \in X : f(x) = +\infty\}$ y $\{x \in X : f(x) = -\infty\}$ son medibles por las equivalencias anteriores.
-        \item $(6) \implies (7)$: Dado un conjunto abierto $G \subset \mathbb{R}$ podemos reescribir G como $G = \bigcup_{j = 1}^{\infty}(\alpha_j, \beta_j)$ donde $\alpha_j, \beta_j \in \mathbb{R}$ es un conjunto abierto. Por tanto, el conjunto $f^{-1}(G) = \bigcup_{j = 1}^{\infty}{f^{-1}(\alpha_j, \beta_j)} = \bigcup_{j = 1}^{\infty}{\{x \in X : \alpha_j < f(x) < \beta_j\}}$ es medible por las equivalencias anteriores.
-    \end{enumerate}
+
+    Con esto, hemos establecido la equivalencia entre (1), (2), (3) y (4).
+
+    Ahora, para (5):
+    \begin{itemize}
+        \item Notemos que para $\alpha, \beta \in \mathbb{R}$,
+              \[
+                  \{x \in X : \beta \leq f(x) < \alpha\} = \{x \in X : f(x) \geq \beta\} \cap \{x \in X : f(x) < \alpha\}.
+              \]
+              La intersección de conjuntos medibles es medible por las equivalencias
+              anteriores.
+
+        \item Además,
+              \[
+                  \{x \in X : f(x) = +\infty\} = \bigcap_{k=1}^{\infty} \{x \in X : f(x) > k\},
+              \]
+              y
+              \[
+                  \{x \in X : f(x) = -\infty\} = \bigcap_{k=1}^{\infty} \{x \in X : f(x) < -k\},
+              \]
+              que son intersecciones numerables de conjuntos medibles, por lo que son
+              medibles.
+    \end{itemize}
+    Así, (1) - (4) $\implies$ (5). La construcción de los conjuntos muestra que (5) $\implies$ (2), pues podemos expresar:
+    \[
+        \{x \in X : f(x) \geq \alpha\} = \bigcup_{m=1}^{\infty} \{x \in X : \alpha \leq f(x) < \alpha + m\} \cup \{x \in X : f(x) = +\infty\}.
+    \]
+    Por lo tanto:
+    \[
+        (1) \iff (2) \iff (3) \iff (4) \iff (5).
+    \]
+
+    Finalmente, para (6):
+    \begin{itemize}
+        \item $(6) \implies (5)$:
+              Sea $G=(\beta, \alpha)$ un intervalo abierto. Entonces:
+              \[
+                  f^{-1}(G) = \{x \in X : \beta < f(x) < \alpha\} = \{x \in X : \beta \leq f(x) < \alpha\},
+              \]
+              que es medible por (5). Además, (6) ya contiene explícitamente que los
+              conjuntos $\{x : f(x)=\pm \infty\}$ son medibles.
+
+        \item $(5) \implies (6)$:
+              Sea $G \subset \mathbb{R}$ un abierto cualquiera.
+              Como $\mathbb{R}$ es segundo contable, $G = \bigcup_{j=1}^{\infty} (\alpha_j, \beta_j)$ para ciertos intervalos abiertos. Así:
+              \[
+                  f^{-1}(G) = \bigcup_{j=1}^{\infty} f^{-1}((\alpha_j, \beta_j)) = \bigcup_{j=1}^{\infty} \{x \in X : \alpha_j < f(x) < \beta_j\},
+              \]
+              que es unión numerable de conjuntos medibles por (5). Además, $\{x :
+                  f(x)=\pm\infty\}$ son medibles por (5).
+    \end{itemize}
+
+    Por tanto:
+    \[
+        (1) \iff (2) \iff (3) \iff (4) \iff (5) \iff (6).
+    \]
 \end{proof}
 
 \begin{corolario}
-    Sea $E \subset \mathbb{R}^n$ un conjunto medible y $f: E \to \R$ una función continua, entonces $f$ es medible.
+    Sea $E \subset \mathbb{R}^n$ un conjunto medible y $f: E \to \mathbb{R}$ una función continua. Entonces $f$ es medible.
 \end{corolario}
 
+\begin{proof}
+    Consideremos la $\sigma$-álgebra de Lebesgue en $\mathbb{R}^n$, que denotamos por $\mathcal{L}^n$.
+    Sabemos que $E$ es medible, es decir, $E \in \mathcal{L}^n$ y que la restricción de una función continua a un subconjunto es continua en ese subconjunto (con la topología subespacio).
+
+    Para ver que $f$ es medible, recordemos la caracterización equivalente:
+    \[
+        f \text{ es medible } \iff \forall G \subset \mathbb{R} \text{ abierto}, \quad f^{-1}(G) \in \Sigma.
+    \]
+    Cabe notar que esta doble implicación es válida porque $f$ es continua y, por
+    lo tanto, los conjuntos $$\{x \in X : f(x) = +\infty\} \text{ y }\{x \in X :
+        f(x) = -\infty\}$$ son medibles por ser conjuntos vacíos. Aquí $\Sigma$ es la
+    $\sigma$-álgebra de Lebesgue de $E$, es decir:
+    \[
+        \Sigma = \{ A \subset E : \exists B \in \mathcal{L}^n \text{ con } A = E \cap B \}.
+    \]
+    Tomemos $G \subset \mathbb{R}$ abierto. Dado que $f$ es continua y $G$ es
+    abierto en $\mathbb{R}$, se tiene que:
+    \[
+        f^{-1}(G) = \{ x \in E : f(x) \in G \}
+    \]
+    es un conjunto abierto en la topología subespacio de $E$. Por lo tanto, existe
+    un conjunto abierto $O \subset \mathbb{R}^n$ tal que:
+    \[
+        f^{-1}(G) = E \cap O.
+    \]
+    Como $O$ es abierto (y, por tanto, medible en $\mathbb{R}^n$) y $E$ es medible,
+    se sigue que:
+    \[
+        f^{-1}(G) = E \cap O \in \Sigma.
+    \]
+    Así, $f^{-1}(G)$ es medible para todo abierto $G$, por lo que $f$ es medible
+    según la caracterización (6) de la proposición anterior.
+\end{proof}
+
 \begin{proposición}
-Sea $(X, \Sigma)$ un espacio medible y $f_1, f_2, \dots, f_n: X \to \mathbb{R}$ funciones medibles y $\Phi: \mathbb{R}^n \to \mathbb{R}$ una función continua, entonces la función $\Phi \circ (f_1, f_2, \dots, f_n): X \to \mathbb{R}$ es medible.
+Sea $(X, \Sigma)$ un espacio medible y $f_1, f_2, \dots, f_n \colon X \to \mathbb{R}$ funciones medibles. Si $\Phi \colon \mathbb{R}^n \to \mathbb{R}$ es una función continua, entonces la función compuesta
+\[
+    h = \Phi \circ (f_1, f_2, \dots, f_n) \colon X \to \mathbb{R}
+\]
+es medible.
 \end{proposición}
 
 \begin{proof}
-    Sean $(f_1, f_2, \dots f_n): X \to \mathbb{R} y \Phi: \mathbb{R}^n \to \mathbb{R}$ funciones medibles y continua respectivamente. Denotemos por $h = (f_1, f_2, \dots, f_n) \circ \Phi: X \to \mathbb{R}^m \to \mathbb{R}$ y sea $G \subset \mathbb{R}$ conjunto abierto, entonces, denotemos por $U = \Phi^{-1}(G)$ al conjuto abierto en $\mathbb{R}^n$. Entonces sea $(R_j)_{j\in\mathbb{N}}$ sucesión de rectángulos n-dimensionales tales que $(R_j) = \prod_{i = 1}^{\infty}(\alpha_i^{j}. \beta_i^{j}) \forall j \in \mathbb{N} \iff \forall j \in \mathbb{N} f^{-1}(R_j) = \prod_{i = 1}^{\infty}(\alpha_i^{j}. \beta_i^{j})$ es medible. Por tanto, la funcion h es medible.
+    Para demostrar que $h$ es medible, probaremos que la preimagen $h^{-1}(G)$ de cualquier abierto $G \subset \mathbb{R}$ pertenece a $\Sigma$.
+
+    Definimos la función vectorial $f \colon X \to \mathbb{R}^n$ dada por
+    \[
+        f(x) = \big( f_1(x), f_2(x), \dots, f_n(x) \big),
+    \]
+    de modo que $h = \Phi \circ f$.
+
+    Como cada $f_i \colon X \to \mathbb{R}$ es medible, la función $f$ es medible.
+    En efecto, para cualquier rectángulo abierto $R = (a_1, b_1) \times \cdots
+        \times (a_n, b_n) \subset \mathbb{R}^n$, se tiene
+    \[
+        f^{-1}(R) = \bigcap_{i=1}^n f_i^{-1}\big( (a_i, b_i) \big) \in \Sigma,
+    \]
+    pues cada $f_i^{-1}\big( (a_i, b_i) \big)$ es medible por al apartado (6) de la
+    \cref{prop:MedibilidadFunciones} y $\Sigma$ es cerrado bajo intersecciones
+    finitas. Dado que los rectángulos abiertos generan la topología de
+    $\mathbb{R}^n$, esto implica que $f$ es medible.
+
+    Como $\Phi$ es continua, para cualquier abierto $G \subset \mathbb{R}$, el
+    conjunto
+    \[
+        U = \Phi^{-1}(G) \subset \mathbb{R}^n
+    \]
+    es abierto en $\mathbb{R}^n$. Por lo tanto, $U$ puede expresarse como una unión
+    numerable de rectángulos abiertos (\cref{teoremaCubosAbiertosCerrados}):
+    \[
+        U = \bigcup_{j=1}^\infty R_j, \quad \text{donde } R_j = \prod_{i=1}^n (a_i^j, b_i^j).
+    \]
+
+    La preimagen de $U$ bajo $f$ es
+    \[
+        h^{-1}(G) = f^{-1}(U) = f^{-1}\left( \bigcup_{j=1}^\infty R_j \right) = \bigcup_{j=1}^\infty f^{-1}(R_j).
+    \]
+    Como cada $f^{-1}(R_j)$ es medible, y como $\Sigma$ es cerrado bajo uniones
+    numerables, se sigue que $h^{-1}(G) \in \Sigma$.
+
+    Hemos demostrado que para todo abierto $G \subset \mathbb{R}$, $h^{-1}(G) \in
+        \Sigma$. Por lo tanto, $h$ es una función medible.
 \end{proof}
 
 \begin{corolario}
-    Sean $(X, \Sigma)$ espacio medible y $f, g: X \to \mathbb{R}$ funciones medibles, entonces $f + g$, $f \circ g$, $max\{f, g\}$, $min\{f, g\}$, $f^+=max\{f, 0\}$, $f^- = min\{f, 0\}$ son todo funciones medibles.
+    Sean $(X, \Sigma)$ espacio medible y $f, g: X \to \mathbb{R}$ funciones medibles, entonces $f + g$, $f \circ g$, $max\{f, g\}$, $min\{f, g\}$, $f^+=\max\{f, 0\}$, $f^- = \max\{-f, 0\}$ son todo funciones medibles.
 \end{corolario}
 \begin{observación}
-$f = f^+ - f^-$ y $|f| = f^+ + f^-.$
+Dada una función \( f \colon X \to [-\infty,+\infty] \), se puede descomponer como diferencia de sus partes positiva y negativa:
+\[
+    f = f^+ - f^-, \quad \text{y además} \quad |f| = f^+ + f^-,
+\]
+donde
+\[
+    f^+(x) = \max\{f(x), 0\}, \quad f^-(x) = \max\{-f(x), 0\}.
+\]
+Esta descomposición es útil en integración y teoría de la medida, ya que \(
+f^+, f^- \geq 0 \) y son funciones medibles siempre que \( f \) lo sea.
 \end{observación}
+
 \begin{teorema}
-    Sea $(X, \Sigma)$ espacio medible y $(f_j)_{j \in \mathbb{N}}: X \to [+\infty, -\infty]$ una sucesión de funciones medibles, entonces:
+    Sea $(X, \Sigma)$ un espacio medible y $(f_j)_{j \in \mathbb{N}}: X \to [-\infty, +\infty]$ una sucesión de funciones medibles. Entonces:
     \vspace{-0.5em}
     \begin{enumerate}
-        \item $\sup_{j \in \mathbb{N}}\{f_j\}$ es una función medible.
-        \item $\inf_{j \in \mathbb{N}}\{f_j\}$ es una función medible.
-        \item $\limsup_{j \to \infty}\{f_j\}$ es una función medible.
-        \item $\liminf_{j \to \infty}\{f_j\}$ es una función medible.
-        \item $\lim_{j \to \infty}f_j = f$ es una función medible.
+        \item $\sup_{j \in \mathbb{N}} f_j$ es una función medible.
+        \item $\inf_{j \in \mathbb{N}} f_j$ es una función medible.
+        \item $\limsup_{j \to \infty} f_j$ es una función medible.
+        \item $\liminf_{j \to \infty} f_j$ es una función medible.
+        \item Si $f_j \to f$ puntualmente, entonces $f$ es medible.
     \end{enumerate}
 \end{teorema}
+
 \begin{proof}
     \leavevmode
     \begin{enumerate}
-        \item Denotemos $h(x) = \sup_{j \in \mathbb{N}}{f_j}$ y dado $\alpha \in \mathbb{R}$
-              queremos ver que ${x \in X : h(x) > \alpha}$ es un conjunto medible. Entonces,
-              $\sup_{j \in \mathbb{N}}{f_j > \alpha} \iff \exists j \in \mathbb{N} : f_j(x) >
-                  \alpha \Rightarrow {x \in X : h(x) > \alpha} = \bigcup_{j \in \mathbb{N}}{f_j >
-                      \alpha}$ que es medible por ser una unión numerable de conjuntos medibles.
-        \item Denotemos $g(x) = \inf_{j \in \mathbb{N}}{f_j}$ y dado $\alpha \in \mathbb{R}$
-              queremos ver que ${x \in X : g(x) < \alpha}$ es un conjunto medible. Entonces,
-              $\inf_{j \in \mathbb{N}}{f_j \geq \alpha} \iff \forall j \in \mathbb{N} :
-                  f_j(x) \geq \alpha \Rightarrow {x \in X : g(x) \geq \alpha} = \bigcap_{j \in
-                      \mathbb{N}}{x \in X : f_j \geq \alpha}$ que es medible por ser una unión
-              numerable de conjuntos medibles.
-        \item Recordemos que $\limsup_{j \to \infty}f_j = \lim_{j \to \infty}(\sup_{k \geq
-                      j}f_k) = \lim_{j \to \infty}{\sup{f_j, f_{j+1}, \dots}}$. Entonces como el
-              límite de una sucesión decreciente y acotada siempre existe tenemos que
-              $\lim_{j \to \infty}{\sup_{k \geq j}f_k} = \inf_{j \in \mathbb{N}}{(\sup_{k
-                          \geq j}f_k)}$ que es medible por ser una función continua.
-        \item Recordemos que $\liminf_{j \to \infty}f_j = \lim_{j \to \infty}(\inf_{k \geq
-                      j}f_k) = \lim_{j \to \infty}{\inf{f_j, f_{j+1}, \dots}} = \sup_{j \in
-                      \mathbb{N}}{(\inf_{k \geq j}f_k)}$ que es medible por ser una función continua.
-        \item Si $\lim_{j \to \infty}f_j = f$ (puntualmente) entonces $\lim_{j \to \infty}f_j
-                  = \limsup_{j \to \infty}f_j = \liminf_{j \to \infty}f_j = f$. Entones por los
-              apartados anteriores obtenemos que $f$ es una función medible.
+        \item Sea $h(x) = \sup_{j \in \mathbb{N}} f_j(x)$. Queremos probar que $h$ es
+              medible. Para ello, tomemos $\alpha \in \mathbb{R}$. Observamos que:
+              \[
+                  \{ x \in X : h(x) > \alpha \} = \{ x \in X : \sup_j f_j(x) > \alpha \} = \bigcup_{j \in \mathbb{N}} \{ x \in X : f_j(x) > \alpha \}
+              \]
+              Como cada $f_j$ es medible, los conjuntos $\{ f_j > \alpha \}$ son medibles.
+              Por lo tanto, su unión numerable también lo es. Así, $h$ es medible.
+
+        \item Sea $g(x) = \inf_{j \in \mathbb{N}} f_j(x)$. Para probar que $g$ es medible,
+              tomamos $\alpha \in \mathbb{R}$ y escribimos:
+              \[
+                  \{ x \in X : g(x) < \alpha \} = \{ x \in X : \inf_j f_j(x) < \alpha \} = \bigcup_{j \in \mathbb{N}} \{ x \in X : f_j(x) < \alpha \}
+              \]
+              o equivalentemente,
+              \[
+                  \{ x \in X : g(x) \geq \alpha \} = \bigcap_{j \in \mathbb{N}} \{ x \in X : f_j(x) \geq \alpha \}
+              \]
+              Como los $f_j$ son medibles, estos conjuntos también lo son, y su intersección
+              numerable es medible. Así, $g$ es medible.
+
+        \item Por definición,
+              \[
+                  \limsup_{j \to \infty} f_j(x) = \lim_{j \to \infty} \sup_{k \geq j} f_k(x) = \inf_{j \in \mathbb{N}} \left( \sup_{k \geq j} f_k(x) \right)
+              \]
+              Como hemos probado que $\sup_{k \geq j} f_k$ es medible para cada $j$, y el
+              ínfimo de funciones medibles es medible, se deduce que $\limsup f_j$ es
+              medible.
+
+        \item Análogamente,
+              \[
+                  \liminf_{j \to \infty} f_j(x) = \lim_{j \to \infty} \inf_{k \geq j} f_k(x) = \sup_{j \in \mathbb{N}} \left( \inf_{k \geq j} f_k(x) \right)
+              \]
+              Usando la medibilidad de $\inf_{k \geq j} f_k$ y que el supremo de funciones
+              medibles es medible, concluimos que $\liminf f_j$ es medible.
+
+        \item Si $f_j(x) \to f(x)$ puntualmente, entonces:
+              \[
+                  f(x) = \lim_{j \to \infty} f_j(x) = \limsup_{j \to \infty} f_j(x) = \liminf_{j \to \infty} f_j(x)
+              \]
+              Como $\limsup f_j$ y $\liminf f_j$ son medibles, y coinciden puntualmente con
+              $f$, se concluye que $f$ también es medible.
     \end{enumerate}
 \end{proof}
 
@@ -112,241 +309,608 @@ Sean $f, g: \mathbb{R}^n \to [+\infty, -\infty]$ funciones medibles-Lebesgue tal
 \end{proposición}
 
 \begin{proof}
-    Dado que $f = g$ en casi todo punto, entonces $ Z = \{x \in \mathbb{R}^n : f(x) \neq g(x)\}$ es un conjunto de medida nula. Entonces, dado un $\alpha \in \mathbb{R}$ tenemos que $\{x \in \mathbb{R}^n : g(x) < \alpha\} = \{x \in Z : f(x) < \alpha\} \cup \{x \in Z^c : g(x) < \alpha\}$ es medible dado que $\{x \in Z : f(x) < \alpha\}$ es medible por ser un conjunto de medida nula y $\{x \in Z^c : g(x) < \alpha\}$ es medible por ser $g$ medible. Por tanto, $g$ es medible.
+    Como $f = g$ casi en todo punto, el conjunto
+    \[
+        Z := \{x \in \mathbb{R}^n : f(x) \neq g(x)\}
+    \]
+    es un conjunto de medida de Lebesgue nula.
+
+    Sea $\alpha \in \mathbb{R}$. Consideramos el conjunto
+    \[
+        \{x \in \mathbb{R}^n : g(x) < \alpha\} = \{x \in Z : g(x) < \alpha\} \cup \{x \in Z^c : g(x) < \alpha\}
+    \]
+
+    Observamos que en $Z^c$, como $f(x) = g(x)$ para todo $x \in Z^c$, se tiene:
+    \[
+        \{x \in Z^c : g(x) < \alpha\} = \{x \in Z^c : f(x) < \alpha\} \subseteq \{x \in \mathbb{R}^n : f(x) < \alpha\}
+    \]
+    el cual es medible porque $f$ es medible.
+
+    Por otro lado, $\{x \in Z : g(x) < \alpha\} \subseteq Z$, y como $Z$ es de
+    medida nula, este conjunto también es medible.
+
+    Entonces, la unión
+    \[
+        \{x \in \mathbb{R}^n : g(x) < \alpha\} = \{x \in Z : g(x) < \alpha\} \cup \{x \in Z^c : f(x) < \alpha\}
+    \]
+    es la unión de dos conjuntos medibles, por lo tanto es medible.
+
+    Como esto ocurre para todo $\alpha \in \mathbb{R}$, se concluye que $g$ es
+    medible.
 \end{proof}
 
 \begin{corolario}
-    Sea $(f_j)_{j \in \mathbb{N}}: \mathbb{R}^n \to [+\infty, -\infty]$ sucesión de funciones medibles tales que $f_j \to f$ en casi todo punto, entonces $f$ es medible.
+    Sea $(f_j)_{j \in \mathbb{N}}: \mathbb{R}^n \to [-\infty, +\infty]$ una sucesión de funciones medibles que converge puntualmente a una función $f$ en casi todo punto. Entonces, $f$ es medible.
 \end{corolario}
+
 \begin{proof}
-    Sea $Z = \{x \in X : f_j(x) \not\to f(x)\}$ el cual tiene medida nula por hipótesis. Entones definimos la función $g(x) = \begin{cases} \lim_{j \to \infty}f_j(x) & x \in Z^c \\ 0 & x \in Z \end{cases} \Rightarrow g(x) = f(x)$ en casi todo punto. Asimismo podemos definir la sucesión de funciones $g_j(x) = \begin{cases} f_j(x) & x \in Z^c \\ 0 & x \in Z \end{cases}$ que converge a $g$ puntualmente, por tanto, por la proposición anterior tenemos que $g$ es medible $\Rightarrow f$ es medible.
+    Sea
+    \[
+        Z := \left\{x \in \mathbb{R}^n : \lim_{j \to \infty} f_j(x) \text{ no existe o es distinto de } f(x) \right\},
+    \]
+    el cual, por hipótesis, tiene medida de Lebesgue nula.
+
+    Definimos la función
+    \[
+        g(x) :=
+        \begin{cases}
+            \lim_{j \to \infty} f_j(x), & \text{si } x \in Z^c, \\
+            0,                          & \text{si } x \in Z.
+        \end{cases}
+    \]
+    Entonces, $g = f$ casi en todo punto (ya que $f_j \to f$ fuera de $Z$), y
+    definimos también la sucesión
+    \[
+        g_j(x) :=
+        \begin{cases}
+            f_j(x), & \text{si } x \in Z^c, \\
+            0,      & \text{si } x \in Z.
+        \end{cases}
+    \]
+
+    Cada función $g_j$ es medible, ya que se obtiene modificando $f_j$ en un
+    conjunto de medida nula. Por tanto, $g_j \to g$ puntualmente, y como el límite
+    puntual de funciones medibles es medible, se concluye que $g$ es medible.
+
+    Finalmente, dado que $f = g$ casi en todo punto, y $g$ es medible, la
+    proposición anterior garantiza que $f$ también es medible.
 \end{proof}
 
-\begin{definición}[Función Característica\label{Función característica}]
-Sea $(X, \Sigma)$ espacio medible. Definimos la función característica de un conjunto $E \in \Sigma$ como: \[\chi_E(x) = \begin{cases} 1 & x \in E \\ 0 & x \in E^c \end{cases}\]
+\begin{definición}[Función característica]\label{def:FuncionCaracteristica}
+Sea $(X, \Sigma)$ un espacio medible. La función característica de un conjunto $E \in \Sigma$ se define como
+\[
+    \chi_E(x) =
+    \begin{cases}
+        1, & \text{si } x \in E,    \\
+        0, & \text{si } x \notin E.
+    \end{cases}
+\]
 \end{definición}
+
 \begin{observación}
-$\chi_E$ es medible $\iff E \in \Sigma$
+La función característica $\chi_E$ es medible si y solo si $E \in \Sigma$.
 \end{observación}
+
 \begin{proof}
-    Sea $G \subset \mathbb{R}$ abierto, podemos definir el conjunto $$\chi_E^{-1}(G) = \{x \in X : \chi_E(x) \in G\} = \begin{cases} X & 0 \in G \quad 1\in G \\ E & 0 \not\in G \quad 1 \in G \\ E^c & 0 \in G \quad 1 \not\in G \\ \emptyset & 0 \not\in G \quad 1 \not\in G\end{cases}$$
-    por tanto, $\chi_E$ es medible $\iff E \in \Sigma$.
+    Sea $G \subset \mathbb{R}$ un conjunto abierto. Como $\chi_E$ solo toma los valores $0$ y $1$, su preimagen $\chi_E^{-1}(G)$ solo puede ser uno de los siguientes conjuntos:
+    \[
+        \chi_E^{-1}(G) =
+        \begin{cases}
+            X,         & \text{si } 0 \in G \text{ y } 1 \in G,       \\
+            E^c,       & \text{si } 0 \in G \text{ y } 1 \notin G,    \\
+            E,         & \text{si } 0 \notin G \text{ y } 1 \in G,    \\
+            \emptyset, & \text{si } 0 \notin G \text{ y } 1 \notin G.
+        \end{cases}
+    \]
+
+    En todos los casos, $\chi_E^{-1}(G)$ es medible si y solo si $E \in \Sigma$, ya
+    que tanto $E$ como su complemento $E^c$ deben pertenecer a $\Sigma$. Por tanto,
+    $\chi_E$ es medible si y solo si $E$ es medible.
 \end{proof}
+
 \begin{observación}
-Sean $E \subset \mathbb{R}^{n}$ y $f: E \to [-\infty, +\infty]$. Entonces son equivalentes:
+Sean $E \subset \mathbb{R}^{n}$ un conjunto medible y $f: E \to [-\infty, +\infty]$ una función. Entonces, son equivalentes:
 \vspace{-0.5em}
 \begin{enumerate}
-    \item $f: E \to [-\infty, +\infty]$ es medible-Lebesgue.
-    \item $f \circ \chi_E: \mathbb{R}^n \to [-\infty, +\infty]$ es medible-Lebesgue.
+    \item $f$ es medible-Lebesgue.
+    \item La función extendida $f \circ \chi_E : \mathbb{R}^n \to [-\infty, +\infty]$
+          definida por
+          \[
+              f \circ \chi_E(x) =
+              \begin{cases}
+                  f(x), & \text{si } x \in E,    \\
+                  0,    & \text{si } x \notin E,
+              \end{cases}
+          \]
+          es medible-Lebesgue.
 \end{enumerate}
 \end{observación}
+
 \begin{proof}
     \leavevmode
     \begin{itemize}
-        \item $(1) \implies (2): E^c$ es medible y $\{x \in E : f(x) > \alpha\}$ es medible $\implies$ $\{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible.
-        \item $(2) \implies (1): \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}$ es medible $\implies$ $\{x \in E : f(x) > \alpha\}$ es medible.
+        \item $(1) \implies (2)$: Como $E^c$ es medible y $f$ es medible en $E$, se tiene que para todo $\alpha \in \mathbb{R}$:
+              \[
+                  \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}
+                  = \{x \in E : f(x) > \alpha\} \cup \{x \in E^c : 0 > \alpha\}
+              \]
+              donde ambos conjuntos son medibles: el primero por hipótesis y el segundo por
+              ser subconjunto de $E^c$ (que es medible). Por tanto, la unión es medible y $f
+                  \circ \chi_E$ es medible.
+
+        \item $(2) \implies (1)$: Si $f \circ \chi_E$ es medible, entonces para todo $\alpha \in \mathbb{R}$,
+              \[
+                  \{x \in \mathbb{R}^n : f \circ \chi_E(x) > \alpha\}
+                  = \{x \in E : f(x) > \alpha\} \cup \{x \in E^c : 0 > \alpha\}
+              \]
+              y esta unión es medible por hipótesis. Como $\{x \in E^c : 0 > \alpha\}$ es
+              medible y disjunto de $E$, se deduce que $\{x \in E : f(x) > \alpha\}$ es
+              medible. Por tanto, $f$ es medible en $E$.
     \end{itemize}
 \end{proof}
-\begin{definición}[Función Simple\label{Funcion Simple}]
-Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$. Se dice que $f$ es una función simple si toma un valor finito de valores. Es decir si:
-$f(X) = \{\alpha_1, \alpha_2, \dots, \alpha_n\} \subset [0, +\infty]$.
-Además denotamos a $f^{-1}(\alpha_i) = E_i$ y $f = \sum_{i = 1}^{n}\alpha_i\chi_{E_i}$. Asimismo obtenemos que $X = \bigcup_{i = 1}^{n}E_i$-unión disjunta de conjuntos.
-De este modo podemos decir que f es una combinación lineal finita de funciones simples.
+
+\begin{definición}[Función simple]\label{Funcion Simple}
+Sea $(X, \Sigma)$ un espacio medible y $f: X \to [0, +\infty]$ una función. Decimos que $f$ es una \emph{función simple} si toma un número finito de valores reales no negativos, es decir, si:
+\[
+    f(X) = \{\alpha_1, \alpha_2, \dots, \alpha_n\} \subset [0, +\infty),
+\]
+para ciertos $\alpha_i \in [0, +\infty)$.
+
+Definimos los subconjuntos medibles $E_i = f^{-1}(\alpha_i)$ para $i = 1,
+    \dots, n$, los cuales forman una partición disjunta de $X$, es decir,
+\[
+    X = \bigsqcup_{i=1}^{n} E_i.
+\]
+
+En tal caso, $f$ puede escribirse como combinación lineal finita de funciones
+características:
+\[
+    f = \sum_{i=1}^{n} \alpha_i \chi_{E_i}.
+\]
+
+Por lo tanto, una función simple es aquella que puede expresarse como una suma
+finita de múltiplos escalares de funciones características de conjuntos
+medibles disjuntos.
 \end{definición}
+
 \begin{observación}
-f es medible $\iff \{E_1, E_2, \dots, E_n\}$ es medible.
+Sea \( f: X \to [0, +\infty] \) una función simple tal que \( f = \sum_{i=1}^{n} \alpha_i \chi_{E_i} \). Entonces:
+
+\[
+    f \text{ es medible} \quad \iff \quad E_i \in \Sigma \text{ para todo } i = 1, \dots, n.
+\]
+
+Es decir, \( f \) es medible si y sólo si los subconjuntos \( E_1, E_2, \dots,
+E_n \) son medibles.
 \end{observación}
+
 \begin{teorema}
-    Sea $(X, \Sigma)$ espacio medible y $f: X \to [0, +\infty]$ una función medible. Entonces existen funciones simples $(f_n)_{n \in \mathbb{N}}$ tales que:
-    \vspace{-0.5em}
-    \begin{itemize}
-        \item $0 \leq f_1 \leq f_2 \leq \dots \leq f$.
-        \item $\forall x \in X \quad \lim_{n \to \infty}f_n(x) = f(x)$.
-        \item Si además, $f$ acotada $\implies \lim_{n \to \infty}f_n = f$ en casi todo
+    Sea \((X, \Sigma)\) un espacio medible y \(f: X \to [0, +\infty]\) una función medible. Entonces existe una sucesión de funciones simples \((f_n)_{n \in \mathbb{N}}\) tal que:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(0 \leq f_1 \leq f_2 \leq \dots \leq f_n \leq \dots \leq f\) para todo \(n\).
+        \item Para todo \(x \in X\), se tiene \(\displaystyle \lim_{n \to \infty} f_n(x) =
+              f(x)\).
+        \item Si además \(f\) es acotada, entonces la convergencia es uniforme casi en todo
               punto.
-    \end{itemize}
+    \end{enumerate}
 \end{teorema}
+
 \begin{proof}
-    Para todo $n \in \mathbb{N}$, consideramos el segmento $[0,n]$ y lo dividimos en intervalos de longitud $\frac{1}{2^n}$. Sea $1 \leq i \leq n2^n$ definimos los conjuntos:
-    $$E_{n, i} = f^{-1}\left(\left[\frac{i-1}{2^n}, \frac{i}{2^n}\right]\right) = \left\{x \in X : \frac{i-1}{2^n} \leq f(x) < \frac{i}{2^n}\right\} $$
-    $$E_n = f^{-1} \left( [n, +\infty]\right) = \{x \in X : f(x) \geq n\}$$
-    Los cuales son medibles porque por hipótesis la función $f$ es medible. Sea entonces $$(f_n)_{n\in\mathbb{N}} = \sum_{i = 1}^{n2^n}\frac{i-1}{2^n}\chi_{E_{n, i}} + n\chi_{E_n}$$ la cual es una sucesión de funcion simples.
-    Analicemos la convergencia (puntual) $\lim_{n \to \infty}f_n(x) = f(x)$. Dado $x \in X$ fijo, entonces tenemos dos casos:
+    Para cada \(n \in \mathbb{N}\), consideramos el intervalo \([0, n]\) y lo dividimos en subintervalos de longitud \(\frac{1}{2^n}\). Para \(1 \leq i \leq n 2^n\), definimos los conjuntos
+    \[
+        E_{n,i} := f^{-1}\left(\left[\frac{i-1}{2^n}, \frac{i}{2^n}\right)\right) = \{x \in X : \tfrac{i-1}{2^n} \leq f(x) < \tfrac{i}{2^n}\}
+    \]
+    y también
+    \[
+        E_n := f^{-1}([n, +\infty)) = \{x \in X : f(x) \geq n \}
+    \]
+    Todos estos conjuntos son medibles, pues \(f\) es medible.
+
+    Definimos entonces la función simple
+    \[
+        f_n := \sum_{i=1}^{n 2^n} \frac{i-1}{2^n} \chi_{E_{n,i}} + n \chi_{E_n}
+    \]
+
+    Veamos primero la convergencia puntual. Fijemos \(x \in X\). Tenemos dos casos:
     \begin{itemize}
-        \item Si $f(x) = +\infty \implies f(x) \geq n \quad \forall n \in \mathbb{N} \implies
-                  f_n(x) = n \quad \forall n \in \mathbb{N} \implies \lim_{n \to \infty}f_n(x) =
-                  f(x) = +\infty$.
-        \item Si $f(x) < +\infty \implies \exists n_x \in \mathbb{N} : 0 \leq f(x) < n_x
-                  \implies \exists k \in \mathbb{N} : \frac{k-1}{2^{n_x}} \leq f(x) <
-                  \frac{k}{2^{n_x}}$ y tal que $f_{n_x}(x) = \frac{k-1}{2^{n_x}} \implies 0 \leq
-                  |f(x) - f_{n_x}(x)| \leq \frac{1}{2^{n_x}} \implies \lim_{n \to \infty}f_n(x) =
-                  f(x)$.\\ Además, cuando $f$ está acotoda, es decir, si $\exists M \in \mathbb{N} : f(x) \leq M \quad \forall x
-                  \in X$ entonces se tiene que  $\forall n \geq M , \quad \forall x \in X \quad 0 \leq f(x) - f_n(x) \leq \frac{1}{2^n} \implies \lim_{n \to \infty}f_n(x) = f(x)$ (uniformemente).
+        \item Si \(f(x) = +\infty\), entonces para todo \(n \in \mathbb{N}\), \(f(x) \geq
+              n\), y por definición \(f_n(x) = n\). Por lo tanto,
+              \[
+                  \lim_{n \to \infty} f_n(x) = +\infty = f(x)
+              \]
+        \item Si \(f(x) < +\infty\), existe \(n_x \in \mathbb{N}\) tal que \(f(x) < n_x\).
+              Además, existe \(k \in \mathbb{N}\) con
+              \[
+                  \frac{k-1}{2^{n_x}} \leq f(x) < \frac{k}{2^{n_x}}
+              \]
+              y entonces
+              \[
+                  f_{n_x}(x) = \frac{k-1}{2^{n_x}}
+              \]
+              Por lo tanto,
+              \[
+                  0 \leq f(x) - f_{n_x}(x) \leq \frac{1}{2^{n_x}}
+              \]
+              Así,
+              \[
+                  \lim_{n \to \infty} f_n(x) = f(x)
+              \]
+
+              Además, si \(f\) está acotada, es decir, si existe \(M > 0\) tal que \(f(x)
+              \leq M\) para todo \(x\), entonces para todo \(n \geq M\) y todo \(x \in X\),
+              \[
+                  0 \leq f(x) - f_n(x) \leq \frac{1}{2^n}
+              \]
+              lo que implica que \(f_n \to f\) uniformemente casi en todo punto.
     \end{itemize}
-    Ahora veamos que $f_n(x)$ es creciente:
-    $f_n(x) = \begin{cases}
-            \frac{i-1}{2^n} & x \in E_{n, i} \\
-            n               & x \in Exx_n
+
+    Ahora, veamos que \(f_n\) es monótona creciente. Para todo \(x \in X\) y todo
+    \(n \in \mathbb{N}\), por construcción de \(f_n\), tenemos que:
+    \[
+        f_n(x) =
+        \begin{cases}
+            \frac{i-1}{2^n} & \text{si } x \in E_{n,i} \\
+            n               & \text{si } x \in E_n
         \end{cases}
-        \implies f_{n+1}(x) = \begin{cases}
-            \frac{2i-2}{2^{n+1}} & x \in E_{n, i} \\
-            n+1                  & x \in E_{n+1}
+    \]
+    y
+    \[
+        f_{n+1}(x) =
+        \begin{cases}
+            \frac{2i - 2}{2^{n+1}} & \text{si } x \in E_{n,i} \\
+            n+1                    & \text{si } x \in E_{n+1}
         \end{cases}
-        \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$. Dado que $1 \leq i \leq n2^n \implies 1 \leq i \leq 2^{n+1} \implies f_n(x) \leq f_{n+1}(x) \quad \forall n \in \mathbb{N}$.
+    \]
+    Notemos que para todo \(n\) y \(i\),
+    \[
+        \frac{i-1}{2^n} \leq \frac{2i - 2}{2^{n+1}}
+    \]
+    por lo que
+    \[
+        f_n(x) \leq f_{n+1}(x)
+    \]
+    para todo \(x \in X\) y todo \(n \in \mathbb{N}\).
 \end{proof}
 
 \subsection{Integración de Funciones Positivas}
 
 \begin{definición}[Integral de una función simple\label{Integral de una Función Simple}]
-Consideremos en $\mathbb{R}^n$ la $\sigma-$álgbra $M$ de los conjuntos medibles y la medida-Lebesgue $m$. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible, no negativa y con representación canónica $s = \sum_{i = 1}^{n}\alpha_i\chi_{A_i}$ donde $\mathbb{R}^n = \bigcup_{i = 1}^{m}A_i$-unión disjunta de conjuntos medibles. Entonces definimos la integral de $s$ como: \[\int_{\mathbb{R}^n}s \, dx = \sum_{i = 1}^{n}\alpha_im(A_i)\]
+Sea $(\mathbb{R}^n, \mathcal{L}^n)$ el espacio medible con la $\sigma$-álgebra $\mathcal{L}^n$ de los conjuntos medibles de $\mathbb{R}^n$ y la medida de Lebesgue \(m\). Sea
+\[
+    s: \mathbb{R}^n \to [0, +\infty] \qquad s = \sum_{i=1}^n \alpha_i \chi_{A_i}
+\]
+una función simple, medible y no negativa, donde los conjuntos
+\((A_i)_{i=1}^n\) son medibles y forman una unión disjunta que cubre
+\(\mathbb{R}^n\), es decir,
+\[
+    \mathbb{R}^n = \bigsqcup_{i=1}^n A_i
+\]
+
+Entonces, definimos la integral de \(s\) respecto a la medida de Lebesgue como:
+\[
+    \int_{\mathbb{R}^n} s(x) \, dx \;:=\; \sum_{i=1}^n \alpha_i \, m(A_i)
+\]
+Sea $E \subset \mathbb{R}^n$ un conjunto medible. Definimos la integral de
+\(s\) sobre \(E\) como:
+\[
+    \int_E s(x) \, dx \;:=\; \int_{\mathbb{R}^n} s \cdot \chi_E(x) \, dx = \sum_{i=1}^n \alpha_i \, m(A_i \cap E)
+\]
 \end{definición}
+
 \begin{observación}
-$\int_{\mathbb{R}^n}0 = 0$
+La integral de la función nula sobre \( \mathbb{R}^n \) es cero:
+\[
+    \int_{\mathbb{R}^n} 0 \, dx = 0.
+\]
+Del mismo modo, si \( s \) es una función simple y \( E \subset \mathbb{R}^n \)
+tiene medida nula, entonces:
+\[
+    \int_E s(x) \, dx = 0.
+\]
+Esto se deduce directamente de la definición, ya que \( m(A_i \cap E) = 0 \)
+para todo \( i \).
 \end{observación}
-\begin{proof}
-    Dado $E \subset \mathbb{R}^n$ mdible definimos $\int_{E}s = \int_{\mathbb{R}^n}s\circ X_E = \sum_{i = 1}^{n}\alpha_im(A_i \cap E)$.
-\end{proof}
+
 \begin{lema}
-    Sea $\mathbb{R}^n = \bigcup_{k = 1}^{\infty}X_k$ unión disjunta de conjuntos medibles. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible y no negativa. Entonces $\int_{\mathbb{R}^n} s = \sum_{k = 1}^{\infty}\int_{X_k}s$.
+    Sea $\mathbb{R}^n = \bigsqcup_{k = 1}^{\infty} X_k$ una unión disjunta de conjuntos medibles. Sea $s: \mathbb{R}^n \to [0, +\infty]$ una función simple, medible y no negativa. Entonces,
+    \[
+        \int_{\mathbb{R}^n} s \, dx = \sum_{k = 1}^{\infty} \int_{X_k} s \, dx.
+    \]
     \label{intSimpleDisjunta}
 \end{lema}
+
 \begin{proof}
-    Supongamos que
-    $$ s = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i} $$
-    (forma canónica), entonces
-    $$ s(\mathbb{R}^n) = \{ \alpha_1, \dots, \alpha_m \}. $$
+    Sea la representación canónica de $s$:
+    \[
+        s = \sum_{i=1}^m \alpha_i \chi_{A_i}, \quad \text{con } A_i \subset \mathbb{R}^n \text{ medibles y disjuntos.}
+    \]
 
-    Para todo $k \in \mathbb{N}$, sea $\beta_k \in \{ \alpha_1, \dots, \alpha_m \}$. Definimos
-    para cada $j = 1, \dots, m$ el conjunto $$ Y_j = \{ k \in \mathbb{N} : \beta_k
-        = \alpha_j \}. $$
+    Entonces, usando la definición de la integral de funciones simples:
+    \[
+        \int_{\mathbb{R}^n} s \, dx = \sum_{i=1}^m \alpha_i \cdot m(A_i).
+    \]
 
-    Así, $\mathbb{N} = \bigcup_{j=1}^{m} Y_j$ es una unión disjunta. Además, $$
-        s^{-1}(\alpha_j) = A_j = \bigcup_{k \in Y_j} X_k, $$ una unión disjunta.
+    Ahora, para cada \( i \), tenemos que:
+    \[
+        A_i = \bigsqcup_{k=1}^{\infty} (A_i \cap X_k),
+    \]
+    donde la unión es disjunta porque los \( X_k \) son disjuntos. Como la medida
+    es aditiva sobre uniones disjuntas (\cref{unionNumerableMedible}):
+    \[
+        m(A_i) = \sum_{k=1}^{\infty} m(A_i \cap X_k).
+    \]
 
-    Entonces, usando la propiedad de la medida en una unión disjunta, tenemos $$
-        m(A_j) = m \left( \bigcup_{k \in Y_j} X_k \right) = \sum_{k \in Y_j} m(X_k). $$
+    Por tanto:
+    \[
+        \int_{\mathbb{R}^n} s \, dx = \sum_{i=1}^m \alpha_i \sum_{k=1}^{\infty} m(A_i \cap X_k)
+        = \sum_{k=1}^{\infty} \sum_{i=1}^m \alpha_i \cdot m(A_i \cap X_k).
+    \]
 
-    Por lo tanto, $$ \int_{\mathbb{R}^n} s = \sum_{j=1}^{m} \alpha_j \cdot m(A_j) =
-        \sum_{j=1}^{m} \sum_{k \in Y_j} \alpha_j \cdot m(X_k). $$
-
-    Intercambiando el orden de la suma, $$ \sum_{j=1}^{m} \sum_{k \in Y_j} \alpha_j
-        \cdot m(X_k) = \sum_{k \in Y_j} \beta_k \cdot m(X_k). $$
-
-    Así, $$ \int_{\mathbb{R}^n} s = \sum_{k \in Y_j} \beta_k \cdot m(X_k). $$
+    Pero la expresión
+    \[
+        \sum_{i=1}^m \alpha_i \cdot m(A_i \cap X_k)
+    \]
+    es, por la \cref{Integral de una Función Simple}, \( \int_{X_k} s \, dx \). Por
+    lo tanto,
+    \[
+        \int_{\mathbb{R}^n} s \, dx = \sum_{k=1}^{\infty} \int_{X_k} s \, dx.
+    \]
 \end{proof}
+
 \begin{corolario}
-    Sean $s, t: \mathbb{R}^n \to [0, +\infty]$ funciones simples, medibles y no negativas. Entonces:
-    $\int_{\mathbb{R}^n}(s + t) = \int_{\mathbb{R}^n}s + \int_{\mathbb{R}^n}t$.
+    Sean \( s, t: \mathbb{R}^n \to [0, +\infty] \) funciones simples, medibles y no negativas. Entonces,
+    \[
+        \int_{\mathbb{R}^n} (s + t) \, dx = \int_{\mathbb{R}^n} s \, dx + \int_{\mathbb{R}^n} t \, dx.
+    \]
     \label{sumaIntSimples}
 \end{corolario}
+
 \begin{proof}
-    Sea $S = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}$ y $t = \sum_{j=1}^{k} \beta_j \cdot \chi_{B_j}$. Dado que $\mathbb{R}^n = \bigcup_{i=1}^{m} \bigcup_{j=1}^{k} (A_i \cap B_j)$, donde la unión es disjunta y los conjuntos $A_i, B_j$ son medibles, se tiene que en $A_i \cap B_j: s + t = \alpha_i + \beta_j$.
-    Aplicando el lema de integración para funciones simples: $$\int_{\mathbb{R}^n} (s + t) = \sum_{i=1}^{m} \sum_{j=1}^{k} (\alpha_i + \beta_j) m(A_i \cap B_j) = \sum_{j=1}^{k} \sum_{i=1}^{m} \alpha_i m(A_i \cap B_j) + \sum_{i=1}^{m} \sum_{j=1}^{k} \beta_j m(A_i \cap B_j)$$ $$= \sum_{j=1}^{k} \int_{B_j} s + \sum_{i=1}^{m} \int_{A_i} t = \int_{\mathbb{R}^n} s + \int_{\mathbb{R}^n} t$$ por el \cref{intSimpleDisjunta}.
+    Supongamos que las representaciones canónicas de \( s \) y \( t \) son
+    \[
+        s = \sum_{i=1}^{m} \alpha_i \, \chi_{A_i}, \quad
+        t = \sum_{j=1}^{k} \beta_j \, \chi_{B_j},
+    \]
+    donde los conjuntos \( A_i \) y \( B_j \) son medibles y forman particiones
+    disjuntas de \( \mathbb{R}^n \), es decir,
+    \[
+        \mathbb{R}^n = \bigsqcup_{i=1}^{m} A_i = \bigsqcup_{j=1}^{k} B_j
+    \]
+    Entonces,
+    \[
+        s + t = \sum_{i=1}^{m} \sum_{j=1}^{k} (\alpha_i + \beta_j) \cdot \chi_{A_i \cap B_j},
+    \]
+    ya que en cada conjunto \( A_i \cap B_j \), se tiene \( s(x) = \alpha_i \), \(
+    t(x) = \beta_j \), y por tanto \( (s + t)(x) = \alpha_i + \beta_j \)
+
+    Como la familia \( \{ A_i \cap B_j \} \) es una partición disjunta de \(
+    \mathbb{R}^n \), y los conjuntos son medibles, aplicamos la definición de
+    integral de función simple:
+    \[
+        \int_{\mathbb{R}^n}(s + t) = \sum_{i=1}^{m} \sum_{j=1}^{k} (\alpha_i + \beta_j) \cdot m(A_i \cap B_j)
+    \]
+
+    Distribuyendo:
+    \[
+        = \sum_{i=1}^{m} \sum_{j=1}^{k} \alpha_i \cdot m(A_i \cap B_j)
+        + \sum_{i=1}^{m} \sum_{j=1}^{k} \beta_j \cdot m(A_i \cap B_j)
+    \]
+
+    Reordenando las sumas:
+    \[
+        = \sum_{j=1}^{k} \left( \sum_{i=1}^{m} \alpha_i \cdot m(A_i \cap B_j) \right)
+        + \sum_{i=1}^{m} \left( \sum_{j=1}^{k} \beta_j \cdot m(A_i \cap B_j) \right)
+    \]
+
+    Pero por el lema de aditividad de la integral sobre uniones disjuntas que
+    particionan el espacio (\cref{intSimpleDisjunta}), esto es:
+    \[
+        = \sum_{j=1}^{k} \int_{B_j} s + \sum_{i=1}^{m} \int_{A_i} t
+        = \int_{\mathbb{R}^n} s + \int_{\mathbb{R}^n} t
+    \]
 \end{proof}
-\begin{definición}[Integral de Lebesgue\label{Integral de Lebesgue}]
-Sea $f: \mathbb{R}^n \to [0, +\infty)$ una función medible. Definimos la integral de Lebesgue como:
-$$\int_{\mathbb{R}^n} f = \sup \left\{ \int_{\mathbb{R}^n} s \mid s \text{ es simple, medible y } 0 \leq s \leq f \right\}.$$
-Si $E \subset \mathbb{R}^n$ es medible y $f: E \to [0, +\infty)$, definimos:
-$$\int_E f = \sup \left\{ \int_{\mathbb{R}^n} s \cdot \chi_E \mid s \text{ es simple, medible y } 0 \leq s \leq f \cdot \chi_E \right\}.$$
+
+\begin{definición}[Integral de Lebesgue]
+Sea $f: \mathbb{R}^n \to [0, +\infty)$ una función medible y no-negativa. Definimos la integral de Lebesgue de $f$ en $\mathbb{R}^n$ como:
+$$\int_{\mathbb{R}^n} f := \sup \left\{ \int_{\mathbb{R}^n} s \ \middle| \ s \text{ es simple, medible y } 0 \leq s \leq f \right\}$$
+Si $E \subset \mathbb{R}^n$ es medible y $f: E \to [0, +\infty)$ es una función medible y no-negativa, definimos la integral de Lebesgue de $f$ sobre $E$ como:
+$$\int_E f := \sup \left\{ \int_{\mathbb{R}^n} s \cdot \chi_E \ \middle| \ s \text{ es simple, medible y } 0 \leq s \leq f \cdot \chi_E \right\}$$\label{Integral de Lebesgue}
 \end{definición}
+
 \begin{proposición}
 Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \vspace{-0.5em}
 \begin{enumerate}
-    \item Si $0 \leq f \leq g$ y $E \subset \mathbb{R}^n$ es medible entonces $\int_E f \leq \int_F g$.
-    \item Si $f, g \geq 0 \implies \int_E (f + g) = \int_E f + \int_E g$.
-    \item Si $c \geq 0, \ f \geq 0 \implies \int_E cf = c \int_E f$.
-    \item Si $m(E) = 0 \implies \int_E f = 0$. (Incluso si $f = +\infty$)
-    \item Si $f\big|_E = 0 \implies \int_E f = 0$. (Incluso si $m(E) = +\infty$)
-    \item Si $A \subset B$ y $f \geq 0 \implies \int_A f \leq \int_B f$.
+    \item Si $0 \leq f \leq g$ y $E \subset \mathbb{R}^n$ es medible $\implies \int_E f
+              \leq \int_F g$
+    \item Si $f, g \geq 0 \implies \int_E (f + g) = \int_E f + \int_E g$
+    \item Si $c \geq 0, \ f \geq 0 \implies \int_E cf = c \int_E f$
+    \item Si $m(E) = 0 \implies \int_E f = 0$ (Incluso si $f = +\infty$)
+    \item Si $f\big|_E = 0 \implies \int_E f = 0$ (Incluso si $m(E) = +\infty$)
+    \item Si $A \subset B$ y $f \geq 0 \implies \int_A f \leq \int_B f$
     \item Si $A, B$ son conjuntos medibles y disjuntos y $f\geq 0 \implies \int_{A \cup
-                  B} f = \int_A f + \int_B f$.
-    \item Si $f = g$ en casi todo punto de E $\implies \int_E f = \int_E g$.
+                  B} f = \int_A f + \int_B f$
+    \item Si $f = g$ en casi todo punto de $E \subset \mathbb{R}^n$ medible $\implies \int_E f = \int_E g$
+    \item [1'.] Si $0 \leq f \leq g$ en casi todo punto de $E \subset \mathbb{R}^n$ medible, entonces $\int_E f \leq \int_E g$. 
 \end{enumerate}
+\label{prop:PropiedadesIntegralesLebesgue}
 \end{proposición}
 \begin{proof}
     \leavevmode
     \begin{enumerate}
-        \item  Por definición de la integral de Lebesgue, tenemos:
-        \[
-        \int_E f = \sup \left\{ \int_{\mathbb{R}^n} s \cdot \chi_E \mid s \text{ es simple, medible y } 0 \leq s \leq f \cdot \chi_E \right\}.
-        \]
-        \[
-        \int_E g = \sup \left\{ \int_{\mathbb{R}^n} t \cdot \chi_E \mid t \text{ es simple, medible y } 0 \leq t \leq g \cdot \chi_E \right\}.
-        \]
-    
-        Dado que \( f \leq g \), cualquier función simple \( s \) tal que \( 0 \leq s \leq f \cdot \chi_E \) también satisface \( 0 \leq s \leq g \cdot \chi_E \), lo que implica que el conjunto de funciones simples consideradas para \( f \) está contenido en el conjunto considerado para \( g \).
-    
-        Como el supremo se toma sobre un conjunto más grande en el caso de \( g \), se sigue que:
-        \[
-        \int_E f \leq \int_E g.
-        \]
-        \item  Consideremos funciones simples \( s, t \) tales que \( 0 \leq s \leq f \cdot \chi_E \) y \( 0 \leq t \leq g \cdot \chi_E \). Como \( s+t \) es también una función simple y satisface \( 0 \leq s + t \leq (f+g) \cdot \chi_E \), tenemos por el \cref{sumaIntSimples}:
+        \item  Sean $f, g \colon \mathbb{R}^n \to [0, \infty]$ funciones medibles tales que
+              $f(x) \leq g(x)$ para todo $x \in \mathbb{R}^n$, y sea $E \subset \mathbb{R}^n$
+              un conjunto medible. Definimos los siguientes conjuntos de funciones simples:
 
-        \[
-        \int_{\mathbb{R}^n} (s+t) \cdot \chi_E = \int_{\mathbb{R}^n} s \cdot \chi_E + \int_{\mathbb{R}^n} t \cdot \chi_E
-        \]
-    
-        Tomando el supremo sobre todas las funciones simples \( s \) y \( t \), obtenemos:
-    
-        \[
-        \sup \left\{ \int_{\mathbb{R}^n} (s+t) \cdot \chi_E \right\} = \sup \left\{ \int_{\mathbb{R}^n} s \cdot \chi_E \right\} + \sup \left\{ \int_{\mathbb{R}^n} t \cdot \chi_E \right\}.
-        \]
-    
-        Es decir,
-    
-        \[
-        \int_E (f+g) = \int_E f + \int_E g.
-        \]
-        \item Si $f = c \cdot 0$, entonces es trivial. Si $c > 0$, tomamos $s = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}$, con $0 \leq
-                  s \leq f$.
+              \[
+                  \mathcal{S}_f = \left\{ s \text{ simple y medible} \ \middle| \ 0 \leq s \leq f \cdot \chi_E \right\} \quad
+                  \mathcal{S}_g = \left\{ t \text{ simple y medible} \ \middle| \ 0 \leq t \leq g \cdot \chi_E \right\}
+              \]
+
+              Como $f(x) \leq g(x)$ para todo $x$, se tiene que
+              \[
+                  f(x)\chi_E(x) \leq g(x)\chi_E(x), \quad \forall x \in \mathbb{R}^n
+              \]
+              Por lo tanto, cualquier función simple $s \in \mathcal{S}_f$ también satisface
+              $0 \leq s \leq g \cdot \chi_E$, es decir,
+              \[
+                  \mathcal{S}_f \subset \mathcal{S}_g
+              \]
+
+              La integral de Lebesgue sobre $E$ se define como:
+              \[
+                  \int_E f = \sup_{s \in \mathcal{S}_f} \int_{\mathbb{R}^n} s, \quad
+                  \int_E g = \sup_{t \in \mathcal{S}_g} \int_{\mathbb{R}^n} t
+              \]
+
+              Como el supremo de un conjunto está acotado por el supremo de un conjunto que
+              lo contiene, se concluye que:
+              \[
+                  \int_E f \leq \int_E g
+              \]
+
+        \item  Véase la demostración del \cref{cor:TCM}.
+
+        \item Si $f = c \cdot 0$, entonces es trivial. Si $c > 0$, tomamos $s =
+                  \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}$, con $0 \leq s \leq f$.
 
               Entonces, $c \cdot s = \sum_{i=1}^{m} c \cdot \alpha_i \cdot \chi_{A_i}$, con
               $0 \leq c \cdot s \leq c \cdot f$.
 
               Así, $$ \int_{\mathbb{R}^n} c \cdot s = \sum_{i=1}^{m} c \cdot \alpha_i \cdot
-                  m(A_i) = c \sum_{i=1}^{m} \alpha_i \cdot m(A_i) = c \int_{\mathbb{R}^n} s. $$
+                  m(A_i) = c \sum_{i=1}^{m} \alpha_i \cdot m(A_i) = c \int_{\mathbb{R}^n} s $$
 
               Tomando el supremo, obtenemos $$ \int_{\mathbb{R}^n} c \cdot f = c \sup \left\{
-                  \int_{\mathbb{R}^n} s \mid s \text{ es simple, medible y } 0 \leq s \leq f \right\} = c
-                  \int_{\mathbb{R}^n} f. $$
+                  \int_{\mathbb{R}^n} s \ \middle| \ s \text{ es simple, medible y } 0 \leq s
+                  \leq f \right\} = c \int_{\mathbb{R}^n} f $$
 
-        \item Si $m(E) = 0$, entonces para toda $s$ simple y medible tal que $0 \leq s \leq
-                  f$, se tiene que $$ s = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i}. $$
+        \item Dado $E \subset \mathbb{R}^n$ un conjunto medible tal que $m(E) = 0$, y sea $s
+                  = \sum_{i=1}^m \alpha_i \cdot \chi_{A_i}$ una función simple tal que $0 \leq s
+                  \leq f \cdot \chi_E$. Entonces para todo $i = 1, \dots, m$ se tiene que $m(A_i
+                  \cap E) = 0$ por ser $E$ de medida nula. Por lo tanto,
+              \[
+                  \int_E s = \int_{\mathbb{R}^n} s \cdot \chi_E = \sum_{i=1}^m \alpha_i \cdot m(A_i \cap E) = 0
+              \]
 
-              De donde, $$ \int_{E} s = \sum_{i=1}^{m} \alpha_i \cdot m(A_i \cap E) = 0. $$
+              Esto es cierto para toda función simple $s$ tal que $0 \leq s \leq f \cdot
+                  \chi_E$. Por lo tanto, el supremo de dichas integrales también es cero:
+              \[
+                  \int_E f = \sup \left\{ \int_E s \ \middle| \ s \text{ es simple, medible y } 0 \leq s \leq f \cdot \chi_E
+                  \right\} = 0
+              \]
 
-              Por lo tanto, $$ \int_E f = \sup \left\{ \int_E s \right\} = 0. $$
+        \item Supongamos que \( f|_E = 0 \), es decir, \( f(x) = 0 \) en casi todo punto de
+              \( E \).
 
-        \item Para toda $s$ simple con $0 \leq s \leq f$, se tiene que $s(x) = 0$ para casi
-              todo $x \in E$.
+              Sea \( s = \sum_{i=1}^{m} \alpha_i \cdot \chi_{A_i} \) una función simple y
+              medible tal que \( 0 \leq s \leq f \cdot \chi_E \). Por definición de
+              restricción, se tiene que
+              \[
+                  s(x) \leq f(x) = 0 \quad \text{para casi todo } x \in E
+              \]
+              por lo que
+              \[
+                  s(x) = 0 \quad \text{para casi todo } x \in E
+              \]
+              Luego $\forall i = 1, \dots, m$ tal que $\alpha_i > 0$ se tiene que $m(A_i \cap
+                  E) = 0$
 
-              Luego, $$ f \cdot \chi_E = 0 \Rightarrow s = 0 \Rightarrow \int_E s = 0, \quad
-                  \forall s. $$
+              entonces,
+              \[
+                  \int_E s = \int_{\mathbb{R}^n} s \cdot \chi_E = \sum_{i=1}^{m} \alpha_i \cdot m(A_i \cap E) = 0
+              \]
 
-              Tomando el supremo, $$ \sup \left\{ \int_E s \right\} = 0 = \int_E f. $$
+              Finalmente, buscando el supremo de las funciones simples obtenemos:
+              \[
+                  \int_E f = \sup \left\{ \int_E s \ \middle| \ s \text{ es simple, medible y } 0 \leq s \leq f \cdot \chi_E
+                  \right\} = 0
+              \]
 
-        \item Si $f$ es simple y medible con $0 \leq s \leq f$, se tiene que $$ \text{si } A
-                  \subset B, \quad \chi_A \leq \chi_B \Rightarrow 0 \leq s \cdot \chi_B. $$
+        \item Dados $A \subset B \subset \mathbb{R}^n$ conjuntos medibles.
+
+              Definimos las funciones:
+              \[
+                  f_1 := f \cdot \chi_A, \quad f_2 := f \cdot \chi_B
+              \]
+
+              Como $f \geq 0$ y $\chi_A(x) \leq \chi_B(x)$ para todo $x \in \mathbb{R}^n$
+              (porque $A \subset B$), se tiene que:
+              \[
+                  f_1(x) = f(x)\chi_A(x) \leq f(x)\chi_B(x) = f_2(x), \quad \forall x \in \mathbb{R}^n
+              \]
+
+              Es decir, $f_1 \leq f_2$ en todo $\mathbb{R}^n$.
+
+              Entonces, por el apartado (1), se sigue que:
+              \[
+                  \int_{\mathbb{R}^n} f_1 \leq \int_{\mathbb{R}^n} f_2
+              \]
+
+              Como $\int_A f = \int_{\mathbb{R}^n} f \cdot \chi_A = \int_{\mathbb{R}^n} f_1$
+              y $\int_B f = \int_{\mathbb{R}^n} f \cdot \chi_B = \int_{\mathbb{R}^n} f_2$,
+              concluimos que:
+              \[
+                  \int_A f \leq \int_B f
+              \]
 
         \item  Si $A, B$ son medibles y disjuntos, entonces $$ \chi_{A \cup B} = \chi_A +
-                  \chi_B. $$
+                  \chi_B $$
 
               Así, $$ \int_{A \cup B} f = \int_{\mathbb{R}^n} f \cdot \chi_{A \cup B} =
-                  \int_{\mathbb{R}^n} f (\chi_A + \chi_B). $$
+                  \int_{\mathbb{R}^n} f (\chi_A + \chi_B) = \int_{\mathbb{R}^n} (f \chi_A + f
+                  \chi_B) $$
 
-              Por linealidad de la integral, $$ \int_{\mathbb{R}^n} f \chi_A +
-                  \int_{\mathbb{R}^n} f \chi_B = \int_A f + \int_B f. $$
+              Por el apartado (2) se sigue, $$ = \int_{\mathbb{R}^n} f \chi_A +
+                  \int_{\mathbb{R}^n} f \chi_B = \int_A f + \int_B f $$
 
-              Por lo tanto, $$ \int_{A \cup B} f = \int_A f + \int_B f. $$
+              Por lo tanto, $$ \int_{A \cup B} f = \int_A f + \int_B f $$
 
-        \item[8.] Si $E = A \cup Z$, con $A$ y $Z$ disjuntos y tales que $x \in E \Rightarrow f(x) = g(x)$, entonces
-              $$
-                  Z = \{ x \in E \mid f(x) \neq g(x) \}.
-              $$
+        \item Tenemos $f, g : \mathbb{R}^n \to [0, \infty]$ funciones medibles tales que
+              $f(x) = g(x)$ para casi todo $x \in E$. Es decir, existe un conjunto $Z \subset
+                  E$ tal que $m(Z) = 0$ y $f(x) = g(x)$ para todo $x \in E \setminus Z$.
 
-              Si $m(Z) = 0$, se tiene que $$ \int_E f = \int_A f + \int_Z f = \int_A g + 0 =
-                  \int_A g. $$
+              Definimos $A := E \setminus Z$, de modo que $E = A \cup Z$ con $A \cap Z =
+                  \emptyset$ y $m(Z) = 0$.
+
+              Entonces por (7), podemos descomponer la integral como:
+              \[
+                  \int_E f = \int_A f + \int_Z f \quad \text{y} \quad \int_E g = \int_A g + \int_Z g.
+              \]
+
+              Pero sobre $A$, se cumple que $f = g$, por lo que:
+              \[
+                  \int_A f = \int_A g.
+              \]
+
+              Además, como $m(Z) = 0$, se sigue por el apartado (4) que:
+              \[
+                  \int_Z f = \int_Z g = 0.
+              \]
+
+              Por tanto,
+              \[
+                  \int_E f = \int_A f + \int_Z f = \int_A f + 0 = \int_A g + 0 = \int_A g + \int_Z g = \int_E g.
+              \]
+        \item [1'.] Sea $Z = \{x \in E \mid f(x) > g(x)\}$ el conjunto excepcional donde no se cumple la desigualdad. Por hipótesis, $m(Z) = 0$.
+    
+        Definamos la función $h = g - f \geq 0$ en $E \setminus Z$ y $h = 0$ en $Z$. Entonces:
+
+        \begin{itemize}
+            \item $h$ es medible pues es suma/resta de funciones medibles en $E \setminus Z$ y es cero en $Z$.
+            \item $h \geq 0$ en todo $E$ por construcción.
+        \end{itemize}
+
+        Entonces $g = f + h$ en casi todo punto de $E$ (excepto en $Z$ que tiene medida nula). Luego aplicando primero (8) y después (2) se tiene que:
+
+        \[
+            \int_E g = \int_E (f + h) = \int_E f + \int_E h
+        \]
+
+        Como $h \geq 0$, por la propiedad (1) es evidente que:
+        \[ \int_E h \geq 0 \]
+          
+        Por lo tanto:
+        \[ \int_E g = \int_E f + \int_E h \geq \int_E f \]
 
     \end{enumerate}
 \end{proof}
@@ -379,21 +943,23 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
             \text{Si } f(x) > 0 \implies \exists k \in \mathbb{N} : c \cdot s(x) \leq f_k(x) \leq f(x) \implies x \in E_k
         \end{cases}
     \]
-    Por lo tanto, $x \in E_k$. Veamos que: $$\int_{\mathbb{R}^n} s =
-        \lim\limits_{k \to \infty} \int_{E_k} s.$$ Dado que $s = \sum_{j=1}^{m}
-        \alpha_j \cdot \chi_{A_j}$ con $s^{-1}(\alpha_j) = A_j$ y $(E_k)_{k \in \mathbb{N}}$ es una sucesión creciente, entonces, para cada $j = 1, \ldots, m$, tenemos por el \cref{limUnionMedible}: $$ m(A_j) =
-        m \left(\bigcup_{k = 1}^{\infty}(E_k\cap A_j)\right) = \lim\limits_{k \to \infty} m(E_k
-        \cap A_j). $$ Luego:$$\int_{\mathbb{R}^n} s = \sum_{j=1}^{m} \alpha_j \cdot
-        m(A_j) = \sum_{j=1}^{m} \alpha_j \cdot \lim\limits_{k \to \infty} m(E_k \cap
-        A_j) = \lim\limits_{k \to \infty} \sum_{j=1}^{m} \alpha_j \cdot m(E_k \cap A_j)
-        = \lim\limits_{k \to \infty} \int_{E_k} s$$ Finalmente, obtenemos que: $$
+    Por lo tanto, $x \in E_k$. Veamos que: $$\int_{\mathbb{R}^n} s = \lim\limits_{k
+            \to \infty} \int_{E_k} s.$$ Dado que $s = \sum_{j=1}^{m} \alpha_j \cdot
+        \chi_{A_j}$ con $s^{-1}(\alpha_j) = A_j$ y $(E_k)_{k \in \mathbb{N}}$ es una
+    sucesión creciente, entonces, para cada $j = 1, \ldots, m$, tenemos por el
+    \cref{limUnionMedible}: $$ m(A_j) = m \left(\bigcup_{k = 1}^{\infty}(E_k\cap
+            A_j)\right) = \lim\limits_{k \to \infty} m(E_k \cap A_j). $$
+    Luego:$$\int_{\mathbb{R}^n} s = \sum_{j=1}^{m} \alpha_j \cdot m(A_j) =
+        \sum_{j=1}^{m} \alpha_j \cdot \lim\limits_{k \to \infty} m(E_k \cap A_j) =
+        \lim\limits_{k \to \infty} \sum_{j=1}^{m} \alpha_j \cdot m(E_k \cap A_j) =
+        \lim\limits_{k \to \infty} \int_{E_k} s$$ Finalmente, obtenemos que: $$
         \int_{\mathbb{R}^n}f_k \geq \int_{E_k} f_k \geq \int_{E_k} c \cdot s = c \cdot
         \int_{E_k} s$$ Tomando límites el límite cuando $k \to \infty$, obtenemos que:
     $$ l \geq c \cdot \int_{\mathbb{R}^n} s$$ Por último, si tomamos el límite $c
         \to 1$ obtenemos que: $$ l \geq \int_{\mathbb{R}^n} s$$ Dado que $s$ es una
     función simple y medible arbitraria, se tiene esta propiedad $\forall s$
     función simple, medible y no-negativa (por ser $0 \leq s \leq f$). Por tanto,
-    obtenemos la ansiada desigualdad: $l \geq \int_{\mathbb{R}^n} f$.
+    obtenemos la desigualdad buscada: $l \geq \int_{\mathbb{R}^n} f$.
 \end{proof}
 \begin{teorema} [Convergencia Monótona Versión Refinada\label{TCM Refinada}]
     Sea $E \subset \mathbb{R}^n$ medible y $f_k: E \to [0, +\infty]$ sucesión de funcion medibles y $f: E \to [0, +\infty]$ tales que:
@@ -415,40 +981,63 @@ Para funciones medibles, no-negativas y conjuntos medibles se tiene que:
 \begin{corolario}
     \vspace{-2.5em}
     \begin{enumerate}
-        \item Si $f, g: \mathbb{R}^n \to [0, +\infty]$ son medibles y no-negativas
-              se tiene que: $$\int_{\mathbb{R}^n}f+g = \int_{\mathbb{R}^n}f +
-                  \int_{\mathbb{R}^n}g$$.
+        \item Si $f, g: \mathbb{R}^n \to [0, +\infty]$ son medibles y no-negativas se tiene
+              que: $$\int_{\mathbb{R}^n}f+g = \int_{\mathbb{R}^n}f + \int_{\mathbb{R}^n}g$$.
         \item Si $(f_k)_{k\in \mathbb{N}}: \mathbb{R} \to [0, +\infty]$ sucesión de funciones
               mediles $\forall k \in \mathbb{N}$ se tiene que:
               $$\int_{E}\sum_{k=1}^{\infty}f_k = \sum_{k=1}^{\infty}\int_{E}f_k$$.
     \end{enumerate}
+    \label{cor:TCM}
 \end{corolario}
+
 \begin{proof}
     \leavevmode
     \begin{enumerate}
-        \item Sabemos que existen sucesiones crecientes \( (s_j)_{j \in \mathbb{N}} \) y \(
-              (t_j)_{j \in \mathbb{N}} \) de funciones simples medibles no negativas tales
-              que $lim_{j \to \infty} s_j = f$ y $lim_{j \to \infty} t_j = g$. Por lo tanto,
-              aplicando el \cref{TCM} obtenemos que: $$ \int_{\mathbb{R}^n}f+g = \lim_{j\to
-                      \infty}\int_{\mathbb{R}^n}s_j + t_j = \lim_{j\to \infty}\int_{\mathbb{R}^n}s_j
-                  + \lim_{j\to \infty}\int_{\mathbb{R}^n}t_j = \int_{\mathbb{R}^n}f +
-                  \int_{\mathbb{R}^n}g. $$
-        \item  Por el apartado anterior obtenemos que: $\sum_{k = 1}^{m}\int_{\mathbb{R}^n}f_k
-                  = \int_{\mathbb{R}^n}\sum_{k = 1}^{m}f_k \implies$ podemos aplicar el Teorema
-              de la Convergencia Monótona, dado que la sucesión $\sum_{k = 1}^{m}f_k $
-              converge de forma creciente a $\sum_{k = 1}^{\infty}f_k$. Entonces finalmente
-              obtenemos que: $$\int_{\mathbb{R}^n}\sum_{k = 1}^{\infty}f_k = \sum_{k =
-                      1}^{\infty}\int_{\mathbb{R}^n}f_k$$.
+        \item Dado que $f$ y $g$ son funciones medibles y no negativas, existen sucesiones crecientes de funciones simples y medibles $(s_j)_{j \in \mathbb{N}}$ y $(t_j)_{j \in \mathbb{N}}$ tales que
+        \[
+            s_j \uparrow f \quad \text{y} \quad t_j \uparrow g \quad \text{puntualmente.}
+        \]
+        Como la suma de funciones simples es simple, $s_j + t_j$ es también una sucesión creciente de funciones simples que converge puntualmente a $f + g$. Por el Teorema de la Convergencia Monótona (\cref{TCM}), se tiene:
+        \[
+            \int_{\mathbb{R}^n} (f + g) = \lim_{j \to \infty} \int_{\mathbb{R}^n} (s_j + t_j)
+        \]
+        Como la integral de Lebesgue es aditiva sobre funciones simples, se cumple que
+        \[
+            \int_{\mathbb{R}^n} (s_j + t_j) = \int_{\mathbb{R}^n} s_j + \int_{\mathbb{R}^n} t_j
+        \]
+        Luego, aplicando el límite,
+        \[
+            \int_{\mathbb{R}^n} (f + g) = \lim_{j \to \infty} \int_{\mathbb{R}^n} s_j + \lim_{j \to \infty} \int_{\mathbb{R}^n} t_j = \int_{\mathbb{R}^n} f + \int_{\mathbb{R}^n} g
+        \]
+
+        \item Sea $(f_k)_{k \in \mathbb{N}}$ una sucesión de funciones medibles no negativas. Definamos, para cada $m \in \mathbb{N}$,
+        \[
+            F_m := \sum_{k = 1}^m f_k
+        \]
+        Como cada $f_k \geq 0$, la sucesión $(F_m)_{m \in \mathbb{N}}$ es creciente y converge puntualmente a la serie
+        \[
+            F := \sum_{k = 1}^{\infty} f_k
+        \]
+        Por el apartado anterior, tenemos:
+        \[
+            \int_{\mathbb{R}^n} F_m = \sum_{k = 1}^{m} \int_{\mathbb{R}^n} f_k
+        \]
+        Como $(F_m)$ converge monótonamente a $F$, podemos aplicar el Teorema de la Convergencia Monótona:
+        \[
+            \int_{\mathbb{R}^n} \sum_{k = 1}^{\infty} f_k = \lim_{m \to \infty} \int_{\mathbb{R}^n} F_m = \lim_{m \to \infty} \sum_{k = 1}^{m} \int_{\mathbb{R}^n} f_k = \sum_{k = 1}^{\infty} \int_{\mathbb{R}^n} f_k
+        \]
     \end{enumerate}
 \end{proof}
-\begin{lema} [de Fatou]
+
+
+\begin{lema} [Lema de Fatou]
     Sea $(f_k)_{k\in\mathbb{R}^n}$ sucesión de funciones medibles no negativas, entonces: $$\int_{\mathbb{R}^n}\liminf_{k\to\infty}f_k \leq \liminf_{k\to\infty}\int_{\mathbb{R}^n}f_k$$
 \end{lema}
 \begin{proof}
-    Sea $$ f = \liminf_{k \to \infty} f_k = \lim_{k \to \infty} \left(\inf_{j \geq k} f_j\right) = \lim_{k \to \infty} g_k $$
+    Sea $$ f := \liminf_{k \to \infty} f_k = \lim_{k \to \infty} \left(\inf_{j \geq k} f_j\right) = \lim_{k \to \infty} g_k \quad \text{ donde } \quad g_k := \inf_{j \geq k} f_j $$
     Dado que $ g_k \geq 0 $, la sucesión $ (g_k)_{k \in \mathbb{N}} $ está compuesta por funciones medibles y no negativas para todo $ k \in \mathbb{N} $. Además, es una sucesión creciente en el sentido de que
-    $$ g_k \leq g_{k+1}, \quad \forall k \in \mathbb{N}. $$ Por el \cref{TCM} (TCM), se tiene que:
-    $$ \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k.$$ Por construcción de la sucesión $ (g_k)_{k \in \mathbb{N}} $, se cumple la igualdad:
+    $$ g_k \leq g_{k+1}, \quad \forall k \in \mathbb{N} $$ Por el \cref{TCM} (TCM), se tiene que:
+    $$ \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k$$ Por construcción de la sucesión $ (g_k)_{k \in \mathbb{N}} $ (en particular por ser monótona creciente), se cumple la igualdad:
     $$\liminf_{k \to \infty} \int_{\mathbb{R}^n} g_k = \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k$$
     Finalmente, dado que $ g_k \leq f_k $, se concluye que:
     $$\int_{\mathbb{R}^n} g_k \leq \int_{\mathbb{R}^n} f_k \implies \int_{\mathbb{R}^n} \lim_{k \to \infty} g_k = \lim_{k \to \infty} \int_{\mathbb{R}^n} g_k = \liminf_{k \to \infty} \int_{\mathbb{R}^n} g_k \leq \liminf_{k \to \infty} \int_{\mathbb{R}^n} f_k$$
@@ -461,19 +1050,50 @@ El resultado análogo con $\limsup$ no es válido en general. Fijémonos que si 
 
 \subsection{Funciones Integrables-Lebesgue}
 
-\begin{definición}[Función Integrable\label{Función Integrable}]
-Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [0, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) cuando $$\int_{E}f < +\infty$$ Es decir cuando $$\int_{\mathbb{R}^n}f \circ \chi_E < +\infty$$
+\begin{definición} [Integral de Lebesgue de funciones medibles]
+    Sea $E \subset \mathbb{R}^n$ un conjunto medible y $f: E \to [-\infty, +\infty]$ una función medible. Sean $f^+ = \max\{f, 0\}$ y $f^- = \max\{-f, 0\}$ las partes positiva y negativa de $f$. Definimos la integral de Lebesgue de $f$ en $E$ como:
+    \[
+        \int_E f := \int_E f^+ - \int_E f^- = \int_{\mathbb{R}^n} f^+ \circ \chi_E - \int_{\mathbb{R}^n} f^- \circ \chi_E
+    \]
 \end{definición}
+
+\begin{definición}[Función Integrable\label{Función Integrable}]
+Sean $E \subset \mathbb{R}^n$ conjunto medible y $f: E \to [-\infty, +\infty]$ función medible. Se dice que f es integrable (o absolutamente integrable) en $E$ cuando 
+$$\int_{E}f < +\infty$$ 
+Es decir cuando 
+$$\int_{\mathbb{R}^n}f \circ \chi_E < +\infty$$
+\end{definición}
+
 \begin{observación}
-$f$ es integrable en $E \iff |f|$ es integrable en $E \iff f^+ $ y $ f^-$ son integrables en $E$, donde $f^+ = \max\{f, 0\}$ y $f^- = \max\{-f, 0\}$.
+    Una función \( f \) (no necesariamente no negativa) es integrable en \( E \) si y sólo si \( |f| \) es integrable en \( E \), lo cual también es equivalente a que sus partes positiva y negativa, \( f^+ = \max\{f, 0\} \) y \( f^- = \max\{-f, 0\} \), sean ambas integrables en \( E \):
+    \[
+    f \in L^1(E) \iff |f| \in L^1(E) \iff f^+, f^- \in L^1(E).
+    \]
 \end{observación}
+
 \begin{lema}
-    Sean $E \subset \mathbb{R}^n$ y $f = g - h$ con $g, h: E \to [-\infty, +\infty]$ funciones integrables. Entonces, $$ \int_{E}f = \int_{E}g - \int_{E}h.$$
+    Sean $E \subset \mathbb{R}^n$ y $f = g - h$ con $g, h: E \to [0, +\infty]$ funciones integrables no negativas. Entonces, $$ \int_{E}f = \int_{E}g - \int_{E}h$$
+    \label{lema:IntegralResta}
 \end{lema}
+
 \begin{proof}
-    Si $ f = g - h \implies  |f| = |g - h| \leq g + h \implies f$ es integrable.
-    $f = f^+ - f^- = g - h \implies f^+ + h = f^- + g \implies \int_{E}f^+ + h = \int_{E}f^- + g \implies \int_{E}f = \int_{E}f^+ - \int_{E}f^- = \int_{E}g - \int_{E}h$.
+    Primero probemos que $f$ es integrable. Como $f = g - h$, tenemos:
+    \[ |f| = |g - h| \leq |g| + |h|. \]
+    Dado que $g$ y $h$ son integrables, $|g|$ y $|h|$ también lo son, y por lo tanto $|g| + |h|$ es integrable. La desigualdad anterior implica que $f$ es integrable.
+
+    Por otro lado, expresando $f$ en términos de sus partes positiva y negativa:
+    \[ f = f^+ - f^- = g - h. \]
+    Reordenando términos obtenemos:
+    \[ f^+ + h = f^- + g. \]
+    Al tratarse de funciones no negativas, podemos aplicar la linealidad de la integral de Lebesgue (\cref{cor:TCM})
+    \[ \int_{E} f^+ + h = \int_{E} f^+ + \int_{E} h = \int_{E} f^- + g = \int_{E} f^- + \int_{E} g. \]
+    Finalmente, restando $\int_{E} h$ y $\int_{E} f^-$ en ambos lados:
+    \[ \int_{E} f^+ - \int_{E} f^- = \int_{E} g - \int_{E} h, \]
+    lo cual es equivalente a:
+    \[ \int_{E} f = \int_{E} g - \int_{E} h, \]
+    completando la demostración.
 \end{proof}
+
 \begin{proposición}
 Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedades:
 \vspace{-0.5em}
@@ -511,47 +1131,63 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
 \begin{proof}
     \leavevmode
     \begin{enumerate}
-        \item Dado que $f = f^+ - f^-$ y $g = g^+ - g*- \implies f + g = f^+ + g^+ - (f^- + g^-)$, con ambas partes $\geq 0$. Entones,
-              por el lema de la integral de funciones no negativas,
-              $$ \int_E (f+g) = \int_E f^+ + \int_E g^+ - \int_E f^- - \int_E g^-. $$
-              Reagrupando términos,
-              $$ \int_E (f+g) = \int_E f + \int_E g. $$
+        \item Dado que $f = f^+ - f^-$ y $g = g^+ - g^-$, se sigue que:
+        \[ f + g = (f^+ + g^+) - (f^- + g^-), \]
+        donde ambos términos $(f^+ + g^+)$ y $(f^- + g^-)$ son no negativos. Por el lema de integración de funciones no negativas, tenemos:
+        \[ \int_E (f + g) = \int_E (f^+ + g^+) - \int_E (f^- + g^-). \]
+              Aplicando el \cref{cor:TCM} a cada integral y reordenando los términos:
+                $$ = \left(\int_E f^+ + \int_E g^+\right) - \left(\int_E f^- + \int_E g^-\right) = \left(\int_E f^+ - \int_E f^-\right) + \left(\int_E g^+ - \int_E g^-\right)$$
+                De nuevo, por el \cref{lema:IntegralResta}, obtenemos que:
+                $$ \int_E (f+g) = \int_E f + \int_E g $$
+        \item     Consideremos primero el caso $c > 0$. Como $f = f^+ - f^-$, se tiene que:
+        \[ cf = cf^+ - cf^-, \]
+        donde tanto $cf^+$ como $cf^-$ son funciones no negativas.
+    
+        Aplicando el apartado (3) de la \cref{prop:PropiedadesIntegralesLebesgue}, obtenemos:
+        \[ \int_E cf = \int_E cf^+ - \int_E cf^- = c\int_E f^+ - c\int_E f^-. \]
+        
+        Factorizando la constante $c$, concluimos que:
+        \[ \int_E cf = c\left(\int_E f^+ - \int_E f^-\right) = c\int_E f. \]
+    
+        Para el caso $c < 0$, observemos primero que:
+        \[ cf = (-|c|)f = -(|c|f) = -(|c|f^+ - |c|f^-) = |c|f^- - |c|f^+. \]
+        
+        Integrando ambos lados y por la proposición aplicada anteriormente, tenemos:
+        \[ \int_E cf = \int_E |c|f^- - \int_E |c|f^+ = |c|\int_E f^- - |c|\int_E f^+. \]
+        
+        Factorizando y teniendo en cuenta que $c = -|c|$:
+        \[ \int_E cf = -|c|\left(\int_E f^+ - \int_E f^-\right) = c\int_E f. \]
 
-        \item Si $ c > 0 $. Como $ c f = cf^+ - c f^- \implies$,
-              $$ \int_E c f = \int_E (c f)^+ - \int_E (c f)^- = c \int_E f^+ - c \int_E f^- = c \int_E f. $$
-              Si $ c < 0 $, usando $ c f = cf^+-cf*- = (-c)f^+ - (-c)f^-$. Entones aplicamos el apartado anterior y obtenemos que:
-              $$ \int_E c f = c \int_E f. $$
+        \item Como $g - f \geq 0$ en casi todo punto de $E$, podemos hacer la descomposición de $f$ y $g$ en sus partes positiva y negativa, de forma que $g - f = (g^+ - g^-) - (f^+ - f^-) = (g^+ + f^-) - (g^- + f^+) \geq 0$ en casi todo punto de $E$. Aplicando el apartado (1') de la \cref{prop:PropiedadesIntegralesLebesgue}, tenemos que:
+        $$ 0 \leq g^- + f^+ \leq g^+ + f^- \text{ en casi todo punto de } E \implies \int_E (g^- + f^+) \leq \int_E (g^+ + f^-) $$
+        Luego haciendo uso de (2) de la \cref{prop:PropiedadesIntegralesLebesgue} en cada integral:
+        $$ \int_E g^- + \int_E f^+ \leq \int_E g^+ + \int_E f^- $$
+        Reordenando los términos, obtenemos:
+        $$ \int_E f^+ - \int_E f^- \leq \int_E g^+ - \int_E g^-  \implies \int_E f \leq \int_E g $$
 
-        \item Como $g - f \geq 0$ en casi todo punto de $E$, se cumple que: $(g-f)\cdot\chi_{E} \geq 0$ en casi todo punto de $\mathbb{R}^n \implies$
-              $$ \int_E (g - f) \geq 0. $$
-              Aplicando la linealidad de la integral,
-              $$ \int_E g - \int_E f \geq 0, $$
-              lo cual implica que
-              $$ \int_E f \leq \int_E g. $$
+        \item Se tiene que $|f| = f^+ + f^-$. Usando la linealidad de la integral, $$ \left|\int_E
+                  f\right| = \left|\int_E f^+ + \int_E f^- \right| $$ Como $f = f^+ - f^-$, aplicamos la
+              desigualdad triangular: $$ \left| \int_E f \right| = \left| \int_E f^+ - \int_E
+                  f^- \right| \leq \int_E f^+ + \int_E f^- = \int_E |f| $$
 
-        \item Se tiene que $|f| = f^+ + f^-$. Usando la linealidad de la integral,
-              $$ |\int_E f| = |\int_E f^+ + \int_E f^-. |$$
-              Como $f = f^+ - f^-$, aplicamos la desigualdad triangular:
-              $$ \left| \int_E f \right| = \left| \int_E f^+ - \int_E f^- \right| \leq \int_E f^+ + \int_E f^- = \int_E |f|. $$
+        \item Como $f = g$ en casi todo punto de $E \implies$ $f^+ = g^+$ y $f^- = g^-$ en
+              casi todo punto de $E$, por lo que sólo queda aplicar el propiedad (8) de la \cref{prop:PropiedadesIntegralesLebesgue}:
+              $$ \int_E f^+ = \int_E g^+ \text{ y } \int_E f^- = \int_E g^-$$
+              Así,
+                $$ \int_E f = \int_E f^+ - \int_E f^- = \int_E g^+ - \int_E g^- = \int_E g $$
 
-        \item Como $f = g$ en casi todo punto de $E \implies$  $f^+ = g^+ \quad f^- = g^-$ en casi todo punto de $E$ por lo que sólo queda aplicar el apartado anterior.
-              $$ \int_E f = \int_E g $$
+        \item Sea $E \subset \mathbb{R}^n$ conjunto de medida nula, puesto que $0 \leq |f|$, entonces por (4) de la \cref{prop:PropiedadesIntegralesLebesgue} se cumple que:
+        $$ \int_E |f| = 0 $$
+        Aplicando el apartado anterior se deduce el resultado:
+        $$ 0 \leq \left|\int_{E}f \right| \leq \int_{E}|f| = 0 \implies \int_{E}f = 0 $$
 
-        \item $|f|\cdot\chi_{E} \geq 0$ en casi todo punto de $\mathbb{R}^n \implies \int_{E}|f| = \int_{\mathbb{R}^n}|f\cdot\chi_{E}| = 0 \implies$
-              $$ |\int_{E}f| \leq \int_{E}|f| = 0$$
-
-        \item Por definición, sabemos que la función $f$ es integrable en $E$ si
-              $$ \int_E  < +\infty \iff \int_{E} |f| < +\infty$$
-        Sea $A \subset E$ el conjunto de puntos de $E$ donde $|f| = \infty$. Entonces tenemos que
-        $$
-            \int_E |f| = \int_{E \setminus A} |f| + \int_A |f| < +\infty \implies \int_{A} |f| < +\infty \implies m(A) = 0.
-        $$
-        Por lo tanto, $|f| < \infty$ en casi todo punto de $E$.
-        \item Sea
-              $$ A = \{ x \in E : |f(x)| > 0 \}. $$
-              Definimos los conjuntos
-              $$ A_k = \{ x \in E : |f(x)| > \frac{1}{k} \}, \quad \forall k \in \mathbb{N}, $$
-              por lo que
+        \item Por definición, sabemos que la función $f$ es integrable en $E$ si $$ \int_E f <
+                  +\infty \iff \int_{E} |f| < +\infty$$ Sea $Z \subset E$ el conjunto de puntos
+              de $E$ donde $|f| = \infty$. Entonces tenemos por la propiedad (7) de la \cref{prop:PropiedadesIntegralesLebesgue} que: $$ \int_E |f| = \int_{E
+                      \setminus Z} |f| + \int_Z |f| < +\infty \implies \int_{Z} |f| < +\infty
+                  \implies m(Z) = 0. $$ Por lo tanto, $|f| < \infty$ en casi todo punto de $E$.
+        \item Sea $$ A = \{ x \in E : |f(x)| > 0 \}. $$ Definimos los conjuntos $$ A_k = \{ x
+                  \in E : |f(x)| > \frac{1}{k} \}, \quad \forall k \in \mathbb{N}, $$ por lo que
               $$ A = \bigcup_{k=1}^{\infty} A_k. $$
 
               Ahora, evaluamos la medida de $ A_k $ utilizando la integral: $$ m(A_k) =
@@ -576,28 +1212,55 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
         \item Dado que \( |f_k| \leq |g| = g \quad \forall k \in \mathbb{N} \), se concluye
               que \( f_k \) es integrable en \( E \). Además, como \( |f| \leq g \), se sigue
               que \( f \) también es integrable en \( E \).
-
-        \item Observamos que \( 0 \leq |f_k - f| \leq |f_k| + |f| \leq g + g = 2g \), lo que
-              implica que \(0 \leq 2g - |f_k - f| = h_k \). Además, la sucesión de funciones \( (h_k)_{k \in \mathbb{N}} \) converge en casi todo punto de \( E \) a \( 2g -
-              0 = 2g \). Aplicando el lema de Fatou a \( \hat{f}_k = h_k \chi_{E} \),
-              obtenemos que:
+        \item Observamos que, como $|f_k| \leq g$ y $|f| \leq g$ para casi todo $x \in E$,
+              entonces:
               \[
-                  \int_{E} \lim_{k \to \infty} h_k = \liminf_{k \to \infty} \int_{E} h_k
+                  |f_k(x) - f(x)| \leq |f_k(x)| + |f(x)| \leq g(x) + g(x) = 2g(x)
+                  \quad \text{para casi todo } x \in E
               \]
-              A partir de esto, se deduce la siguiente igualdad:
+              Por lo tanto, la función $|f_k - f|$ está acotada superiormente por $2g$, que
+              es integrable. Sea ahora:
               \[
-                  \int_E 2g = \liminf_{k} \left( \int_E 2g - \int_E |f_k - f| \right) = \lim_{k} \int_E 2g + \liminf_{k} \left( - \int_E |f_k - f| \right) = \int_E 2g - \limsup_{k} \int_E |f_k - f|
+                  h_k(x) := 2g(x) - |f_k(x) - f(x)| \geq 0
               \]
-
-              Utilizando el siguiente \textbf{lema}: si \( a_k \to a \), entonces
+              Como $f_k(x) \to f(x)$ casi en todo punto de $E$, se tiene:
               \[
-                  \liminf_k (a_k + b_k) \geq \liminf_k a_k + \liminf_k b_k
-              \]
-              se concluye que:
-              \[
-                  \limsup_k \int_E |f_k - f| \leq \int_E 2g - \int_E 2g = 0 \Rightarrow \lim_k \int_E |f_k - f| = 0
+                  |f_k(x) - f(x)| \to 0 \quad \implies \quad h_k(x) \to 2g(x)
               \]
 
+              Aplicamos el Lema de Fatou a la sucesión de funciones no negativas $(h_k)$:
+              \[
+                  \int_E \liminf_{k \to \infty} h_k \leq \liminf_{k \to \infty} \int_E h_k
+              \]
+              Dado que $h_k(x) \to 2g(x)$, entonces:
+              \[
+                  \int_E 2g \leq \liminf_{k \to \infty} \int_E h_k
+              \]
+              Pero como $h_k = 2g - |f_k - f|$, se tiene:
+              \[
+                  \int_E h_k = \int_E (2g - |f_k - f|) = \int_E 2g - \int_E |f_k - f|
+              \]
+              Sustituyendo en la desigualdad anterior y utilizando el siguiente lema
+              \begin{lema}
+                  Si \( a_k \to a \), entonces
+                  \[
+                      \liminf_k (a_k + b_k) \geq \liminf_k a_k + \liminf_k b_k
+                  \]
+              \end{lema}
+              se cumple que:
+              \[
+                  \int_E 2g \leq \liminf_{k \to \infty} \left( \int_E 2g - \int_E |f_k - f| \right)
+                  \leq \liminf_{k \to \infty} \left(\int_E 2g\right) + \liminf_{k \to \infty} \left(-\int_E |f_k - f|\right)$$
+              $$= \int_E 2g - \limsup_{k \to \infty} \int_E |f_k - f|
+              \]
+              Restando $\int_E 2g$ en ambos lados:
+              \[
+                  0 \leq - \limsup_{k \to \infty} \int_E |f_k - f| \quad \implies \quad \limsup_{k \to \infty} \int_E |f_k - f| \leq 0
+              \]
+              Como la integral de una función no negativa también es no negativa:
+              \[
+                  0 \leq \int_E |f_k - f| \leq \limsup_{k \to \infty} \int_E |f_k - f| \leq 0 \quad \implies \quad \lim_{k \to \infty} \int_E |f_k - f| = 0
+              \]
         \item Finalmente, aplicamos la propiedad de la integral a la diferencia \( f_k - f
               \):
               \[
@@ -613,6 +1276,7 @@ Para funciones $f$ y $g$ integrables en $E$, se cumplen las siguientes propiedad
 Sea $f$ función integrable, se define una función por su integral paramétrica como:
 $$ F(u) = \int_{E}f(x, u)dx$$
 \end{definición}
+
 \begin{teorema}
     Sean $E \subset \mathbb{R}^n$ conjunto medible, $U \subset \mathbb{R}^n$ conjunto cualquiera, $f: E \times U \to \mathbb{R}$ y suponemos que:
     \vspace{-0.5em}
@@ -666,7 +1330,7 @@ $\forall u_0 \in U \ \lim_{u \to u_0} \int_{E}f(x, u)dx = F(u) = F(u_0) = \int_{
 \end{observación}
 % Regla de Leibniz
 \begin{teorema} [Regla de Leibniz]
-    Sean $E \subset \mathbb{R}^n$ conjunto medible, $U = (a, b) \subset \mathbb{R}$ conjunto abierto y $f: E \times U \to \mathbb{R}$. Y además supongamos que:
+    Sean $E \subset \mathbb{R}^n$ conjunto medible, $U = (a, b) \subset \mathbb{R}$ conjunto abierto y $f: E \times U \to \mathbb{R}$ medible. Y además supongamos que:
     \vspace{-0.5em}
     \begin{enumerate}
         \item $\forall u \in U \ f(\cdot, u): E \to \mathbb{R}$ es integrable en E.
@@ -757,16 +1421,16 @@ Denotamos $\int_{a}^{b}f = \int_{[a, b]}f$
     $\forall k \in \mathbb{N}$ sabemos que $\exists P_k = \{ a = x_0^k < x_1^k < \dots < x_{n(k)}^k = b \} \subset [a,b]$ tal que: $\bar{S}(f, P_k) - \underline{S}(f, P_k) < \frac{1}{k}$.
     Suponemos que $P_{k+1}$ es mas fina que $P_{k}$ y además que $$\text{diam}(P_k) = \sup_{i \in \{1, \dots, n(k)\}}(x_i^k - x_{i-1}^k) < \frac{1}{k}$$
     \\$\forall k \in \mathbb{N}$ denotamos $m_k = \inf\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$ y $M_k = \sup\{f(x) : x \in [x_{i-1}^k, x_i^k]\}$.
-        $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-        $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
-        Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
-        Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
-        Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
-        y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
-        Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
-        La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
-        Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
-        Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
+    $$ \underline{S}(f, P_k) = \sum_{i=1}^{n(k)}m_k(x_i^k - x_{i-1}^k) = \int_{a}^{b}\varphi_k \quad \text{con} \quad \varphi_k = \sum_{i = 1}^{n(k)}m_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+    $$\bar{S}(f, P_k) = \sum_{i=1}^{n(k)}M_k(x_i^k - x_{i-1}^k) = \int_{a}^{b} \psi_k \quad \text{con}  \quad \psi_k  = \sum_{i = 1}^{n(k)}M_i^k\cdot\chi_{[x_{i-1}^k, x_i^k)}$$
+    Es claro que $\varphi_k  \leq f \leq \psi_k$ en [a,b].
+    Además, como $P_{k+1}$ es más fino que $P_k \implies (\varphi_{k})\uparrow$ y $(\psi_k)\downarrow$
+    Denotamos $\varphi = \lim_{k \to \infty}\varphi_k = \sup\varphi_k$
+    y $\psi  = \lim_{k \to \infty}\psi_k = \inf\psi_k$ que son medibles y cumplen que $\varphi \leq f \leq \psi$.\\
+    Como $f$ es integrable-Riemann $\implies f$ es acotada $\iff \exists M \in \mathbb{N}$ tal que $|f(x)| \leq M, \ \forall x \in [a, b]$.
+    La función  $ g(x) = M $ es integrable en $[a, b]$ y puesto que $|\psi_k| \leq g$ y $|\varphi_k| \leq g$ entonces por el Teorema de la Convergencia Dominada: $$\underline{S}(f, P_{k}) = \int_{a}^{b}{\varphi_k} \to \int_{a}^{b}\varphi \qquad \bar{S}(f, P_{k}) = \int_a^b\psi_k \to \int_a^b\psi$$
+    Pero a su vez, también se cumple que: \\ $$\underline{S}(f, P_k) \to (R)\int_a^b f \quad \text{y} \quad \bar{S}(f, P_k) \to (R)\int_{a}^{b} f \implies \int_{a}^{b} \varphi = (R)\int_{a}^{b} f = \int_{a}^{b} \psi$$
+    Y como $\int_{a}^{b} \psi - \varphi = 0 \implies \psi - \varphi = 0$ en casi todo punto de $[a, b]$. Es decir $\varphi = f = \psi$ en casi todo punto de $[a, b]$. Y finalmente obtenemos que:
     $$(L)\int_{a}^{b}f = \int_{a}^{b}\varphi = \int_a^b\psi = (R)\int_{a}^{b}f$$
 \end{proof}
 
@@ -802,14 +1466,14 @@ no es integrable-Riemann en $[0, 1]$. Pero $f = 0$ en casi todo punto $\implies
         \item $(L)\int_{a}^{+\infty}f = \lim_{n \to \infty}(L)\int_{a}^{\infty}f_n = \lim_{n \to \infty}(R)\int_{a}^{b_n}f = (R)\int_{a}^{+\infty}f$
     \end{enumerate}
     Finalmente obtenemos el resultado de que $f$ es integrable de Riemann-impropia en $[a, +\infty)$.
-    \\$\forall (b_n)_{n \in \mathbb{N}} : b_n \to \infty$ tenemos que $|\int_{b_n}^{b_m}f| \leq \int_{b_n}^{b_m}|f| \leq \epsilon$
+    \\$\forall (b_n)_{n \in \mathbb{N}} : b_n \to \infty$ tenemos que $|\int_{b_n}^{b_m}f| \leq \int_{b_n}^{b_m}|f| \leq \varepsilon$
 \end{proof}
 \ejemplo{
 (Hoja 3. Ej: 6.a)
 Calculemos
 \[ F(t) = \int_{0}^{+\infty} \frac{\sin(tx)}{x} e^{-x} \,dx, \quad \forall t \in \mathbb{R} \]
-derivando con respecto al parámetro \( t \). Para ello, aplicamos el Teorema
-de Leibniz:
+derivando con respecto al parámetro \( t \). Para ello, aplicamos el Teorema de
+Leibniz:
 
 Sea \( E \subset \mathbb{R}^n \) medible y \( (a,b) \subset \mathbb{R} \), con
 \( f: E \times (a,b) \to \mathbb{R} \) tal que:

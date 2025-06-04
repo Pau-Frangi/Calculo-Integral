@@ -224,6 +224,12 @@ el conjunto \( \{-1, 1\} \). Por tanto, \( h(p) \equiv 1 \) o \( h(p) \equiv -1
 \vec{n}_1 = -\vec{n}_2 \) en todo \( S \).
 \end{observación}
 
+\begin{definición} [Área de una Superficie]
+Sea \( S \) una superficie simple regular y $\varphi : \overline{D} \to S$ una parametrización simple regular de \( S \). Se define el área de \( S \) como:
+$$ a(S) = \int_{S} 1 dS = \int_{D} \lVert \vec{N}_\varphi(u,v) \rVert dudv
+$$ 
+\end{definición}
+
 \begin{definición} [Integral de un Campo Vectorial sobre una Superficie]
 Sean $(S, \vec{n})$ superficie simple regular orientada y $\vec{F} : S \to \mathbb{R}^3$ un campo vectorial continuo. Se define
 $$ \int_{(S, \vec{n})} \vec{F} = \int_{S} \langle \vec{F}, \vec{n} \rangle$$
@@ -443,7 +449,7 @@ $$ \int_{(S, \vec{n})} \vec{F} = \sum_{i=1}^{k} \int_{(S_i, \vec{n}_i)} \vec{F} 
         \end{vmatrix}
         = (-2x, -2y, 1)
     \]
-    Evaluando la función $\varphi_1$ en el origen obtenemos que $\varphi_1(0,0) =
+    Evaluando $\vec{N}_{\varphi_1}$ en el origen obtenemos que $\vec{N}_{\varphi_1}(0,0) =
         (0,0,1)$ que apunta hacia arriba, es decir, en sentido opuesto al vector normal
     $\vec{n}_1 = (0,0,-1)$, luego $\vec{n}_1 = -\vec{N}_{\varphi_1}$.\\ Calculamos
     la integral del campo vectorial sobre la superficie $(S_1, \vec{n}_1)$:
@@ -467,8 +473,8 @@ $$ \int_{(S, \vec{n})} \vec{F} = \sum_{i=1}^{k} \int_{(S_i, \vec{n}_i)} \vec{F} 
         \end{vmatrix}
         = (0, 0, 1)
     \]
-    Al igual que antes, evaluando la función $\varphi_2$ en el origen obtenemos que
-    $\varphi_2(0,0) = (0,0,1)$ que apunta hacia arriba, es decir, en el mismo
+    Al igual que antes, evaluando $\vec{N}_{\varphi_2}$ en el origen obtenemos que
+    $\vec{N}_{\varphi_2}(0,0) = (0,0,1)$ que apunta hacia arriba, es decir, en el mismo
     sentido que el vector normal $\vec{n}_2 = (0,0,1)$, luego $\vec{n}_2 =
         \vec{N}_{\varphi_2}$.\\ Procedemos a calcular la integral del campo vectorial
     sobre la superficie $(S_2, \vec{n}_2)$:

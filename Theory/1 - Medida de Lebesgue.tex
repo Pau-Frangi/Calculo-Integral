@@ -5,29 +5,35 @@
 
 \begin{definición}[n-Réctangulo\label{n-rectángulo}]
 Un n-rectángulo en $\R^n$ es un conjunto de la forma:
-\begin{equation}
-    R = \prod_{i=1}^n [a_i, \ b_i] = [a_1, \ b_1] \times [a_2, \ b_2] \times ... \times [a_n, \ b_n] \text{ donde } a_i \leq b_i \ \forall i
-\end{equation}
+\[
+    R = \prod_{i=1}^n [a_i, \ b_i] = [a_1, \ b_1] \times [a_2, \ b_2] \times ... \times [a_n, \ b_n] \text{ donde } a_i \leq b_i \ \forall i = 1, 2, \ldots, n
+\]
 Definimos el volúmen de $R$ como:
-\begin{equation}
-    \text{vol}(R) = \prod_{i=1}^n (b_i - a_i)
-\end{equation}
-Consideramos también los n-rectángulos abiertos denotados por $\mathring{R}$, que se definen de forma análoga. Si nos se especifica si un rectángulo es abierto o cerrado, se asume que es cerrado.
+\[
+    \text{vol}(R) := \prod_{i=1}^n (b_i - a_i)
+\]
+Consideramos también los n-rectángulos abiertos denotados por $\mathring{R}$,
+que se definen de forma análoga. Si nos se especifica si un rectángulo es
+abierto o cerrado, se asume que es cerrado.
 \end{definición}
 
 \begin{observación}
-Dado $R$ n-rectángulo cerrado tal que $R = \prod_{i=1}^n [a_i, \ b_i]$, podemos considerar para cada $\delta > 0$ el n-rectángulo abierto $R_\delta = \prod_{i=1}^n (a_i - \delta, \ b_i + \delta)$. Se tiene que $R \subset R_\delta$ y $\text{vol}(R_\delta) = \prod_{i=1}^n (b_i - a_i + 2\delta) = \text{vol}(R) + 2n\delta$. Por tanto:
-\begin{equation}
+Dado $R$ n-rectángulo cerrado tal que $R = \prod_{i=1}^n [a_i, \ b_i]$, podemos considerar para cada $\delta > 0$ el n-rectángulo abierto $R_\delta = \prod_{i=1}^n (a_i - \delta, \ b_i + \delta)$. Se tiene que
+$R \subset R_\delta$ y
+$$\text{vol}(R_\delta) = \prod_{i=1}^n (b_i - a_i + 2\delta) = \text{vol}(R) + 2n\delta$$
+Por tanto
+\[
     \text{vol}(R) = \lim_{\delta \to 0} \text{vol}(R_\delta)
-\end{equation}
+\]
 \end{observación}
 
-\begin{definición}[Medida Exterior de Lebesgue\label{Medida de exterior de Lebesgue}]
+\begin{definición}[Medida exterior de Lebesgue\label{Medida de exterior de Lebesgue}]
 Sea $A \subset \R^n$. Definimos la medida exterior de $A$ como:
-\begin{equation}
-    m^*(A) = \inf \left\{ \sum_{i=1}^\infty \text{vol}(R_i) \ | \ A \subset \bigcup_{i=1}^\infty R_i \text{ con } R_i \text{ n-rectángulos cerrados} \right\}
-\end{equation}
-Donde el ínfimo se toma sobre todas las colecciones numerables de n-rectángulos que recubren $A$. A esta medida exterior la llamamos medida de Lebesgue exterior.
+\[
+    m^*(A) := \inf \left\{ \sum_{i=1}^\infty \text{vol}(R_i) \ \middle| \ A \subset \bigcup_{i=1}^\infty R_i \text{ con } R_i \text{ n-rectángulos cerrados} \right\}
+\]
+Donde el ínfimo se toma sobre todas las colecciones numerables de n-rectángulos
+que recubren $A$. A esta medida la llamamos medida de Lebesgue exterior.
 \end{definición}
 
 \begin{observación}
@@ -35,12 +41,12 @@ Sea $A \subset \R^n$ entonces:
 \vspace{-0.5em}
 \begin{enumerate}
     \item $m^*(A) = +\infty \iff \forall (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ se tiene que } \sum_{j \in J} \text{vol}(R_j) = +\infty$
-    \item $m^*(A) = 0 \iff \forall \epsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \ in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \epsilon$
-    \item $m^*(A) = \alpha \in \R^+ \iff \forall \epsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \ in J} \text{vol}(R_j) < \alpha + \epsilon$
+    \item $m^*(A) = 0 \iff \forall \varepsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \varepsilon$
+    \item $m^*(A) = \alpha \in \R^+ \iff \forall \varepsilon > 0 \ \exists (R_j)_{j \in J} \text{ tal que } A \subset \bigcup_{j \in J} R_j \text{ y } \sum_{j \in J} \text{vol}(R_j) < \alpha + \varepsilon$
 \end{enumerate}
 \end{observación}
 
-\begin{definición}[Conjunto Nulo\label{Conjunto nulo}]
+\begin{definición}[Conjunto nulo\label{Conjunto nulo}]
 Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
 \end{definición}
 
@@ -49,11 +55,12 @@ Se dice que $A \subset \R^n$ es un conjunto nulo si $m^*(A) = 0$.
         \item Si $R$ es un n-rectángulo degenerado, es decir, $R$ tiene alguno de los lados
               de longitud 0, entonces $R$ es un conjunto nulo ($m^*(R) = 0$).
         \item En $\mathbb{R}^2$, sea el conjunto $A = \{(x,x) : 0 \leq x \leq 1\}$. Dado
-              $\epsilon > 0$ tomamos $m \in \mathbb{N}$ tal que $m > \frac{1}{\epsilon}$.
-              Consideramos $A \subset \bigcup_{i=1}^m [\frac{i-1}{m}, \frac{i}{m}] \times
-                  [\frac{i-1}{m}, \frac{i}{m}]$. Se tiene que $m^*(A) \leq \sum_{i=1}^m
-                  \text{vol}([\frac{i-1}{m}, \frac{i}{m}] \times [\frac{i-1}{m}, \frac{i}{m}]) =
-                  \frac{1}{m^2} \cdot m = \frac{1}{m} < \epsilon$. Por tanto, $m^*(A) = 0$.
+              $\varepsilon > 0$ tomamos $m \in \mathbb{N}$ tal que $m >
+                  \frac{1}{\varepsilon}$. Consideramos $A \subset \bigcup_{i=1}^m [\frac{i-1}{m},
+                  \frac{i}{m}] \times [\frac{i-1}{m}, \frac{i}{m}]$. Se tiene que $$m^*(A) \leq
+                  \sum_{i=1}^m \text{vol}\left(\left[\frac{i-1}{m}, \frac{i}{m}\right] \times
+                  \left[\frac{i-1}{m}, \frac{i}{m}\right]\right) = \frac{1}{m^2} \cdot m =
+                  \frac{1}{m} < \varepsilon$$ Por tanto, $m^*(A) = 0$.
     \end{enumerate}
 }
 
@@ -80,14 +87,14 @@ $\R^n$.
                   \leq \sum_{j \in J} \text{vol}(R_j) \implies m^*(A) \leq m^*(B)$.
         \item Si $\sum_{j=1}^{\infty}{m^*(A_j)} = +\infty$ entonces el resultado es
               inmediato. Supongamos que $\sum_{j=1}^{\infty}{m^*(A_j)} < +\infty$. Sea
-              $\epsilon > 0$. Para cada $j \in \mathbb{N}$, $\exists (R_{j,i})_{i =
+              $\varepsilon > 0$. Para cada $j \in \mathbb{N}$, $\exists (R_{j,i})_{i =
                       1}^\infty$ tal que $A_j \subset \bigcup_{i = 1}^\infty R_{j,i}$ y $\sum_{i =
-                      1}^\infty \text{vol}(R_{j,i}) < m^*(A_j) + \frac{\epsilon}{2^j}$. Entonces
+                      1}^\infty \text{vol}(R_{j,i}) < m^*(A_j) + \frac{\varepsilon}{2^j}$. Entonces
               $\bigcup_{j=1}^{\infty} A_j \subset \bigcup_{j=1}^{\infty} \bigcup_{i =
-                      1}^\infty R_{j,i}$ y por tanto se tiene que $m^*(\bigcup_{j=1}^{\infty} A_j)
-                  \leq \sum_{j=1}^{\infty} \sum_{i = 1}^\infty \text{vol}(R_{j,i}) <
-                  \sum_{j=1}^{\infty} (m^*(A_j) + \frac{\epsilon}{2^j})$ = $\sum_{j=1}^{\infty}
-                  m^*(A_j) + \epsilon$. Como $\epsilon$ es arbitrario, se tiene que
+                      1}^\infty R_{j,i}$ y por tanto se tiene que $$m^*\left(\bigcup_{j=1}^{\infty}
+                  A_j\right) \leq \sum_{j=1}^{\infty} \sum_{i = 1}^\infty \text{vol}(R_{j,i}) <
+                  \sum_{j=1}^{\infty} (m^*(A_j) + \frac{\varepsilon}{2^j}) = \sum_{j=1}^{\infty}
+                  m^*(A_j) + \varepsilon$$ Como $\varepsilon$ es arbitrario, se tiene que
               $m^*(\bigcup_{j=1}^{\infty} A_j) \leq \sum_{j=1}^{\infty} m^*(A_j)$.
     \end{enumerate}
 \end{proof}
@@ -101,21 +108,61 @@ $\R^n$.
 \end{proof}
 
 \begin{lema}
-    Sea $A \in \R^n$ entonces $m^*(A) = \inf \left\{ \sum_{i=1}^\infty \text{vol}(Q_i) \ | \ A \subset \bigcup_{i=1}^\infty Q_i \text{ con } Q_i \text{ n-rectángulos abiertos} \right\}$
+    Sea $A \in \mathbb{R}^n$. Entonces,
+    \[
+        m^*(A) = \inf \left\{ \sum_{i=1}^\infty \text{vol}(Q_i) \ \middle| \ A \subset \bigcup_{i=1}^\infty Q_i \text{ con } Q_i \text{ n-rectángulos abiertos} \right\}
+    \]
 \end{lema}
 
 \begin{proof}
-    Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $(Q_j)_{j \in \N}$ una sucesión de rectángulos abiertos tal que $A \subset \bigcup_{j \in \N} Q_j$. Tenemos entonces que $A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j$ y puesto que $\sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j)$, se tiene que $m^*(A) \leq \beta$. Veamos ahora la otra desigualdad $\beta \leq m^*(A)$. Si $m^*(A) = +\infty$ entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos que $m^*(A) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $A \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \epsilon$. Para cada $j \in \N$ consideramos $\epsilon_j = \frac{\epsilon}{2^j}$. Escogiendo $\delta_j > 0$ lo suficientemente pequeño, se tiene que $\text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \epsilon_j$ para todo $j \in \N$. Nótese que aquí $\text{vol}(R_j)_{\delta_j}$ denota el volumen del n-rectángulo abierto $R_j$ con lados aumentados en $\delta_j$. Entonces $A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j}$ y $\sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \epsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \epsilon < m^*(A) + 2\epsilon$. Por tanto, $\beta \leq m^*(A)$.
+    Denotamos por $\beta$ el ínfimo de la expresión del enunciado del lema. Sea $(Q_j)_{j \in \N}$ una sucesión de rectángulos abiertos tal que
+    \[
+        A \subset \bigcup_{j \in \N} Q_j.
+    \]
+    De este modo,
+    \[
+        A \subset \bigcup_{j \in \N} Q_j \subset \bigcup_{j \in \N} \overline{Q}_j,
+    \]
+    y como
+    \[
+        \sum_{j \in \N} \text{vol}(\overline{Q}_j) = \sum_{j \in \N} \text{vol}(Q_j),
+    \]
+    se concluye $m^*(A) \leq \beta$.
+
+    Veamos ahora la desigualdad opuesta, $\beta \leq m^*(A)$. Si $m^*(A) =
+        +\infty$, entonces $\beta = +\infty$ y no hay nada que demostrar. Supongamos
+    $m^*(A) < +\infty$. Sea $\varepsilon > 0$. Por definición de medida exterior,
+    existe una sucesión $(R_j)_{j \in \N}$ de n-rectángulos cerrados con
+    \[
+        A \subset \bigcup_{j \in \N} R_j \quad \text{y} \quad \sum_{j \in \N} \text{vol}(R_j) < m^*(A) + \varepsilon.
+    \]
+    Para cada $j \in \N$, consideramos $\varepsilon_j = \frac{\varepsilon}{2^j}$.
+    Eligiendo $\delta_j > 0$ lo suficientemente pequeño, se cumple
+    \[
+        \text{vol}(R_j)_{\delta_j} < \text{vol}(R_j) + \varepsilon_j \quad \text{para todo } j \in \N.
+    \]
+
+    Aquí, $\text{vol}(R_j)_{\delta_j}$ indica el volumen del n-rectángulo abierto
+    $R_j$ con lados aumentados en $\delta_j$. Entonces,
+    \[
+        A \subset \bigcup_{j \in \N} R_j \subset \bigcup_{j \in \N} (R_j)_{\delta_j},
+    \]
+    y además,
+    \[
+        \sum_{j \in \N} \text{vol}(R_j)_{\delta_j} < \sum_{j \in \N} (\text{vol}(R_j) + \varepsilon_j) = \sum_{j \in \N} \text{vol}(R_j) + \varepsilon < m^*(A) + 2\varepsilon.
+    \]
+    Por lo tanto, $\beta \leq m^*(A)$.
 \end{proof}
 
-\begin{definición}[Partición de un Conjunto\label{Partición de un Conjunto}]
-Una partición del intervalo $[a,b]$ es una colección numerable de puntos $P = \{a = t_0 < t_1 < ... < t_n = b\}$. Dado un n-rectángulo $R \subset \R^n$, una partición $P =  \{P_1, P_2, ..., P_n\}$ de $R$ es una colección particiones $P_i$ de $[a_i, b_i]$ para cada $i = 1, 2, ..., n$ siendo $R = \prod_{i=1}^n [a_i, b_i]$.
+\begin{definición}[Partición de un conjunto\label{Partición de un Conjunto}]
+Una partición del intervalo $[a,b]$ es una colección numerable de puntos
+$$P = \{a = t_0 < t_1 < ... < t_n = b\}$$
+Dado un n-rectángulo $R \subset \R^n$, una partición $P =  \{P_1, P_2, ..., P_n\}$ de $R$ es una colección particiones $P_i$ de $[a_i, b_i]$ para cada $i = 1, 2, ..., n$ siendo $R = \prod_{i=1}^n [a_i, b_i]$.
 \end{definición}
 
 Los subrectángulos de $P$ son los conjuntos de la forma
-\begin{equation}
-    S_{i_1, i_2, ..., i_n} = \prod_{j=1}^n [t_{i_j}^j, t_{i_j + 1}^j]
-\end{equation}
+\[    S_{i_1, i_2, ..., i_n} = \prod_{j=1}^n [t_{i_j}^j, t_{i_j + 1}^j]
+\]
 Denotamos $S \in P$ para indicar que $S$ es un subrectángulo de $P$.
 
 \begin{lema}
@@ -129,19 +176,41 @@ Denotamos $S \in P$ para indicar que $S$ es un subrectángulo de $P$.
 \end{lema}
 
 \begin{proposición}
-Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
+Sea $R \subset \R^n$ un n-rectángulo. Entonces $m^*(R) = \text{vol}(R)$.
 \end{proposición}
 
 \begin{proof}
     \leavevmode
     \begin{itemize}
         \item $m^*(R) \leq \text{vol}(R)$\\
-              Sea \( R \subset \bigcup_{j \in \mathbb{N}} R_j \) con \( R_1 = R \) y \( R_j \) degenerados para \( j > 1 \). Entonces:
+              Consideremos la sucesión $(R_j)_{j \in \mathbb{N}}$ definida por $R_1 = R$ y $R_j$ degenerados para $j > 1$. Así,
               \[
                   m^*(R) \leq \sum_{j \in \mathbb{N}} \text{vol}(R_j) = \text{vol}(R_1) + \sum_{j=2}^{\infty} \text{vol}(R_j) = \text{vol}(R_1) = \text{vol}(R).
               \]
         \item $m^*(R) \geq \text{vol}(R)$\\
-              Dado $\epsilon > 0$ existe $(Q_j)_{j \in \mathbb{N}}$ sucesión de n-rectángulos abiertos tal que $R \subset \bigcup_{j \in \mathbb{N}} Q_j$ y $\sum_{j \in \mathbb{N}} \text{vol}(Q_j) < m^*(R) + \epsilon$. Sabemos que R es compacto al ser cerrado y acotado y, por tanto, al ser $\bigcup_{j \in \mathbb{N}} Q_j$ un recubrimiento abierto de R, existe un subrecubrimiento finito $\{Q_1, Q_2, ..., Q_m\}$ de R. Entonces $R \subset \bigcup_{i=1}^m Q_i \subset \bigcup_{i = 1}^m \overline{Q}_i$. Consideramos $R_j = R \cap \overline{Q}_j$ para $j = 1, 2, ..., m$. Tenemos entonces que $R = \bigcup_{j = 1}^{m} \overline{Q}_j$ y además prolongando los lados podemos obtener una partición $P$ de $R$ tal que cada subrectángulo de $P$ está contenido el algún $R_j$ para $1 \leq j \leq m$. Por tanto, $\text{vol}(R) = \sum_{S \in P} \text{vol}(S) \leq \sum_{j = 1}^{m} \text{vol}(R_j) \leq \sum_{j = 1}^{m} \text{vol}(Q_j) < m^*(R) + \epsilon$. Por tanto, $m^*(R) \geq \text{vol}(R)$.
+              Sea $\varepsilon > 0$. Por definición de medida exterior, existe una sucesión $(Q_j)_{j \in \mathbb{N}}$ de n-rectángulos abiertos con
+              \[
+                  R \subset \bigcup_{j \in \mathbb{N}} Q_j \quad \text{y} \quad \sum_{j \in \mathbb{N}} \text{vol}(Q_j) < m^*(R) + \varepsilon.
+              \]
+              Como $R$ es compacto (cerrado y acotado), el recubrimiento $\bigcup_{j \in
+                      \mathbb{N}} Q_j$ admite un subrecubrimiento finito $\{Q_1, Q_2, \ldots, Q_m\}$
+              que aún cubre $R$. Así,
+              \[
+                  R \subset \bigcup_{i=1}^m Q_i \subset \bigcup_{i=1}^m \overline{Q}_i.
+              \]
+              Definimos $R_j = R \cap \overline{Q}_j$ para $j = 1, \ldots, m$. Obtenemos
+              entonces
+              \[
+                  R = \bigcup_{j=1}^m R_j.
+              \]
+              Prolongando los lados, podemos construir una partición $P$ de $R$ donde cada
+              subrectángulo de $P$ quede contenido en algún $R_j$ con $1 \leq j \leq m$. Por
+              tanto,
+              \[
+                  \text{vol}(R) = \sum_{S \in P} \text{vol}(S) \leq \sum_{j=1}^m \text{vol}(R_j) \leq \sum_{j=1}^m \text{vol}(Q_j) < m^*(R) + \varepsilon.
+              \]
+              Como $\varepsilon > 0$ es arbitrario, se concluye que $m^*(R) \geq
+                  \text{vol}(R)$.
     \end{itemize}
 \end{proof}
 
@@ -149,11 +218,11 @@ Sea $R \subset \R^n$ un n-rectángulo entonces $m^*(R) = \text{vol}(R)$.
 
 \textbf{Notación:} Para $A \subset \R^n$ denotamos por $A^c$ al complementario de $A$ en $\R^n$.
 
-\begin{definición}[Conjunto Medible\label{Conjunto Medible}]
+\begin{definición}[Conjunto medible\label{Conjunto Medible}]
 Un conjunto $A \subset \R^n$ es medible en el sentido de Lebesgue si para todo $R \subset \R^n$ n-rectángulo se tiene que:
-\begin{equation}
+\[
     m^*(R) = m^*(R \cap A) + m^*(R \cap A^c)
-\end{equation}
+\]
 \end{definición}
 
 \begin{proposición}
@@ -164,19 +233,42 @@ Sea $A \subset \R^n$ entonces son equivalentes:
     \item $\forall E \subset \R^n$ conjunto se tiene que $m^*(E) = m^*(E \cap A) + m^*(E \cap A^c)$.
     \item $\forall E \subset \R^n$ conjunto se tiene que $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
 \end{enumerate}
+\label{prop:MedibleEquivalente}
 \end{proposición}
 
 \begin{proof}
     \leavevmode
     \begin{itemize}
-        \item $(2) \implies (3)$\\
-              Trivial.
-        \item $(3) \implies (2)$\\
-              Sabemos que $m^*(E) \leq m^*(E \cap A) + m^*(E \cap A^c)$. Veamos que la otra desigualdad se cumple siempre: $m^*(E) = m^*((E \cap A) \cup (E \cap A^c)) \leq m^*(E \cap A) + m^*(E \cap A^c)$.
-        \item $(2) \implies (1)$\\
-              Inmediato, tomando $E = R$.
-        \item $(1) \implies (3)$\\
-              Sea $E \subset \R^n$ conjunto, si $m^*(E) = +\infty$ entonces el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\epsilon > 0$. Por definición de medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos cerrados tal que $E \subset \bigcup_{j \in \N} R_j$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Entonces $E \cap A \subset \bigcup_{j \in \N} R_j \cap A$ y $E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c$. Por tanto, $m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c) = \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \epsilon$. Por tanto, $m^*(E) \geq m^*(E \cap A) + m^*(E \cap A^c)$.
+        \item \textbf{$(2) \implies (3)$}\\
+              Es inmediato.
+        \item \textbf{$(3) \implies (2)$}\\
+              Sabemos que $m^*(E) \leq m^*(E \cap A) + m^*(E \cap A^c)$. Para ver la otra desigualdad, observamos que
+              \[
+                  m^*(E) = m^*((E \cap A) \cup (E \cap A^c)) \leq m^*(E \cap A) + m^*(E \cap A^c).
+              \]
+              Así, la igualdad siempre se cumple.
+        \item \textbf{$(2) \implies (1)$}\\
+              Basta tomar $E = R$, un n-rectángulo.
+        \item \textbf{$(1) \implies (3)$}\\
+              Sea $E \subset \R^n$. Si $m^*(E) = +\infty$, el resultado es inmediato. Supongamos que $m^*(E) < +\infty$. Sea $\varepsilon > 0$. Por definición de medida exterior, existe una sucesión $(R_j)_{j \in \N}$ de n-rectángulos cerrados tal que
+              \[
+                  E \subset \bigcup_{j \in \N} R_j \quad \text{y} \quad \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \varepsilon.
+              \]
+              Entonces
+              \[
+                  E \cap A \subset \bigcup_{j \in \N} R_j \cap A, \quad E \cap A^c \subset \bigcup_{j \in \N} R_j \cap A^c.
+              \]
+              Por tanto,
+              \[
+                  m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} m^*(R_j \cap A) + \sum_{j \in \N} m^*(R_j \cap A^c).
+              \]
+              Por hipótesis $A$ es medible, luego $m^*(R_j) = m^*(R_j \cap A) + m^*(R_j \cap A^c)$ para
+              cada $j$, y como $m^*(R_j) = \text{vol}(R_j)$:
+              \[
+                  m^*(E \cap A) + m^*(E \cap A^c) \leq \sum_{j \in \N} \text{vol}(R_j) < m^*(E) + \varepsilon.
+              \]
+              Por la arbitrariedad de $\varepsilon$, se concluye que $m^*(E) \geq m^*(E \cap A) +
+                  m^*(E \cap A^c)$.
     \end{itemize}
 \end{proof}
 
@@ -196,35 +288,77 @@ Sea $X$ un conjunto y $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-álgebra
 \begin{enumerate}
     \item $\mu(\emptyset) = 0$
     \item Si $(A_j)_{j \in \N} \subset \mathcal{A}$ es una colección numerable de
-          conjuntos disjuntos dos a dos entonces: $$\mu(\bigcup_{j \in \N} A_j) = \sum_{j
+          conjuntos disjuntos dos a dos entonces: $$\mu\left(\bigcup_{j \in \N} A_j\right) = \sum_{j
                   \in \N} \mu(A_j)$$
 \end{enumerate}
 \end{definición}
 
-\begin{teorema}[Medida de Lebesgue en $\R^n$\label{Medida de Lebesgue en Rn}]
-    La familia $M$ de todos los conjuntos medibles de $\R^n$ es una $\sigma$-álgebra y $m = m^* \restriction_M$ es una medida numerablemente aditiva que llamaremos medida de Lebesgue en $\R^n$.
+\begin{teorema}[Medida de Lebesgue en $\R^n$]
+    La familia $M$ de todos los conjuntos medibles de $\R^n$ es una $\sigma$-álgebra y $m = m^* \restriction_M$ es una medida numerablemente aditiva que llamaremos medida de Lebesgue en $\R^n$.\label{Medida de Lebesgue en Rn}
 \end{teorema}
 
 Demostraremos este teorema con los siguientes lemas:
 
 \begin{lema}
-    $\R^n$ es medible en el sentido de Lebesgue.
+    El conjunto $\R^n$ es medible en el sentido de Lebesgue.
 \end{lema}
 
 \begin{proof}
-    Sea $E \subset \R^n$ conjunto. Entonces $m^*(E) = m^*(E \cap \R^n) + m^*(E \cap (\R^n)^c) = m^*(E) + m^*(\emptyset) = m^*(E) + 0 = m^*(E)$.
+    Dado cualquier conjunto $E \subset \R^n$, tenemos:
+    \[
+        E \cap \R^n = E,
+        \quad \text{y} \quad
+        E \cap (\R^n)^c = E \cap \emptyset = \emptyset.
+    \]
+    
+    Entonces:
+    \[
+        m^*(E \cap \R^n) = m^*(E),
+        \quad \text{y} \quad
+        m^*(E \cap (\R^n)^c) = m^*(\emptyset) = 0.
+    \]
+    
+    Sustituyendo en la condición de medibilidad, se tiene:
+    \[
+        m^*(E \cap \R^n) + m^*(E \cap (\R^n)^c) = m^*(E) + 0 = m^*(E).
+    \]
+    
+    Por tanto, se cumple para todo $E \subset \R^n$ la igualdad requerida, lo que demuestra que $\R^n$ es medible en el sentido de Lebesgue.
 \end{proof}
+
 
 \begin{lema}
-    Sea $A \subset \R^n$ medible en el sentido de Lebesgue. Entonces $A^c$ es medible en el sentido de Lebesgue.
+    Sea $A \subset \R^n$ medible en el sentido de Lebesgue. Entonces, su complementario $A^c$ también es medible en el sentido de Lebesgue.
+    \label{lemaComplementarioMedible}
 \end{lema}
 
 \begin{proof}
-    Sea $E \subset \R^n$ conjunto. Entonces $m^*(E \cap A^c) + m^*(E \cap (A^c)^c) = m^*(E \cap A^c) + m^*(E \cap A) = m^*(E)$
+    Por hipótesis, $A$ es medible en el sentido de Lebesgue, lo que significa que para todo conjunto $E \subset \R^n$ se cumple:
+    \[
+        m^*(E) = m^*(E \cap A) + m^*(E \cap A^c).
+    \]
+    
+    Observemos que el complementario del complementario de $A$ es $A$, es decir:
+    \[
+        (A^c)^c = A.
+    \]
+    
+    Tomemos ahora $A^c$ y veamos si para todo $E \subset \R^n$ se cumple:
+    \[
+        m^*(E) = m^*(E \cap A^c) + m^*(E \cap (A^c)^c).
+    \]
+    
+    Sustituyendo la identidad $(A^c)^c = A$:
+    \[
+        m^*(E) = m^*(E \cap A^c) + m^*(E \cap (A^c)^c) = m^*(E \cap A^c) + m^*(E \cap A).
+    \]
+    Luego $A^c$ también es medible en el sentido de Lebesgue. 
 \end{proof}
 
-Con los dos lemas anteriores obtenemos como colorario que $\emptyset$ es
-medible en el sentido de Lebesgue.
+\begin{corolario}
+    El conjunto vacío $\emptyset$ es medible en el sentido de Lebesgue.
+    \label{corolarioVacioMedible}
+\end{corolario}
 
 \begin{lema}\label{unionMedible}
     Sean $A, B \subset \R^n$ medibles en el sentido de Lebesgue. Entonces $A \cup B$ y $A \cap B$ son medibles en el sentido de Lebesgue.
@@ -241,7 +375,7 @@ medible en el sentido de Lebesgue.
     \]
 
     Sea \( E \subset \R^n \) un conjunto, entonces por la medibilidad de \( A \)
-    tenemos que
+    se sigue
     \[
         m^*(E) = m^*(E \cap A) + m^*(E \cap A^c)
     \]
@@ -269,7 +403,7 @@ medible en el sentido de Lebesgue.
     \]
     y por tanto \( A \cup B \) es medible.\\ Nótese que la medibilidad de la
     intersección es inmediata, pues \( A \cap B = (A^c \cup B^c)^c \), y ya hemos
-    demostrado que el complementario de un conjunto medible es medible.
+    demostrado por el \cref{lemaComplementarioMedible} que el complementario de un conjunto medible es medible.
 \end{proof}
 
 \begin{lema}
@@ -318,7 +452,7 @@ medible en el sentido de Lebesgue.
 \end{lema}
 
 \begin{proof}
-    Sea $(B_j)_{j \in \N}$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Considermos:
+    Sea $(B_j)_{j \in \N}$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Consideramos:
     \[\begin{matrix}
             A_1 = B_1                       \\
             A_2 = B_2 \cap B_1^c            \\
@@ -334,12 +468,39 @@ medible en el sentido de Lebesgue.
 \end{proof}
 
 \begin{proposición}
-Todo conjunto nulo es medible en el sentido de Lebesgue.
+    Todo conjunto nulo es medible en el sentido de Lebesgue.
 \end{proposición}
 
 \begin{proof}
-    Sea $A \subset \R^n$ nulo, entonces $m^*(A) = 0$. $\forall E \in \R^n$ se tiene que $E \cap A \subset A \implies 0 \leq m^*(E \cap A) \leq m^*(A) = 0 \implies m^*(E \cap A) = 0$. Análogamente, $E \cap A^c \subset E \implies m^*(E \cap A^c) \leq m^*(E)$. Luego $m^*(E \cap A) + m^*(E \cap A^c) = m^*(E \cap A^c) \leq m^*(E)$ y por tanto $A$ es medible en el sentido de Lebesgue.
+    Sea $A \subset \R^n$ un conjunto nulo, es decir, $m^*(A) = 0$.
+
+    Tomemos un conjunto arbitrario $E \subset \R^n$. Observemos que:
+    \[
+        E \cap A \subset A \implies m^*(E \cap A) \leq m^*(A) = 0.
+    \]
+    Además, como la medida exterior siempre es no negativa, tenemos:
+    \[
+        m^*(E \cap A) \geq 0.
+    \]
+    Por lo tanto:
+    \[
+        m^*(E \cap A) = 0.
+    \]
+
+    Por otro lado, claramente:
+    \[
+        E \cap A^c \subset E \implies m^*(E \cap A^c) \leq m^*(E).
+    \]
+
+    Así, sumando las desigualdades obtenidas:
+    \[
+        m^*(E \cap A) + m^*(E \cap A^c) = 0 + m^*(E \cap A^c) \leq m^*(E).
+    \]
+    Por la \cref{prop:MedibleEquivalente} se concluye la medibilidad de $A$.
 \end{proof}
+
+Con esto, damos por concluida la demostración del \cref{Medida de Lebesgue en Rn}.
+
 
 \begin{definición}[Propiedad en casi todo punto\label{Propiedad en casi todo punto}]
 Se dice que una \textit{propiedad} se verifica en casi todo punto cuando el conjunto de puntos en los que no se verifica la propiedad es un conjunto nulo.
@@ -359,61 +520,112 @@ En $\R^n$ los rectángulos abiertos son medibles en el sentido de Lebesgue.
 
 \begin{definición}[n-Cubo\label{n-Cubo}]
 Un n-cubo cerrado (respectivamente abierto) en $\R^n$ es un conjunto de la forma:
-\begin{equation}
+\[
     R = [a_1, b_1] \times \ldots \times [a_n, b_n] \text{ tal que } \forall i,j \in \{1,2,...,n\} \text{ se tiene que } b_i - a_i = b_j - a_j
-\end{equation}
+\]
 Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
 \end{definición}
 
 \observacion{
     Denotaremos la norma del supremo en $\rn$ como:
-    \begin{equation}
+    \[
         \lVert x \rVert _{\infty} = \sup_{i=1}^n \{|x_i|\} \text{ para } x = (x_1, x_2, ..., x_n) \in \rn
-    \end{equation}
+    \]
     Llamaremos bola abierta de centro $x \in \rn$ y radio $r > 0$ al conjunto:
-    \begin{equation}
+    \[
         B_{\infty}(x, r) = \{y \in \rn :  \lVert y - x \rVert _{\infty} < r\} \equiv (x_1 - r, x_1 + r) \times \ldots \times (x_n - r, x_n + r)
-    \end{equation}
+    \]
     Análogamente, llamaremos bola cerrada de centro $x \in \rn$ y radio $r > 0$ al conjunto:
-    \begin{equation}
+    \[
         \overline{B}_{\infty}(x, r) = \{y \in \rn :  \lVert y - x \rVert _{\infty} \leq r\} \equiv [x_1 - r, x_1 + r] \times \ldots \times [x_n - r, x_n + r]
-    \end{equation}
+    \]
 }
 
 \begin{teorema}
-    Sea $G \subset \mathbb{R}^n$ abierto entonces se tiene:
+    Sea $G \subset \mathbb{R}^n$ abierto. Entonces:
     \vspace{-0.5em}
     \begin{enumerate}
-        \item G es unión numerable de n-cubos cerrados.
-        \item G es unión numerable de n-cubos abiertos.
+        \item $G$ es la unión numerable de $n$-cubos cerrados.
+        \item $G$ es la unión numerable de $n$-cubos abiertos.
     \end{enumerate}
+    \label{teoremaCubosAbiertosCerrados}
 \end{teorema}
 
 \begin{proof}
-    Consideremos la familia de n-cubos $\mathcal{B} = \{\overline{B}_\infty(q,r):q\in \mathbb{Q}^n, r \in \mathbb{Q}, r>0, \overline{B}_\infty(q,r) \subset G\}$. Veamos que $G = \bigcup_{B \in \mathcal{B}}B$. Dado que $B \in G \quad \forall B \in \mathcal{B}$ entonces es inmediato ver que $\bigcup_{B \in \mathcal{B}}B \subset G$. Por ser G abierto, $\exists \delta > 0$ tal que $B_{\infty}(x, \delta) \subset G$. Sea $r \in \Q$ con $0 < r < \frac{\delta}{2}$, por la densidad de $\Q^n$ en $\R^n$, sabemos que $\exists q \in \Q^n$ tal que $ \lVert x - q \rVert _{\infty} < r$. Veamos entonces que $x \in B_{\infty}(q, r) \subset B_{\infty}(x, \delta) \subset G$.\\
-    Dado $y \inrn$ con $ \lVert y - q \rVert _{\infty} < r$ se sigue:
+    Vamos a demostrar la primera parte; la segunda es análoga.
+
+    Consideremos la familia de $n$-cubos cerrados (o bolas en norma infinito):
     \[
-        \lVert y - x \rVert _{\infty} \leq  \lVert y - q \rVert _{\infty} +  \lVert q - x \rVert _{\infty} < r + r = 2r < \delta
+        \mathcal{B} = \left\{ \overline{B}_\infty(q, r) : q \in \mathbb{Q}^n, \, r \in \mathbb{Q}, \, r > 0, \, \overline{B}_\infty(q, r) \subset G \right\}.
     \]
-    Por tanto $y \in B_{\infty}(x, \delta) \implies x \in \overline{B}_{\infty}(q,
-        r) \subset G$. Luego $G = \bigcup_{B \in \mathcal{B}}B$.\\ Nótese que
-    numerabilidad de la familia $\mathcal{B}$ es inmediata por la numerabilidad de
-    $\Q^n$ que, a su vez, es numerable por ser $\Q$ numerable.\\ La segunda parte
-    del teorema es análoga a la primera.
+    Queremos ver que:
+    \[
+        G = \bigcup_{B \in \mathcal{B}} B.
+    \]
+
+    \begin{itemize}
+        \item La inclusión \(\bigcup_{B \in \mathcal{B}} B \subset G\) es clara, porque todos los cubos de \(\mathcal{B}\) están contenidos en \(G\) por construcción.
+        \item Veamos la inclusión inversa \(G \subset \bigcup_{B \in \mathcal{B}} B\).
+
+    Sea \(x \in G\). Como \(G\) es abierto, existe \(\delta > 0\) tal que:
+    \[
+        B_\infty(x, \delta) \subset G.
+    \]
+
+    Elegimos \(r \in \mathbb{Q}\) con \(0 < r < \frac{\delta}{2}\). Por la densidad de \(\mathbb{Q}^n\) en \(\mathbb{R}^n\), existe \(q \in \mathbb{Q}^n\) tal que:
+    \[
+        \|x - q\|_\infty < r.
+    \]
+
+    Ahora, consideremos el cubo cerrado \(\overline{B}_\infty(q, r)\). Veamos que:
+    \[
+        \overline{B}_\infty(q, r) \subset B_\infty(x, \delta).
+    \]
+    En efecto, para todo \(y \in \overline{B}_\infty(q, r)\):
+    \[
+        \|y - x\|_\infty \leq \|y - q\|_\infty + \|q - x\|_\infty < r + r = 2r < \delta.
+    \]
+    Por lo tanto:
+    \[
+        \overline{B}_\infty(q, r) \subset B_\infty(x, \delta) \subset G.
+    \]
+
+    Además, \(q \in \mathbb{Q}^n\) y \(r \in \mathbb{Q}^+\), por lo que \(\overline{B}_\infty(q, r) \in \mathcal{B}\) y \(x \in \overline{B}_\infty(q, r)\).
+
+    Como \(x \in G\) es arbitrario, se concluye que:
+    \[
+        G \subset \bigcup_{B \in \mathcal{B}} B.
+    \]
+    \end{itemize}
+    
+    Así:
+    \[
+        G = \bigcup_{B \in \mathcal{B}} B.
+    \]
+    La numerabilidad de la familia $\mathcal{B}$ se debe a cómo se construyen sus elementos. Cada cubo cerrado en $\mathcal{B}$ está definido por un centro $q \in \Q^n$ y un radio $r \in \Q$, $r>0$, de manera que $\overline{B}_\infty(q, r) \subset G$. Dado que $\Q^n$ es numerable (ya que es producto finito de conjuntos numerables) y $\Q$ también lo es, el conjunto de pares $(q, r)$ donde $q \in \Q^n$ y $r \in \Q$, $r>0$, es numerable. Esto se debe a que el producto de conjuntos numerables es numerable:
+    \[
+        \Q^n \times \Q^+ \quad \text{es numerable}.
+    \]
+    Por lo tanto, la familia de todos los cubos cerrados con centro racional y radio racional positivo también es numerable:
+    \[
+        \{ \overline{B}_\infty(q, r) : q \in \Q^n, r \in \Q, r>0 \}.
+    \]
+    La familia $\mathcal{B}$ es simplemente un subconjunto de esa colección de cubos cerrados, es decir, $\mathcal{B} \subset \{ \overline{B}_\infty(q, r) : q \in \Q^n, r \in \Q, r>0 \}$, y como todo subconjunto de un conjunto numerable sigue siendo numerable, concluimos que $\mathcal{B}$ es numerable.
 \end{proof}
+
 
 \begin{corolario}
     Todos los conjuntos abiertos y cerrados de $\R^n$ son medibles en el sentido de Lebesgue.
     \label{abiertoMedible}
 \end{corolario}
 
-\begin{teorema} [Regularidad de la Medida\label{Regularidad de la medida}]
-    Sea $E \inrn$, entonces son equivalentes:
+\begin{teorema} [Regularidad de la medida\label{Regularidad de la medida}]
+    Sea $E \subset \mathbb{R}^n$, entonces son equivalentes:
     \begin{enumerate}
         \item $E$ es medible en el sentido de Lebesgue.
-        \item $\forall \epsilon > 0 \quad \exists G \subset \mathbb{R}^n$ abierto tal que $E \subset G$ y $m^*(G \setminus E) < \epsilon$.
-        \item $\forall \epsilon > 0 \quad \exists F \subset \mathbb{R}^n$ cerrado tal que $F \subset E$ y $m^*(E \setminus F) < \epsilon$.
-        \item $\forall \epsilon$ existen $F$ cerrado y $G$ abierto tales que $F \subset E \subset G$ y $m^*(G \setminus F) < \epsilon$.
+        \item $\forall \varepsilon > 0 \quad \exists G \subset \mathbb{R}^n$ abierto tal que $E \subset G$ y $m^*(G \setminus E) < \varepsilon$.
+        \item $\forall \varepsilon > 0 \quad \exists F \subset \mathbb{R}^n$ cerrado tal que $F \subset E$ y $m^*(E \setminus F) < \varepsilon$.
+        \item $\forall \varepsilon$ existen $F$ cerrado y $G$ abierto tales que $F \subset E \subset G$ y $m^*(G \setminus F) < \varepsilon$.
     \end{enumerate}
 \end{teorema}
 
@@ -423,36 +635,63 @@ Análogamente se pueden definir los cubos n-dimensionales semi-abiertos.
         \item $(1) \implies (2)$\\
               Distinción de casos:
               \begin{enumerate}
-                  \item Supongamos que $m^*(E) < +\infty$: Sea $\epsilon > 0$. Por definición de medida
-                        exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos abiertos tales
-                        que $E \subset \unj(R_j)$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) +
-                            \epsilon$. Considerando el abierto $G = \unj(R_j)$, se tiene que $G$ es medible
-                        por el \cref{abiertoMedible}, además, como $E \subset G$ entonces $$m^*(G) =
-                            m^*(\underbrace{G \cap E}_{E}) + m^*(\underbrace{G \cap E^c}_{G \setminus E}) =
-                            m^*(E) + m^*(G \setminus E)$$ Por tanto, $$m^*(G \setminus E) = m^*(G) - m^*(E)
-                            < \sum_{j \in \N} \text{vol}(R_j) - m^*(E) < \epsilon$$
+                  \item Supongamos que $m^*(E) < +\infty$: Sea $\varepsilon > 0$. Por definición de
+                        medida exterior, $\exists (R_j)_{j \in \N}$ sucesión de n-rectángulos abiertos
+                        tales que $E \subset \unj(R_j)$ y $\sum_{j \in \N} \text{vol}(R_j) < m^*(E) +
+                            \varepsilon$. Considerando el abierto $G = \unj(R_j)$, se tiene que $G$ es
+                        medible por el \cref{abiertoMedible}, además, como $E \subset G$ entonces
+                        $$m^*(G) = m^*(\underbrace{G \cap E}_{E}) + m^*(\underbrace{G \cap E^c}_{G
+                                \setminus E}) = m^*(E) + m^*(G \setminus E)$$ Por tanto, $$m^*(G \setminus E) =
+                            m^*(G) - m^*(E) < \sum_{j \in \N} \text{vol}(R_j) - m^*(E) < \varepsilon$$
                   \item Supongamos que $m^*(E) = +\infty$: $\forall k \in \N$ sea $E_k = E \cap
                             [-k,k]^n$, que es medible por ser intersección finita de conjuntos medibles.
-                        Además $m^*(E_k) < +\infty$ por ser $E_k$ acotado, y $E = \unk{E_k}$. Dado
-                        $\epsilon > 0$, $\forall k \in \N$ existe $G_k$ abierto tal que $E_k \subset
-                            G_k$ y $m^*(G_k \setminus E_k) < \frac{\epsilon}{2^k}$. Entonces $G =
-                            \unk{G_k}$ abierto y $E = \unk{E_k} \subset \unk{G_k} = G$ por lo que $m^*(G
-                            \setminus E) \leq m^*(\unk(G_k \setminus E_k)) \leq \sk{m^*(G_k \setminus E_k)}
-                            < \sk{\frac{\epsilon}{2^k}} = \epsilon$.
+                        Además $m^*(E_k) < +\infty$ por ser $E_k$ acotado, y $E = \unk{E_k}$. Luego por
+                        el apartado anterior, dado $\varepsilon > 0$, $\forall k \in \N$ existe $G_k$
+                        abierto tal que $E_k \subset G_k$ y $m^*(G_k \setminus E_k) <
+                            \frac{\varepsilon}{2^k}$.\\
+                            Entonces $G = \unk{G_k}$ abierto y $E = \unk{E_k}
+                            \subset \unk{G_k} = G$ por lo que $$m^*(G \setminus E) \leq m^*\left(\unk(G_k
+                            \setminus E_k)\right) \leq \sk{m^*(G_k \setminus E_k)} < \sk{\frac{\varepsilon}{2^k}}
+                            = \varepsilon$$
               \end{enumerate}
         \item $(2) \implies (1)$\\
-              $\forall j \in \N$ tomando $\epsilon = \frac{1}{j}$ entonces $\exists G_j$ abierto tal que $E \subset G_j$ y $m^*(G_j \setminus E) < \frac{1}{j}$. Entonces considerando $B = \intj{G_j}$ que es medible y abierto se tiene que $E \subset B$. Luego $B \setminus E \subset G_j \setminus E$ para todo $j \in \N$. Por tanto, $m^*(B \setminus E) \leq m^*(G_j \setminus E) < \frac{1}{j}$. En consecuencia $m^*(B \setminus E) = 0 \implies B \setminus E$ es medible.\\
-              Por otro lado, $B = E \cup (B \setminus E)$ o que es lo mismo $E = B \setminus (B \setminus E)$. Tanto $B$ como $(B \setminus E)$ son medibles, luego $E$ es medible.\\
-              \textit{Observación:} Además, $E = B \setminus Z$, donde $B$ es intersección numerable de abiertos o $Z$ es un conjunto nulo.
+        Sea \( j \in \N \). Tomemos \(\varepsilon = \frac{1}{j}\). Por hipótesis, existe un conjunto abierto \( G_j \) tal que \( E \subset G_j \) y \( m^*(G_j \setminus E) < \frac{1}{j} \). Consideremos \( B = \intj{G_j} \), que es medible y abierto, y cumple \( E \subset B \).
+
+        Además, para cada \( j \in \N \), se tiene que \( B \setminus E \subset G_j \setminus E \). Así,
+        \[
+        m^*(B \setminus E) \leq m^*(G_j \setminus E) < \frac{1}{j}.
+        \]
+        Por lo tanto, \( m^*(B \setminus E) = 0 \), lo que implica que \( B \setminus E \) es medible.
+        
+        Por otro lado, dado que \( B = E \cup (B \setminus E) \), podemos escribir \( E = B \setminus (B \setminus E) \). Como tanto \( B \) como \( B \setminus E \) son medibles, se deduce que \( E \) es medible.
+        
+        Finalmente, \( E \) se puede expresar como la diferencia \( E = B \setminus Z \), donde \( B \) es la intersección numerable de abiertos y \( Z \) es un conjunto nulo.
+        
         \item (1) $\implies$ (3)\\
-              Como E es medible entonces tenemos que $E^c$ también es medible, por lo que, dado $\epsilon > 0$ por (2) $\exists G$-abierto tal que $E^c \subset G$ y $m^*(G \setminus E^c) < \epsilon$. Entonces $F = G^c$ es cerrado y $F \subset E$. Además, $E \setminus F = E \cap F^c = E \cap G = G \setminus E^c \implies m^*(E \setminus F) = m^*(G \setminus E^c) < \epsilon$.
+              Como E es medible entonces tenemos que $E^c$ también es medible, por lo que, dado $\varepsilon > 0$ por (2) $\exists G$-abierto tal que $E^c \subset G$ y $m^*(G \setminus E^c) < \varepsilon$. Entonces $F = G^c$ es cerrado y $F \subset E$. Además, 
+              $$E \setminus F = E \cap F^c = E \cap G = G \setminus E^c \implies m^*(E \setminus F) = m^*(G \setminus E^c) < \varepsilon$$
         \item (3) $\implies$ (1)\\
-              $\forall j \in \mathbb{N}$ $\exists F_j$ cerrado tal que $F_j \subset E$, $m(E \setminus F_j) < 1/j$. Sea $A = \bigcup_{j = 1}^{\infty} F_j$ conjunto medible y $A \subset E$. Además, $m(E \setminus A) \leq m(E \setminus F_j) < 1/j$ $\forall j \in \mathbb{N}$. Por tanto, $E = A \cup (E\setminus A) = (\bigcup_{j = 1}^{\infty}F_j) \cup (E\setminus A)$ Entonces dado que $E\setminus A$ es un conjunto medible por ser nulo y $\bigcup_{j = 1}^{\infty}F_j$ es medible por ser unión numerable de conjuntos cerrados, entonces $E$ es medible.
+        Para todo \( j \in \mathbb{N} \), existe un conjunto cerrado \( F_j \) tal que \( F_j \subset E \) y \( m(E \setminus F_j) < \frac{1}{j} \). Sea 
+        \[
+        A = \bigcup_{j=1}^{\infty} F_j,
+        \]
+        que es un conjunto medible y satisface \( A \subset E \). Además, dado que
+        \[
+        m(E \setminus A) \leq m(E \setminus F_j) < \frac{1}{j} \quad \forall j \in \mathbb{N},
+        \]
+        se concluye que \( m(E \setminus A) = 0 \).
+        
+        Por lo tanto, se tiene
+        \[
+        E = A \cup (E \setminus A) = \left( \bigcup_{j=1}^{\infty} F_j \right) \cup (E \setminus A).
+        \]
+        Dado que \( E \setminus A \) es un conjunto nulo y, por lo tanto, medible, y que \( \bigcup_{j=1}^{\infty} F_j \) es medible por ser la unión numerable de conjuntos cerrados, se concluye que \( E \) es medible.\\
+        Observemos que en este caso $E = A \cup N$, siendo $A$ unión numerable de cerrados y $N = E \cup A$ un conjunto nulo.        
     \end{itemize}
 \end{proof}
 
 \begin{definición} [$\sigma$-Álgebra de Borel\label{sigma-Algebra de Borel}]
-La $\sigma$-álgebra de Borel en $\rn$ es la menor $\sigma$-álgebra que contiene a todos los abiertos de $\rn$ (o equivalentemente, la menor $\sigma$-álgebra que contiene a todos los cerrados de $\rn$). Los conjuntos de $\mathcal{B}(\rn)$ se llaman conjuntos de Borel o conjuntos Borelianos.\\
+La $\sigma$-álgebra de Borel en $\rn$ se define como la menor $\sigma$-álgebra que contiene a todos los abiertos de $\rn$ (o equivalentemente, la menor $\sigma$-álgebra que contiene a todos los cerrados de $\rn$). Los conjuntos de $\mathcal{B}(\rn)$ se llaman conjuntos de Borel o conjuntos Borelianos.\\
 \end{definición}
 
 \begin{definición} [Conjuntos $G_{\delta}$ y $F_{\sigma}$]
@@ -470,58 +709,87 @@ Decimos que $A \subset \rn$ es $G_\delta$ si $A$ es intersección numerable de a
 \end{corolario}
 
 \begin{lema}
-    Sea $(A_j)_{j \in \N}$ familia numerable y creciente de conjuntos medibles en el sentido de Lebesgue. Entonces $\bigcup_{j \in \N} A_j$ es medible en el sentido de Lebesgue y $m(\bigcup_{j \in \N} A_j) = \lim_{j \to \infty} m(A_j)$.
+    Sea \((A_j)_{j \in \N}\) una familia numerable y creciente de conjuntos medibles en el sentido de Lebesgue. Entonces, \(\bigcup_{j \in \N} A_j\) es medible en el sentido de Lebesgue y
+    \[
+    m^*\left(\bigcup_{j \in \N} A_j\right) = \lim_{j \to \infty} m^*(A_j).
+    \]
     \label{limUnionMedible}
 \end{lema}
 
 \begin{proof}
-    Sea $\{B_j\}_{j \in \N}$ una colección numerable de conjuntos medibles en el sentido de Lebesgue. Considermos:
+    Sea \((A_j)_{j \in \N}\) una sucesión creciente de conjuntos medibles en el sentido de Lebesgue. Definimos la sucesión \((B_j)_{j \in \N}\) como
     \[\begin{matrix}
-            A_1 = B_1                       \\
-            A_2 = B_2 \cap B_1^c            \\
-            A_3 = B_3 \cap B_2^c \cap B_1^c \\
-            \vdots                          \\
-            A_j = B_j \cap B_{j-1}^c \cap \ldots \cap B_1^c
-        \end{matrix}\]
-    De esta manera obtenemos que $\bigcup_{j = 1}^{\infty} A_j = \bigcup_{j =
-            1}^{\infty} B_j$ y que $(B_j)_{j \in \mathbb{N}}$ es una sucesión disjunta de
-    conjuntos Entonces $m^*(\bigcup_{j = 1}^{\infty}A_j) = m^*(\bigcup_{j =
-            1}^{\infty}B_j) = \sum_{j = 1}^{\infty} = \lim_{k \to \infty} m(A_k)$ Dado que
-    $m^*(A_j) = m(B_1) + m(B_2) + \ldots + m(B_j)$ $ \forall j \geq 1$
+        A_1 = B_1                       \\
+        A_2 = B_2 \cap B_1^c            \\
+        A_3 = B_3 \cap B_2^c \cap B_1^c \\
+        \vdots                          \\
+        A_j = B_j \cap B_{j-1}^c \cap \ldots \cap B_1^c
+    \end{matrix}\]
+    De esta forma, la unión
+    \[
+    \bigcup_{j=1}^\infty B_j = \bigcup_{j=1}^\infty A_j
+    \]
+    es una unión disjunta de conjuntos. Por lo tanto, y usando el \cref{unionNumerableMedible}, se tiene que
+    \[
+    m^*\left(\bigcup_{j=1}^\infty A_j\right) = m^*\left(\bigcup_{j=1}^\infty B_j\right) = \sum_{j=1}^\infty m^*(B_j) = \lim_{k \to \infty} m(A_k),
+    \]
+    donde la última igualdad se debe a que para todo \( j \in \N \) se cumple
+    \[
+    m^*(A_j) = \sum_{i=1}^j m^*(B_i).
+    \]
 \end{proof}
+
 
 \begin{corolario}
     Sea $E \subset \rn$ medible entonces:
     \vspace{-0.5em}
     \begin{enumerate}
-        \item $m(E) = \text{inf}\{m(G) : G \text{ abierto y } E \subset G\}$.
-        \item $m(E) = \text{sup}\{m(K) : K \text{ compacto y } K \subset E\}$.
+        \item $m^*(E) = \text{inf}\{m^*(G) : G \text{ abierto y } E \subset G\}$.
+        \item $m^*(E) = \text{sup}\{m^*(K) : K \text{ compacto y } K \subset E\}$.
     \end{enumerate}
 \end{corolario}
 
 \begin{proof}
-    \leavevmode 
+    \leavevmode
     \begin{enumerate}
-    \item Dado $\epsilon > 0$ por el \cref{Regularidad de la medida} $\exists G$ abierto tal que $E \subset G$ y $m(G \setminus E) < \epsilon$. Entonces $m(E) \leq m(G) = m(E) + m(G \setminus E) < m(E) + \epsilon$. Por tanto, $m(E) = \text{inf}\{m(G) : G \text{ abierto y } E \subset G\}$.
-    \item   $E = \bigcup_{k = 1}^{\infty} E_k : E_k = E \cap [-k, k]^n$ $\forall k \in \mathbb{N}$
-    Entonces $(E_k)_k \in \mathbb{N}$ es una sucesión creciente de conjuntos medibles y por el lema anterior tenemos que $m(E) = \lim_{k \to \infty} m(E_k)$
-    Además, $\forall k \in \mathbb{N}$ $\exists F_k$ $ \subset E_k$ cerrado tal que $m(E_k \setminus F_k) < \frac{1}{k}$
-    Entonces como $F_k$ es un conjunto cerrado y acotado, tenemos que el conjunto es compacto.
-    Por tanto $m(E_k) = m(E_k \setminus F_k) + m(F_k) \geq m(F_k) + \frac{1}{k}$ y por tanto $m(E) = \lim_{k \to \infty} m(F_k)$ y finalmente obtenemos que
-    $m(E) = \sup\{m(F_k) : k \in \mathbb{N} \} = \sup\{m(K) : K \text{ compacto y } K \subset E\}$
-    \end{enumerate}  
+        \item Dado $\varepsilon > 0$ por el \cref{Regularidad de la medida} existe $G$
+              abierto tal que $E \subset G$ y $m(G \setminus E) < \varepsilon$. Entonces usando la medibilidad de $E$ deducimos:
+              $$m^*(E) \leq m^*(G) = m^*(\underbrace{G \cap E}_{E}) + m^*(G \setminus E) < m^*(E) + \varepsilon$$
+              Por tanto,
+              $m^*(E) = \text{inf}\{m^*(G) : G \text{ abierto y } E \subset G\}$.
+        \item Sea \(E = \bigcup_{k=1}^\infty E_k\), donde definimos \(E_k = E \cap [-k, k]^n\) para cada \(k \in \mathbb{N}\). Entonces, \((E_k)_k\) es una sucesión creciente de conjuntos medibles y, por el \cref{limUnionMedible}, se cumple que
+        \[
+        m^*(E) = \lim_{k \to \infty} m^*(E_k).
+        \]
+        Además, por el \cref{Regularidad de la medida} existe un conjunto cerrado \(F_k \subset E_k\) para cada \(k \in \mathbb{N}\) tal que
+        \[
+        m(E_k \setminus F_k) < \frac{1}{k}.
+        \]
+        Como \(F_k\) es cerrado y está contenido en el cubo compacto \([-k,k]^n\), entonces \(F_k\) es compacto. En particular $F_k$ es medible por ser cerrado (\cref{abiertoMedible}), luego 
+        \[
+        m^*(E_k) = m^*(\underbrace{E_k \cap F_k}_{F_k}) + m^*(E_k \setminus F_k) \leq m^*(F_k) + \frac{1}{k}
+        \]
+        Al tomar el límite cuando \(k \to \infty\), obtenemos
+        \[
+        m^*(E) = \lim_{k \to \infty} m^*(E_k) = \lim_{k \to \infty} m^*(F_k),
+        \]
+        y finalmente concluimos que
+        \[
+        m^*(E) = \sup\{ m^*(F_k) : k \in \mathbb{N} \} = \sup \{ m^*(K) : K \text{ compacto y } K \subset E \}.
+        \]        
+    \end{enumerate}
 \end{proof}
 
-\begin{definición}[Cubo Diádico\label{Cubo Diadico}]
+\begin{definición}[Cubo diádico\label{Cubo Diadico}]
 Se dice que un cubo en $\R^n$ es diádico si sus lados miden $2^{-m}$ para algún $m \in \N$.
 Es decir, si el rectángulo Q es de la forma:
 \[Q = \left[\frac{k_1}{2^m}, \frac{k_1 + 1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n + 1}{2^m}\right],\]
-con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
+con $m \in \mathbb{Z} \text{ (nivel de escala u orden) y } k_1, k_2, \dots k_n
     \in \mathbb{Z}$
 \end{definición}
 
 \begin{teorema}
-    Todo conjunto abierto $U$ de $\mathbb{R}^n$ es unión numerable y disjunta de n-cubos semiabiertos, que son cubos diádicos.
+    Todo conjunto abierto $U$ de $\mathbb{R}^n$ es unión numerable y disjunta de cubos diádicos.
 \end{teorema}
 
 \begin{proof}
@@ -529,35 +797,43 @@ con $m \in \mathbb{Z} \text{(nivel de escala u orden) y } k_1, k_2, \dots k_n
     \[
         \left[\frac{k_1}{2^m}, \frac{k_1 + 1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n + 1}{2^m}\right],
     \]
-    con $k_i \in \mathbb{Z}$ y $m \in \mathbb{N}$. Sea $\mathcal{Q}_1$ la familia
-    de todos los cubos cerrados $Q$ de la forma $[k_1, k_1 + 1] \times \dots \times
-        [k_n, k_n + 1]$, donde los $k_i \in \mathbb{Z}$, y tales que $Q \subset U$.
-    Supuesto definida $\mathcal{Q}_m$, sea $\mathcal{Q}_{m+1}$ la familia de todos
-    los cubos $Q$ de la forma
+    donde $k_i \in \mathbb{Z}$ y $m \in \mathbb{N}$.  
+    
+    Sea $\mathcal{Q}_1$ la colección de todos los cubos cerrados de la forma
     \[
-        \left[\frac{k_1}{2^m}, \frac{k_1+1}{2^m}\right] \times \dots \times \left[\frac{k_n}{2^m}, \frac{k_n+1}{2^m}\right],
+        [k_1, k_1 + 1] \times \dots \times [k_n, k_n + 1],
     \]
-    donde $k_i \in \mathbb{Z}$, tales que no están contenidos en ningún cubo $Q'
-        \in \mathcal{Q}_j$ para $j \leq m$, y tales que $Q \subset U$. Por inducción
-    queda definida $\mathcal{Q}_m$ para todo $m \in \mathbb{N}$, y ponemos
+    con $k_i \in \mathbb{Z}$, que además satisfacen $Q \subset U$.  
+    
+    Supongamos definida $\mathcal{Q}_m$. Construimos $\mathcal{Q}_{m+1}$ como la familia de todos los cubos cerrados de la forma
+    \[
+        \left[\frac{k_1}{2^{m}}, \frac{k_1+1}{2^{m}}\right] \times \dots \times \left[\frac{k_n}{2^{m}}, \frac{k_n+1}{2^{m}}\right],
+    \]
+    donde $k_i \in \mathbb{Z}$, que están contenidos en $U$ y que no están incluidos en ningún cubo de $\mathcal{Q}_j$ para $j \leq m$.  
+    
+    Por inducción, hemos definido así las familias $\mathcal{Q}_m$ para todo $m \in \mathbb{N}$. Definimos
     \[
         \mathcal{Q} = \bigcup_{m=1}^{\infty} \mathcal{Q}_m.
     \]
-
-    Es obvio por construcción que si $Q, Q' \in \mathcal{Q}$ y $Q \neq Q'$,
-    entonces $Q$ y $Q'$ tienen interiores disjuntos. También es claro que 
-    $\bigcup_{Q \in \mathcal{Q}} Q \subset U$. Veamos que de hecho
+    
+    Por construcción, los cubos de $\mathcal{Q}$ tienen interiores disjuntos: si $Q, Q' \in \mathcal{Q}$ y $Q \neq Q'$, entonces $\operatorname{int}(Q) \cap \operatorname{int}(Q') = \emptyset$. Además, es claro que
+    \[
+        \bigcup_{Q \in \mathcal{Q}} Q \subset U.
+    \]
+    
+    Veamos ahora que en realidad
     \[
         U = \bigcup_{Q \in \mathcal{Q}} Q.
     \]
-
-    Dado $x \in U$, usando que $U$ es abierto y que el conjunto $\{k/2^m : k \in
-        \mathbb{Z}, m \in \mathbb{N} \cup \{0\}\}$ es denso en $\mathbb{R}$, es fácil
-    ver que existe algún cubo $Q_x \in \mathcal{F}$ tal que $x \in Q_x$ y $Q
-        \subset U$. El lado de $Q_x$ mide $2^{-m_x}$ para algún $m_x \in \mathbb{N}
-        \cup \{0\}$. Si $Q_x \in \mathcal{Q}_{m_x}$ ya hemos terminado. En otro caso,
-    por definición de $\mathcal{Q}_{m_x}$, existe algún $j < m_x$ tal que $Q_x$
-    está contenido en algún cubo $Q_x' \in \mathcal{Q}_j$, y por tanto $x$
-    pertenece a este cubo. En cualquier caso se ve que $x \in
-        \bigcup_{i=1}^{\infty} Q_i$.
-\end{proof}
+    
+    Sea $x \in U$. Dado que $U$ es abierto, existe $\delta > 0$ tal que la bola $B(x, \delta) \subset U$. Como el conjunto de números de la forma $k/2^m$, con $k \in \mathbb{Z}$ y $m \in \mathbb{N} \cup \{0\}$, es denso en $\mathbb{R}$, podemos encontrar un cubo cerrado $Q_x \in \mathcal{F}$ que contiene a $x$ y está contenido en $B(x, \delta) \subset U$.  
+    
+    El lado de $Q_x$ es $2^{-m_x}$ para algún $m_x \in \mathbb{N} \cup \{0\}$. Si $Q_x \in \mathcal{Q}_{m_x}$, entonces $x$ pertenece a un cubo de $\mathcal{Q}$. Si no es así, por definición de $\mathcal{Q}_{m_x}$, existe algún $j < m_x$ y un cubo $Q_x' \in \mathcal{Q}_j$ que contiene a $Q_x$, y en particular a $x$.  
+    
+    En ambos casos, vemos que $x \in \bigcup_{Q \in \mathcal{Q}} Q$, lo que muestra que
+    \[
+        U = \bigcup_{Q \in \mathcal{Q}} Q.
+    \]
+    Así, $U$ es la unión numerable y disjunta de los cubos diádicos de $\mathcal{Q}$.
+    \end{proof}
+    
