@@ -488,6 +488,12 @@ INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstop
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT .\main.out
+INPUT .\main.out
+INPUT main.out
+INPUT main.out
+INPUT .\main.out
+INPUT .\main.out
 OUTPUT main.out
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
@@ -556,18 +562,9 @@ INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha5.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-OUTPUT main.toc
-INPUT .\Theory\Theory.tex
-INPUT .\Theory\Theory.tex
-INPUT .\Theory\Theory.tex
-INPUT .\Theory\Theory.tex
-INPUT Theory\Theory.tex
-INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
-INPUT .\Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
-INPUT Theory\10 - Teorema de Stokes. Teorema de la divergencia de Gauss.tex
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT .\main.toc
+INPUT .\main.toc
+INPUT main.toc
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -586,37 +583,43 @@ INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha10.tfm
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha8.tfm
-INPUT .\images\ej4.png
-INPUT .\images\ej4.png
-INPUT .\images\ej4.png
-INPUT .\images\ej4.png
-INPUT .\images\ej4.png
-INPUT .\images\ej4.png
-INPUT .\images\ej4.png
-INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
-INPUT .\images\ej5.png
-INPUT .\images\ej5.png
-INPUT .\images\ej5.png
-INPUT .\images\ej5.png
-INPUT .\images\ej5.png
-INPUT .\images\ej5.png
-INPUT .\images\ej5.png
-INPUT .\images\ej6.png
-INPUT .\images\ej6.png
-INPUT .\images\ej6.png
-INPUT .\images\ej6.png
-INPUT .\images\ej6.png
-INPUT .\images\ej6.png
-INPUT .\images\ej6.png
+OUTPUT main.toc
+INPUT .\Theory\Theory.tex
+INPUT .\Theory\Theory.tex
+INPUT .\Theory\Theory.tex
+INPUT .\Theory\Theory.tex
+INPUT Theory\Theory.tex
+INPUT .\Theory\1 - Medida de Lebesgue.tex
+INPUT .\Theory\1 - Medida de Lebesgue.tex
+INPUT .\Theory\1 - Medida de Lebesgue.tex
+INPUT .\Theory\1 - Medida de Lebesgue.tex
+INPUT Theory\1 - Medida de Lebesgue.tex
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\esint\esint10.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha12.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti8.tfm
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
+INPUT .\Theory\2 - Funciones integrables en varias variables.tex
+INPUT .\Theory\2 - Funciones integrables en varias variables.tex
+INPUT .\Theory\2 - Funciones integrables en varias variables.tex
+INPUT .\Theory\2 - Funciones integrables en varias variables.tex
+INPUT Theory\2 - Funciones integrables en varias variables.tex
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
-INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
-INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi657\esint10.pk
 INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\public\esint\dpi657\esint10.pk
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
+INPUT C:\Users\paufr\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
@@ -651,5 +654,7 @@ INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
 INPUT C:\Users\paufr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb

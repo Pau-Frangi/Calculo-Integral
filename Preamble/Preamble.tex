@@ -165,16 +165,18 @@ bodyfont=\normalfont\itshape,
 headpunct={},
 postheadspace=\newline,
 postheadhook={\textcolor{black}{\rule[.6ex]{\linewidth}{0.4pt}}\\},
-spacebelow= 5pt,
-spaceabove= 10pt,
+spacebelow=5pt,
+spaceabove=10pt,
 mdframed={
     backgroundcolor=LightRed,
     innertopmargin=6pt,
     roundcorner=5pt,
     innerbottommargin=6pt,
+    linewidth=0.7pt, % <---- Add or change this value
     skipabove=\parsep,
     skipbelow=\parsep }
 ]{myTheoremStyle}
+
 
 % example environment - thmtools
 \declaretheorem[
@@ -196,6 +198,7 @@ mdframed={
     innertopmargin=6pt,
     roundcorner=5pt,
     innerbottommargin=6pt,
+    linewidth=0.7pt, % <---- Add or change this value
     skipabove=\parsep,
     skipbelow=\parsep }
 ]{myPropositionStyle}
@@ -220,6 +223,7 @@ mdframed={
     innertopmargin=6pt,
     roundcorner=5pt,
     innerbottommargin=6pt,
+    linewidth=0.7pt, % <---- Add or change this value
     skipabove=\parsep,
     skipbelow=\parsep }
 ]{myCorollaryStyle}
@@ -244,6 +248,7 @@ mdframed={
     innertopmargin=6pt,
     roundcorner=5pt,
     innerbottommargin=6pt,
+    linewidth=0.7pt, % <---- Add or change this value
     skipabove=\parsep,
     skipbelow=\parsep }
 ]{myLemmaStyle}
@@ -268,6 +273,7 @@ mdframed={
     innertopmargin=6pt,
     roundcorner=5pt,
     innerbottommargin=6pt,
+    linewidth=0.7pt, % <---- Add or change this value
     skipabove=\parsep,
     skipbelow=\parsep }
 ]{myDefinitionStyle}
@@ -292,6 +298,7 @@ mdframed={
     innertopmargin=6pt,
     roundcorner=5pt,
     innerbottommargin=6pt,
+    linewidth=0.7pt, % <---- Add or change this value
     skipabove=\parsep,
     skipbelow=\parsep }
 ]{myObservationStyle}
@@ -333,21 +340,21 @@ mdframed={
 }% tomado de https://tex.stackexchange.com/questions/179425/a-new-command-of-the-form-tex
 
 \newtcolorbox{mybox}[2][]{%
-  colback=white, % Box background color
-  colframe=black, % Border color
-  colbacktitle=black, % Title background color
-  coltitle=white, % Title text color
-  fonttitle=\bfseries, % Bold title text
-  enhanced, % Enables better rendering
-  boxrule=0.5pt, % Border width
-  left=10pt, right=10pt, top=10pt, bottom=10pt, % Padding inside box
-  breakable, % Allows the box to continue across pages
-  overlay first ={ % Title always appears but only at the top of the first part
+  colback=white,
+  colframe=black,
+  colbacktitle=black,
+  coltitle=white,
+  fonttitle=\bfseries,
+  enhanced,
+  boxrule=0.7pt, % <--- Changed from 0.5pt to 2pt
+  left=10pt, right=10pt, top=10pt, bottom=10pt,
+  breakable,
+  overlay first ={%
       \node[draw=blue!50!black, thick,
         fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
         text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
     },
-  overlay unbroken ={ % Title appears if the box is unbroken
+  overlay unbroken ={%
       \node[draw=blue!50!black, thick,
         fill=black, rounded corners=1mm, yshift=0pt, xshift=1cm, left,
         text=white, anchor=west, font=\bfseries] at (frame.north west) {#2};
