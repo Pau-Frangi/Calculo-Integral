@@ -125,9 +125,6 @@ Para la demostración del teorema anterior, veamos un lema previo:
     \[
         \gamma'(0) = (0,1) = \vec{v}.
     \]
-
-    \subsection*{Cambio de parámetro}
-
     Consideremos el cambio de variable $t = 2\pi s$ con $0 \leq s \leq 1$.
     Definiendo la nueva curva
     \[
@@ -141,8 +138,6 @@ Para la demostración del teorema anterior, veamos un lema previo:
     \[
         \sigma'(0) = 2\pi (0,1) = (0,2\pi).
     \]
-
-    \subsection*{Otro cambio de parámetro}
 
     Si realizamos el cambio $t = -2\pi s$, obtenemos la curva
     \[
@@ -203,7 +198,7 @@ Si $K\subset \mathbb{R}^n$ compacto y $h:K \to H\subset \mathbb{R}^n$ es continu
 
 \begin{proof}
     Tenemos que $h:K \to H$ es biyectiva, luego $\exists h^{-1}:H \to K$. Veamos que es biyectiva. \\
-    Dado $C \subset K$ cerrado $\implies$ $C$ es compacto $\implies$ $h(C)$ es compacto $\implies$ $(h^{-1})^{-1}(C)=h(C)$ que es compacto en $H$, luego es cerrado en $H$ \\
+    Dado $C \subset K$ cerrado $\implies$ $C$ es compacto $\implies$ $h(C)$ es compacto $\implies$ $(h^{-1})^{-1}(C)=h(C)$ que es compacto en $H$, luego es cerrado en $H$. \\
 \end{proof}
 
 \begin{teorema}
@@ -517,12 +512,47 @@ Una gráfica en $\mathbb{R}^n$: Sea $g: [a, b] \to \mathbb{R}$ de clase $C^1$. L
 }
 
 \begin{observación}
-Si $\gamma: [a,b] \to \mathbb{R}^n$ es una curva simple regular, entones $\gamma$ es un homeomorfismo sobre su imagen, i.e. $\gamma: [a, b] \to C = Im(\gamma)$ es un homeomorfismo. \\
-Falta demostrar que $\gamma^{-1}: C \to [a,b]$ es continua.\\
-Si no fuera así: Sea $x_0 \in C$ tal que $\gamma^{-1}$ no es continua en $x_0$ entonces $\exists \varepsilon > 0$ tal que $\forall \delta = \frac{1}{k} > 0, \exists x_k \in C$ con $ ||x_k - x_0|| \leq \frac{1}{k}$ pero $||\gamma^{-1}(x_k) - \gamma^{-1}(x_0)|| > \varepsilon$ \\
-$\forall k \in \N$, denotemos $(t_k)_{k \in \N} = (\gamma^{-1}(x_k)) \subset [a,b]$-compacto $\implies \exists (t_{k_j}) \to t_0 \in [a,b]$ y como $\gamma$ es continua $\implies \gamma(t_{k_j}) \to \gamma(t_0) \equiv (x_{k_j}) \to x_0$ \\
-Luego $x_0 = \gamma(t_0) \iff t_0 = \gamma^{-1}(x_0)$. Pero $t_{k_j} = \gamma^{-1}(x_{k_j})$ satisface que $||t_{k_j} - t_0|| \geq \varepsilon \iff ||\gamma^{-1}(x_{k_j}) - \gamma^{-1}(x_0)|| \geq \varepsilon$ lo cual es una contradicción.
+Si $\gamma: [a,b] \to \mathbb{R}^n$ es una curva simple regular, entones $\gamma$ es un homeomorfismo sobre su imagen, i.e. $\gamma: [a, b] \to C = Im(\gamma)$ es un homeomorfismo. 
 \end{observación}
+
+\begin{proof}
+    Falta demostrar que $\gamma^{-1} : C \to [a,b]$ es continua.  
+
+    Supongamos lo contrario. Sea $x_0 \in C$ tal que $\gamma^{-1}$ no es continua en $x_0$.  
+    Entonces existe $\varepsilon > 0$ tal que, para todo $\delta = \tfrac{1}{k} > 0$,  
+    existe $x_k \in C$ con
+    \[
+        \|x_k - x_0\| \leq \tfrac{1}{k}
+        \quad \text{pero} \quad
+        \|\gamma^{-1}(x_k) - \gamma^{-1}(x_0)\| > \varepsilon.
+    \]
+    
+    Para todo $k \in \mathbb{N}$, denotemos
+    \[
+        t_k := \gamma^{-1}(x_k), \qquad (t_k)_{k \in \mathbb{N}} \subset [a,b].
+    \]
+    Como $[a,b]$ es compacto, existe una subsucesión $(t_{k_j})$ que converge a algún
+    $t_0 \in [a,b]$.  
+    
+    Dado que $\gamma$ es continua, se tiene
+    \[
+        \gamma(t_{k_j}) \to \gamma(t_0),
+    \]
+    y como $\gamma(t_{k_j}) = x_{k_j}$, resulta que $x_{k_j} \to x_0$.  
+    
+    Por tanto,
+    \[
+        x_0 = \gamma(t_0) \quad \iff \quad t_0 = \gamma^{-1}(x_0).
+    \]
+    
+    Sin embargo, por construcción se cumple
+    \[
+        \|t_{k_j} - t_0\| 
+        = \|\gamma^{-1}(x_{k_j}) - \gamma^{-1}(x_0)\|
+        \geq \varepsilon,
+    \]
+    lo cual es una contradicción.    
+\end{proof}
 
 \begin{definición} [Integral de una Función a lo largo de una Curva]
 Sea $C \subset \mathbb{R}^n$ curva simple regular entonces;
