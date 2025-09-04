@@ -151,7 +151,7 @@ $$
 $$
 
 Como cada \( \chi_{G_j} = \sum_{i=1}^{j} \chi_{Q_i} \) verifica el Teorema de
-Tonelli por los Lemas 1.4.2 y 1.4.3, se concluye que \( \chi_G \) también
+Tonelli por \cref{lema2Tonelli} y \cref{lema3Tonelli}, se concluye que \( \chi_G \) también
 satisface el Teorema de Tonelli.
 %3%
 \item Supongamos ahora que $f$ es la función indicatriz de un conjunto $G_{\delta}$,
@@ -159,9 +159,9 @@ es decir, un conjunto resultado de la intersección numerable de conjuntos
 abiertos, pero bajo mas restricciones: \\ Supongamos que $f = \chi_D$ donde $D$
 es un conjunto $G_{\delta}$:
 \begin{observación}
-Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del Lema 1.4.2, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
+Considerando $\forall j \in \mathbb{N} D_j = D \cap (j, -j)^{n+k}$ obtenemos que $(D_j)\uparrow D$ y $\chi_{D_j}\uparrow \chi_D$ siendo cada $D_j$ un conjunto $G_{\delta}$ y acotado. \\ Por tanto, como consecuencia del \cref{lema2Tonelli}, podemos reducirnos al caso de conjuntos acotados $D$ es un $G_{\delta}$ acotado.
 \end{observación}
-Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el Lema 1.4.3 para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
+Entonces $D = \bigcap_{j = 1}^{\infty}G_j$ donde cada $G_j$ es es un conjunto abierto y acotado. Podemos suponer que $(G_j) \downarrow D$ por tanto $X_{G_j} \downarrow \chi_{D}$ y además, $0 \leq \chi_{G_j} \leq \chi_{G_{1}}$ que es integrable por ser acotada. Ahora si, podemos usar el \cref{lema3Tonelli} para obtener que $\chi_{D}$ satisface el Teorema de Tonelli.
 
 %4%
 Veamos que el Teorema de Tonelli se verifia cuando $f = \chi_N : N \subset
@@ -198,13 +198,13 @@ $\int_{\mathbb{R}^n}F(x)dx = \int_{\mathbb{R}^n}(\int_{\mathbb{R}^k}\chi_{D_x}dy
 con $\begin{cases}
         \alpha_j \in \mathbb{R} \\
         A_j \text{ medible}
-    \end{cases} \forall j \in \mathbb{N} \implies$ usando (5) y el lema 1.5.1, obtenemos el resultado.
+    \end{cases} \forall j \in \mathbb{N} \implies$ usando (5) y el \cref{lema1Tonelli}, obtenemos el resultado.
 
 %7%
 \item Sea $f$ funcion medible, no negativa en $\mathbb{R}^{n+k}$ sabemos que $\exists
     (S_j)_{j \in \mathbb{N}}$ sucesión de funciones simples, medibles y
 no-negativas tales que$(S_j) \uparrow f$. Entonces por $(6)$ cada $(S_j)$
-verifica el Teorema de Toneli, luego por el Lema 1.5.2, $f$ también satisface
+verifica el Teorema de Toneli, luego por el \cref{lema2Tonelli}, $f$ también satisface
 el Teorema de Tonelli.
 \end{enumerate}
 \end{proof}
